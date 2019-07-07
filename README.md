@@ -27,4 +27,8 @@ You must include the above Github backlink to the original project
 You must publicise any changes made to the code  
 You must include this license, unedited, with any changes  
 
+## Images
+
+![Xiret RC1](https://bitmight.uk/software/xiret/resources/images/xb7one.png)
+
 
