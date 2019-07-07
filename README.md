@@ -2,6 +2,9 @@
 This application was written as the Windows Experience Index UI was removed in Windows 8.1. Version 1 was never published as open-source.
 Current version is RC stage 1. Some items are currently missing and will be uploaded when finished.
 
+## Known Bugs
+1. Assessments can incorrectly log data, this is due to the way data is handled. Fixed for RC2.
+
 ## Key features
  - Clean and friendly UI
  - Easily export scores as image or text
