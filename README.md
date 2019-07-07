@@ -1,12 +1,11 @@
 # Xiret
-This application was written as the Windows Experience Index UI was removed in Windows 8.1. Version 1 was never published as open-source.
-Current version is RC stage 1. Some items are currently missing and will be uploaded when finished.
+This program was written as the Windows Experience Index UI was removed in Windows 8.1. Version 1 of this application was never published as open-source.
 
 ## Current build
 RC1 > RC2 (Development stage)
 
 ## Known Bugs
-1. Assessments can incorrectly log data, this is due to the way data is handled. Fixed for RC2.
+1. Assessments can incorrectly log data, this is due to the way data is handled.
 
 ## Key features
  - Clean and friendly UI
@@ -22,8 +21,7 @@ Initially Xiret was created to pass some time when the Experience Index UI was r
 though 'why not share?' VB isn't too hard to get into and it may help someone learn a thing or two, like I did. Other motivation was anti-virus engines flagging this software as malware, now everyone can see it's guts they know they're safe!
  
 ## License
-Xiret - Experience Index UI License
-
+Xiret - Experience Index UI License  
 https://github.com/K4onashi/Xiret
 
 You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
