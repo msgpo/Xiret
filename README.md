@@ -29,6 +29,6 @@ You must include this license, unedited, with any changes
 
 ## Images
 
-![Xiret RC1](https://bitmight.uk/software/xiret/resources/images/xb7one.png)
+![Xiret RC1](https://bitmight.uk/software/xiret/resources/images/xiretrc1.png)
 
 
