@@ -2,7 +2,7 @@
 This application was written as the Windows Experience Index UI was removed in Windows 8.1. Version 1 was never published as open-source.
 Current version is RC stage 1. Some items are currently missing and will be uploaded when finished.
 
-# Key features:
+# Key features
  - Clean and friendly UI
  - Easily export scores as image or text
  - Imgur API for simple uploading (API key needed)
@@ -11,12 +11,13 @@ Current version is RC stage 1. Some items are currently missing and will be uplo
  - Made with portability in mind
  - Windows Vista support
  
-# Motivation:
+# Motivation
 Initially Xiret was created to pass some time when the Experience Index UI was removed in Windows 8.1. Since it's growing into V2 I
 though 'why not share?' VB isn't too hard to get into and it may help someone learn a thing or two, like I did.
  
-# License:
+# License
 Xiret - Experience Index UI License
+
 https://github.com/K4onashi/Xiret
 
 You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
