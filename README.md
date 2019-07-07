@@ -13,7 +13,7 @@ Current version is RC stage 1. Some items are currently missing and will be uplo
  
 ## Motivation
 Initially Xiret was created to pass some time when the Experience Index UI was removed in Windows 8.1. Since it's growing into V2 I
-though 'why not share?' VB isn't too hard to get into and it may help someone learn a thing or two, like I did. Other motivation was anti-virus engines flagging this software as malware, now there's proof as everyone can see it's guts.
+though 'why not share?' VB isn't too hard to get into and it may help someone learn a thing or two, like I did. Other motivation was anti-virus engines flagging this software as malware, now everyone can see it's guts they know they're safe!
  
 ## License
 Xiret - Experience Index UI License
