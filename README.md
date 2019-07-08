@@ -5,7 +5,8 @@ This program was written as the Windows Experience Index UI was removed in Windo
 RC1 > RC2 (Development stage)
 
 ## Known Bugs
-1. Assessments can incorrectly log data, this is due to the way data is handled.
+1. Assessments can incorrectly log data, this is due to the way data is handled.  
+2. A workaround for Windows 7 missing KB2687862 is currently being implemented.  
 
 ## Key features
  - Clean and friendly UI
