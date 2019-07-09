@@ -6,7 +6,7 @@ RC1 > RC2 (Development stage)
 
 ## Requested additions  
  - Add option for custom Imgur API key
-  - Will be implemented for V2 release.
+   - Will be implemented before the V2 release.
 
 ## Known Bugs
 1. Assessments can incorrectly log data, this is due to the way data is handled.  
