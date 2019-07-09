@@ -302,8 +302,8 @@ Public Class FormMain
 
     End Sub
     Private Sub cmdMetrics_Click(sender As Object, e As EventArgs) Handles cmdMetrics.Click
-        'SendToastToScreen("This is currently being developed. It will be available in RC2.", ToastType.IsDebug)
-        FormMetrics.ShowDialog()
+        SendToastToScreen("This is currently being developed. It will be available in RC2.", ToastType.IsDebug)
+        'FormMetrics.ShowDialog()
     End Sub
 #End Region
 #Region "Menu Buttons"
