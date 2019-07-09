@@ -10,7 +10,7 @@ RC1 > RC2 (Development stage)
 
 ## Known Bugs
 1. Assessments can incorrectly log data, this is due to the way data is handled.  
-2. A workaround for Windows 7 missing KB2687862 is currently being implemented.  
+2. A workaround for Windows 7 missing KB2687862 is currently being implemented. However this is not an issue with Xiret, it's a bug where an async case is not handled in Windows 7.
 
 ## Key features
  - Clean and friendly UI
