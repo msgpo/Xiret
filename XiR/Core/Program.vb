@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -11,11 +11,12 @@
 '  Xiret (Xir)
 '  Program.vb
 '  Created by David S on 20.03.2016
-'  Updated on 04.07.2019 - DS (Updated Main())
+'  Updated on 09.07.2019 - DS (Added internal reference Xiret.Core as Core\FontInstaller was seperated from WinApi)
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.IO
 
+Imports Xiret.Core
 Imports Xiret.Core.WinApi
 Imports Xiret.Core.Helpers
 Imports Xiret.Core.Support
@@ -32,7 +33,6 @@ Public Class Program
     <STAThread()>
     Public Shared Sub Main(ByVal Args() As String)
 
-        'Set DPI awarenesss
         SetProcessDPIAwareA.SetProcessDPIAware()
 
         'Check missing Vista font
@@ -44,11 +44,10 @@ Public Class Program
 
         Application.EnableVisualStyles()
         Application.SetCompatibleTextRenderingDefault(False)
-        'SettingsCore
 
+        'SettingsCore
         CreateUpdaterSettings()
         CheckSettings()
-
         Dim Run As New ApplicationSupport(FormMain, Args)
 
     End Sub

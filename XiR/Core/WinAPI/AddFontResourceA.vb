@@ -9,21 +9,23 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret (Xir)
-'  LockWindowUpdateA.vb
+'  AddFontResourceA.vb
 '  Created by David S
 
-'Imports System.Runtime.InteropServices
+Imports System.Runtime.InteropServices
 
 Namespace Core.WinApi
 
-    Friend NotInheritable Class LockWindowUpdateA
+    Friend NotInheritable Class AddFontResourceA
 
-        'Deprecated
-        '<CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll")> _
-        'Friend Shared Function LockWindowUpdate(ByVal hWndLock As IntPtr) As Boolean
-        'End Function
+        'Interop
+        '// http://pinvoke.net/default.aspx/gdi32.AddFontResource
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("gdi32", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Shared Function AddFontResource(ByVal lpFileName As String) As Integer
+        End Function
 
     End Class
 
 End Namespace
+
 

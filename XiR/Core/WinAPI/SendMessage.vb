@@ -9,21 +9,22 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret (Xir)
-'  LockWindowUpdateA.vb
+'  SendMessageA.vb
 '  Created by David S
 
-'Imports System.Runtime.InteropServices
+Imports System.Runtime.InteropServices
 
 Namespace Core.WinApi
 
-    Friend NotInheritable Class LockWindowUpdateA
+    Friend NotInheritable Class SendMessageA
 
-        'Deprecated
-        '<CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll")> _
-        'Friend Shared Function LockWindowUpdate(ByVal hWndLock As IntPtr) As Boolean
-        'End Function
+        '// http://pinvoke.net/default.aspx/user32.SendMessage
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As UInteger, ByVal wParam As Integer, ByVal lParam As IntPtr) As Integer
+        End Function
 
     End Class
 
 End Namespace
+
 

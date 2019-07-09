@@ -9,21 +9,22 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret (Xir)
-'  GetModuleFilnameA.vb
+'  WriteProfileStringA.vb
 '  Created by David S
 
 Imports System.Runtime.InteropServices
-Imports System.Text
 
 Namespace Core.WinApi
 
-    Public Class GetModuleFilenameA
+    Friend NotInheritable Class WriteProfileStringA
 
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)> <PreserveSig()> _
-        Friend Shared Function GetModuleFileName(<[In]()> ByVal hModule As IntPtr, <Out()> ByVal lpFilename As StringBuilder, <[In]()> <MarshalAs(UnmanagedType.U4)> ByVal nSize As Integer) As UInteger
+        '// http://pinvoke.net/default.aspx/kernel32.WriteProfileString
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Shared Function WriteProfileString(ByVal lpszSection As String, ByVal lpszKeyName As String, ByVal lpszString As String) As Integer
         End Function
 
     End Class
 
 End Namespace
+
 

@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -11,7 +11,7 @@
 '  Xiret (Xir)
 '  GambolProgressBar.vb
 '  Created by David S on 20.03.2016
-'  Updated on 04.07.2019 - DS (Cleanup)
+'  Updated on 08.07.2019 - DS (Cleanup, enhanced properties, removed toolboxbitmap)
 
 Imports System.ComponentModel
 
@@ -21,6 +21,12 @@ Namespace Gambol.Controls
     Public Class GambolProgressBar
         Inherits Control
 
+        Sub New()
+            SetStyle(ControlStyles.OptimizedDoubleBuffer Or ControlStyles.AllPaintingInWmPaint Or ControlStyles.SupportsTransparentBackColor, True)
+            DoubleBuffered = True
+        End Sub
+
+#Region "Properties"
         Protected Overrides ReadOnly Property CreateParams As CreateParams
             Get
                 Dim CP As CreateParams = MyBase.CreateParams
@@ -29,76 +35,68 @@ Namespace Gambol.Controls
             End Get
         End Property
 
-#Region "Constructor"
-
-        Sub New()
-            SetStyle(ControlStyles.OptimizedDoubleBuffer Or ControlStyles.AllPaintingInWmPaint Or ControlStyles.SupportsTransparentBackColor, True)
-            DoubleBuffered = True
-        End Sub
-
-#End Region
-#Region "Properties"
-
-        Dim _pbBackColor As Color = Color.FromArgb(180, 180, 180)
-        <Description("Set the control border color. Ignored when ShowBorder value is 'False'."),
+        Private pBorderColor As Color = Color.FromArgb(180, 180, 180)
+        <Description("Set the progressbar border color. Ignored when ShowBorder value is 'False'."),
         Category("Gambol Appearance")>
         Property BorderColor As Color
             Get
-                Return _pbBackColor
+                Return pBorderColor
             End Get
-            Set(ByVal value As Color)
-                _pbBackColor = value
+            Set(value As Color)
+                pBorderColor = value
                 Invalidate()
             End Set
         End Property
 
-        Dim _pcolor As Color = Color.FromArgb(120, 180, 0)
-        <Description("Set the control progress loading color."),
+        Private pProgressColor As Color = Color.FromArgb(120, 180, 0)
+        <Description("Set the progressbar progress color"),
         Category("Gambol Appearance")>
         Property ProgressColor As Color
             Get
-                Return _pcolor
+                Return pProgressColor
             End Get
-            Set(ByVal value As Color)
-                _pcolor = value
+            Set(value As Color)
+                pProgressColor = value
                 Invalidate()
             End Set
         End Property
 
-        Dim _v As Integer = 0
-        <Description("The current value for the progressbar."),
-        Category("Gambol Behavior")>
-        Property Value As Integer
-            Get
-                Return _v
-            End Get
-            Set(ByVal v As Integer)
-                If v <= _m Then _v = v Else Throw New Exception("Invalid value entered")
-                Invalidate()
-            End Set
-        End Property
-
-        Dim _m As Integer = 100
-        <Description("Upper bound maximum range for the progressbar."),
-        Category("Gambol Behavior")>
-        Property Maximum As Integer
-            Get
-                Return _m
-            End Get
-            Set(ByVal value As Integer)
-                If value >= _v Then _m = value Else Throw New Exception("Invalid value entered")
-            End Set
-        End Property
-
-        Dim b As Boolean = True
-        <Description("Setting to determine if the control has an outer border."),
+        Private pShowBorder As Boolean = True
+        <Description("Determine if the control has an outer border."),
         Category("Gambol Appearance")>
         Property ShowBorder As Boolean
             Get
-                Return b
+                Return pShowBorder
             End Get
             Set(value As Boolean)
-                b = value
+                pShowBorder = value
+                Invalidate()
+            End Set
+        End Property
+
+        Dim pValue As Integer = 0
+        <Description("Set the current value for the progressbar."),
+        Category("Gambol Behavior")>
+        Property Value As Integer
+            Get
+                Return pValue
+            End Get
+            Set(ByVal val As Integer)
+                If val <= pMaximum Then pValue = val Else Throw New Exception("Invalid value entered")
+                Invalidate()
+            End Set
+        End Property
+
+        Dim pMaximum As Integer = 100
+        <Description("Set the upper bound maximum range for the progressbar."),
+        Category("Gambol Behavior")>
+        Property Maximum As Integer
+            Get
+                Return pMaximum
+            End Get
+            Set(ByVal value As Integer)
+                If value >= pValue Then pMaximum = value Else Throw New Exception("Invalid value entered")
+                Invalidate()
             End Set
         End Property
 
@@ -108,19 +106,19 @@ Namespace Gambol.Controls
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
             Dim g As Graphics = e.Graphics
-            Dim p As Double
+            Dim dbl As Double
             g.Clear(BackColor)
 
-            If b Then
-                p = _v / _m * (Width - 2)
+            If ShowBorder Then
+                dbl = PValue / PMaximum * (Width - 2)
                 g.FillRectangle(New SolidBrush(Color.FromArgb(20, BackColor)), New Rectangle(0, 0, Width - 1, Height - 1))
-                If p > 0 Then g.FillRectangle(New SolidBrush(_pcolor), New Rectangle(1, 1, CInt(p), Height - 2))
-                g.DrawRectangle(New Pen(_pbBackColor), New Rectangle(0, 0, Width - 1, Height - 1))
+                If dbl > 0 Then g.FillRectangle(New SolidBrush(ProgressColor), New Rectangle(1, 1, CInt(dbl), Height - 2))
+                g.DrawRectangle(New Pen(BorderColor), New Rectangle(0, 0, Width - 1, Height - 1))
             Else
-                If Not b Then
-                    p = _v / _m * (Width)
+                If Not ShowBorder Then
+                    dbl = PValue / PMaximum * (Width)
                     g.FillRectangle(New SolidBrush(Color.FromArgb(20, BackColor)), New Rectangle(0, 0, Width, Height))
-                    If p > 0 Then g.FillRectangle(New SolidBrush(_pcolor), New Rectangle(0, 0, CInt(p), Height))
+                    If dbl > 0 Then g.FillRectangle(New SolidBrush(ProgressColor), New Rectangle(0, 0, CInt(dbl), Height))
                 End If
             End If
 

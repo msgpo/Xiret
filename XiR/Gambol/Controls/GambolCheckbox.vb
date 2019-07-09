@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -11,7 +11,7 @@
 '  Xiret (Xir)
 '  GambolCheckbox.vb
 '  Created by David S on 20.03.2016
-'  Updated on 04.07.2019 - DS (Cleanup)
+'  Updated on 08.07.2019 - DS (Cleanup, enhanced properties, removed toolboxbitmap)
 
 Imports System.ComponentModel
 
@@ -23,8 +23,6 @@ Namespace Gambol.Controls
     Public Class GambolCheckbox
         Inherits CheckBox
 
-#Region "Constructor"
-
         Public Sub New()
 
             SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw, True)
@@ -34,64 +32,73 @@ Namespace Gambol.Controls
 
         End Sub
 
-#End Region
-
 #Region "Properties"
-        'Inactive border color (no mouse capture) property
-        Private _cbBordercColor As Color = Color.FromArgb(115, 125, 135)
-        Property BorderColor As Color
+
+        Private pInactiveBorderColor As Color = Color.FromArgb(180, 180, 180)
+        <Description("Check area border color"),
+        Category("Gambol Appearence")>
+        Property InactiveBorderColor As Color
             Get
-                Return _cbBordercColor
+                Return pInactiveBorderColor
             End Get
             Set(value As Color)
-                _cbBordercColor = value
+                pInactiveBorderColor = value
                 Invalidate()
             End Set
         End Property
-        'Active border color (mouse is in client area) property
-        Private _cbActiveBorderColor As Color = Color.FromArgb(45, 55, 65)
+
+        Private pActiveBorderColor As Color = Color.White
+        <Description("Check area mouseover border color"),
+        Category("Gambol Appearence")>
         Property ActiveBorderColor As Color
             Get
-                Return _cbActiveBorderColor
+                Return pActiveBorderCOlor
             End Get
             Set(value As Color)
-                _cbActiveBorderColor = value
+                pActiveBorderColor = value
                 Invalidate()
             End Set
         End Property
-        'Inner client area backcolor property
-        Private _cbBgColor As Color = Color.White
-        Property ClientBackColor As Color
+
+        Private pCheckboxBackColor As Color = Color.FromArgb(40, 40, 40)
+        <Description("Check area backcolor"),
+        Category("Gambol Appearence")>
+        Property CheckboxBackColor As Color
             Get
-                Return _cbBgColor
+                Return pCheckboxBackColor
             End Get
             Set(value As Color)
-                _cbBgColor = value
+                pCheckboxBackColor = value
                 Invalidate()
             End Set
         End Property
-        'Inner client check color property
-        Private _cbClientCheckColor As Color = Color.FromArgb(65, 75, 85)
+
+        Private pActiveCheckboxBackColor As Color = Color.FromArgb(20, 20, 20)
+        <Description("Check area mouseover color"),
+        Category("Gambol Appearence")>
+        Property ActiveCheckboxBackColor As Color
+            Get
+                Return pActiveCheckboxBackColor
+            End Get
+            Set(value As Color)
+                pActiveCheckboxBackColor = value
+                Invalidate()
+            End Set
+        End Property
+
+        Private pCheckedColor As Color = Color.FromArgb(120, 180, 0)
+        <Description("Control checked color"),
+        Category("Gambol Appearence")>
         Property CheckedColor As Color
             Get
-                Return _cbClientCheckColor
+                Return pCheckedColor
             End Get
-            Set(ByVal value As Color)
-                _cbClientCheckColor = value
+            Set(value As Color)
+                pCheckedColor = value
                 Invalidate()
             End Set
         End Property
-        'Inner client active backcolor
-        Private _cbClientActiveBackColor As Color = Color.FromArgb(20, 20, 20)
-        Property ActiveBackColor As Color
-            Get
-                Return _cbClientActiveBackColor
-            End Get
-            Set(ByVal value As Color)
-                _cbClientActiveBackColor = value
-                Invalidate()
-            End Set
-        End Property
+
 #End Region
 #Region "Paint methods"
 
@@ -108,25 +115,27 @@ Namespace Gambol.Controls
             innerRect = New Rectangle(1, 1, diameter - 1, diameter - 1)
             outerRect = New Rectangle(1, 1, diameter - 2, diameter - 2)
 
-            g.FillRectangle(New SolidBrush(_cbBgColor), innerRect)
-            g.DrawRectangle(New Pen(_cbBordercColor), outerRect)
+            g.FillRectangle(New SolidBrush(CheckboxBackColor), innerRect)
+            g.DrawRectangle(New Pen(InactiveBorderColor), outerRect)
 
-            If isHovered = True Then
+            If MouseHovered = True Then
                 innerRect.Inflate(-1, -1)
-                g.FillRectangle(New SolidBrush(_cbClientActiveBackColor), innerRect)
-                e.Graphics.DrawRectangle(New Pen(_cbActiveBorderColor), outerRect)
+                g.FillRectangle(New SolidBrush(ActiveCheckboxBackColor), innerRect)
+                e.Graphics.DrawRectangle(New Pen(ActiveBorderColor), outerRect)
             End If
 
-            If Me.Checked Then
+            If Checked Then
                 innerRect = New Rectangle(1, 1, diameter - 1, diameter - 1)
                 innerRect.Inflate(-4, -4)
-                e.Graphics.FillRectangle(New SolidBrush(_cbClientCheckColor), innerRect)
+                e.Graphics.FillRectangle(New SolidBrush(CheckedColor), innerRect)
             End If
 
 
             Dim textArea As Rectangle = New Rectangle(outerRect.Width + 5, 0, Width - outerRect.Width - 6, Height - 1)
-            Dim textFormat As StringFormat = New StringFormat
-            textFormat.LineAlignment = StringAlignment.Center
+            Dim textFormat As StringFormat = New StringFormat With {
+                .LineAlignment = StringAlignment.Center
+            }
+
             e.Graphics.DrawRectangle(Pens.Transparent, textArea)
 
             If Enabled Then
@@ -151,11 +160,11 @@ Namespace Gambol.Controls
         End Sub
         Protected Overrides Sub OnMouseLeave(eventargs As EventArgs)
             MyBase.OnMouseLeave(eventargs)
-            isHovered = False
+            MouseHovered = False
         End Sub
         Protected Overrides Sub OnMouseEnter(eventargs As EventArgs)
             MyBase.OnMouseEnter(eventargs)
-            isHovered = True
+            MouseHovered = True
         End Sub
         Protected Overrides Sub OnResize(e As EventArgs)
             ResizeRedraw = True
@@ -163,17 +172,17 @@ Namespace Gambol.Controls
         End Sub
 #End Region
 #Region "Custom Methods"
-        Private isHovered As Boolean = False
+        Private MouseHovered As Boolean = False
         Private Sub ProcessMouse(sender As Object, e As EventArgs)
 
             If ClientRectangle.Contains(PointToClient(MousePosition)) Then
-                If Not isHovered Then
-                    isHovered = True
+                If Not MouseHovered Then
+                    MouseHovered = True
                     Invalidate()
                 End If
             Else
-                If isHovered Then
-                    isHovered = False
+                If MouseHovered Then
+                    MouseHovered = False
                     Invalidate()
                 End If
             End If

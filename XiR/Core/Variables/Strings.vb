@@ -26,6 +26,6 @@
 
     Public StringBodyFull As String = Nothing
 
-    Public ReadOnly StringClientID As String = "" '// This has been removed, you must obtain your own API key from Imgur
+    Public ReadOnly StringClientID As String = "" '## You must provide an Imgur API key
 
 End Module

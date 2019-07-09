@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -22,7 +22,7 @@ Namespace Core.UI
 
             Try
                 Dim r As New Rectangle(Point.Empty, e.Item.Size)
-                Dim c As Color = CType(IIf(e.Item.Selected, Color.FromArgb(20, 20, 20), Color.FromArgb(38, 38, 38)), Color)
+                Dim c As Color = CType(IIf(e.Item.Selected, Color.FromArgb(15, 15, 15), Color.FromArgb(30, 30, 30)), Color)
                 Using b As New SolidBrush(c)
                     e.Graphics.FillRectangle(b, r)
                 End Using
@@ -36,7 +36,7 @@ Namespace Core.UI
                 MyBase.OnRenderSeparator(e)
             Else
                 Dim sep As Rectangle = New Rectangle(Point.Empty, e.Item.Size)
-                Using b = New SolidBrush(Color.FromArgb(38, 38, 38))
+                Using b = New SolidBrush(Color.FromArgb(30, 30, 30))
                     e.Graphics.FillRectangle(b, sep)
                 End Using
                 Dim y As Integer = CInt(sep.Bottom - (sep.Height / 2) - 1)

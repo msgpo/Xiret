@@ -74,7 +74,8 @@
     <SignAssembly>false</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>Signature\xirsig.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
@@ -108,8 +109,8 @@
   <ItemGroup>
     <Compile Include="Core\Variables\Booleans.vb" />
     <Compile Include="Core\Variables\Integers.vb" />
-    <Compile Include="Core\Converters\MemoryTypeConvert.vb" />
-    <Compile Include="Core\Converters\StateConverter.vb" />
+    <Compile Include="Core\Converters\MemoryTypeConverter.vb" />
+    <Compile Include="Core\Converters\WinsatStateConverter.vb" />
     <Compile Include="Core\Helpers\OSHelper.vb" />
     <Compile Include="Core\Helpers\PowerHelper.vb" />
     <Compile Include="Core\UI\MHRenderer.vb" />
@@ -125,10 +126,13 @@
     <Compile Include="Core\Helpers\NetHelper.vb" />
     <Compile Include="Core\Converters\SizeConverter.vb" />
     <Compile Include="Core\Helpers\FileHelper.vb" />
-    <Compile Include="Core\WinAPI\FontInstaller.vb" />
+    <Compile Include="Core\WinAPI\WriteProfileStringA.vb" />
+    <Compile Include="Core\WinAPI\SendMessage.vb" />
+    <Compile Include="Core\FontInstaller.vb" />
     <Compile Include="Core\WinAPI\GetModuleFilenameA.vb" />
     <Compile Include="Core\WinAPI\GetTickCountA.vb" />
     <Compile Include="Core\WinAPI\LockWindowUpdateA.vb" />
+    <Compile Include="Core\WinAPI\AddFontResourceA.vb" />
     <Compile Include="Core\WinAPI\SetProcessDPIAwareA.vb" />
     <Compile Include="Core\WinAPI\StrongNameSignatureVerificationA.vb" />
     <Compile Include="Core\WSR\Reader.vb" />
@@ -182,6 +186,12 @@
       <DependentUpon>FormChangelog.vb</DependentUpon>
     </Compile>
     <Compile Include="UI Forms\FormChangelog.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI Forms\FormMetrics.Designer.vb">
+      <DependentUpon>FormMetrics.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI Forms\FormMetrics.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI Forms\FormSystem.Designer.vb">
@@ -243,7 +253,13 @@
     <Compile Include="UI Forms\FormSettings.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Core\WinAPI\WinSATAPI.vb" />
+    <Compile Include="UI Forms\FormUpdate.Designer.vb">
+      <DependentUpon>FormUpdate.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI Forms\FormUpdate.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Core\WinsatAPI\WinSATAPI.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UI Forms\FormAssessVerbose.resx">
@@ -266,6 +282,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormChangelog.resx">
       <DependentUpon>FormChangelog.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI Forms\FormMetrics.resx">
+      <DependentUpon>FormMetrics.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormSystem.resx">
       <DependentUpon>FormSystem.vb</DependentUpon>
@@ -294,6 +313,9 @@
     <EmbeddedResource Include="UI Forms\FormSettings.resx">
       <DependentUpon>FormSettings.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI Forms\FormUpdate.resx">
+      <DependentUpon>FormUpdate.vb</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -314,7 +336,6 @@
     <None Include="Resources\changelog.rtf" />
     <None Include="Resources\seguisb.ttf" />
     <None Include="Resources\Xir.Troubleshooting.rtf" />
-    <None Include="Signature\xirsig.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\imgclose.png" />

@@ -11,7 +11,7 @@
 '  Xiret (Xir)
 '  Toast.vb
 '  Created by David S on 20.03.2016
-'  Updated on 04.07.2019 - DS (Updated shown event, updated load event)
+'  Updated on 08.07.2019 - DS (UI enhancements)
 
 #Region "Directives"
 

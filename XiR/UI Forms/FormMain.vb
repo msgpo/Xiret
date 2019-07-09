@@ -9,6 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret (Xir)
+'  Some ContextMenu settings are overriden by Core\UI\MHRenderer like background color, etc
 '  FormMain.vb
 '  Created by David S on 24.03.2016
 '  Updated on 06.07.2019 - DS (Fade and opacity enhancements, fixed hardware not reloading after settings changed)
@@ -154,6 +155,11 @@ Public Class FormMain
             TroubleshootingToolStripMenuItem.PerformClick()
         End If
 
+        'Check for updates
+        If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.U Then
+            CheckForUpdateToolStripMenuItem.PerformClick()
+        End If
+
         'Troubleshooting
         If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.O Then
             ChangelogToolStripMenuItem.PerformClick()
@@ -181,6 +187,9 @@ Public Class FormMain
 
         'Set title and hide
         lbShowOnPrint.Text = "Xiret v" & Application.ProductVersion : lbShowOnPrint.Hide()
+
+        'Hide hotfix button
+        cmdHotfix.Hide()
 
         'Set version
         lbHeadVer.Text = Application.ProductVersion
@@ -236,7 +245,7 @@ Public Class FormMain
         'Form
         pnlSplit.BackColor = GlobalThemeColor
         lbBaseScore.ForeColor = GlobalThemeColor
-        GSwitchHardware.SwitchSetOn = GlobalThemeColor
+        GSwitchHardware.SwitchOnColor = GlobalThemeColor
 
         'Change buttons
         For Each c As Control In tlpMenu.Controls
@@ -293,7 +302,8 @@ Public Class FormMain
 
     End Sub
     Private Sub cmdMetrics_Click(sender As Object, e As EventArgs) Handles cmdMetrics.Click
-        SendToastToScreen("This is currently being developed. It will be available in RC2.", ToastType.IsDebug)
+        'SendToastToScreen("This is currently being developed. It will be available in RC2.", ToastType.IsDebug)
+        FormMetrics.ShowDialog()
     End Sub
 #End Region
 #Region "Menu Buttons"
@@ -522,8 +532,9 @@ Public Class FormMain
     Private Sub ImgurToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ImgurToolStripMenuItem.Click
 
         CType(sender, ToolStripMenuItem).Enabled = False
+
         If StringClientID = "" Then
-            SendToastToScreen("You need your own Imgur API key for Core\Variables\Strings.vb, 'StringClientID' to use this.", ToastType.IsDebug)
+            SendToastToScreen("You must provide an Imgur API key.", ToastType.IsDebug)
         Else
             If CDbl(StringBaseScore) = 0 Then 'Unrated system
                 SendToastToScreen("You must rate your system first.", ToastType.IsWarning)
@@ -549,7 +560,7 @@ Public Class FormMain
                         If File.Exists(FileTemporary) Then
                             File.Delete(FileTemporary)
                         End If
-                    Catch ex As Exception
+                    Catch
                         SendToastToScreen("Could not upload screenshot to Imgur's database.", ToastType.IsError)
                     End Try
                 Else 'No connection to Imgur
@@ -682,6 +693,15 @@ Public Class FormMain
         End Try
 
     End Sub
+    Private Sub CheckForUpdateToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CheckForUpdateToolStripMenuItem.Click
+
+        SetOpacityOut()
+
+        Dim FUpdate As New FormUpdate
+        AddHandler FUpdate.FormClosed, AddressOf ChildFormClosedNoRefresh
+        FUpdate.ShowDialog()
+
+    End Sub
     Private Sub ChangelogToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangelogToolStripMenuItem.Click
 
         SetOpacityOut()
@@ -772,22 +792,15 @@ Public Class FormMain
 
 #Region "Extra Designer Code"
 
-    'Private Sub BtnTools_Paint(sender As Object, e As PaintEventArgs) Handles cmdUpdate.Paint
+    Private Sub BtnHotfix_Paint(sender As Object, e As PaintEventArgs) Handles cmdHotfix.Paint
 
-    '    ' Create Pens
-    '    Dim redPen As New Pen(Color.FromArgb(80, 80, 80))
-    '    ' Create a rectangle
-    '    Dim rect As New Rectangle(CInt(CType(sender, Button).Width / 2 - 10), CType(sender, Button).Height - 4, 20, 2)
-    '    ' Draw ellipses
-    '    e.Graphics.SmoothingMode = SmoothingMode.AntiAlias
-    '    e.Graphics.DrawRectangle(redPen, rect)
-    '    Dim MC As Color = Color.FromArgb(100, 100, 100)
-    '    Dim MB As Brush = New SolidBrush(MC)
-    '    e.Graphics.FillRectangle(MB, rect)
-    '    'Dispose of objects
-    '    redPen.Dispose()
+        Dim p As New Pen(Color.Tomato)
+        Dim rect As New Rectangle(CInt(CType(sender, Button).Width / 2 - 10), CType(sender, Button).Height - 4, 20, 2)
+        e.Graphics.DrawRectangle(p, rect)
+        e.Graphics.FillRectangle(New SolidBrush(Color.Tomato), rect)
+        p.Dispose()
 
-    'End Sub
+    End Sub
 
 #End Region
 

@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -11,7 +11,7 @@
 '  Xiret (Xir)
 '  GambolRadioButton.vb
 '  Created by David S on 20.03.2016
-'  Updated on 04.07.2019 - DS (Cleanup)
+'  Updated on 08.07.2019 - DS (Cleanup, enhanced properties, rmoved toolboxbitmap)
 
 Imports System.ComponentModel
 Imports System.Drawing.Drawing2D
@@ -38,62 +38,73 @@ Namespace Gambol.Controls
 #End Region
 
 #Region "Properties"
-        Dim _rbBackground As Color = Color.White
-        Property ClientBackColor As Color
+
+        Private pInactiveBorderColor As Color = Color.FromArgb(80, 80, 80)
+        <Description("Check area border color"),
+        Category("Gambol Appearence")>
+        Property InactiveBorderColor As Color
             Get
-                Return _rbBackground
+                Return pInactiveBorderColor
             End Get
             Set(value As Color)
-                _rbBackground = value
-                Invalidate()
-            End Set
-        End Property
-        Dim _rbBorderColor As Color = Color.FromArgb(115, 125, 135)
-        Property BorderColor As Color
-            Get
-                Return _rbBorderColor
-            End Get
-            Set(ByVal value As Color)
-                _rbBorderColor = value
+                pInactiveBorderColor = value
                 Invalidate()
             End Set
         End Property
 
-        Dim _rbActiveBorderColor As Color = Color.FromArgb(45, 55, 65)
+        Private pActiveBorderColor As Color = Color.FromArgb(160, 160, 160)
+        <Description("Check area mouseover border color"),
+        Category("Gambol Appearence")>
         Property ActiveBorderColor As Color
             Get
-                Return _rbActiveBorderColor
+                Return pActiveBorderColor
             End Get
             Set(value As Color)
-                _rbActiveBorderColor = value
+                pActiveBorderColor = value
                 Invalidate()
             End Set
         End Property
 
-        Dim _rbCheckedColor As Color = Color.FromArgb(65, 75, 85)
-        Property CheckedColor As Color
+        Private pRadioBackColor As Color = Color.FromArgb(40, 40, 40)
+        <Description("Check area backcolor"),
+        Category("Gambol Appearence")>
+        Property RadioBackColor As Color
             Get
-                Return _rbCheckedColor
+                Return pRadioBackColor
             End Get
-            Set(ByVal value As Color)
-                _rbCheckedColor = value
+            Set(value As Color)
+                pRadioBackColor = value
                 Invalidate()
             End Set
         End Property
-        'Inner client active backcolor
-        Private _rbClientActiveBackColor As Color = Color.FromArgb(20, 20, 20)
-        Property ActiveBackColor As Color
+
+        Private pActiveRadioBackColor As Color = Color.FromArgb(20, 20, 20)
+        <Description("Check area mouseover color"),
+        Category("Gambol Appearence")>
+        Property ActiveRadioBackColor As Color
             Get
-                Return _rbClientActiveBackColor
+                Return pActiveRadioBackColor
             End Get
-            Set(ByVal value As Color)
-                _rbClientActiveBackColor = value
+            Set(value As Color)
+                pActiveRadioBackColor = value
+                Invalidate()
+            End Set
+        End Property
+
+        Private pCheckedColor As Color = Color.FromArgb(120, 180, 0)
+        <Description("Control checked color"),
+        Category("Gambol Appearence")>
+        Property CheckedColor As Color
+            Get
+                Return pCheckedColor
+            End Get
+            Set(value As Color)
+                pCheckedColor = value
                 Invalidate()
             End Set
         End Property
 #End Region
 #Region "Paint methods"
-
 
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
@@ -109,26 +120,28 @@ Namespace Gambol.Controls
 
             g.SmoothingMode = SmoothingMode.AntiAlias
 
-            g.FillEllipse(New SolidBrush(_rbBackground), innerRect)
-            g.DrawEllipse(New Pen(_rbBorderColor), innerRect)
+            g.FillEllipse(New SolidBrush(RadioBackColor), innerRect)
+            g.DrawEllipse(New Pen(InactiveBorderColor), innerRect)
             outerRect.Inflate(-1, -1)
 
-            If isHovered = True Then
-                g.DrawArc(New Pen(_rbActiveBorderColor, 1), outerRect, 135, 180)
-                g.DrawArc(New Pen(_rbActiveBorderColor, 1), outerRect, -45, 180)
+            If MouseHovered = True Then
+                g.DrawArc(New Pen(ActiveBorderColor, 1), outerRect, 135, 180)
+                g.DrawArc(New Pen(ActiveBorderColor, 1), outerRect, -45, 180)
                 innerRect.Inflate(-1, -1)
-                g.FillEllipse(New SolidBrush(_rbClientActiveBackColor), innerRect)
+                g.FillEllipse(New SolidBrush(ActiveRadioBackColor), innerRect)
             End If
 
             If Checked Then
                 innerRect = New RectangleF(1, 1, diameter - 2, diameter - 2)
                 innerRect.Inflate(-4, -4)
-                g.FillEllipse(New SolidBrush(_rbCheckedColor), innerRect)
+                g.FillEllipse(New SolidBrush(CheckedColor), innerRect)
             End If
 
             Dim textArea As Rectangle = New Rectangle(CInt(outerRect.Width + 5), 0, CInt(Width - outerRect.Width - 6), Height - 1)
-            Dim textFormat As StringFormat = New StringFormat
-            textFormat.LineAlignment = StringAlignment.Center
+            Dim textFormat As StringFormat = New StringFormat With {
+                .LineAlignment = StringAlignment.Center
+            }
+
             e.Graphics.DrawRectangle(Pens.Transparent, textArea)
 
             If Enabled Then
@@ -154,27 +167,27 @@ Namespace Gambol.Controls
 
         Protected Overrides Sub OnMouseLeave(eventargs As EventArgs)
             MyBase.OnMouseLeave(eventargs)
-            isHovered = False
+            MouseHovered = False
         End Sub
 
         Protected Overrides Sub OnMouseEnter(eventargs As EventArgs)
             MyBase.OnMouseEnter(eventargs)
-            isHovered = True
+            MouseHovered = True
         End Sub
 
 #End Region
 #Region "Custom Methods"
 
-        Private isHovered As Boolean = False
+        Private MouseHovered As Boolean = False
         Private Sub ProcessMouse(sender As Object, e As EventArgs)
 
             If ClientRectangle.Contains(PointToClient(MousePosition)) Then
-                If Not isHovered Then
-                    isHovered = True
+                If Not MouseHovered Then
+                    MouseHovered = True
                     Invalidate()
                 Else
-                    If isHovered Then
-                        isHovered = False
+                    If MouseHovered Then
+                        MouseHovered = False
                         Invalidate()
                     End If
                 End If

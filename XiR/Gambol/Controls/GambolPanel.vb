@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -11,7 +11,7 @@
 '  Xiret (Xir)
 '  GambolPanel.vb
 '  Created by David S on 20.03.2016
-'  Updated on 04.07.2019 - DS (Cleanup)
+'  Updated on 07.07.2019 - DS (Cleanup, enhanced properties, removed toolboxbitmap, fixed designer error)
 
 #Region "Directives"
 
@@ -27,18 +27,14 @@ Imports System.Windows.Forms.Design
 
 Namespace Gambol.Controls
 
-    <Designer(GetType(ParentControlDesigner)), ToolboxBitmap(GetType(Panel))> _
+    <Designer(GetType(ParentControlDesigner))>
     Public Class GambolPanel
         Inherits Panel
-
-#Region "Constructor"
 
         Public Sub New()
             SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw, True)
             DoubleBuffered = True
         End Sub
-
-#End Region
 
 #Region "Enum"
         Enum SeperatorType
@@ -50,117 +46,113 @@ Namespace Gambol.Controls
 #End Region
 #Region "Properties"
 
-        Private BoolShowBlend As Boolean = False
-        <Description("Background primary color"), _
-        Category("Gambol Appearence")> _
-        Property BackgroundBlend As Boolean
+        Private pBlendBackground As Boolean = False
+        <Description("Determine if the panel has background blending"),
+        Category("Gambol Appearence")>
+        Property BlendBackground As Boolean
             Get
-                Return BoolShowBlend
+                Return pBlendBackground
             End Get
             Set(value As Boolean)
-                BoolShowBlend = value
+                pBlendBackground = value
+                Invalidate()
             End Set
         End Property
 
-        Private FirstColor As Color = Color.FromArgb(31, 34, 41)
-        <Description("Background primary color"), _
-        Category("Gambol Appearence")> _
+        Private pBlendPrimaryColor As Color = Color.FromArgb(30, 30, 30)
+        <Description("Background blending primary color"),
+        Category("Gambol Appearence")>
         Property BlendPrimaryColor As Color
             Get
-                Return FirstColor
+                Return pBlendPrimaryColor
             End Get
             Set(value As Color)
-                FirstColor = value
+                pBlendPrimaryColor = value
                 Invalidate()
             End Set
         End Property
 
-        Private SecondaryColor As Color = Color.FromArgb(41, 44, 51)
-        <Description("Background primary color"), _
-        Category("Gambol Appearence")> _
-        Property BlendSecondColor As Color
+        Private pBlendSecondaryColor As Color = Color.FromArgb(80, 80, 80)
+        <Description("Background blending secondary color"),
+        Category("Gambol Appearence")>
+        Property BlendSecondaryColor As Color
             Get
-                Return SecondaryColor
+                Return pBlendSecondaryColor
             End Get
             Set(value As Color)
-                SecondaryColor = value
+                pBlendSecondaryColor = value
                 Invalidate()
             End Set
         End Property
 
-        Private GradientMode As LinearGradientMode = LinearGradientMode.Horizontal
-        <Description("Background gradient mode"),
-        Category("Gambol Settings")>
-        Property GradientDirection As LinearGradientMode
+        Private pBlendDirection As LinearGradientMode = LinearGradientMode.Horizontal
+        <Description("Background blend direction"),
+        Category("Gambol Appearence")>
+        Property BlendDirection As LinearGradientMode
             Get
-                Return GradientMode
+                Return pBlendDirection
             End Get
             Set(value As LinearGradientMode)
-                GradientMode = value
+                pBlendDirection = value
                 Invalidate()
             End Set
         End Property
 
-        Private InterpolationType As InterpolationMode = InterpolationMode.Default
-        <Description("Set the controls Interpolation type"), _
-        Category("Rendering")> _
-        Property Interpolation As InterpolationMode
-            Get
-                Return InterpolationType
-            End Get
-            Set(value As InterpolationMode)
-                InterpolationType = value
-                Invalidate()
-            End Set
-        End Property
-
-        Private SmoothingType As SmoothingMode = SmoothingMode.None
-        <Description("Set the controls Smoothing type"), _
-        Category("Rendering")> _
+        Private pSmoothing As SmoothingMode = SmoothingMode.None
+        <Description("Set the panels Smoothing type"),
+        Category("Gambol Rendering")>
         Property Smoothing As SmoothingMode
             Get
-                Return SmoothingType
+                Return pSmoothing
             End Get
             Set(value As SmoothingMode)
-                SmoothingType = value
+                If value = SmoothingMode.Invalid Then
+                    'Fix designer error (08.07.2019)
+                    pSmoothing = pSmoothing
+                    MessageBox.Show("Cannot use this mode. Nothing was changed.", "Gambol.Controls", MessageBoxButtons.OK)
+                Else
+                    pSmoothing = value
+                End If
                 Invalidate()
             End Set
         End Property
 
-        Private HasSeperator As Boolean = False
-        <Description("Determine if the control has an edge seperator"), _
-        Category("Gambol Properties")> _
+        Private pShowSeperator As Boolean = False
+        <Description("Determine if the panel has an edge seperator"),
+        Category("Gambol Properties")>
         Property ShowSeperator As Boolean
             Get
-                Return HasSeperator
+                Return pShowSeperator
             End Get
             Set(value As Boolean)
-                HasSeperator = value
+                pShowSeperator = value
                 Invalidate()
             End Set
         End Property
 
-        Private SepLocation As SeperatorType = SeperatorType.Left
-        <Description("Set the control edge seperator location"), _
-        Category("Gambol Properties")> _
+        Private pSeperatorLocation As SeperatorType = SeperatorType.Left
+        <Description("Set the panels edge seperator location"),
+        Category("Gambol Properties")>
         Property SeperatorLocation As SeperatorType
             Get
-                Return SepLocation
+                Return pSeperatorLocation
             End Get
             Set(value As SeperatorType)
-                SepLocation = value
+                pSeperatorLocation = value
                 Invalidate()
             End Set
         End Property
-        Private SepColor As Color = Color.FromArgb(100, 100, 100)
-        <Description("Set the control edge seperator color"), _
-        Category("Gambol Properties")> _
+
+        Private pSeperatorColor As Color = Color.FromArgb(100, 100, 100)
+        <Description("Set the panels edge seperator color"),
+        Category("Gambol Properties")>
         Property SeperatorColor As Color
             Get
-                Return SepColor
+                Return pSeperatorColor
             End Get
             Set(value As Color)
-                SepColor = value
+                pSeperatorColor = value
+                Invalidate()
             End Set
         End Property
 
@@ -171,19 +163,20 @@ Namespace Gambol.Controls
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
             Dim g As Graphics = e.Graphics
-
             Dim rect As New Rectangle(0, 0, ClientRectangle.Width, ClientRectangle.Height)
 
-            If BoolShowBlend Then
-                Using b As New LinearGradientBrush(rect, FirstColor, SecondaryColor, GradientDirection)
-                    g.SmoothingMode = SmoothingType
-                    g.InterpolationMode = InterpolationType
+            If BlendBackground Then
+                Using b As New LinearGradientBrush(rect, BlendPrimaryColor, BlendSecondaryColor, BlendDirection)
+                    g.SmoothingMode = Smoothing
                     g.FillRectangle(b, rect)
                 End Using
+            Else
+                Dim b As Brush = New SolidBrush(BackColor)
+                g.FillRectangle(b, rect)
             End If
 
-            If HasSeperator Then
-                Using p As New Pen(SepColor) With {.Width = 1.0F}
+            If ShowSeperator Then
+                Using p As New Pen(SeperatorColor) With {.Width = 1.0F}
                     Select Case SeperatorLocation
                         Case SeperatorType.Left
                             g.DrawLine(p, 0, 0, 0, Height)

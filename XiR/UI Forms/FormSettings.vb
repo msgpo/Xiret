@@ -130,8 +130,8 @@ Public Class FormSettings
         cmdOkay.ForeColor = GlobalThemeColor
         cmdApply.ForeColor = GlobalThemeColor
 
-        If (BoolThemeApplyBorder) Then : Me.BackColor = GlobalThemeColor
-        Else : Me.BackColor = ColorBorderStandard
+        If BoolThemeApplyBorder Then : BackColor = GlobalThemeColor
+        Else : BackColor = ColorBorderStandard
         End If
 
     End Sub
@@ -185,7 +185,7 @@ Public Class FormSettings
         FormMain.SetMainThemeAccent()
         FormMain.UpdateControls()
 
-        SendToastToScreen("Settings updated. You may now close this window.", ToastType.IsInformational)
+        SendToastToScreen("Settings updated.", ToastType.IsInformational)
 
     End Sub
     Private Sub cmdWarn_Click(sender As Object, e As EventArgs) Handles cmdWarn.Click

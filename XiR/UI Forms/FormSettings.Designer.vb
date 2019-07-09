@@ -1,11 +1,11 @@
 ﻿Imports Xiret.Gambol.Controls
 
-<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormSettings
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -22,7 +22,7 @@ Partial Class FormSettings
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSettings))
         Me.pnlHead = New System.Windows.Forms.Panel()
@@ -34,37 +34,20 @@ Partial Class FormSettings
         Me.sOne = New System.Windows.Forms.Label()
         Me.pnlAssessmentStyle = New System.Windows.Forms.Panel()
         Me.sEight = New System.Windows.Forms.Label()
-        Me.rbnVerbose = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnNormal = New Xiret.Gambol.Controls.GambolRadioButton()
         Me.sTwo = New System.Windows.Forms.Label()
         Me.pnlShowHardware = New System.Windows.Forms.Panel()
         Me.sSeven = New System.Windows.Forms.Label()
-        Me.rbnHardwareDisable = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnHardwareEnable = New Xiret.Gambol.Controls.GambolRadioButton()
         Me.pnlPortability = New System.Windows.Forms.Panel()
         Me.cmdWarn = New System.Windows.Forms.Button()
-        Me.rbnAppath = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnAppdata = New Xiret.Gambol.Controls.GambolRadioButton()
         Me.sTen = New System.Windows.Forms.Label()
         Me.sFour = New System.Windows.Forms.Label()
         Me.pnlTheme = New System.Windows.Forms.Panel()
-        Me.rbnThemeCarrot5 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnThemeSun6 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnThemeAlazarin7 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.cbxApplyToBorder = New Xiret.Gambol.Controls.GambolCheckbox()
         Me.sNine = New System.Windows.Forms.Label()
-        Me.rbnThemeDef0 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnThemeAmethyst4 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnThemeSky1 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnThemeTurq2 = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnThemeEmerald3 = New Xiret.Gambol.Controls.GambolRadioButton()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.rbnXml = New Xiret.Gambol.Controls.GambolRadioButton()
-        Me.rbnApi = New Xiret.Gambol.Controls.GambolRadioButton()
         Me.pnlConfiguration = New System.Windows.Forms.Panel()
         Me.cmdApply = New System.Windows.Forms.Button()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -72,6 +55,23 @@ Partial Class FormSettings
         Me.cmdOkay = New System.Windows.Forms.Button()
         Me.sFive = New System.Windows.Forms.Label()
         Me.pnlSplit = New System.Windows.Forms.Panel()
+        Me.rbnXml = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnApi = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnHardwareDisable = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnHardwareEnable = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnAppath = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnAppdata = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeCarrot5 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeSun6 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeAlazarin7 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.cbxApplyToBorder = New Xiret.Gambol.Controls.GambolCheckbox()
+        Me.rbnThemeDef0 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeAmethyst4 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeSky1 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeTurq2 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnThemeEmerald3 = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnVerbose = New Xiret.Gambol.Controls.GambolRadioButton()
+        Me.rbnNormal = New Xiret.Gambol.Controls.GambolRadioButton()
         Me.pnlHead.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,7 +88,7 @@ Partial Class FormSettings
         'pnlHead
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgTileHead
+        Me.pnlHead.BackgroundImage = CType(resources.GetObject("pnlHead.BackgroundImage"), System.Drawing.Image)
         Me.pnlHead.Controls.Add(Me.BtnClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Controls.Add(Me.lbHead)
@@ -138,7 +138,7 @@ Partial Class FormSettings
         Me.pbxMain.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pbxMain.BackColor = System.Drawing.Color.Transparent
         Me.pbxMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbxMain.Image = Global.Xiret.My.Resources.Resources.imgmain
+        Me.pbxMain.Image = CType(resources.GetObject("pbxMain.Image"), System.Drawing.Image)
         Me.pbxMain.Location = New System.Drawing.Point(9, 8)
         Me.pbxMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
         Me.pbxMain.Name = "pbxMain"
@@ -208,40 +208,6 @@ Partial Class FormSettings
         Me.sEight.TabIndex = 115
         Me.sEight.Text = "Toggle the amount of data shown during the assessment"
         '
-        'rbnVerbose
-        '
-        Me.rbnVerbose.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnVerbose.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnVerbose.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnVerbose.BorderColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.rbnVerbose.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
-        Me.rbnVerbose.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnVerbose.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnVerbose.ForeColor = System.Drawing.Color.White
-        Me.rbnVerbose.Location = New System.Drawing.Point(113, 63)
-        Me.rbnVerbose.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnVerbose.Name = "rbnVerbose"
-        Me.rbnVerbose.Size = New System.Drawing.Size(92, 22)
-        Me.rbnVerbose.TabIndex = 115
-        Me.rbnVerbose.Text = "Verbose"
-        '
-        'rbnNormal
-        '
-        Me.rbnNormal.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnNormal.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnNormal.BorderColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.rbnNormal.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
-        Me.rbnNormal.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnNormal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnNormal.ForeColor = System.Drawing.Color.White
-        Me.rbnNormal.Location = New System.Drawing.Point(20, 63)
-        Me.rbnNormal.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnNormal.Name = "rbnNormal"
-        Me.rbnNormal.Size = New System.Drawing.Size(89, 22)
-        Me.rbnNormal.TabIndex = 116
-        Me.rbnNormal.Text = "Normal"
-        '
         'sTwo
         '
         Me.sTwo.AutoSize = True
@@ -278,40 +244,6 @@ Partial Class FormSettings
         Me.sSeven.TabIndex = 114
         Me.sSeven.Text = "Automatically show system hardware when the application starts"
         '
-        'rbnHardwareDisable
-        '
-        Me.rbnHardwareDisable.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnHardwareDisable.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnHardwareDisable.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnHardwareDisable.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnHardwareDisable.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnHardwareDisable.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnHardwareDisable.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnHardwareDisable.ForeColor = System.Drawing.Color.White
-        Me.rbnHardwareDisable.Location = New System.Drawing.Point(20, 63)
-        Me.rbnHardwareDisable.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnHardwareDisable.Name = "rbnHardwareDisable"
-        Me.rbnHardwareDisable.Size = New System.Drawing.Size(66, 22)
-        Me.rbnHardwareDisable.TabIndex = 112
-        Me.rbnHardwareDisable.Text = "Off"
-        '
-        'rbnHardwareEnable
-        '
-        Me.rbnHardwareEnable.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnHardwareEnable.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnHardwareEnable.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnHardwareEnable.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnHardwareEnable.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnHardwareEnable.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnHardwareEnable.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnHardwareEnable.ForeColor = System.Drawing.Color.White
-        Me.rbnHardwareEnable.Location = New System.Drawing.Point(90, 63)
-        Me.rbnHardwareEnable.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnHardwareEnable.Name = "rbnHardwareEnable"
-        Me.rbnHardwareEnable.Size = New System.Drawing.Size(63, 22)
-        Me.rbnHardwareEnable.TabIndex = 113
-        Me.rbnHardwareEnable.Text = "On"
-        '
         'pnlPortability
         '
         Me.pnlPortability.Anchor = System.Windows.Forms.AnchorStyles.None
@@ -347,40 +279,6 @@ Partial Class FormSettings
         Me.cmdWarn.TabIndex = 129
         Me.cmdWarn.Text = "1 Warning"
         Me.cmdWarn.UseVisualStyleBackColor = False
-        '
-        'rbnAppath
-        '
-        Me.rbnAppath.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnAppath.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnAppath.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnAppath.BorderColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.rbnAppath.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
-        Me.rbnAppath.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnAppath.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnAppath.ForeColor = System.Drawing.Color.White
-        Me.rbnAppath.Location = New System.Drawing.Point(150, 63)
-        Me.rbnAppath.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnAppath.Name = "rbnAppath"
-        Me.rbnAppath.Size = New System.Drawing.Size(179, 22)
-        Me.rbnAppath.TabIndex = 126
-        Me.rbnAppath.Text = "On (Application Path)"
-        '
-        'rbnAppdata
-        '
-        Me.rbnAppdata.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnAppdata.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnAppdata.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnAppdata.BorderColor = System.Drawing.Color.FromArgb(CType(CType(150, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(170, Byte), Integer))
-        Me.rbnAppdata.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
-        Me.rbnAppdata.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnAppdata.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnAppdata.ForeColor = System.Drawing.Color.White
-        Me.rbnAppdata.Location = New System.Drawing.Point(20, 63)
-        Me.rbnAppdata.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnAppdata.Name = "rbnAppdata"
-        Me.rbnAppdata.Size = New System.Drawing.Size(126, 22)
-        Me.rbnAppdata.TabIndex = 117
-        Me.rbnAppdata.Text = "Off (Appdata)"
         '
         'sTen
         '
@@ -425,68 +323,6 @@ Partial Class FormSettings
         Me.pnlTheme.Size = New System.Drawing.Size(472, 100)
         Me.pnlTheme.TabIndex = 122
         '
-        'rbnThemeCarrot5
-        '
-        Me.rbnThemeCarrot5.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeCarrot5.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeCarrot5.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeCarrot5.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeCarrot5.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(34, Byte), Integer))
-        Me.rbnThemeCarrot5.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeCarrot5.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeCarrot5.Location = New System.Drawing.Point(154, 63)
-        Me.rbnThemeCarrot5.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeCarrot5.Name = "rbnThemeCarrot5"
-        Me.rbnThemeCarrot5.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeCarrot5.TabIndex = 120
-        '
-        'rbnThemeSun6
-        '
-        Me.rbnThemeSun6.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeSun6.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeSun6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeSun6.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeSun6.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(18, Byte), Integer))
-        Me.rbnThemeSun6.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeSun6.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeSun6.Location = New System.Drawing.Point(181, 63)
-        Me.rbnThemeSun6.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeSun6.Name = "rbnThemeSun6"
-        Me.rbnThemeSun6.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeSun6.TabIndex = 121
-        '
-        'rbnThemeAlazarin7
-        '
-        Me.rbnThemeAlazarin7.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeAlazarin7.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeAlazarin7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeAlazarin7.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeAlazarin7.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.rbnThemeAlazarin7.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeAlazarin7.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeAlazarin7.Location = New System.Drawing.Point(208, 63)
-        Me.rbnThemeAlazarin7.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeAlazarin7.Name = "rbnThemeAlazarin7"
-        Me.rbnThemeAlazarin7.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeAlazarin7.TabIndex = 122
-        '
-        'cbxApplyToBorder
-        '
-        Me.cbxApplyToBorder.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cbxApplyToBorder.ActiveBorderColor = System.Drawing.Color.White
-        Me.cbxApplyToBorder.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.cbxApplyToBorder.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbxApplyToBorder.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.cbxApplyToBorder.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxApplyToBorder.ForeColor = System.Drawing.Color.White
-        Me.cbxApplyToBorder.Location = New System.Drawing.Point(250, 63)
-        Me.cbxApplyToBorder.Margin = New System.Windows.Forms.Padding(2)
-        Me.cbxApplyToBorder.Name = "cbxApplyToBorder"
-        Me.cbxApplyToBorder.Size = New System.Drawing.Size(146, 22)
-        Me.cbxApplyToBorder.TabIndex = 119
-        Me.cbxApplyToBorder.Text = "Apply to Borders"
-        Me.cbxApplyToBorder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'sNine
         '
         Me.sNine.AutoSize = True
@@ -496,81 +332,6 @@ Partial Class FormSettings
         Me.sNine.Size = New System.Drawing.Size(275, 19)
         Me.sNine.TabIndex = 117
         Me.sNine.Text = "Set your preferred application accent colour"
-        '
-        'rbnThemeDef0
-        '
-        Me.rbnThemeDef0.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeDef0.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeDef0.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeDef0.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeDef0.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnThemeDef0.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeDef0.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeDef0.Location = New System.Drawing.Point(20, 63)
-        Me.rbnThemeDef0.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeDef0.Name = "rbnThemeDef0"
-        Me.rbnThemeDef0.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeDef0.TabIndex = 90
-        '
-        'rbnThemeAmethyst4
-        '
-        Me.rbnThemeAmethyst4.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeAmethyst4.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeAmethyst4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeAmethyst4.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeAmethyst4.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(98, Byte), Integer), CType(CType(201, Byte), Integer))
-        Me.rbnThemeAmethyst4.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeAmethyst4.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeAmethyst4.Location = New System.Drawing.Point(128, 63)
-        Me.rbnThemeAmethyst4.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeAmethyst4.Name = "rbnThemeAmethyst4"
-        Me.rbnThemeAmethyst4.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeAmethyst4.TabIndex = 102
-        '
-        'rbnThemeSky1
-        '
-        Me.rbnThemeSky1.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeSky1.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeSky1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeSky1.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeSky1.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
-        Me.rbnThemeSky1.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeSky1.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeSky1.Location = New System.Drawing.Point(47, 63)
-        Me.rbnThemeSky1.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeSky1.Name = "rbnThemeSky1"
-        Me.rbnThemeSky1.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeSky1.TabIndex = 91
-        '
-        'rbnThemeTurq2
-        '
-        Me.rbnThemeTurq2.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeTurq2.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeTurq2.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeTurq2.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeTurq2.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
-        Me.rbnThemeTurq2.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeTurq2.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeTurq2.Location = New System.Drawing.Point(74, 63)
-        Me.rbnThemeTurq2.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeTurq2.Name = "rbnThemeTurq2"
-        Me.rbnThemeTurq2.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeTurq2.TabIndex = 92
-        '
-        'rbnThemeEmerald3
-        '
-        Me.rbnThemeEmerald3.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnThemeEmerald3.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnThemeEmerald3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnThemeEmerald3.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnThemeEmerald3.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
-        Me.rbnThemeEmerald3.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnThemeEmerald3.ForeColor = System.Drawing.Color.White
-        Me.rbnThemeEmerald3.Location = New System.Drawing.Point(101, 63)
-        Me.rbnThemeEmerald3.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnThemeEmerald3.Name = "rbnThemeEmerald3"
-        Me.rbnThemeEmerald3.Size = New System.Drawing.Size(22, 22)
-        Me.rbnThemeEmerald3.TabIndex = 93
         '
         'Panel7
         '
@@ -644,40 +405,6 @@ Partial Class FormSettings
         Me.Label3.Size = New System.Drawing.Size(192, 23)
         Me.Label3.TabIndex = 107
         Me.Label3.Text = "Default hardware mode"
-        '
-        'rbnXml
-        '
-        Me.rbnXml.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnXml.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnXml.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnXml.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnXml.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnXml.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnXml.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnXml.ForeColor = System.Drawing.Color.White
-        Me.rbnXml.Location = New System.Drawing.Point(20, 63)
-        Me.rbnXml.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnXml.Name = "rbnXml"
-        Me.rbnXml.Size = New System.Drawing.Size(66, 22)
-        Me.rbnXml.TabIndex = 112
-        Me.rbnXml.Text = "XML"
-        '
-        'rbnApi
-        '
-        Me.rbnApi.ActiveBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.rbnApi.ActiveBorderColor = System.Drawing.Color.White
-        Me.rbnApi.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.rbnApi.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.rbnApi.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.rbnApi.ClientBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.rbnApi.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rbnApi.ForeColor = System.Drawing.Color.White
-        Me.rbnApi.Location = New System.Drawing.Point(90, 63)
-        Me.rbnApi.Margin = New System.Windows.Forms.Padding(2)
-        Me.rbnApi.Name = "rbnApi"
-        Me.rbnApi.Size = New System.Drawing.Size(63, 22)
-        Me.rbnApi.TabIndex = 113
-        Me.rbnApi.Text = "API"
         '
         'pnlConfiguration
         '
@@ -783,6 +510,279 @@ Partial Class FormSettings
         Me.pnlSplit.Name = "pnlSplit"
         Me.pnlSplit.Size = New System.Drawing.Size(488, 2)
         Me.pnlSplit.TabIndex = 125
+        '
+        'rbnXml
+        '
+        Me.rbnXml.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnXml.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnXml.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnXml.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnXml.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnXml.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnXml.ForeColor = System.Drawing.Color.White
+        Me.rbnXml.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnXml.Location = New System.Drawing.Point(20, 63)
+        Me.rbnXml.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnXml.Name = "rbnXml"
+        Me.rbnXml.Size = New System.Drawing.Size(66, 22)
+        Me.rbnXml.TabIndex = 112
+        Me.rbnXml.Text = "XML"
+        '
+        'rbnApi
+        '
+        Me.rbnApi.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnApi.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnApi.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnApi.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnApi.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnApi.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnApi.ForeColor = System.Drawing.Color.White
+        Me.rbnApi.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnApi.Location = New System.Drawing.Point(90, 63)
+        Me.rbnApi.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnApi.Name = "rbnApi"
+        Me.rbnApi.Size = New System.Drawing.Size(63, 22)
+        Me.rbnApi.TabIndex = 113
+        Me.rbnApi.Text = "API"
+        '
+        'rbnHardwareDisable
+        '
+        Me.rbnHardwareDisable.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnHardwareDisable.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnHardwareDisable.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnHardwareDisable.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnHardwareDisable.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnHardwareDisable.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnHardwareDisable.ForeColor = System.Drawing.Color.White
+        Me.rbnHardwareDisable.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnHardwareDisable.Location = New System.Drawing.Point(20, 63)
+        Me.rbnHardwareDisable.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnHardwareDisable.Name = "rbnHardwareDisable"
+        Me.rbnHardwareDisable.Size = New System.Drawing.Size(66, 22)
+        Me.rbnHardwareDisable.TabIndex = 112
+        Me.rbnHardwareDisable.Text = "Off"
+        '
+        'rbnHardwareEnable
+        '
+        Me.rbnHardwareEnable.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnHardwareEnable.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnHardwareEnable.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnHardwareEnable.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnHardwareEnable.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnHardwareEnable.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnHardwareEnable.ForeColor = System.Drawing.Color.White
+        Me.rbnHardwareEnable.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnHardwareEnable.Location = New System.Drawing.Point(90, 63)
+        Me.rbnHardwareEnable.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnHardwareEnable.Name = "rbnHardwareEnable"
+        Me.rbnHardwareEnable.Size = New System.Drawing.Size(63, 22)
+        Me.rbnHardwareEnable.TabIndex = 113
+        Me.rbnHardwareEnable.Text = "On"
+        '
+        'rbnAppath
+        '
+        Me.rbnAppath.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnAppath.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnAppath.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnAppath.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnAppath.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnAppath.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnAppath.ForeColor = System.Drawing.Color.White
+        Me.rbnAppath.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnAppath.Location = New System.Drawing.Point(150, 63)
+        Me.rbnAppath.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnAppath.Name = "rbnAppath"
+        Me.rbnAppath.Size = New System.Drawing.Size(179, 22)
+        Me.rbnAppath.TabIndex = 126
+        Me.rbnAppath.Text = "On (Application Path)"
+        '
+        'rbnAppdata
+        '
+        Me.rbnAppdata.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnAppdata.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnAppdata.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnAppdata.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnAppdata.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnAppdata.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnAppdata.ForeColor = System.Drawing.Color.White
+        Me.rbnAppdata.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnAppdata.Location = New System.Drawing.Point(20, 63)
+        Me.rbnAppdata.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnAppdata.Name = "rbnAppdata"
+        Me.rbnAppdata.Size = New System.Drawing.Size(126, 22)
+        Me.rbnAppdata.TabIndex = 117
+        Me.rbnAppdata.Text = "Off (Appdata)"
+        '
+        'rbnThemeCarrot5
+        '
+        Me.rbnThemeCarrot5.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeCarrot5.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeCarrot5.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(126, Byte), Integer), CType(CType(34, Byte), Integer))
+        Me.rbnThemeCarrot5.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeCarrot5.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeCarrot5.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeCarrot5.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeCarrot5.Location = New System.Drawing.Point(154, 63)
+        Me.rbnThemeCarrot5.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeCarrot5.Name = "rbnThemeCarrot5"
+        Me.rbnThemeCarrot5.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeCarrot5.TabIndex = 120
+        '
+        'rbnThemeSun6
+        '
+        Me.rbnThemeSun6.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeSun6.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeSun6.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(229, Byte), Integer), CType(CType(18, Byte), Integer))
+        Me.rbnThemeSun6.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeSun6.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeSun6.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeSun6.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeSun6.Location = New System.Drawing.Point(181, 63)
+        Me.rbnThemeSun6.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeSun6.Name = "rbnThemeSun6"
+        Me.rbnThemeSun6.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeSun6.TabIndex = 121
+        '
+        'rbnThemeAlazarin7
+        '
+        Me.rbnThemeAlazarin7.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeAlazarin7.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeAlazarin7.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(213, Byte), Integer), CType(CType(76, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.rbnThemeAlazarin7.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeAlazarin7.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeAlazarin7.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeAlazarin7.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeAlazarin7.Location = New System.Drawing.Point(208, 63)
+        Me.rbnThemeAlazarin7.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeAlazarin7.Name = "rbnThemeAlazarin7"
+        Me.rbnThemeAlazarin7.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeAlazarin7.TabIndex = 122
+        '
+        'cbxApplyToBorder
+        '
+        Me.cbxApplyToBorder.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.cbxApplyToBorder.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cbxApplyToBorder.ActiveBorderColor = System.Drawing.Color.White
+        Me.cbxApplyToBorder.CheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.cbxApplyToBorder.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cbxApplyToBorder.ForeColor = System.Drawing.Color.White
+        Me.cbxApplyToBorder.ActiveCheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.cbxApplyToBorder.Location = New System.Drawing.Point(250, 63)
+        Me.cbxApplyToBorder.Margin = New System.Windows.Forms.Padding(2)
+        Me.cbxApplyToBorder.Name = "cbxApplyToBorder"
+        Me.cbxApplyToBorder.Size = New System.Drawing.Size(146, 22)
+        Me.cbxApplyToBorder.TabIndex = 119
+        Me.cbxApplyToBorder.Text = "Apply to Borders"
+        Me.cbxApplyToBorder.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'rbnThemeDef0
+        '
+        Me.rbnThemeDef0.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeDef0.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeDef0.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.rbnThemeDef0.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeDef0.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeDef0.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeDef0.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeDef0.Location = New System.Drawing.Point(20, 63)
+        Me.rbnThemeDef0.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeDef0.Name = "rbnThemeDef0"
+        Me.rbnThemeDef0.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeDef0.TabIndex = 90
+        '
+        'rbnThemeAmethyst4
+        '
+        Me.rbnThemeAmethyst4.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeAmethyst4.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeAmethyst4.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(175, Byte), Integer), CType(CType(98, Byte), Integer), CType(CType(201, Byte), Integer))
+        Me.rbnThemeAmethyst4.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeAmethyst4.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeAmethyst4.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeAmethyst4.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeAmethyst4.Location = New System.Drawing.Point(128, 63)
+        Me.rbnThemeAmethyst4.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeAmethyst4.Name = "rbnThemeAmethyst4"
+        Me.rbnThemeAmethyst4.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeAmethyst4.TabIndex = 102
+        '
+        'rbnThemeSky1
+        '
+        Me.rbnThemeSky1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeSky1.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeSky1.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(52, Byte), Integer), CType(CType(152, Byte), Integer), CType(CType(219, Byte), Integer))
+        Me.rbnThemeSky1.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeSky1.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeSky1.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeSky1.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeSky1.Location = New System.Drawing.Point(47, 63)
+        Me.rbnThemeSky1.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeSky1.Name = "rbnThemeSky1"
+        Me.rbnThemeSky1.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeSky1.TabIndex = 91
+        '
+        'rbnThemeTurq2
+        '
+        Me.rbnThemeTurq2.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeTurq2.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeTurq2.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(26, Byte), Integer), CType(CType(188, Byte), Integer), CType(CType(156, Byte), Integer))
+        Me.rbnThemeTurq2.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeTurq2.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeTurq2.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeTurq2.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeTurq2.Location = New System.Drawing.Point(74, 63)
+        Me.rbnThemeTurq2.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeTurq2.Name = "rbnThemeTurq2"
+        Me.rbnThemeTurq2.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeTurq2.TabIndex = 92
+        '
+        'rbnThemeEmerald3
+        '
+        Me.rbnThemeEmerald3.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnThemeEmerald3.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnThemeEmerald3.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(46, Byte), Integer), CType(CType(204, Byte), Integer), CType(CType(113, Byte), Integer))
+        Me.rbnThemeEmerald3.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnThemeEmerald3.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnThemeEmerald3.ForeColor = System.Drawing.Color.White
+        Me.rbnThemeEmerald3.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnThemeEmerald3.Location = New System.Drawing.Point(101, 63)
+        Me.rbnThemeEmerald3.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnThemeEmerald3.Name = "rbnThemeEmerald3"
+        Me.rbnThemeEmerald3.Size = New System.Drawing.Size(22, 22)
+        Me.rbnThemeEmerald3.TabIndex = 93
+        '
+        'rbnVerbose
+        '
+        Me.rbnVerbose.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnVerbose.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnVerbose.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.rbnVerbose.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnVerbose.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnVerbose.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnVerbose.ForeColor = System.Drawing.Color.White
+        Me.rbnVerbose.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnVerbose.Location = New System.Drawing.Point(113, 63)
+        Me.rbnVerbose.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnVerbose.Name = "rbnVerbose"
+        Me.rbnVerbose.Size = New System.Drawing.Size(92, 22)
+        Me.rbnVerbose.TabIndex = 115
+        Me.rbnVerbose.Text = "Verbose"
+        '
+        'rbnNormal
+        '
+        Me.rbnNormal.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rbnNormal.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.rbnNormal.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.rbnNormal.ActiveBorderColor = System.Drawing.Color.White
+        Me.rbnNormal.RadioBackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.rbnNormal.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rbnNormal.ForeColor = System.Drawing.Color.White
+        Me.rbnNormal.ActiveRadioBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.rbnNormal.Location = New System.Drawing.Point(20, 63)
+        Me.rbnNormal.Margin = New System.Windows.Forms.Padding(2)
+        Me.rbnNormal.Name = "rbnNormal"
+        Me.rbnNormal.Size = New System.Drawing.Size(89, 22)
+        Me.rbnNormal.TabIndex = 116
+        Me.rbnNormal.Text = "Normal"
         '
         'FormSettings
         '

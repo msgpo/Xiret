@@ -44,6 +44,7 @@ Partial Class Toast
         'pnlmain
         '
         Me.pnlmain.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.pnlmain.BackgroundImage = Global.Xiret.My.Resources.Resources.imgTileHead
         Me.pnlmain.Controls.Add(Me.cmdClose)
         Me.pnlmain.Controls.Add(Me.lbTitle)
         Me.pnlmain.Dock = System.Windows.Forms.DockStyle.Top
@@ -74,8 +75,9 @@ Partial Class Toast
         'lbTitle
         '
         Me.lbTitle.AutoSize = True
+        Me.lbTitle.BackColor = System.Drawing.Color.Transparent
         Me.lbTitle.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbTitle.ForeColor = System.Drawing.Color.FromArgb(CType(CType(225, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(245, Byte), Integer))
+        Me.lbTitle.ForeColor = System.Drawing.Color.White
         Me.lbTitle.Location = New System.Drawing.Point(13, 9)
         Me.lbTitle.Name = "lbTitle"
         Me.lbTitle.Size = New System.Drawing.Size(25, 23)
@@ -86,7 +88,7 @@ Partial Class Toast
         'lbMessage
         '
         Me.lbMessage.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(205, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(225, Byte), Integer))
+        Me.lbMessage.ForeColor = System.Drawing.Color.White
         Me.lbMessage.Location = New System.Drawing.Point(13, 12)
         Me.lbMessage.Name = "lbMessage"
         Me.lbMessage.Size = New System.Drawing.Size(475, 109)
@@ -95,13 +97,12 @@ Partial Class Toast
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.Panel1.Controls.Add(Me.GProgressBar)
         Me.Panel1.Controls.Add(Me.lbMessage)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel1.Location = New System.Drawing.Point(1, 41)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Padding = New System.Windows.Forms.Padding(3)
         Me.Panel1.Size = New System.Drawing.Size(498, 138)
         Me.Panel1.TabIndex = 2
         '
@@ -110,12 +111,13 @@ Partial Class Toast
         Me.GProgressBar.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
         Me.GProgressBar.BorderColor = System.Drawing.Color.Transparent
         Me.GProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.GProgressBar.Location = New System.Drawing.Point(3, 132)
+        Me.GProgressBar.Location = New System.Drawing.Point(0, 135)
+        Me.GProgressBar.Margin = New System.Windows.Forms.Padding(0)
         Me.GProgressBar.Maximum = 200
         Me.GProgressBar.Name = "GProgressBar"
-        Me.GProgressBar.ProgressColor = System.Drawing.Color.FromArgb(CType(CType(0, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(220, Byte), Integer))
+        Me.GProgressBar.ProgressColor = System.Drawing.Color.White
         Me.GProgressBar.ShowBorder = False
-        Me.GProgressBar.Size = New System.Drawing.Size(492, 3)
+        Me.GProgressBar.Size = New System.Drawing.Size(498, 3)
         Me.GProgressBar.TabIndex = 3
         Me.GProgressBar.Text = "GProgressBar"
         Me.GProgressBar.Value = 0
