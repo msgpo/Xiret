@@ -4,7 +4,7 @@ This program was written as the Windows Experience Index UI was removed in Windo
 ## Key features
  - Clean and friendly UI
  - Easily export scores as image or text
- - Imgur API for simple uploading (API key needed)
+ - Imgur API for simple uploading (API Client ID needed as it's not included in the source)
  - Full DPI support
  - Normal and Verbose modes
  - Made with portability in mind
