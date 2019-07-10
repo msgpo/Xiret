@@ -1,0 +1,25 @@
+New:
+1. The application will now automatically save Imgur links 'Options > View Imgur Links'
+2. Added new form where users can view system details 'Tools > View system details'
+3. Added new form where users can remove all Xiret configuration data 'Tools > Cleanup > Purge application'
+4. Added new form where users can view the changelog 'Help > Changelog'
+5. Added alternate hardware mode 'Options > Settings > Default hardware mode'
+6. Added shortcut keys for menu items
+
+Enhancements:
+1. Added symbol formatting for consistency (ItielMaN)
+2. Settings XML changed to indented format (ItielMaN)
+3. Added notification when applying new settings 'Options > Settings'
+4. Disabled execution on incompatible server builds
+5. Moved 'Options > Settings > Clear score data' to 'Tools > Cleanup > Reset WinSAT'
+6. UI improvements throughout the application and framework
+7. Added close button to both assessment windows
+
+Bugs:
+1. Fixed a logging issue that may cause inaccuracies (Normal, Verbose)
+2. Removed debug checksum message thrown by Core.Helpers.FHMove 'Settings > Portability' (ItielMaN)
+3. Fixed bytes to megabytes conversion logic (Carlos Detweiller)
+4. Fixed accidental reloading of forms during animations
+
+Misc:
+1. Restructuring and cleanup of code readying for open source availability
