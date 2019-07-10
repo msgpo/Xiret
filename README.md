@@ -1,5 +1,5 @@
 # Xiret
-This program was written as the Windows Experience Index UI was removed in Windows 8.1. Version 1 of this application was never published as open-source.
+This program was written as the Windows Experience Index UI was removed in Windows 8.1. Many applications that imitate the experience index either **a.** Do not work properly, or **b.** Have many adverts, so I created something **stable** and **free**. Version 1 of this project was never published as open-source.
 
 ## Key features
  - Clean and friendly UI
