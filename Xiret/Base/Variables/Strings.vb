@@ -26,6 +26,6 @@
 
     Public StringBodyFull As String = Nothing
 
-    Public ReadOnly StringImgurClientID As String = "35e23362c1eb67c"
+    Public ReadOnly StringImgurClientID As String = ""
 
 End Module
