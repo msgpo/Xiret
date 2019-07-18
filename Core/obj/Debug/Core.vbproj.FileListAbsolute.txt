@@ -1,9 +1,0 @@
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\bin\Debug\Core.dll
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\bin\Debug\Core.pdb
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\bin\Debug\Core.xml
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\obj\Debug\Core.Resources.resources
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\obj\Debug\Core.vbproj.GenerateResource.cache
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\obj\Debug\Core.vbproj.CoreCompileInputs.cache
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\obj\Debug\Core.dll
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\obj\Debug\Core.xml
-C:\Users\Quantum\Documents\Visual Studio 2013\Projects\XiR_Project\Core\obj\Debug\Core.pdb
