@@ -20,7 +20,7 @@ RC1 > RC2 (Development stage)
 
 ## Known Bugs
 1. ~~Assessments can incorrectly log data, this is due to the way data is handled.~~ - **Completed**   
-2.~~A workaround for Windows 7 missing KB2687862 is currently being implemented. However this is not an issue with Xiret, it's a bug where an async case is not handled in Windows 7.~~ - **Completed**
+2.~~A workaround for Windows 7 missing KB2687862 is currently being implemented. However this is not an issue with Xiret, it's a bug where an async case is not handled in Windows 7.~~ - **Completed**  
 
 ## Motivation
 Initially Xiret was created to pass some time when the Experience Index UI was removed in Windows 8.1. Since it's growing into V2 I though 'why not share?' VB isn't too hard to get into and it may help someone learn a thing or two, like I did. Other motivation was anti-virus engines flagging this software as malware, now everyone can see it's guts they know they're safe.
