@@ -121,4 +121,10 @@
   <data name="seguisb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seguisb.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Windows6_1_KB2687862_x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Windows6.1-KB2687862-x64.msu;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Windows6_1_KB2687862_x86" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Windows6.1-KB2687862-x86.msu;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

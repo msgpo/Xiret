@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,15 +8,19 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
+'  Xiret project
 '  FormSettings.vb
 '  Created by David S on 01.11.2018
-'  Updated on 04.07.2019 - DS (Cleanup, updated shown and load events)
+'  Updated on 15.07.2019 - DS (Cleanup, add custom client id)
+'  Updated on 31.07.2019 - DS (Animation, update imports, cleanup)
+'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
 Imports System.IO
-Imports System.Threading
 
-Imports Xiret.Base.Helpers
+Imports Core.Animation
+Imports Core.Helpers
+
+Imports Gambol.Controls
 
 Public Class FormSettings
 
@@ -26,13 +30,24 @@ Public Class FormSettings
 
 #End Region
 
-#Region "Frame Interaction"
+#Region "Ctor"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Public Sub New()
+
+        InitializeComponent()
+        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
+
+    End Sub
+
+#End Region
+
+#Region "WndProc"
+
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
-            Me.WndProc(Message.Create(Me.Handle, WM_NCLBUTTONDOWN, CType(HT_CAPTION, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Me.Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
 
     End Sub
@@ -40,26 +55,28 @@ Public Class FormSettings
 #End Region
 #Region "KeyDown Events"
     Private Sub FormSettings_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Escape Then : Me.Close() : End If
+        If e.KeyCode = Keys.Escape Then
+            Close()
+        End If
     End Sub
 
 #End Region
 #Region "Frame Buttons"
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+        Close()
     End Sub
 #End Region
 
-#Region "Load Event"
+#Region "Load Event Handler"
 
     Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        'Set opacity
         Opacity = 0
+        'Set theme colors
+        SetOptionsThemeAccent()
 
         cmdWarn.Hide()
-
-        'Set form theme
-        SetOptionsThemeAccent()
 
         'Check current settings and set controls state
         CheckAutoHardware()
@@ -74,42 +91,23 @@ Public Class FormSettings
             tbxClientId.Hide()
         Else
             tbxClientId.Show()
+            tbxClientId.Text = Settings.StringUserImgurClientId
         End If
 
     End Sub
 
 #End Region
-#Region "Shown Event"
+#Region "Shown Event Handler"
 
     Private Sub FormSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
-        Try
-            For FadeIn = 0.0 To 1.0 Step 0.2
-                Opacity = FadeIn
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Opacity = 1.0
-        End Try
-
+        Fade.FadeIn(Me)
     End Sub
 
 #End Region
-#Region "Closed Event"
+#Region "Closed Event Handler"
 
     Private Sub FormSettings_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-
-        Try
-            For FadeOut = 1.0 To 0.0 Step -0.2
-                Opacity = FadeOut
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Close()
-        End Try
-
+        Fade.FadeOut(Me)
     End Sub
 
 #End Region
@@ -117,50 +115,59 @@ Public Class FormSettings
 #Region "Theme"
     Private Sub SetOptionsThemeAccent()
 
-        pnlSplit.BackColor = GlobalThemeColor
+        pnlSplit.BackColor = Settings.ThemeColor
 
-        rbnHardwareDisable.CheckedColor = GlobalThemeColor
-        rbnHardwareEnable.CheckedColor = GlobalThemeColor
+        tbxClientId.ForeColor = Settings.ThemeColor
 
-        rbnXml.CheckedColor = GlobalThemeColor
-        rbnApi.CheckedColor = GlobalThemeColor
+        For Each c As Control In pnlShowHardware.Controls
+            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        Next
 
-        rbnNormal.CheckedColor = GlobalThemeColor
-        rbnVerbose.CheckedColor = GlobalThemeColor
+        For Each c As Control In pnlHardwareMode.Controls
+            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        Next
 
-        cbxApplyToBorder.CheckedColor = GlobalThemeColor
+        For Each c As Control In pnlAssessmentMode.Controls
+            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        Next
 
-        rbnAppdata.CheckedColor = GlobalThemeColor
-        rbnAppath.CheckedColor = GlobalThemeColor
+        For Each c As Control In pnlThemeColor.Controls
+            If TypeOf c Is GambolCheckbox Then DirectCast(c, GambolCheckbox).CheckedColor = Settings.ThemeColor
+        Next
 
-        cmdCancel.ForeColor = GlobalThemeColor
-        cmdOkay.ForeColor = GlobalThemeColor
-        cmdApply.ForeColor = GlobalThemeColor
+        For Each c As Control In pnlPortability.Controls
+            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        Next
 
-        tbxClientId.ForeColor = GlobalThemeColor
+        For Each c As Control In pnlCustomID.Controls
+            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        Next
 
-        If BoolThemeApplyBorder Then : BackColor = GlobalThemeColor
-        Else : BackColor = ColorBorderStandard
-        End If
+        For Each c As Control In pnlConfiguration.Controls
+            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        Next
+
+        Settings.SetBorderColor(Me)
 
     End Sub
 
 #End Region
 
-#Region "Buttons"
-    Private Sub cmdOkay_Click(sender As Object, e As EventArgs) Handles cmdOkay.Click
+#Region "Button Event Handlers"
+    Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles cmdOkay.Click
 
         MoveSettings()
         CheckPortable()
+        WriteClientID()
 
         'Update background integers
         ApplySettingsIntegers()
 
         'Save new user settings
-        CreateSettings()
+        Settings.CreateSettings()
 
         'Load new settings to memory
-        LoadSettings()
+        Settings.LoadSettings()
 
         If FormMain.GSwitchHardware.Checked Then
             FormMain.SetHW()
@@ -175,47 +182,49 @@ Public Class FormSettings
         Close()
 
     End Sub
-    Private Sub cmdApply_Click(sender As Object, e As EventArgs) Handles cmdApply.Click
+    Private Sub CmdApply_Click(sender As Object, e As EventArgs) Handles cmdApply.Click
 
         MoveSettings()
         CheckPortable()
+        WriteClientID()
 
         'Update background integers
         ApplySettingsIntegers()
 
         'Save new user settings
-        CreateSettings()
+        Settings.CreateSettings()
 
         'Load new settings to memory
-        LoadSettings()
+        Settings.LoadSettings()
 
         'Set theme
         SetOptionsThemeAccent()
         FormMain.SetMainThemeAccent()
         FormMain.UpdateControls()
 
-        SendToastToScreen("Settings updated.", ToastType.IsInformational)
+        ToastAlert.Show("Settings updated.", ToastType.IsInformational)
 
     End Sub
-    Private Sub cmdWarn_Click(sender As Object, e As EventArgs) Handles cmdWarn.Click
+    Private Sub CmdWarn_Click(sender As Object, e As EventArgs) Handles cmdWarn.Click
 
-        SetOpacity()
+        Fade.FadeBehindChild(Me)
 
         Dim FWarn As New FormWarn
         AddHandler FWarn.FormClosed, AddressOf ChildFormClosedNoRefresh
         FWarn.ShowDialog()
 
     End Sub
-    Private Sub cmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
         Close()
     End Sub
 
 #End Region
+
 #Region "Routines"
 
     Private Sub CheckAutoHardware()
 
-        Select Case SettingsAutoHardwareInt
+        Select Case Settings.ShowHardwareOnStarup
             Case 0
                 rbnHardwareDisable.Checked = True
             Case 1
@@ -227,7 +236,7 @@ Public Class FormSettings
     End Sub
     Private Sub CheckHardwareMode()
 
-        Select Case SettingsHardwareModeInt
+        Select Case Settings.UseApiHardware
             Case 0
                 rbnXml.Checked = True
             Case 1
@@ -240,7 +249,7 @@ Public Class FormSettings
 
     Private Sub CheckAssMode()
 
-        Select Case SettingsAssModeInt
+        Select Case Settings.UseVerboseMode
             Case 0
                 rbnNormal.Checked = True
             Case 1
@@ -252,32 +261,34 @@ Public Class FormSettings
     End Sub
     Private Sub CheckTheme()
 
-        Select Case SettingsThemeInt
+        Select Case Settings.ThemeInt
             Case 0
-                rbnThemeDef0.Checked = True
+                rbnDefault0.Checked = True
             Case 1
-                rbnThemeSky1.Checked = True
+                rbnSky1.Checked = True
             Case 2
-                rbnThemeTurq2.Checked = True
+                rbnTurq2.Checked = True
             Case 3
-                rbnThemeEmerald3.Checked = True
+                rbnEmerald3.Checked = True
             Case 4
-                rbnThemeAmethyst4.Checked = True
+                rbnMegenta4.Checked = True
             Case 5
-                rbnThemeCarrot5.Checked = True
+                rbnPink5.Checked = True
             Case 6
-                rbnThemeSun6.Checked = True
+                rbnCarrot6.Checked = True
             Case 7
-                rbnThemeAlazarin7.Checked = True
+                rbnYellow7.Checked = True
+            Case 8
+                rbnAlazarin8.Checked = True
             Case Else
-                rbnThemeDef0.Checked = True
+                rbnDefault0.Checked = True
         End Select
 
     End Sub
 
     Private Sub CheckApplyBorder()
 
-        Select Case SettingsThemeApplyToBorderInt
+        Select Case Settings.ApplyThemeColorToBorder
             Case 0
                 cbxApplyToBorder.Checked = False
             Case 1
@@ -290,7 +301,7 @@ Public Class FormSettings
 
     Private Sub CheckCustomClientId()
 
-        Select Case SettingsUseCustomImgurApiKey
+        Select Case Settings.UseCustomImgurApiKey
             Case 0
                 rbnClientDisable.Checked = True
             Case 1
@@ -304,70 +315,79 @@ Public Class FormSettings
     Private Sub ApplySettingsIntegers()
 
         '// Show hardware on startup
-        If (rbnHardwareDisable.Checked) Then
-            SettingsAutoHardwareInt = 0
-        End If
-        If (rbnHardwareEnable.Checked) Then
-            SettingsAutoHardwareInt = 1
+        If rbnHardwareDisable.Checked Then
+            Settings.ShowHardwareOnStarup = 0
+        Else
+            Settings.ShowHardwareOnStarup = 1
         End If
 
         '// Hardware mode
-        If (rbnXml.Checked) Then
-            SettingsHardwareModeInt = 0
-        End If
-        If (rbnApi.Checked) Then
-            SettingsHardwareModeInt = 1
+        If rbnXml.Checked Then
+            Settings.UseApiHardware = 0
+        Else
+            Settings.UseApiHardware = 1
         End If
 
         '// Assessment Mode
-        If (rbnNormal.Checked) Then
-            SettingsAssModeInt = 0
-        End If
-        If (rbnVerbose.Checked) Then
-            SettingsAssModeInt = 1
+        If rbnNormal.Checked Then
+            Settings.UseVerboseMode = 0
+        Else
+            Settings.UseVerboseMode = 1
         End If
 
         '// Theme
-        If (rbnThemeDef0.Checked) Then
-            SettingsThemeInt = 0
+        If rbnDefault0.Checked Then
+            Settings.ThemeInt = 0
         End If
-        If (rbnThemeSky1.Checked) Then
-            SettingsThemeInt = 1
+        If rbnSky1.Checked Then
+            Settings.ThemeInt = 1
         End If
-        If (rbnThemeTurq2.Checked) Then
-            SettingsThemeInt = 2
+        If rbnTurq2.Checked Then
+            Settings.ThemeInt = 2
         End If
-        If (rbnThemeEmerald3.Checked) Then
-            SettingsThemeInt = 3
+        If rbnEmerald3.Checked Then
+            Settings.ThemeInt = 3
         End If
-        If (rbnThemeAmethyst4.Checked) Then
-            SettingsThemeInt = 4
+        If rbnMegenta4.Checked Then
+            Settings.ThemeInt = 4
         End If
-        If (rbnThemeCarrot5.Checked) Then
-            SettingsThemeInt = 5
+        If rbnPink5.Checked Then
+            Settings.ThemeInt = 5
         End If
-        If (rbnThemeSun6.Checked) Then
-            SettingsThemeInt = 6
+        If rbnCarrot6.Checked Then
+            Settings.ThemeInt = 6
         End If
-        If (rbnThemeAlazarin7.Checked) Then
-            SettingsThemeInt = 7
+        If rbnYellow7.Checked Then
+            Settings.ThemeInt = 7
+        End If
+        If rbnAlazarin8.Checked Then
+            Settings.ThemeInt = 8
         End If
 
         'Apply theme to border
-        Select Case cbxApplyToBorder.CheckState
-            Case CheckState.Unchecked
-                SettingsThemeApplyToBorderInt = 0
-            Case CheckState.Checked
-                SettingsThemeApplyToBorderInt = 1
-            Case Else
-                SettingsThemeApplyToBorderInt = 0
-        End Select
+        If Not cbxApplyToBorder.Checked Then
+            Settings.ApplyThemeColorToBorder = 0
+        Else
+            Settings.ApplyThemeColorToBorder = 1
+        End If
+
+        'Custom Imgur Client ID
+        If rbnClientDisable.Checked Then
+            Settings.UseCustomImgurApiKey = 0
+        Else
+            If rbnClientEnable.Checked And tbxClientId.Text = "" Then
+                Settings.UseCustomImgurApiKey = 0
+            Else
+                Settings.UseCustomImgurApiKey = 1
+            End If
+
+        End If
 
     End Sub
 
     Private Sub CheckPortable()
 
-        If (IO.File.Exists(FileWorkingSettings)) And (IO.File.Exists(FileAppdataSettings)) Then
+        If File.Exists(Settings.WorkingDirFile) And File.Exists(Settings.AppdataFile) Then
 
             cmdWarn.Show()
 
@@ -378,74 +398,62 @@ Public Class FormSettings
             rbnAppdata.Enabled = False
 
         Else
-            If (IO.File.Exists(FileWorkingSettings)) Then
-                SettingsCore.BoolWorkingDirectory = True
+            If File.Exists(Settings.WorkingDirFile) Then
+                Settings.BoolWorkingDirectory = True
                 rbnAppath.Checked = True
             Else
-                If (IO.File.Exists(FileAppdataSettings)) Then
-                    SettingsCore.BoolWorkingDirectory = False
+                If File.Exists(Settings.AppdataFile) Then
+                    Settings.BoolWorkingDirectory = False
                     rbnAppdata.Checked = True
                 End If
             End If
         End If
 
     End Sub
-
-#End Region
-
-#Region "Update UI"
-
-    Private Sub ChildFormClosedNoRefresh(ByVal sender As Object, e As EventArgs)
-
-        ResetOpacity()
-
-    End Sub
-    Private Sub SetOpacity()
-
-        For FadeOut = 1.0 To 0.4 Step -0.2
-            Me.Opacity = FadeOut
-            Me.Refresh()
-            Threading.Thread.Sleep(10)
-        Next
-
-    End Sub
-    Private Sub ResetOpacity()
-
-        If (Opacity <> 0.4) Then
-            For FadeIn = 0.4 To 1.0 Step 0.2
-                Opacity = FadeIn
-                Refresh()
-                Threading.Thread.Sleep(10)
-            Next
-        End If
-
-    End Sub
-
-#End Region
-
-    'PLz mov me
     Private Sub MoveSettings()
 
         If rbnAppath.Checked Then 'Move to working dir
-            If Not File.Exists(FileWorkingSettings) Then
-                FHMove(FileAppdataSettings, FileWorkingSettings)
+            If Not File.Exists(Settings.WorkingDirFile) Then
+                FileHelper.MoveSafely(Settings.AppdataFile, Settings.WorkingDirFile)
             End If
         Else
             If rbnAppdata.Checked Then 'Move to appdata
-                If Not File.Exists(FileAppdataSettings) Then
-                    FHMove(FileWorkingSettings, FileAppdataSettings)
+                If Not File.Exists(Settings.AppdataFile) Then
+                    FileHelper.MoveSafely(Settings.WorkingDirFile, Settings.AppdataFile)
                 End If
             End If
         End If
 
     End Sub
 
-    Private Sub rbnClientDisable_CheckedChanged(sender As Object, e As EventArgs) Handles rbnClientDisable.CheckedChanged
+    Private Sub WriteClientID()
+
+        If rbnClientDisable.Checked Then
+            Settings.StringUserImgurClientId = ""
+        Else
+            Settings.StringUserImgurClientId = tbxClientId.Text
+        End If
+
+    End Sub
+
+    Private Sub RbnClientDisable_CheckedChanged(sender As Object, e As EventArgs) Handles rbnClientDisable.CheckedChanged
+        tbxClientId.Text = ""
         tbxClientId.Hide()
     End Sub
 
-    Private Sub rbnClientEnable_CheckedChanged(sender As Object, e As EventArgs) Handles rbnClientEnable.CheckedChanged
+    Private Sub RbnClientEnable_CheckedChanged(sender As Object, e As EventArgs) Handles rbnClientEnable.CheckedChanged
         tbxClientId.Show()
-        SetCueText(tbxClientId, "Enter Client ID")
+        ControlHelper.SetCueText(tbxClientId, "Enter Client ID")
     End Sub
+#End Region
+
+#Region "Update UI"
+
+    Private Sub ChildFormClosedNoRefresh(ByVal sender As Object, e As EventArgs)
+        Fade.RefadeIn(Me)
+    End Sub
+
+
+#End Region
+
 End Class

@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,46 +8,50 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
-'  FormAssessVerbose.vb
+'  Xiret project
+'  FormException.vb
 '  Created by David S on 11.12.2016 - Original code by Joshua H (PAYMYRENT) 
-'  Updated on 08/01/2019 - DS (Cleanup)
+'  Updated on 31.07.2019 - DS (Cleanup, update exception)
+'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
 Imports System.Threading
 Imports System.Net
 Imports System.Text
 
-Imports Xiret.Base.Converters
-Imports Xiret.Base.Helpers
-Imports Xiret.Base.Support
+Imports Core.Converters
+Imports Core.Helpers
+
+Imports Xiret.Prog.Support
 
 Public Class FormException
 
-#Region "Variables"
-
-    Private Property HasParent As Boolean
-
-    'Strings
     Private StringModules As String = Nothing
-    Public Shared StringBody As String = Nothing
+    Friend Shared StringBody As String = Nothing
 
-    'Threads
     Private ThreadBuildReport As Thread
     Private ThreadSend As Thread
 
-    'Delegate
     Private Delegate Sub StringDelegate(ByVal StringValue As String)
     Private Delegate Sub ErrorDelegate(ByVal StringError As String)
 
+#Region "Ctor"
+
+    Public Sub New()
+
+        InitializeComponent()
+        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
+
+    End Sub
+
 #End Region
 
-#Region "Frame Interaction"
+#Region "WndProc"
 
     Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
-            WndProc(Message.Create(Handle, WM_NCLBUTTONDOWN, CType(HT_CAPTION, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
 
     End Sub
@@ -55,29 +59,27 @@ Public Class FormException
 #End Region
 #Region "KeyDown Events"
     Private Sub FormException_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Escape Then : Close() : End If
+        If e.KeyCode = Keys.Escape Then
+            Close()
+        End If
     End Sub
 #End Region
 
 #Region "Theme"
     Private Sub SetExceptionThemeAccent()
 
-        pnlSplit.BackColor = GlobalThemeColor
+        pnlSplit.BackColor = Settings.ThemeColor
 
-        'Change buttons
         For Each c As Control In tlpButtons.Controls
-            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = GlobalThemeColor
+            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
         Next
 
-        'Apply border
-        If BoolThemeApplyBorder Then : BackColor = GlobalThemeColor
-        Else : BackColor = ColorBorderStandard
-        End If
+        Settings.SetBorderColor(Me)
 
     End Sub
 #End Region
 
-#Region "Load Event"
+#Region "Load Event Handler"
 
     Private Sub FormException_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -93,46 +95,48 @@ Public Class FormException
     End Sub
 
 #End Region
-#Region "Buttons"
 
-    Private Sub cmdContinue_Click(sender As Object, e As EventArgs) Handles cmdContinue.Click
+#Region "Button Event Handlers"
+
+    Private Sub CmdContinue_Click(sender As Object, e As EventArgs) Handles cmdContinue.Click
         Close()
     End Sub
 
-    Private Sub cmdForceQuit_Click(sender As Object, e As EventArgs) Handles cmdForceQuit.Click
+    Private Sub CmdForceQuit_Click(sender As Object, e As EventArgs) Handles cmdForceQuit.Click
         Environment.Exit(0)
     End Sub
 
-    Private Sub cmdSendReport_Click(sender As Object, e As EventArgs) Handles cmdSendReport.Click
+    Private Sub CmdSendReport_Click(sender As Object, e As EventArgs) Handles cmdSendReport.Click
 
-        If NHIsSiteAvailable(StringBitmightURL) Then
+        If NetHelper.IsWebsiteAvailable(Strings.StringBitmightUrl) Then
             lbStatus.Text = "Loading..."
             cmdSendReport.Enabled = False
             cmdForceQuit.Enabled = False
             cmdContinue.Enabled = False
             ThreadSend = New Thread(AddressOf SendErrorReport) With {.IsBackground = True} : ThreadSend.Start()
-        Else : lbStatus.Text = "Cannot reach bitmight.uk, check network connection."
+        Else
+            lbStatus.Text = "Cannot reach bitmight.uk, check network connection."
         End If
 
     End Sub
 
 #End Region
 
-#Region "Report Routines"
+#Region "Routines"
 
     Private Sub GenerateReport()
 
         Try
-            Dim ThisProcess As Process = Process.GetCurrentProcess
-            Dim XirVersion As String = Application.ProductVersion
-            Dim XirName As String = Application.ProductName
-            Dim XirDate As String = CStr(DateTime.Now.ToShortDateString & " at " & DateTime.Now.ToShortTimeString)
-            Dim XirPath As String = AppDomain.CurrentDomain.FriendlyName
+            Dim proc As Process = Process.GetCurrentProcess
+            Dim stringVersion As String = Application.ProductVersion
+            Dim stringName As String = Application.ProductName
+            Dim stringDate As String = Now.ToShortDateString & " at " & Now.ToShortTimeString
+            Dim stringPath As String = AppDomain.CurrentDomain.FriendlyName
             Dim SBuilder As New StringBuilder
             Dim IntModuleNumber As Integer = 0
 
 
-            For Each LoadedModule As ProcessModule In ThisProcess.Modules
+            For Each LoadedModule As ProcessModule In proc.Modules
 
                 IntModuleNumber += 1
                 Dim vIn As Integer = LoadedModule.ModuleMemorySize
@@ -141,11 +145,11 @@ Public Class FormException
                 With SBuilder
                     .AppendLine("  Module #" & IntModuleNumber & " -> " & "'" & LoadedModule.ModuleName & "'" & vbCrLf)
                     .AppendLine("Path: " & LoadedModule.FileName)
-                    .AppendLine("Version: " & CStr(LoadedModule.FileVersionInfo.FileVersion))
+                    .AppendLine("Version: " & LoadedModule.FileVersionInfo.FileVersion)
                     .AppendLine("Description: " & LoadedModule.FileVersionInfo.FileDescription)
-                    .AppendLine("Checksum: " & CryptoHelper.CHGeneratesha256(LoadedModule.FileName))
+                    .AppendLine("Checksum: " & CryptoHelper.GetSha256FromFile(LoadedModule.FileName))
                     .AppendLine("Size (Bytes): " & CStr(LoadedModule.ModuleMemorySize))
-                    .AppendLine("Size (Big): " & ConvertBigSize(vOut))
+                    .AppendLine("Size (Big): " & SizeConverter.ConvertBigSize(vOut))
                     .AppendLine("Base Address: " & LoadedModule.BaseAddress.ToString)
                     .AppendLine("Entry Point: " & LoadedModule.EntryPointAddress.ToString)
                     .AppendLine()
@@ -158,17 +162,17 @@ Public Class FormException
             SBuilder.Length = 0
 
             With SBuilder
-                .AppendLine("# // Unhandled exception caught in web on " & XirDate & vbCrLf)
+                .AppendLine("# // Unhandled exception caught in web on " & stringDate & vbCrLf)
                 .AppendLine("<-- Application -->" & vbCrLf)
-                .AppendLine("Name: " & XirName)
-                .AppendLine("Version: " & XirVersion)
-                .AppendLine("Checksum: " & CryptoHelper.CHGeneratesha256(XirPath))
-                .AppendLine("ProcessID: " & ThisProcess.Id & vbCrLf)
+                .AppendLine("Name: " & stringName)
+                .AppendLine("Version: " & stringVersion)
+                .AppendLine("Checksum: " & CryptoHelper.GetSha256FromFile(stringPath))
+                .AppendLine("ProcessID: " & proc.Id & vbCrLf)
                 .AppendLine("<-- Environment -->" & vbCrLf)
-                .AppendLine("Operating System: " & OSHelper.OSHGetName() & " (" & OSHelper.OSHKernelVersion.ProductVersion() & ")")
-                .AppendLine("Platform Architecture: " & OSHelper.OSHGetBitness())
-                .AppendLine("WinSAT Executable: " & OSHelper.OSHWinsatVersion.ProductVersion())
-                .AppendLine("WinSAT API: " & OSHelper.OSHWinsatApiVersion.ProductVersion() & vbCrLf)
+                .AppendLine("Operating System: " & OSHelper.GetOSName() & " (" & OSHelper.GetKernelVersion.ProductVersion() & ")")
+                .AppendLine("Platform Architecture: " & OSHelper.GetOSBitness())
+                .AppendLine("WinSAT Executable: " & OSHelper.GetWinsatVersion.ProductVersion())
+                .AppendLine("WinSAT API: " & OSHelper.GetWinsatApiVersion.ProductVersion() & vbCrLf)
                 .AppendLine("<-- Exception -->" & vbCrLf)
                 .AppendLine(ApplicationSupport.StringException & vbCrLf)
                 .AppendLine("<-- Callstack -->" & vbCrLf)
@@ -180,7 +184,7 @@ Public Class FormException
             End With
 
             StringBody = SBuilder.ToString
-            StringBodyFull = StringBody
+            Strings.StringBodyFull = StringBody
             SBuilder = Nothing
 
             lbStatus.Invoke(DirectCast(Sub() lbStatus.Text = "Report ready to send", MethodInvoker))
@@ -197,17 +201,17 @@ Public Class FormException
         lbStatus.Invoke(DirectCast(Sub() lbStatus.Text = "Sending report...", MethodInvoker))
 
         Try
-            Dim StringURL As String = "https://www.bitmight.uk/software/xiret/autogen/autogen.php?program=Xiret"
+            Dim stringUrl As String = "https://www.bitmight.uk/software/xiret/autogen/autogen.php?program=Xiret"
 
-            Using WClient As New WebClient
+            Using client As New WebClient
 
                 Dim SetCachePolicy As Cache.RequestCachePolicy = New Cache.RequestCachePolicy(Cache.RequestCacheLevel.NoCacheNoStore)
-                WClient.CachePolicy = SetCachePolicy
+                client.CachePolicy = SetCachePolicy
 
-                Dim WParams As New Specialized.NameValueCollection From {{"report", StringBody}}
+                Dim params As New Specialized.NameValueCollection From {{"report", StringBody}}
 
-                Dim ResBytes = WClient.UploadValues(StringURL, "POST", WParams)
-                Dim StringResponse As String = Encoding.UTF8.GetString(ResBytes)
+                Dim bytes = client.UploadValues(stringUrl, "POST", params)
+                Dim StringResponse As String = Encoding.UTF8.GetString(bytes)
 
                 Invoke(New StringDelegate(AddressOf InvokeString), New Object() {StringResponse})
 
@@ -227,7 +231,7 @@ Public Class FormException
 #Region "Delegate Routines"
 
     Private Sub InvokeError(ByVal StringError As String)
-        MessageBox.Show(StringError)
+        MessageBox.Show(StringError, "FormException.SendErrorReport", MessageBoxButtons.OK, MessageBoxIcon.Error)
     End Sub
 
     Private Sub InvokeString(ByVal StringValue As String)

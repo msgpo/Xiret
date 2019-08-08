@@ -24,6 +24,7 @@ Namespace Controls
     <Designer(GetType(GambolSwitchDesigner))>
     Public Class GambolSwitch
         Inherits CheckBox
+
         Public Sub New()
 
             SetStyle(ControlStyles.AllPaintingInWmPaint Or ControlStyles.OptimizedDoubleBuffer Or ControlStyles.ResizeRedraw, True)
@@ -115,13 +116,13 @@ Namespace Controls
         End Property
 
 #End Region
-
-#Region "Paint methods"
+#Region "Paint"
 
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
-            Dim g As Graphics = e.Graphics
-            g.Clear(BackColor)
+            Dim G As Graphics = e.Graphics
+
+            G.Clear(BackColor)
 
             Dim ColorBorderLine As Color
             If Enabled Then
@@ -133,7 +134,7 @@ Namespace Controls
             Using BPen As New Pen(ColorBorderLine) With {.Width = 1.9F}
                 Dim X As Integer = Width - 1
                 Dim Rect As New Rectangle(0, 0, X, ClientRectangle.Height - 1)
-                g.DrawRectangle(BPen, Rect)
+                G.DrawRectangle(BPen, Rect)
             End Using
 
             Dim ColorClientFill As Color
@@ -152,7 +153,7 @@ Namespace Controls
             Using SBrush As New SolidBrush(ColorClientFill)
                 Dim X As Integer = Width - 4
                 Dim Rect As New Rectangle(2, 2, X, (ClientRectangle.Height - 4))
-                g.FillRectangle(SBrush, Rect)
+                G.FillRectangle(SBrush, Rect)
             End Using
 
             Dim ColorBackColor As Color = BackColor
@@ -160,7 +161,7 @@ Namespace Controls
             Using SBrush As New SolidBrush(ColorBackColor)
                 Dim Int As Integer = CInt(If(Checked, Width - Width / 3 - 1, 0))
                 Dim Rect As New Rectangle(Int, 0, CInt(ClientRectangle.Width / 3 + 1), ClientRectangle.Height)
-                g.FillRectangle(SBrush, Rect)
+                G.FillRectangle(SBrush, Rect)
             End Using
 
             Using SBrush As New SolidBrush(SwitchHeadColor)

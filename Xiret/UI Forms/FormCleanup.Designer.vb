@@ -26,22 +26,22 @@ Partial Class FormCleanup
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormCleanup))
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.BtnClose = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
         Me.lbHead = New System.Windows.Forms.Label()
         Me.sOne = New System.Windows.Forms.Label()
         Me.pnlReset = New System.Windows.Forms.Panel()
-        Me.cmdReset = New System.Windows.Forms.Button()
-        Me.cbxResetWinsat = New Gambol.Controls.GambolCheckbox()
-        Me.sSeven = New System.Windows.Forms.Label()
+        Me.CmdReset = New System.Windows.Forms.Button()
+        Me.CbxResetWinsat = New Gambol.Controls.GambolCheckbox()
+        Me.sTwo = New System.Windows.Forms.Label()
         Me.Panel7 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlPurge = New System.Windows.Forms.Panel()
-        Me.cmdPurge = New System.Windows.Forms.Button()
-        Me.cbxPurgeSettings = New Gambol.Controls.GambolCheckbox()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
+        Me.CmdPurge = New System.Windows.Forms.Button()
+        Me.CbxPurgeSettings = New Gambol.Controls.GambolCheckbox()
+        Me.sFour = New System.Windows.Forms.Label()
+        Me.sThree = New System.Windows.Forms.Label()
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlHead.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
@@ -56,7 +56,7 @@ Partial Class FormCleanup
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.BtnClose)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
@@ -66,24 +66,24 @@ Partial Class FormCleanup
         Me.pnlHead.Size = New System.Drawing.Size(488, 40)
         Me.pnlHead.TabIndex = 0
         '
-        'BtnClose
+        'CmdClose
         '
-        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
-        Me.BtnClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnClose.FlatAppearance.BorderSize = 0
-        Me.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.Font = New System.Drawing.Font("Segoe UI", 10.8!)
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.Location = New System.Drawing.Point(448, 0)
-        Me.BtnClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(40, 40)
-        Me.BtnClose.TabIndex = 71
-        Me.BtnClose.TabStop = False
-        Me.BtnClose.Text = "✕"
-        Me.BtnClose.UseVisualStyleBackColor = False
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!)
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(448, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 71
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -97,7 +97,7 @@ Partial Class FormCleanup
         Me.tlpIcon.Name = "tlpIcon"
         Me.tlpIcon.RowCount = 1
         Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(51, 40)
+        Me.tlpIcon.Size = New System.Drawing.Size(43, 40)
         Me.tlpIcon.TabIndex = 73
         '
         'pbxMain
@@ -143,9 +143,9 @@ Partial Class FormCleanup
         '
         Me.pnlReset.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlReset.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.pnlReset.Controls.Add(Me.cmdReset)
-        Me.pnlReset.Controls.Add(Me.cbxResetWinsat)
-        Me.pnlReset.Controls.Add(Me.sSeven)
+        Me.pnlReset.Controls.Add(Me.CmdReset)
+        Me.pnlReset.Controls.Add(Me.CbxResetWinsat)
+        Me.pnlReset.Controls.Add(Me.sTwo)
         Me.pnlReset.Controls.Add(Me.sOne)
         Me.pnlReset.Location = New System.Drawing.Point(8, 8)
         Me.pnlReset.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
@@ -153,53 +153,53 @@ Partial Class FormCleanup
         Me.pnlReset.Size = New System.Drawing.Size(472, 118)
         Me.pnlReset.TabIndex = 119
         '
-        'cmdReset
+        'CmdReset
         '
-        Me.cmdReset.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdReset.Enabled = False
-        Me.cmdReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdReset.FlatAppearance.BorderSize = 0
-        Me.cmdReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdReset.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdReset.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdReset.Location = New System.Drawing.Point(384, 80)
-        Me.cmdReset.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdReset.Name = "cmdReset"
-        Me.cmdReset.Size = New System.Drawing.Size(80, 30)
-        Me.cmdReset.TabIndex = 129
-        Me.cmdReset.Text = "Reset"
-        Me.cmdReset.UseVisualStyleBackColor = False
+        Me.CmdReset.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdReset.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CmdReset.Enabled = False
+        Me.CmdReset.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdReset.FlatAppearance.BorderSize = 0
+        Me.CmdReset.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdReset.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdReset.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdReset.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdReset.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdReset.Location = New System.Drawing.Point(384, 80)
+        Me.CmdReset.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdReset.Name = "CmdReset"
+        Me.CmdReset.Size = New System.Drawing.Size(80, 30)
+        Me.CmdReset.TabIndex = 129
+        Me.CmdReset.Text = "Reset"
+        Me.CmdReset.UseVisualStyleBackColor = False
         '
-        'cbxResetWinsat
+        'CbxResetWinsat
         '
-        Me.cbxResetWinsat.ActiveCheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cbxResetWinsat.ActiveBorderColor = System.Drawing.Color.White
-        Me.cbxResetWinsat.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.cbxResetWinsat.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbxResetWinsat.CheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.cbxResetWinsat.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxResetWinsat.ForeColor = System.Drawing.Color.White
-        Me.cbxResetWinsat.Location = New System.Drawing.Point(19, 84)
-        Me.cbxResetWinsat.Margin = New System.Windows.Forms.Padding(2)
-        Me.cbxResetWinsat.Name = "cbxResetWinsat"
-        Me.cbxResetWinsat.Size = New System.Drawing.Size(88, 22)
-        Me.cbxResetWinsat.TabIndex = 120
-        Me.cbxResetWinsat.Text = "I agree"
-        Me.cbxResetWinsat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CbxResetWinsat.ActiveBorderColor = System.Drawing.Color.White
+        Me.CbxResetWinsat.ActiveCheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.CbxResetWinsat.CheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CbxResetWinsat.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CbxResetWinsat.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbxResetWinsat.ForeColor = System.Drawing.Color.White
+        Me.CbxResetWinsat.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.CbxResetWinsat.Location = New System.Drawing.Point(19, 84)
+        Me.CbxResetWinsat.Margin = New System.Windows.Forms.Padding(2)
+        Me.CbxResetWinsat.Name = "CbxResetWinsat"
+        Me.CbxResetWinsat.Size = New System.Drawing.Size(88, 22)
+        Me.CbxResetWinsat.TabIndex = 120
+        Me.CbxResetWinsat.Text = "I agree"
+        Me.CbxResetWinsat.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'sSeven
+        'sTwo
         '
-        Me.sSeven.AutoSize = True
-        Me.sSeven.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.sSeven.Location = New System.Drawing.Point(12, 31)
-        Me.sSeven.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.sSeven.Name = "sSeven"
-        Me.sSeven.Size = New System.Drawing.Size(424, 38)
-        Me.sSeven.TabIndex = 114
-        Me.sSeven.Text = "Deletes all system scores and the log file. Deletion is permanent and" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "cannot be " &
+        Me.sTwo.AutoSize = True
+        Me.sTwo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.sTwo.Location = New System.Drawing.Point(12, 31)
+        Me.sTwo.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.sTwo.Name = "sTwo"
+        Me.sTwo.Size = New System.Drawing.Size(424, 38)
+        Me.sTwo.TabIndex = 114
+        Me.sTwo.Text = "Deletes all system scores and the log file. Deletion is permanent and" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "cannot be " &
     "reversed. Application will restart."
         '
         'Panel7
@@ -236,76 +236,76 @@ Partial Class FormCleanup
         '
         Me.pnlPurge.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.pnlPurge.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.pnlPurge.Controls.Add(Me.cmdPurge)
-        Me.pnlPurge.Controls.Add(Me.cbxPurgeSettings)
-        Me.pnlPurge.Controls.Add(Me.Label2)
-        Me.pnlPurge.Controls.Add(Me.Label3)
+        Me.pnlPurge.Controls.Add(Me.CmdPurge)
+        Me.pnlPurge.Controls.Add(Me.CbxPurgeSettings)
+        Me.pnlPurge.Controls.Add(Me.sFour)
+        Me.pnlPurge.Controls.Add(Me.sThree)
         Me.pnlPurge.Location = New System.Drawing.Point(8, 128)
         Me.pnlPurge.Margin = New System.Windows.Forms.Padding(0, 0, 0, 2)
         Me.pnlPurge.Name = "pnlPurge"
         Me.pnlPurge.Size = New System.Drawing.Size(472, 118)
         Me.pnlPurge.TabIndex = 120
         '
-        'cmdPurge
+        'CmdPurge
         '
-        Me.cmdPurge.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdPurge.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdPurge.Enabled = False
-        Me.cmdPurge.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdPurge.FlatAppearance.BorderSize = 0
-        Me.cmdPurge.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdPurge.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdPurge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdPurge.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdPurge.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdPurge.Location = New System.Drawing.Point(384, 80)
-        Me.cmdPurge.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdPurge.Name = "cmdPurge"
-        Me.cmdPurge.Size = New System.Drawing.Size(80, 30)
-        Me.cmdPurge.TabIndex = 129
-        Me.cmdPurge.Text = "Purge"
-        Me.cmdPurge.UseVisualStyleBackColor = False
+        Me.CmdPurge.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdPurge.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CmdPurge.Enabled = False
+        Me.CmdPurge.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdPurge.FlatAppearance.BorderSize = 0
+        Me.CmdPurge.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdPurge.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdPurge.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdPurge.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdPurge.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdPurge.Location = New System.Drawing.Point(384, 80)
+        Me.CmdPurge.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdPurge.Name = "CmdPurge"
+        Me.CmdPurge.Size = New System.Drawing.Size(80, 30)
+        Me.CmdPurge.TabIndex = 129
+        Me.CmdPurge.Text = "Purge"
+        Me.CmdPurge.UseVisualStyleBackColor = False
         '
-        'cbxPurgeSettings
+        'CbxPurgeSettings
         '
-        Me.cbxPurgeSettings.ActiveCheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cbxPurgeSettings.ActiveBorderColor = System.Drawing.Color.White
-        Me.cbxPurgeSettings.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.cbxPurgeSettings.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cbxPurgeSettings.CheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.cbxPurgeSettings.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbxPurgeSettings.ForeColor = System.Drawing.Color.White
-        Me.cbxPurgeSettings.Location = New System.Drawing.Point(19, 84)
-        Me.cbxPurgeSettings.Margin = New System.Windows.Forms.Padding(2)
-        Me.cbxPurgeSettings.Name = "cbxPurgeSettings"
-        Me.cbxPurgeSettings.Size = New System.Drawing.Size(88, 22)
-        Me.cbxPurgeSettings.TabIndex = 121
-        Me.cbxPurgeSettings.Text = "I agree"
-        Me.cbxPurgeSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CbxPurgeSettings.ActiveBorderColor = System.Drawing.Color.White
+        Me.CbxPurgeSettings.ActiveCheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.CbxPurgeSettings.CheckboxBackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CbxPurgeSettings.CheckedColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CbxPurgeSettings.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CbxPurgeSettings.ForeColor = System.Drawing.Color.White
+        Me.CbxPurgeSettings.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.CbxPurgeSettings.Location = New System.Drawing.Point(19, 84)
+        Me.CbxPurgeSettings.Margin = New System.Windows.Forms.Padding(2)
+        Me.CbxPurgeSettings.Name = "CbxPurgeSettings"
+        Me.CbxPurgeSettings.Size = New System.Drawing.Size(88, 22)
+        Me.CbxPurgeSettings.TabIndex = 121
+        Me.CbxPurgeSettings.Text = "I agree"
+        Me.CbxPurgeSettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Label2
+        'sFour
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
-        Me.Label2.Location = New System.Drawing.Point(12, 31)
-        Me.Label2.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(386, 38)
-        Me.Label2.TabIndex = 114
-        Me.Label2.Text = "Removes all Xiret files, folders and logs. Deletion is permanent" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and cannot be r" &
+        Me.sFour.AutoSize = True
+        Me.sFour.ForeColor = System.Drawing.Color.FromArgb(CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer), CType(CType(235, Byte), Integer))
+        Me.sFour.Location = New System.Drawing.Point(12, 31)
+        Me.sFour.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.sFour.Name = "sFour"
+        Me.sFour.Size = New System.Drawing.Size(386, 38)
+        Me.sFour.TabIndex = 114
+        Me.sFour.Text = "Removes all Xiret files, folders and logs. Deletion is permanent" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "and cannot be r" &
     "eversed. Application will exit."
         '
-        'Label3
+        'sThree
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(8, 6)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(144, 23)
-        Me.Label3.TabIndex = 107
-        Me.Label3.Text = "Purge application"
+        Me.sThree.AutoSize = True
+        Me.sThree.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sThree.ForeColor = System.Drawing.Color.White
+        Me.sThree.Location = New System.Drawing.Point(8, 6)
+        Me.sThree.Margin = New System.Windows.Forms.Padding(2, 0, 2, 0)
+        Me.sThree.Name = "sThree"
+        Me.sThree.Size = New System.Drawing.Size(144, 23)
+        Me.sThree.TabIndex = 107
+        Me.sThree.Text = "Purge application"
         '
         'pnlSplit
         '
@@ -353,20 +353,20 @@ Partial Class FormCleanup
     End Sub
     Friend WithEvents pnlHead As System.Windows.Forms.Panel
     Friend WithEvents lbHead As System.Windows.Forms.Label
-    Friend WithEvents BtnClose As System.Windows.Forms.Button
+    Friend WithEvents CmdClose As System.Windows.Forms.Button
     Friend WithEvents sOne As System.Windows.Forms.Label
     Friend WithEvents pnlReset As System.Windows.Forms.Panel
-    Friend WithEvents sSeven As System.Windows.Forms.Label
+    Friend WithEvents sTwo As System.Windows.Forms.Label
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents pnlSplit As System.Windows.Forms.Panel
     Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
     Friend WithEvents pnlPurge As System.Windows.Forms.Panel
-    Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents cbxResetWinsat As GambolCheckbox
-    Friend WithEvents cbxPurgeSettings As GambolCheckbox
-    Friend WithEvents cmdReset As System.Windows.Forms.Button
-    Friend WithEvents cmdPurge As System.Windows.Forms.Button
+    Friend WithEvents sFour As System.Windows.Forms.Label
+    Friend WithEvents sThree As System.Windows.Forms.Label
+    Friend WithEvents CbxResetWinsat As GambolCheckbox
+    Friend WithEvents CbxPurgeSettings As GambolCheckbox
+    Friend WithEvents CmdReset As System.Windows.Forms.Button
+    Friend WithEvents CmdPurge As System.Windows.Forms.Button
 End Class

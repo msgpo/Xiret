@@ -156,33 +156,35 @@ Namespace Controls
 
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
-            Dim g As Graphics = e.Graphics
-            Dim rect As New Rectangle(0, 0, ClientRectangle.Width, ClientRectangle.Height)
+            Dim G As Graphics = e.Graphics
+            Dim ControlRectangle As New Rectangle(0, 0, ClientRectangle.Width, ClientRectangle.Height)
 
             If BlendBackground Then
-                Using b As New LinearGradientBrush(rect, BlendPrimaryColor, BlendSecondaryColor, BlendDirection)
-                    g.SmoothingMode = Smoothing
-                    g.FillRectangle(b, rect)
+                Using LGBrush As New LinearGradientBrush(ControlRectangle, BlendPrimaryColor, BlendSecondaryColor, BlendDirection)
+                    G.SmoothingMode = Smoothing
+                    G.FillRectangle(LGBrush, ControlRectangle)
                 End Using
             Else
-                Dim b As Brush = New SolidBrush(BackColor)
-                g.FillRectangle(b, rect)
+                Dim SBrush As Brush = New SolidBrush(BackColor)
+                G.FillRectangle(SBrush, ControlRectangle)
             End If
 
             If ShowSeperator Then
-                Using p As New Pen(SeperatorColor) With {.Width = 1.0F}
+                Using SepPen As New Pen(SeperatorColor) With {.Width = 1.0F}
                     Select Case SeperatorLocation
                         Case SeperatorType.Left
-                            g.DrawLine(p, 0, 0, 0, Height)
+                            G.DrawLine(SepPen, 0, 0, 0, Height)
                         Case SeperatorType.Top
-                            g.DrawLine(p, 0, 0, Width, 0)
+                            G.DrawLine(SepPen, 0, 0, Width, 0)
                         Case SeperatorType.Right
-                            g.DrawLine(p, Width - 1, 0, Width - 1, Height)
+                            G.DrawLine(SepPen, Width - 1, 0, Width - 1, Height)
                         Case SeperatorType.Bottom
-                            g.DrawLine(p, 0, Height - 1, Width, Height - 1)
+                            G.DrawLine(SepPen, 0, Height - 1, Width, Height - 1)
                     End Select
                 End Using
             End If
+
+            ControlRectangle = Nothing
 
         End Sub
 

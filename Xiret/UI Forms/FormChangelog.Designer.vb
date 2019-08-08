@@ -25,18 +25,20 @@ Partial Class FormChangelog
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormChangelog))
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
-        Me.lbHead = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
         Me.rtbChanges = New System.Windows.Forms.RichTextBox()
+        Me.tlpHead = New System.Windows.Forms.TableLayoutPanel()
+        Me.lbHead = New System.Windows.Forms.Label()
         Me.pnlHead.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.Panel1.SuspendLayout()
         Me.TableLayoutPanel1.SuspendLayout()
+        Me.tlpHead.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlSplit
@@ -52,9 +54,9 @@ Partial Class FormChangelog
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.cmdClose)
+        Me.pnlHead.Controls.Add(Me.tlpHead)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
-        Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHead.Location = New System.Drawing.Point(1, 1)
         Me.pnlHead.Margin = New System.Windows.Forms.Padding(4)
@@ -62,24 +64,24 @@ Partial Class FormChangelog
         Me.pnlHead.Size = New System.Drawing.Size(858, 40)
         Me.pnlHead.TabIndex = 73
         '
-        'cmdClose
+        'CmdClose
         '
-        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdClose.FlatAppearance.BorderSize = 0
-        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdClose.ForeColor = System.Drawing.Color.White
-        Me.cmdClose.Location = New System.Drawing.Point(818, 0)
-        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.cmdClose.TabIndex = 95
-        Me.cmdClose.TabStop = False
-        Me.cmdClose.Text = "✕"
-        Me.cmdClose.UseVisualStyleBackColor = False
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(818, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 95
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -93,7 +95,7 @@ Partial Class FormChangelog
         Me.tlpIcon.Name = "tlpIcon"
         Me.tlpIcon.RowCount = 1
         Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(41, 40)
+        Me.tlpIcon.Size = New System.Drawing.Size(40, 40)
         Me.tlpIcon.TabIndex = 74
         '
         'pbxMain
@@ -109,19 +111,6 @@ Partial Class FormChangelog
         Me.pbxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.pbxMain.TabIndex = 1
         Me.pbxMain.TabStop = False
-        '
-        'lbHead
-        '
-        Me.lbHead.BackColor = System.Drawing.Color.Transparent
-        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbHead.ForeColor = System.Drawing.Color.White
-        Me.lbHead.Location = New System.Drawing.Point(373, 2)
-        Me.lbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbHead.Name = "lbHead"
-        Me.lbHead.Size = New System.Drawing.Size(115, 38)
-        Me.lbHead.TabIndex = 69
-        Me.lbHead.Text = "Changelog"
-        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Panel1
         '
@@ -164,6 +153,34 @@ Partial Class FormChangelog
         Me.rtbChanges.TabStop = False
         Me.rtbChanges.Text = "" & Global.Microsoft.VisualBasic.ChrW(10)
         '
+        'tlpHead
+        '
+        Me.tlpHead.BackColor = System.Drawing.Color.Transparent
+        Me.tlpHead.ColumnCount = 1
+        Me.tlpHead.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpHead.Controls.Add(Me.lbHead, 0, 0)
+        Me.tlpHead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpHead.Location = New System.Drawing.Point(40, 0)
+        Me.tlpHead.Name = "tlpHead"
+        Me.tlpHead.RowCount = 1
+        Me.tlpHead.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpHead.Size = New System.Drawing.Size(778, 40)
+        Me.tlpHead.TabIndex = 96
+        '
+        'lbHead
+        '
+        Me.lbHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lbHead.BackColor = System.Drawing.Color.Transparent
+        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbHead.ForeColor = System.Drawing.Color.White
+        Me.lbHead.Location = New System.Drawing.Point(331, 1)
+        Me.lbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbHead.Name = "lbHead"
+        Me.lbHead.Size = New System.Drawing.Size(115, 38)
+        Me.lbHead.TabIndex = 70
+        Me.lbHead.Text = "Changelog"
+        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
         'FormChangelog
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -175,6 +192,7 @@ Partial Class FormChangelog
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.pnlSplit)
         Me.Controls.Add(Me.pnlHead)
+        Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
@@ -189,17 +207,19 @@ Partial Class FormChangelog
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.tlpHead.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents pnlSplit As Panel
     Friend WithEvents pnlHead As Panel
-    Friend WithEvents cmdClose As Button
+    Friend WithEvents CmdClose As Button
     Friend WithEvents tlpIcon As TableLayoutPanel
     Friend WithEvents pbxMain As PictureBox
-    Friend WithEvents lbHead As Label
     Friend WithEvents Panel1 As Panel
     Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
     Friend WithEvents rtbChanges As RichTextBox
+    Friend WithEvents tlpHead As TableLayoutPanel
+    Friend WithEvents lbHead As Label
 End Class

@@ -18,8 +18,9 @@ Namespace WinApi
 
     Public Class SetProcessDPIAwareA
 
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Auto, SetLastError:=True)>
-        Shared Function SetProcessDPIAware() As Boolean
+        '// http://pinvoke.net/default.aspx/user32.SetProcessDPIAware
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Public Shared Function SetProcessDPIAware() As Boolean
         End Function
 
     End Class

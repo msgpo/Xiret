@@ -89,11 +89,11 @@
     <Import Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\Variables\Integers.vb" />
-    <Compile Include="FormMain.vb">
+    <Compile Include="Variables\Integers.vb" />
+    <Compile Include="UI Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.vb">
+    <Compile Include="UI Forms\FormMain.Designer.vb">
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
@@ -112,10 +112,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Base\Program.vb" />
+    <Compile Include="Program.vb" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="FormMain.resx">
+    <EmbeddedResource Include="UI Forms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">

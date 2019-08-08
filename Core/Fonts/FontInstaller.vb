@@ -11,10 +11,9 @@
 '  Core class library
 '  FontInstaller.vb
 '  Created by David S on 08.01.2019
-'  Updated on 14.07.2019 - DS (Update parameters, update routine name)
+'  Updated on 27.07.2019 - DS (Combined to one routine, added args to InstallFont())
 
 Imports System.IO
-Imports System.Windows.Forms
 
 Imports Core.WinApi
 
@@ -22,42 +21,41 @@ Namespace Fonts
 
     Public Class FontInstaller
 
-        Public Shared ReadOnly FileFont As String = Environment.GetFolderPath(Environment.SpecialFolder.Fonts) & "\seguisb.ttf"
+        Public Shared ReadOnly SegoeUISemiBoldResource As Byte() = My.Resources.seguisb
+        Public Shared ReadOnly FileFontStatic As String = Environment.GetFolderPath(Environment.SpecialFolder.Fonts) & "\seguisb.ttf"
         Public Shared ReadOnly FileFontFallback As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) & "\seguisb.ttf"
+
+        Public Shared FontInstallerError As String = ""
+
         Private Const WM_FONTCHANGE As Integer = &H1D
         Private Const HWND_BROADCAST As Integer = &HFFFF
 
-#Region "Routines"
-        Shared Function WriteFontToDisk() As Boolean
+        Public Shared Function InstallFont(FontToInstall As Byte(), ProfileName As String, FileName As String, FallbackFileOnFail As String) As Integer
+
+            '// This needs more work.
+
             Try
-                File.WriteAllBytes(FileFont, My.Resources.seguisb)
-                If File.Exists(FileFont) Then : Return True
-                Else : Return False
-                End If
-            Catch ex As Exception
-                Return False
-            End Try
-        End Function
-        Shared Sub InstallFont(profileName As String, fileName As String)
-            Try
-                If Not WriteFontToDisk() Then
-                    File.WriteAllBytes(FileFontFallback, My.Resources.seguisb)
-                    MessageBox.Show("Couldn't install the seguisb.ttf font. Please install it manually (Placed on Desktop).", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning)
-                    Exit Sub
+                File.WriteAllBytes(FileFontStatic, FontToInstall)
+
+                If File.Exists(FileFontStatic) Then
+                    Dim IntRet As Integer = AddFontResourceA.AddFontResource(FileFontStatic)
+                    Dim IntRes As Integer = SendMessageA.SendMessage(CType(HWND_BROADCAST, IntPtr), WM_FONTCHANGE, 0, CType(0, IntPtr))
+                    IntRet = WriteProfileStringA.WriteProfileString("fonts", ProfileName, FileName)
+                    Return 1 'Install success
                 Else
-                    Dim IntRet As Integer
-                    Dim IntRes As Integer
-
-                    IntRet = AddFontResourceA.AddFontResource(FileFont)
-                    IntRes = SendMessageA.SendMessage(CType(HWND_BROADCAST, IntPtr), WM_FONTCHANGE, 0, CType(0, IntPtr))
-                    IntRet = WriteProfileStringA.WriteProfileString("fonts", profileName, fileName)
-
+                    File.WriteAllBytes(FallbackFileOnFail, FontToInstall)
+                    If File.Exists(FallbackFileOnFail) Then
+                        Return 2 'Fallback location was used for manual install.
+                    Else
+                        Return 3 'Couldn't dump the fallback to disk. Maybe place it elsewhere manually using SegoeUISemiBoldResource
+                    End If
                 End If
             Catch ex As Exception
-                MessageBox.Show(ex.ToString, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                FontInstallerError = ex.ToString
+                Return 0 'Error
             End Try
-        End Sub
-#End Region
+
+        End Function
 
     End Class
 

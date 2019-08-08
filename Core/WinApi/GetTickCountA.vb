@@ -18,8 +18,9 @@ Namespace WinApi
 
     Public Class GetTickCountA
 
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Auto, ExactSpelling:=True)>
-        Shared Function GetTickCount() As Integer
+        '// http://pinvoke.net/default.aspx/kernel32.GetTickCount
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Public Shared Function GetTickCount() As Integer
         End Function
 
     End Class

@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,86 +8,80 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
+'  Xiret project
 '  FormCleanup.vb
 '  Created by David S on 01.11.2018
-'  Some code moved from settings (WinSAT)
-'  Updated on 29.06.2019 - DS (Moved multiple code blocks into BatchRemoveFiles routine)
+'  Updated on 31.07.2019 - DS (Cleanup)
+'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
 Imports System.IO
-Imports System.Threading
+
+Imports Core.Animation
 
 Imports Gambol.Controls
 
 Public Class FormCleanup
 
-#Region "Frame Interaction"
+#Region "Ctor"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Public Sub New()
+
+        InitializeComponent()
+        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
+
+    End Sub
+
+#End Region
+
+#Region "WndProc"
+
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
-            Me.WndProc(Message.Create(Me.Handle, WM_NCLBUTTONDOWN, CType(HT_CAPTION, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
 
     End Sub
 
 #End Region
 #Region "KeyDown Events"
-    Private Sub FormSettings_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Escape Then : Me.Close() : End If
+    Private Sub FormCleanup_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Close()
+        End If
     End Sub
 
 #End Region
 #Region "Frame Buttons"
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
-        Me.Close()
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+        Close()
     End Sub
 #End Region
 
-#Region "Load Event"
+#Region "Load Event Handler"
 
-    Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FormCleanup_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        Me.Opacity = 0
-
-        'Set form theme
+        'Set opacity
+        Opacity = 0
+        'Set theme color
         SetCleanupThemeAccent()
 
     End Sub
 
 #End Region
-#Region "Shown Event"
+#Region "Shown Event Handler"
 
-    Private Sub FormSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
-        Try
-            For FadeIn = 0.0 To 1.0 Step 0.2
-                Me.Opacity = FadeIn
-                Me.Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Me.Opacity = 1.0
-        End Try
-
+    Private Sub FormCleanup_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Fade.FadeIn(Me)
     End Sub
 
 #End Region
-#Region "Closed Event"
+#Region "Closed Event Handler"
 
-    Private Sub FormSettings_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-
-        Try
-            For FadeOut = 1.0 To 0.0 Step -0.2
-                Me.Opacity = FadeOut
-                Me.Refresh()
-                Threading.Thread.Sleep(10)
-            Next
-        Catch
-            Me.Close()
-        End Try
-
+    Private Sub FormCleanup_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Fade.FadeOut(Me)
     End Sub
 
 #End Region
@@ -95,44 +89,42 @@ Public Class FormCleanup
 #Region "Theme"
     Private Sub SetCleanupThemeAccent()
 
-        pnlSplit.BackColor = GlobalThemeColor
+        pnlSplit.BackColor = Settings.ThemeColor
 
-        cbxResetWinsat.CheckedColor = GlobalThemeColor
-        cbxPurgeSettings.CheckedColor = GlobalThemeColor
+        CbxResetWinsat.CheckedColor = Settings.ThemeColor
+        CbxPurgeSettings.CheckedColor = Settings.ThemeColor
 
-        cmdReset.ForeColor = GlobalThemeColor
-        cmdPurge.ForeColor = GlobalThemeColor
+        CmdReset.ForeColor = Settings.ThemeColor
+        CmdPurge.ForeColor = Settings.ThemeColor
 
-        If (BoolThemeApplyBorder) Then : Me.BackColor = GlobalThemeColor
-        Else : Me.BackColor = ColorBorderStandard
-        End If
+        Settings.SetBorderColor(Me)
 
     End Sub
 
 #End Region
 
-#Region "Button Handlers"
+#Region "Button Event Handlers"
 
-    Private Sub cmdReset_Click(sender As Object, e As EventArgs) Handles cmdReset.Click
+    Private Sub CmdReset_Click(sender As Object, e As EventArgs) Handles CmdReset.Click
 
         'Delete system scores
-        BatchRemoveFiles("*.xml", DirWinsatDatastore)
+        BatchRemoveFiles("*.xml", Directories.DirWinsatDatastore)
         'Delete winsat log
-        BatchRemoveFiles("*.log", DirWinsat)
+        BatchRemoveFiles("*.log", Directories.DirWinsat)
         'Restart application
         Application.Restart()
 
     End Sub
-    Private Sub cmdPurge_Click(sender As Object, e As EventArgs) Handles cmdPurge.Click
+    Private Sub CmdPurge_Click(sender As Object, e As EventArgs) Handles CmdPurge.Click
 
         'First off, we want no new settings being created on exit.
-        BoolCreateFilepath = False
+        Booleans.BoolCreateFilepath = False
 
         'Delete updater path, settings, xiret log and imgur links.
-        BatchRemoveFiles("*.*", DirAppData)
+        BatchRemoveFiles("*.*", Directories.DirAppData)
 
         'Delete appdata folder
-        If Directory.Exists(DirAppData) Then : Directory.Delete(DirAppData)
+        If Directory.Exists(Directories.DirAppData) Then : Directory.Delete(Directories.DirAppData)
         End If
 
         'Exit application
@@ -140,42 +132,42 @@ Public Class FormCleanup
 
     End Sub
 #End Region
-#Region "Checkboxes"
+#Region "Checkbox Event Handlers"
 
-    Private Sub cbxResetWinsat_CheckedChanged(sender As Object, e As EventArgs) Handles cbxResetWinsat.CheckedChanged
-
-        If (CType(sender, GambolCheckbox).Checked) Then : cmdReset.Enabled = True : pnlPurge.Enabled = False
-        Else : cmdReset.Enabled = False : pnlPurge.Enabled = True
+    Private Sub CbxResetWinsat_CheckedChanged(sender As Object, e As EventArgs) Handles CbxResetWinsat.CheckedChanged
+        If CType(sender, GambolCheckbox).Checked Then
+            CmdReset.Enabled = True
+            pnlPurge.Enabled = False
+        Else
+            CmdReset.Enabled = False
+            pnlPurge.Enabled = True
         End If
-
     End Sub
 
-    Private Sub cbxPurgeSettings_CheckedChanged(sender As Object, e As EventArgs) Handles cbxPurgeSettings.CheckedChanged
+    Private Sub CbxPurgeSettings_CheckedChanged(sender As Object, e As EventArgs) Handles CbxPurgeSettings.CheckedChanged
 
-        If (CType(sender, GambolCheckbox).Checked) Then : cmdPurge.Enabled = True : pnlReset.Enabled = False
-        Else : cmdPurge.Enabled = False : pnlReset.Enabled = True
+        If (CType(sender, GambolCheckbox).Checked) Then : CmdPurge.Enabled = True : pnlReset.Enabled = False
+        Else : CmdPurge.Enabled = False : pnlReset.Enabled = True
         End If
 
     End Sub
 
 #End Region
 
-#Region "Plz Delet filz"
+#Region "Routines"
 
     Private Sub BatchRemoveFiles(fileFlags As String, ByVal fileDir As String)
 
         Dim Array() As String
         Array = Directory.GetFileSystemEntries(fileDir, fileFlags)
         For Each element As String In Array
-            If Not Directory.Exists(element) Then : File.Delete(Path.Combine(fileDir, Path.GetFileName(element)))
-            Else
-                Exit Sub
+            If Not Directory.Exists(element) Then
+                File.Delete(Path.Combine(fileDir, Path.GetFileName(element)))
             End If
         Next
 
     End Sub
 
 #End Region
-
 
 End Class

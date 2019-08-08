@@ -106,30 +106,38 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Base\CueText.vb" />
-    <Compile Include="Base\Variables\Booleans.vb" />
-    <Compile Include="Base\Variables\Integers.vb" />
-    <Compile Include="Base\Converters\MemoryTypeConverter.vb" />
-    <Compile Include="Base\Converters\WinsatStateConverter.vb" />
-    <Compile Include="Base\Helpers\OSHelper.vb" />
-    <Compile Include="Base\Helpers\PowerHelper.vb" />
-    <Compile Include="Base\SettingsCore.vb" />
-    <Compile Include="Base\UpdateCore.vb" />
-    <Compile Include="Base\Variables\Colors.vb" />
-    <Compile Include="Base\Variables\Files.vb" />
-    <Compile Include="Base\Variables\Directories.vb" />
-    <Compile Include="Base\Variables\Processes.vb" />
-    <Compile Include="Base\Variables\Strings.vb" />
-    <Compile Include="Base\Helpers\CryptoHelper.vb" />
-    <Compile Include="Base\Helpers\DirectoryHelper.vb" />
-    <Compile Include="Base\Helpers\NetHelper.vb" />
-    <Compile Include="Base\Converters\SizeConverter.vb" />
-    <Compile Include="Base\Helpers\FileHelper.vb" />
-    <Compile Include="Base\WSR\Reader.vb" />
-    <Compile Include="Base\Screencap.vb" />
-    <Compile Include="Toast\Toast\ToastHelper.vb" />
-    <Compile Include="Toast\Toast\ToastTypes.vb" />
-    <Compile Include="Toast\Toast\DetectTaskbar.vb" />
+    <Compile Include="Toast\Enums\Enums.vb" />
+    <Compile Include="UI Forms\FormException.designer.vb">
+      <DependentUpon>FormException.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI Forms\FormException.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI Forms\FormFont.Designer.vb">
+      <DependentUpon>FormFont.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI Forms\FormFont.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI Forms\FormHotfix.Designer.vb">
+      <DependentUpon>FormHotfix.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI Forms\FormHotfix.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Variables\Booleans.vb" />
+    <Compile Include="Variables\Integers.vb" />
+    <Compile Include="WinsatAPI\Enums.vb" />
+    <Compile Include="Winsat\State.vb" />
+    <Compile Include="Settings.vb" />
+    <Compile Include="Updater.vb" />
+    <Compile Include="Variables\Colors.vb" />
+    <Compile Include="Variables\Files.vb" />
+    <Compile Include="Variables\Directories.vb" />
+    <Compile Include="Variables\Strings.vb" />
+    <Compile Include="Winsat\WSR.vb" />
+    <Compile Include="Toast\ToastAlert.vb" />
+    <Compile Include="Toast\Taskbar.vb" />
     <Compile Include="My Project\Resources.Designer.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -141,7 +149,7 @@
     <Compile Include="UI Forms\FormAssessVerbose.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\Program.vb" />
+    <Compile Include="Program.vb" />
     <Compile Include="UI Forms\FormAbout.Designer.vb">
       <DependentUpon>FormAbout.vb</DependentUpon>
     </Compile>
@@ -184,12 +192,6 @@
     <Compile Include="UI Forms\FormWarn.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="UI Forms\FormException.Designer.vb">
-      <DependentUpon>FormException.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UI Forms\FormException.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="UI Forms\FormMain.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -207,10 +209,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Toast\Toast.Designer.vb">
-      <DependentUpon>Toast.vb</DependentUpon>
+    <Compile Include="Toast\FormToast.Designer.vb">
+      <DependentUpon>FormToast.vb</DependentUpon>
     </Compile>
-    <Compile Include="Toast\Toast.vb">
+    <Compile Include="Toast\FormToast.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI Forms\FormEnvironment.Designer.vb">
@@ -231,7 +233,7 @@
     <Compile Include="UI Forms\FormUpdate.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Base\WinsatAPI\WinsatApi.vb" />
+    <Compile Include="WinsatAPI\WinsatApi.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="UI Forms\FormAssessVerbose.resx">
@@ -255,6 +257,15 @@
     <EmbeddedResource Include="UI Forms\FormChangelog.resx">
       <DependentUpon>FormChangelog.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI Forms\FormException.resx">
+      <DependentUpon>FormException.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI Forms\FormFont.resx">
+      <DependentUpon>FormFont.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI Forms\FormHotfix.resx">
+      <DependentUpon>FormHotfix.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormMetrics.resx">
       <DependentUpon>FormMetrics.vb</DependentUpon>
     </EmbeddedResource>
@@ -267,16 +278,12 @@
     <EmbeddedResource Include="UI Forms\FormWarn.resx">
       <DependentUpon>FormWarn.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI Forms\FormException.resx">
-      <DependentUpon>FormException.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormMain.resx">
       <DependentUpon>FormMain.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Toast\Toast.resx">
-      <DependentUpon>Toast.vb</DependentUpon>
+    <EmbeddedResource Include="Toast\FormToast.resx">
+      <DependentUpon>FormToast.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormEnvironment.resx">

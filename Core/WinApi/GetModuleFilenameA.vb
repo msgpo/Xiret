@@ -19,8 +19,10 @@ Namespace WinApi
 
     Public Class GetModuleFilenameA
 
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)> <PreserveSig()>
-        Shared Function GetModuleFileName(<[In]()> ByVal hModule As IntPtr, <Out()> ByVal lpFilename As StringBuilder, <[In]()> <MarshalAs(UnmanagedType.U4)> ByVal nSize As Integer) As UInteger
+        '// http://pinvoke.net/default.aspx/kernel32.GetModuleFileName
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        <PreserveSig()>
+        Public Shared Function GetModuleFileName(<[In]()> hModule As IntPtr, <Out()> lpFilename As StringBuilder, <[In]()> <MarshalAs(UnmanagedType.U4)> nSize As Integer) As UInteger
         End Function
 
     End Class

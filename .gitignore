@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/Xiret/v15/Server/sqlite3
+/.vs
+/Core/bin
+/Core/obj
+/Gambol/bin
+/Gambol/obj
+/Xiret/bin

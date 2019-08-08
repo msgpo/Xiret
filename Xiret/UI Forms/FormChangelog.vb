@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,47 +8,60 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
+'  Xiret project
 '  FormChangelog.vb
 '  Created by David S on 20.06.2019
-'  Updated on 03.07.2019 - DS (Removed online changelog link. Why would you link to a changelog in a changelog?)
+'  Updated on 31.07.2019 - DS (Cleanup)
+'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
-Imports System.Threading
+Imports Core.Animation
 
 Public Class FormChangelog
 
-#Region "Frame Interaction"
+#Region "Ctor"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Public Sub New()
+
+        InitializeComponent()
+        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
+
+    End Sub
+
+#End Region
+
+#Region "WndProc"
+
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, tlpHead.MouseMove
 
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
-            WndProc(Message.Create(Handle, WM_NCLBUTTONDOWN, CType(HT_CAPTION, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
 
     End Sub
 
 #End Region
-#Region "KeyDown Event"
-    Private Sub FormAbout_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Escape Then : Close() : End If
+#Region "KeyDown Events"
+    Private Sub FormChangelog_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Close()
+        End If
     End Sub
 
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
 
 #End Region
 
-#Region "Load Event"
+#Region "Load Event Handler"
 
     Private Sub FormChangelog_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         Opacity = 0
-
         SetChangelogThemeAccent()
 
         rtbChanges.Rtf = My.Resources.changelog
@@ -56,36 +69,18 @@ Public Class FormChangelog
     End Sub
 
 #End Region
-#Region "Shown Event"
+#Region "Shown Event Handler"
 
     Private Sub FormChangelog_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
-        Try
-            For FadeIn = 0.0 To 1.0 Step 0.2
-                Opacity = FadeIn
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Opacity = 1.0
-        End Try
-
+        Fade.FadeIn(Me)
     End Sub
 
 #End Region
-#Region "Closed Event"
+#Region "Closed Event Handler"
 
     Private Sub FormChangelog_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
 
-        Try
-            For FadeOut = 1.0 To 0.0 Step -0.2
-                Opacity = FadeOut
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Close()
-        End Try
+        Fade.FadeOut(Me)
 
     End Sub
 
@@ -95,19 +90,16 @@ Public Class FormChangelog
     Private Sub SetChangelogThemeAccent()
 
         'Split colour
-        pnlSplit.BackColor = GlobalThemeColor
-
-        'cmdFull.ForeColor = GlobalThemeColor
+        pnlSplit.BackColor = Settings.ThemeColor
 
         'Apply border colour
-        If BoolThemeApplyBorder Then : BackColor = GlobalThemeColor
-        Else : BackColor = ColorBorderStandard
-        End If
+        Settings.SetBorderColor(Me)
 
     End Sub
 
 #End Region
-#Region "Extra designer code"
+
+#Region "Deprecated"
 
     'Private Sub cmdFull_MouseEnter(sender As Object, e As EventArgs) Handles cmdFull.MouseEnter
     '    lbGlobe.Text = "" 'MDL Assets E774 (Globe)

@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,94 +8,87 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
+'  Xiret project
 '  FormSystem.vb
 '  Created by David S on 07.02.2019
-'  Updated on 04.07.2019 - DS (Cleanup)
+'  Updated on 31.07.2019 - DS (Cleanup)
+'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WncProc)
 
-Imports System.Threading
-
-Imports Xiret.Base.Helpers
+Imports Core.Animation
+Imports Core.Helpers
 
 Public Class FormSystem
 
-#Region "Frame Interaction"
+#Region "Ctor"
+
+    Public Sub New()
+
+        InitializeComponent()
+        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
+
+    End Sub
+
+#End Region
+
+#Region "WndProc"
 
     Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
-            WndProc(Message.Create(Handle, WM_NCLBUTTONDOWN, CType(HT_CAPTION, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
 
     End Sub
 
 #End Region
 #Region "KeyDown Events"
-    Private Sub FormSettings_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
-        If e.KeyCode = Keys.Escape Then : Close() : End If
+    Private Sub FormSystem_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+        If e.KeyCode = Keys.Escape Then
+            Close()
+        End If
     End Sub
 
 #End Region
 #Region "Frame Buttons"
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles BtnClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
 #End Region
 
-#Region "Load Event"
+#Region "Load Event Handler"
 
-    Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FormSystem_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        'Set opacity
         Opacity = 0
-
         'Set form theme
         SetCleanupThemeAccent()
 
-        lbOpSys.Text = OSHGetName()
-        lbBitness.Text = OSHGetBitness()
-        lbServicePack.Text = OSHGetServicepack()
+        lbOpSys.Text = OSHelper.GetOSName()
+        lbBitness.Text = OSHelper.GetOSBitness()
+        lbServicePack.Text = OSHelper.GetServicePack()
 
-        lbKernel.Text = OSHKernelVersion.FileVersion
-        lbWinsat.Text = OSHWinsatVersion.ProductVersion
-        lbApi.Text = OSHWinsatApiVersion.ProductVersion
+        lbKernel.Text = OSHelper.GetKernelVersion.FileVersion
+        lbWinsat.Text = OSHelper.GetWinsatVersion.ProductVersion
+        lbApi.Text = OSHelper.GetWinsatApiVersion.ProductVersion
 
-        lbUptime.Text = OSHWinGetUptime()
-
-    End Sub
-
-#End Region
-#Region "Shown Event"
-
-    Private Sub FormSettings_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
-        Try
-            For FadeIn = 0.0 To 1.0 Step 0.2
-                Opacity = FadeIn
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Opacity = 1.0
-        End Try
+        lbUptime.Text = OSHelper.GetWindowsUptime()
 
     End Sub
 
 #End Region
-#Region "Closed Event"
+#Region "Shown Event Handler"
 
-    Private Sub FormSettings_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+    Private Sub FormSystem_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Fade.FadeIn(Me)
+    End Sub
 
-        Try
-            For FadeOut = 1.0 To 0.0 Step -0.2
-                Opacity = FadeOut
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Close()
-        End Try
+#End Region
+#Region "Closed Event Handler"
 
+    Private Sub FormSystem_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Fade.FadeOut(Me)
     End Sub
 
 #End Region
@@ -103,21 +96,19 @@ Public Class FormSystem
 #Region "Theme"
     Private Sub SetCleanupThemeAccent()
 
-        pnlSplit.BackColor = GlobalThemeColor
+        pnlSplit.BackColor = Settings.ThemeColor
 
-        cmdrefresh.ForeColor = GlobalThemeColor
+        CmdRefresh.ForeColor = Settings.ThemeColor
 
-        If (BoolThemeApplyBorder) Then : BackColor = GlobalThemeColor
-        Else : BackColor = ColorBorderStandard
-        End If
+        Settings.SetBorderColor(Me)
 
     End Sub
 
 #End Region
 
-#Region "Refresh Button"
-    Private Sub cmdrefresh_Click(sender As Object, e As EventArgs) Handles cmdrefresh.Click
-        lbUptime.Text = OSHWinGetUptime()
+#Region "Button Event Handlers"
+    Private Sub Cmdrefresh_Click(sender As Object, e As EventArgs) Handles CmdRefresh.Click
+        lbUptime.Text = OSHelper.GetWindowsUptime
     End Sub
 #End Region
 

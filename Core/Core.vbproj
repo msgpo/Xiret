@@ -21,7 +21,9 @@
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>Core.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +32,9 @@
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>Core.xml</DocumentationFile>
-    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <NoWarn>
+    </NoWarn>
+    <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -39,7 +43,7 @@
     <OptionCompare>Binary</OptionCompare>
   </PropertyGroup>
   <PropertyGroup>
-    <OptionStrict>Off</OptionStrict>
+    <OptionStrict>On</OptionStrict>
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
@@ -53,6 +57,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -71,8 +77,25 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Animation\Composition.vb" />
+    <Compile Include="Animation\Enums\Enums.vb" />
+    <Compile Include="Animation\Fade.vb" />
+    <Compile Include="Animation\Structs\Structs.vb" />
+    <Compile Include="Converters\ColorConverter.vb" />
+    <Compile Include="Converters\MemoryConverter.vb" />
+    <Compile Include="Converters\SizeConverter.vb" />
+    <Compile Include="Helpers\ControlHelper.vb" />
+    <Compile Include="Helpers\CryptoHelper.vb" />
     <Compile Include="Fonts\FontInstaller.vb" />
+    <Compile Include="Helpers\DirectoryHelper.vb" />
+    <Compile Include="Helpers\FileHelper.vb" />
+    <Compile Include="Helpers\ImageHelper.vb" />
+    <Compile Include="Helpers\MemHelper.vb" />
+    <Compile Include="Helpers\NetHelper.vb" />
+    <Compile Include="Helpers\OSHelper.vb" />
+    <Compile Include="Helpers\PowerHelper.vb" />
     <Compile Include="WinApi\AddFontResourceA.vb" />
+    <Compile Include="WinApi\SetProcessWorkingSetSizeA.vb" />
     <Compile Include="WinApi\GetModuleFilenameA.vb" />
     <Compile Include="WinApi\GetTickCountA.vb" />
     <Compile Include="WinApi\LockWindowUpdateA.vb" />
@@ -93,8 +116,10 @@
     </Compile>
     <Compile Include="WinApi\SendMessageA.vb" />
     <Compile Include="WinApi\SetProcessDPIAwareA.vb" />
+    <Compile Include="WinApi\SetWindowCompositionAttributeA.vb" />
     <Compile Include="WinApi\StrongNameSignatureVerificationA.vb" />
     <Compile Include="WinApi\WriteProfileStringA.vb" />
+    <Compile Include="WMI\Knowledgebase.vb" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="My Project\Resources.resx">
@@ -106,6 +131,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\seguisb.ttf" />
+    <None Include="Resources\Windows6.1-KB2687862-x64.msu" />
+    <None Include="Resources\Windows6.1-KB2687862-x86.msu" />
     <None Include="Signature\Core.pfx" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>

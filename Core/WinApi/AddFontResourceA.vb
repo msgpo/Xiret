@@ -18,10 +18,9 @@ Namespace WinApi
 
     Public Class AddFontResourceA
 
-        'Interop
         '// http://pinvoke.net/default.aspx/gdi32.AddFontResource
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("gdi32", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)>
-        Shared Function AddFontResource(ByVal lpFileName As String) As Integer
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("gdi32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Public Shared Function AddFontResource(lpFileName As String) As Integer
         End Function
 
     End Class

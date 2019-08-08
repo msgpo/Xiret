@@ -110,52 +110,57 @@ Namespace Controls
 
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
-            Dim g As Graphics = e.Graphics
-            Dim innerRect As RectangleF
-            Dim outerRect As RectangleF
+            Dim G As Graphics = e.Graphics
+            Dim InnerRectangle As RectangleF = Nothing
+            Dim OuterRectangle As RectangleF = Nothing
+            Dim Diameter As Integer = ClientRectangle.Height - 1
 
-            g.Clear(BackColor)
+            G.Clear(BackColor)
 
-            Dim diameter As Integer = ClientRectangle.Height - 1
-            outerRect = New RectangleF(0, 0, diameter, diameter)
-            innerRect = New RectangleF(1, 1, diameter - 2, diameter - 2)
+            OuterRectangle = New RectangleF(0, 0, Diameter, Diameter)
+            InnerRectangle = New RectangleF(1, 1, Diameter - 2, Diameter - 2)
 
-            g.SmoothingMode = SmoothingMode.AntiAlias
+            G.SmoothingMode = SmoothingMode.AntiAlias
 
-            g.FillEllipse(New SolidBrush(RadioBackColor), innerRect)
-            g.DrawEllipse(New Pen(InactiveBorderColor), innerRect)
-            outerRect.Inflate(-1, -1)
+            G.FillEllipse(New SolidBrush(RadioBackColor), InnerRectangle)
+            G.DrawEllipse(New Pen(InactiveBorderColor), InnerRectangle)
+            OuterRectangle.Inflate(-1, -1)
 
             If MouseHovered = True Then
-                g.DrawArc(New Pen(ActiveBorderColor, 1), outerRect, 135, 180)
-                g.DrawArc(New Pen(ActiveBorderColor, 1), outerRect, -45, 180)
-                innerRect.Inflate(-1, -1)
-                g.FillEllipse(New SolidBrush(ActiveRadioBackColor), innerRect)
+                G.DrawArc(New Pen(ActiveBorderColor, 1), OuterRectangle, 135, 180)
+                G.DrawArc(New Pen(ActiveBorderColor, 1), OuterRectangle, -45, 180)
+                InnerRectangle.Inflate(-1, -1)
+                G.FillEllipse(New SolidBrush(ActiveRadioBackColor), InnerRectangle)
             End If
 
             If Checked Then
-                innerRect = New RectangleF(1, 1, diameter - 2, diameter - 2)
-                innerRect.Inflate(-4, -4)
-                g.FillEllipse(New SolidBrush(CheckedColor), innerRect)
+                InnerRectangle = New RectangleF(1, 1, Diameter - 2, Diameter - 2)
+                InnerRectangle.Inflate(-4, -4)
+                G.FillEllipse(New SolidBrush(CheckedColor), InnerRectangle)
             End If
 
-            Dim textArea As Rectangle = New Rectangle(CInt(outerRect.Width + 5), 0, CInt(Width - outerRect.Width - 6), Height - 1)
-            Dim textFormat As StringFormat = New StringFormat With {
+            Dim TextArea As Rectangle = New Rectangle(CInt(OuterRectangle.Width + 5), 0, CInt(Width - OuterRectangle.Width - 6), Height - 1)
+            Dim TextFormat As StringFormat = New StringFormat With {
                 .LineAlignment = StringAlignment.Center
             }
 
-            e.Graphics.DrawRectangle(Pens.Transparent, textArea)
+            G.DrawRectangle(Pens.Transparent, TextArea)
 
             If Enabled Then
-                Using br = New SolidBrush(ForeColor)
-                    e.Graphics.DrawString(Text, Font, br, textArea, textFormat)
+                Using SBrush = New SolidBrush(ForeColor)
+                    e.Graphics.DrawString(Text, Font, SBrush, TextArea, TextFormat)
                 End Using
             Else
-                Using br = New SolidBrush(Color.FromArgb(100, 100, 100))
-                    e.Graphics.DrawString(Text, Font, br, textArea, textFormat)
+                Using SBrush = New SolidBrush(Color.FromArgb(100, 100, 100))
+                    e.Graphics.DrawString(Text, Font, SBrush, TextArea, TextFormat)
                 End Using
             End If
 
+            InnerRectangle = Nothing
+            OuterRectangle = Nothing
+            Diameter = Nothing
+            TextArea = Nothing
+            TextFormat = Nothing
 
         End Sub
 

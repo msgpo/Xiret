@@ -106,50 +106,54 @@ Namespace Controls
 
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
-            Dim g As Graphics = e.Graphics
-            Dim innerRect As Rectangle
-            Dim outerRect As Rectangle
+            Dim G As Graphics = e.Graphics
+            Dim InnerRectangle As Rectangle = Nothing
+            Dim OuterRectangle As Rectangle = Nothing
+            Dim Diameter As Integer = ClientRectangle.Height - 1
 
-            g.Clear(BackColor)
+            G.Clear(BackColor)
 
-            Dim diameter As Integer = ClientRectangle.Height - 1
+            InnerRectangle = New Rectangle(1, 1, Diameter - 1, Diameter - 1)
+            OuterRectangle = New Rectangle(1, 1, Diameter - 2, Diameter - 2)
 
-            innerRect = New Rectangle(1, 1, diameter - 1, diameter - 1)
-            outerRect = New Rectangle(1, 1, diameter - 2, diameter - 2)
-
-            g.FillRectangle(New SolidBrush(CheckboxBackColor), innerRect)
-            g.DrawRectangle(New Pen(InactiveBorderColor), outerRect)
+            G.FillRectangle(New SolidBrush(CheckboxBackColor), InnerRectangle)
+            G.DrawRectangle(New Pen(InactiveBorderColor), OuterRectangle)
 
             If MouseHovered = True Then
-                innerRect.Inflate(-1, -1)
-                g.FillRectangle(New SolidBrush(ActiveCheckboxBackColor), innerRect)
-                e.Graphics.DrawRectangle(New Pen(ActiveBorderColor), outerRect)
+                InnerRectangle.Inflate(-1, -1)
+                G.FillRectangle(New SolidBrush(ActiveCheckboxBackColor), InnerRectangle)
+                e.Graphics.DrawRectangle(New Pen(ActiveBorderColor), OuterRectangle)
             End If
 
             If Checked Then
-                innerRect = New Rectangle(1, 1, diameter - 1, diameter - 1)
-                innerRect.Inflate(-4, -4)
-                e.Graphics.FillRectangle(New SolidBrush(CheckedColor), innerRect)
+                InnerRectangle = New Rectangle(1, 1, Diameter - 1, Diameter - 1)
+                InnerRectangle.Inflate(-4, -4)
+                e.Graphics.FillRectangle(New SolidBrush(CheckedColor), InnerRectangle)
             End If
 
 
-            Dim textArea As Rectangle = New Rectangle(outerRect.Width + 5, 0, Width - outerRect.Width - 6, Height - 1)
-            Dim textFormat As StringFormat = New StringFormat With {
+            Dim TextArea As Rectangle = New Rectangle(OuterRectangle.Width + 5, 0, Width - OuterRectangle.Width - 6, Height - 1)
+            Dim TextFormat As StringFormat = New StringFormat With {
                 .LineAlignment = StringAlignment.Center
             }
 
-            e.Graphics.DrawRectangle(Pens.Transparent, textArea)
+            G.DrawRectangle(Pens.Transparent, TextArea)
 
             If Enabled Then
-                Using br = New SolidBrush(ForeColor)
-                    e.Graphics.DrawString(Text, Font, br, textArea, textFormat)
+                Using SBrush = New SolidBrush(ForeColor)
+                    e.Graphics.DrawString(Text, Font, SBrush, TextArea, TextFormat)
                 End Using
             Else
                 Using br = New SolidBrush(Color.Black)
-                    e.Graphics.DrawString(Text, Font, br, textArea, textFormat)
+                    e.Graphics.DrawString(Text, Font, br, TextArea, TextFormat)
                 End Using
             End If
 
+            InnerRectangle = Nothing
+            OuterRectangle = Nothing
+            Diameter = Nothing
+            TextArea = Nothing
+            TextFormat = Nothing
 
         End Sub
 

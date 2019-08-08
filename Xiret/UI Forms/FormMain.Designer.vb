@@ -27,9 +27,9 @@ Partial Class FormMain
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
         Me.pbxMain = New System.Windows.Forms.PictureBox()
-        Me.lbHead = New System.Windows.Forms.Label()
+        Me.LbHead = New System.Windows.Forms.Label()
         Me.lbShowOnPrint = New System.Windows.Forms.Label()
-        Me.lbScaleOf = New System.Windows.Forms.Label()
+        Me.lbScale = New System.Windows.Forms.Label()
         Me.PnlSubDisk = New System.Windows.Forms.Panel()
         Me.lbDiskScore = New System.Windows.Forms.Label()
         Me.PnlSubGaming = New System.Windows.Forms.Panel()
@@ -51,15 +51,23 @@ Partial Class FormMain
         Me.lbCompGraphics = New System.Windows.Forms.Label()
         Me.lbCompMem = New System.Windows.Forms.Label()
         Me.pnlRated = New System.Windows.Forms.Panel()
+        Me.sGaming = New System.Windows.Forms.Label()
         Me.sProcessor = New System.Windows.Forms.Label()
         Me.sDisk = New System.Windows.Forms.Label()
         Me.sMemory = New System.Windows.Forms.Label()
         Me.sGraphics = New System.Windows.Forms.Label()
-        Me.sGaming = New System.Windows.Forms.Label()
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.cmdMinimize = New System.Windows.Forms.Button()
-        Me.cmdClose = New System.Windows.Forms.Button()
-        Me.lbHeadVer = New System.Windows.Forms.Label()
+        Me.cmsExplorer = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.MinimiseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResetPositionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ResetApplicationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
+        Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
+        Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CmdMinimize = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
+        Me.LbHeadVer = New System.Windows.Forms.Label()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.sLastUpdate = New System.Windows.Forms.Label()
         Me.lbLastUpdated = New System.Windows.Forms.Label()
@@ -69,7 +77,6 @@ Partial Class FormMain
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlMenu = New System.Windows.Forms.Panel()
         Me.tlpMenu = New System.Windows.Forms.TableLayoutPanel()
-        Me.cmdHotfix = New System.Windows.Forms.Button()
         Me.cmdTools = New System.Windows.Forms.Button()
         Me.cmdHelp = New System.Windows.Forms.Button()
         Me.cmdExport = New System.Windows.Forms.Button()
@@ -93,6 +100,7 @@ Partial Class FormMain
         Me.pnlLastUpdated = New System.Windows.Forms.Panel()
         Me.cmdRun = New System.Windows.Forms.Button()
         Me.pnlD = New System.Windows.Forms.Panel()
+        Me.GSwitchHardware = New Gambol.Controls.GambolSwitch()
         Me.pnlMetrics = New System.Windows.Forms.Panel()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.pnlOperatingSystem = New System.Windows.Forms.Panel()
@@ -128,11 +136,12 @@ Partial Class FormMain
         Me.MediaFeaturePackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TroubleshootingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
-        Me.CheckForUpdateToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.HotfixAvailableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UpdateAvailableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangelogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GSwitchHardware = New Gambol.Controls.GambolSwitch()
+        Me.Notifier1 = New Gambol.Notifier.Notifier(Me.components)
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PnlSubDisk.SuspendLayout()
         Me.PnlSubGaming.SuspendLayout()
@@ -142,6 +151,7 @@ Partial Class FormMain
         Me.pnlComp.SuspendLayout()
         Me.pnlRated.SuspendLayout()
         Me.pnlHead.SuspendLayout()
+        Me.cmsExplorer.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
         Me.pnlMenu.SuspendLayout()
         Me.tlpMenu.SuspendLayout()
@@ -184,19 +194,19 @@ Partial Class FormMain
         Me.pbxMain.TabIndex = 1
         Me.pbxMain.TabStop = False
         '
-        'lbHead
+        'LbHead
         '
-        Me.lbHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbHead.BackColor = System.Drawing.Color.Transparent
-        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbHead.ForeColor = System.Drawing.Color.White
-        Me.lbHead.Location = New System.Drawing.Point(298, 4)
-        Me.lbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbHead.Name = "lbHead"
-        Me.lbHead.Size = New System.Drawing.Size(255, 22)
-        Me.lbHead.TabIndex = 1
-        Me.lbHead.Text = "Xiret - Experience Index UI"
-        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LbHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LbHead.BackColor = System.Drawing.Color.Transparent
+        Me.LbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbHead.ForeColor = System.Drawing.Color.White
+        Me.LbHead.Location = New System.Drawing.Point(298, 4)
+        Me.LbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LbHead.Name = "LbHead"
+        Me.LbHead.Size = New System.Drawing.Size(255, 22)
+        Me.LbHead.TabIndex = 1
+        Me.LbHead.Text = "Xiret - Experience Index UI"
+        Me.LbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'lbShowOnPrint
         '
@@ -204,7 +214,7 @@ Partial Class FormMain
         Me.lbShowOnPrint.BackColor = System.Drawing.Color.Transparent
         Me.lbShowOnPrint.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lbShowOnPrint.ForeColor = System.Drawing.Color.White
-        Me.lbShowOnPrint.Location = New System.Drawing.Point(632, 6)
+        Me.lbShowOnPrint.Location = New System.Drawing.Point(626, 6)
         Me.lbShowOnPrint.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lbShowOnPrint.Name = "lbShowOnPrint"
         Me.lbShowOnPrint.Size = New System.Drawing.Size(170, 22)
@@ -212,18 +222,18 @@ Partial Class FormMain
         Me.lbShowOnPrint.Text = "Xiret"
         Me.lbShowOnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lbScaleOf
+        'lbScale
         '
-        Me.lbScaleOf.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lbScaleOf.BackColor = System.Drawing.Color.Transparent
-        Me.lbScaleOf.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbScaleOf.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbScaleOf.Location = New System.Drawing.Point(4, 7)
-        Me.lbScaleOf.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbScaleOf.Name = "lbScaleOf"
-        Me.lbScaleOf.Size = New System.Drawing.Size(615, 20)
-        Me.lbScaleOf.TabIndex = 27
-        Me.lbScaleOf.Text = "The Experience Index assesses key system components on a scale of"
+        Me.lbScale.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.lbScale.BackColor = System.Drawing.Color.Transparent
+        Me.lbScale.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbScale.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.lbScale.Location = New System.Drawing.Point(4, 7)
+        Me.lbScale.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbScale.Name = "lbScale"
+        Me.lbScale.Size = New System.Drawing.Size(602, 20)
+        Me.lbScale.TabIndex = 27
+        Me.lbScale.Text = "The Experience Index assesses key system components on a scale of"
         '
         'PnlSubDisk
         '
@@ -387,7 +397,7 @@ Partial Class FormMain
         Me.lbWhatIsRated.Name = "lbWhatIsRated"
         Me.lbWhatIsRated.Size = New System.Drawing.Size(125, 20)
         Me.lbWhatIsRated.TabIndex = 2
-        Me.lbWhatIsRated.Text = "What is rated"
+        Me.lbWhatIsRated.Text = "What is rated?"
         Me.lbWhatIsRated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'LComponent
@@ -486,17 +496,30 @@ Partial Class FormMain
         'pnlRated
         '
         Me.pnlRated.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.pnlRated.Controls.Add(Me.sGaming)
         Me.pnlRated.Controls.Add(Me.sProcessor)
         Me.pnlRated.Controls.Add(Me.sDisk)
         Me.pnlRated.Controls.Add(Me.sMemory)
         Me.pnlRated.Controls.Add(Me.sGraphics)
-        Me.pnlRated.Controls.Add(Me.sGaming)
         Me.pnlRated.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlRated.Location = New System.Drawing.Point(190, 0)
         Me.pnlRated.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
         Me.pnlRated.Name = "pnlRated"
         Me.pnlRated.Size = New System.Drawing.Size(354, 178)
         Me.pnlRated.TabIndex = 69
+        '
+        'sGaming
+        '
+        Me.sGaming.AutoEllipsis = True
+        Me.sGaming.BackColor = System.Drawing.Color.Transparent
+        Me.sGaming.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sGaming.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.sGaming.Location = New System.Drawing.Point(7, 115)
+        Me.sGaming.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sGaming.Name = "sGaming"
+        Me.sGaming.Size = New System.Drawing.Size(339, 20)
+        Me.sGaming.TabIndex = 30
+        Me.sGaming.Text = "3D business and gaming graphics performance"
         '
         'sProcessor
         '
@@ -550,27 +573,15 @@ Partial Class FormMain
         Me.sGraphics.TabIndex = 29
         Me.sGraphics.Text = "Desktop graphics performance"
         '
-        'sGaming
-        '
-        Me.sGaming.AutoEllipsis = True
-        Me.sGaming.BackColor = System.Drawing.Color.Transparent
-        Me.sGaming.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sGaming.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sGaming.Location = New System.Drawing.Point(7, 115)
-        Me.sGaming.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sGaming.Name = "sGaming"
-        Me.sGaming.Size = New System.Drawing.Size(339, 20)
-        Me.sGaming.TabIndex = 30
-        Me.sGaming.Text = "3D business and gaming graphics performance"
-        '
         'pnlHead
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.cmdMinimize)
-        Me.pnlHead.Controls.Add(Me.cmdClose)
-        Me.pnlHead.Controls.Add(Me.lbHeadVer)
-        Me.pnlHead.Controls.Add(Me.lbHead)
+        Me.pnlHead.ContextMenuStrip = Me.cmsExplorer
+        Me.pnlHead.Controls.Add(Me.CmdMinimize)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
+        Me.pnlHead.Controls.Add(Me.LbHeadVer)
+        Me.pnlHead.Controls.Add(Me.LbHead)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHead.Location = New System.Drawing.Point(1, 1)
@@ -579,56 +590,113 @@ Partial Class FormMain
         Me.pnlHead.Size = New System.Drawing.Size(848, 50)
         Me.pnlHead.TabIndex = 59
         '
-        'cmdMinimize
+        'cmsExplorer
         '
-        Me.cmdMinimize.BackColor = System.Drawing.Color.Transparent
-        Me.cmdMinimize.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdMinimize.FlatAppearance.BorderSize = 0
-        Me.cmdMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmdMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.cmdMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdMinimize.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdMinimize.ForeColor = System.Drawing.Color.White
-        Me.cmdMinimize.Location = New System.Drawing.Point(732, 0)
-        Me.cmdMinimize.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdMinimize.Name = "cmdMinimize"
-        Me.cmdMinimize.Size = New System.Drawing.Size(58, 50)
-        Me.cmdMinimize.TabIndex = 7
-        Me.cmdMinimize.TabStop = False
-        Me.cmdMinimize.Text = "—"
-        Me.cmdMinimize.UseVisualStyleBackColor = False
+        Me.cmsExplorer.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmsExplorer.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.cmsExplorer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinimiseToolStripMenuItem, Me.ResetPositionToolStripMenuItem, Me.ResetApplicationToolStripMenuItem, Me.ToolStripSeparator8, Me.CloseToolStripMenuItem, Me.ToolStripSeparator9, Me.AboutToolStripMenuItem1})
+        Me.cmsExplorer.Name = "cmsExplorer"
+        Me.cmsExplorer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.cmsExplorer.ShowImageMargin = False
+        Me.cmsExplorer.Size = New System.Drawing.Size(186, 164)
         '
-        'cmdClose
+        'MinimiseToolStripMenuItem
         '
-        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdClose.FlatAppearance.BorderSize = 0
-        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdClose.ForeColor = System.Drawing.Color.White
-        Me.cmdClose.Location = New System.Drawing.Point(790, 0)
-        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(58, 50)
-        Me.cmdClose.TabIndex = 6
-        Me.cmdClose.TabStop = False
-        Me.cmdClose.Text = "✕"
-        Me.cmdClose.UseVisualStyleBackColor = False
+        Me.MinimiseToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.MinimiseToolStripMenuItem.Name = "MinimiseToolStripMenuItem"
+        Me.MinimiseToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.MinimiseToolStripMenuItem.Text = "Minimise"
         '
-        'lbHeadVer
+        'ResetPositionToolStripMenuItem
         '
-        Me.lbHeadVer.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbHeadVer.BackColor = System.Drawing.Color.Transparent
-        Me.lbHeadVer.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbHeadVer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.lbHeadVer.Location = New System.Drawing.Point(318, 30)
-        Me.lbHeadVer.Name = "lbHeadVer"
-        Me.lbHeadVer.Size = New System.Drawing.Size(214, 14)
-        Me.lbHeadVer.TabIndex = 8
-        Me.lbHeadVer.Text = "..."
-        Me.lbHeadVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.ResetPositionToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ResetPositionToolStripMenuItem.Name = "ResetPositionToolStripMenuItem"
+        Me.ResetPositionToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.ResetPositionToolStripMenuItem.Text = "Reset Position"
+        '
+        'ResetApplicationToolStripMenuItem
+        '
+        Me.ResetApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ResetApplicationToolStripMenuItem.Name = "ResetApplicationToolStripMenuItem"
+        Me.ResetApplicationToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.ResetApplicationToolStripMenuItem.Text = "Reset Application"
+        '
+        'ToolStripSeparator8
+        '
+        Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(182, 6)
+        '
+        'CloseToolStripMenuItem
+        '
+        Me.CloseToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CloseToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
+        Me.CloseToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4"
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.CloseToolStripMenuItem.Text = "Close"
+        '
+        'ToolStripSeparator9
+        '
+        Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(182, 6)
+        '
+        'AboutToolStripMenuItem1
+        '
+        Me.AboutToolStripMenuItem1.ForeColor = System.Drawing.Color.White
+        Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(185, 24)
+        Me.AboutToolStripMenuItem1.Text = "About"
+        '
+        'CmdMinimize
+        '
+        Me.CmdMinimize.BackColor = System.Drawing.Color.Transparent
+        Me.CmdMinimize.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdMinimize.FlatAppearance.BorderSize = 0
+        Me.CmdMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CmdMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CmdMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdMinimize.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdMinimize.ForeColor = System.Drawing.Color.White
+        Me.CmdMinimize.Location = New System.Drawing.Point(732, 0)
+        Me.CmdMinimize.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdMinimize.Name = "CmdMinimize"
+        Me.CmdMinimize.Size = New System.Drawing.Size(58, 50)
+        Me.CmdMinimize.TabIndex = 7
+        Me.CmdMinimize.TabStop = False
+        Me.CmdMinimize.Text = "—"
+        Me.CmdMinimize.UseVisualStyleBackColor = False
+        '
+        'CmdClose
+        '
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(790, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(58, 50)
+        Me.CmdClose.TabIndex = 6
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
+        '
+        'LbHeadVer
+        '
+        Me.LbHeadVer.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LbHeadVer.BackColor = System.Drawing.Color.Transparent
+        Me.LbHeadVer.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbHeadVer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.LbHeadVer.Location = New System.Drawing.Point(318, 30)
+        Me.LbHeadVer.Name = "LbHeadVer"
+        Me.LbHeadVer.Size = New System.Drawing.Size(214, 14)
+        Me.LbHeadVer.TabIndex = 8
+        Me.LbHeadVer.Text = "..."
+        Me.LbHeadVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'tlpIcon
         '
@@ -746,7 +814,6 @@ Partial Class FormMain
         Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
         Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.tlpMenu.Controls.Add(Me.cmdHotfix, 4, 0)
         Me.tlpMenu.Controls.Add(Me.cmdTools, 2, 0)
         Me.tlpMenu.Controls.Add(Me.cmdHelp, 3, 0)
         Me.tlpMenu.Controls.Add(Me.cmdExport, 0, 0)
@@ -759,29 +826,11 @@ Partial Class FormMain
         Me.tlpMenu.Size = New System.Drawing.Size(350, 40)
         Me.tlpMenu.TabIndex = 0
         '
-        'cmdHotfix
-        '
-        Me.cmdHotfix.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdHotfix.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdHotfix.FlatAppearance.BorderSize = 0
-        Me.cmdHotfix.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdHotfix.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdHotfix.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdHotfix.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdHotfix.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdHotfix.Location = New System.Drawing.Point(280, 0)
-        Me.cmdHotfix.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdHotfix.Name = "cmdHotfix"
-        Me.cmdHotfix.Size = New System.Drawing.Size(70, 40)
-        Me.cmdHotfix.TabIndex = 32
-        Me.cmdHotfix.Text = "Hotfix"
-        Me.cmdHotfix.UseVisualStyleBackColor = False
-        '
         'cmdTools
         '
         Me.cmdTools.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.cmdTools.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdTools.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdTools.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdTools.FlatAppearance.BorderSize = 0
         Me.cmdTools.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
@@ -800,7 +849,7 @@ Partial Class FormMain
         '
         Me.cmdHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.cmdHelp.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdHelp.FlatAppearance.BorderSize = 0
         Me.cmdHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
@@ -819,7 +868,7 @@ Partial Class FormMain
         '
         Me.cmdExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.cmdExport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdExport.FlatAppearance.BorderSize = 0
         Me.cmdExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
@@ -838,7 +887,7 @@ Partial Class FormMain
         '
         Me.cmdOptions.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.cmdOptions.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdOptions.FlatAppearance.BorderSize = 0
         Me.cmdOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
@@ -866,10 +915,11 @@ Partial Class FormMain
         '
         'tlpTop
         '
+        Me.tlpTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.tlpTop.ColumnCount = 2
-        Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.84729!))
-        Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.15271!))
-        Me.tlpTop.Controls.Add(Me.lbScaleOf, 0, 0)
+        Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.12315!))
+        Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87685!))
+        Me.tlpTop.Controls.Add(Me.lbScale, 0, 0)
         Me.tlpTop.Controls.Add(Me.lbShowOnPrint, 1, 0)
         Me.tlpTop.Location = New System.Drawing.Point(18, 10)
         Me.tlpTop.Name = "tlpTop"
@@ -997,7 +1047,7 @@ Partial Class FormMain
         '
         'Panel1
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.Panel1.Location = New System.Drawing.Point(18, 6)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(812, 1)
@@ -1073,8 +1123,8 @@ Partial Class FormMain
         Me.cmdMetrics.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cmdMetrics.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.cmdMetrics.FlatAppearance.BorderSize = 0
-        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdMetrics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdMetrics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -1103,8 +1153,8 @@ Partial Class FormMain
         Me.cmdRun.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cmdRun.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.cmdRun.FlatAppearance.BorderSize = 0
-        Me.cmdRun.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdRun.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdRun.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdRun.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdRun.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdRun.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -1126,6 +1176,21 @@ Partial Class FormMain
         Me.pnlD.Name = "pnlD"
         Me.pnlD.Size = New System.Drawing.Size(121, 28)
         Me.pnlD.TabIndex = 75
+        '
+        'GSwitchHardware
+        '
+        Me.GSwitchHardware.ActiveBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.GSwitchHardware.ActiveBorderColor = System.Drawing.Color.White
+        Me.GSwitchHardware.BackColor = System.Drawing.Color.Transparent
+        Me.GSwitchHardware.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.GSwitchHardware.Location = New System.Drawing.Point(42, 5)
+        Me.GSwitchHardware.Margin = New System.Windows.Forms.Padding(4)
+        Me.GSwitchHardware.Name = "GSwitchHardware"
+        Me.GSwitchHardware.Size = New System.Drawing.Size(36, 18)
+        Me.GSwitchHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.GSwitchHardware.SwitchOffColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.GSwitchHardware.SwitchOnColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GSwitchHardware.TabIndex = 5
         '
         'pnlMetrics
         '
@@ -1454,11 +1519,11 @@ Partial Class FormMain
         '
         Me.cmsHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.cmsHelp.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.CheckForUpdateToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator7, Me.AboutToolStripMenuItem})
+        Me.cmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator7, Me.AboutToolStripMenuItem})
         Me.cmsHelp.Name = "cmsHelp"
         Me.cmsHelp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.cmsHelp.ShowImageMargin = False
-        Me.cmsHelp.Size = New System.Drawing.Size(237, 136)
+        Me.cmsHelp.Size = New System.Drawing.Size(237, 160)
         '
         'MediaFeaturePackToolStripMenuItem
         '
@@ -1487,16 +1552,25 @@ Partial Class FormMain
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
         Me.ToolStripSeparator3.Size = New System.Drawing.Size(233, 6)
         '
-        'CheckForUpdateToolStripMenuItem
+        'HotfixAvailableToolStripMenuItem
         '
-        Me.CheckForUpdateToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
-        Me.CheckForUpdateToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CheckForUpdateToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CheckForUpdateToolStripMenuItem.Name = "CheckForUpdateToolStripMenuItem"
-        Me.CheckForUpdateToolStripMenuItem.ShortcutKeyDisplayString = ""
-        Me.CheckForUpdateToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
-        Me.CheckForUpdateToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
-        Me.CheckForUpdateToolStripMenuItem.Text = "Check for updates"
+        Me.HotfixAvailableToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.HotfixAvailableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.HotfixAvailableToolStripMenuItem.Name = "HotfixAvailableToolStripMenuItem"
+        Me.HotfixAvailableToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
+        Me.HotfixAvailableToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
+        Me.HotfixAvailableToolStripMenuItem.Text = "Hotfix available"
+        '
+        'UpdateAvailableToolStripMenuItem
+        '
+        Me.UpdateAvailableToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text
+        Me.UpdateAvailableToolStripMenuItem.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.UpdateAvailableToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.UpdateAvailableToolStripMenuItem.Name = "UpdateAvailableToolStripMenuItem"
+        Me.UpdateAvailableToolStripMenuItem.ShortcutKeyDisplayString = ""
+        Me.UpdateAvailableToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
+        Me.UpdateAvailableToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
+        Me.UpdateAvailableToolStripMenuItem.Text = "Update available"
         '
         'ChangelogToolStripMenuItem
         '
@@ -1523,21 +1597,6 @@ Partial Class FormMain
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'GSwitchHardware
-        '
-        Me.GSwitchHardware.ActiveBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.GSwitchHardware.ActiveBorderColor = System.Drawing.Color.White
-        Me.GSwitchHardware.BackColor = System.Drawing.Color.Transparent
-        Me.GSwitchHardware.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.GSwitchHardware.Location = New System.Drawing.Point(42, 5)
-        Me.GSwitchHardware.Margin = New System.Windows.Forms.Padding(4)
-        Me.GSwitchHardware.Name = "GSwitchHardware"
-        Me.GSwitchHardware.Size = New System.Drawing.Size(36, 18)
-        Me.GSwitchHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.GSwitchHardware.SwitchOffColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.GSwitchHardware.SwitchOnColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GSwitchHardware.TabIndex = 5
-        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1557,6 +1616,7 @@ Partial Class FormMain
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
+        Me.MaximizeBox = False
         Me.MaximumSize = New System.Drawing.Size(850, 520)
         Me.MinimumSize = New System.Drawing.Size(850, 520)
         Me.Name = "FormMain"
@@ -1573,6 +1633,7 @@ Partial Class FormMain
         Me.pnlComp.PerformLayout()
         Me.pnlRated.ResumeLayout(False)
         Me.pnlHead.ResumeLayout(False)
+        Me.cmsExplorer.ResumeLayout(False)
         Me.tlpIcon.ResumeLayout(False)
         Me.pnlMenu.ResumeLayout(False)
         Me.tlpMenu.ResumeLayout(False)
@@ -1613,7 +1674,7 @@ Partial Class FormMain
 
     End Sub
     Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
-    Friend WithEvents lbHead As System.Windows.Forms.Label
+    Friend WithEvents LbHead As System.Windows.Forms.Label
     Friend WithEvents lbState As System.Windows.Forms.Label
     Friend WithEvents GSwitchHardware As GambolSwitch
     Friend WithEvents lbShowOnPrint As System.Windows.Forms.Label
@@ -1628,8 +1689,8 @@ Partial Class FormMain
     Friend WithEvents pnlHead As System.Windows.Forms.Panel
     Friend WithEvents sOperatingSystem As System.Windows.Forms.Label
     Friend WithEvents sLastUpdate As System.Windows.Forms.Label
-    Friend WithEvents cmdClose As System.Windows.Forms.Button
-    Friend WithEvents cmdMinimize As System.Windows.Forms.Button
+    Friend WithEvents CmdClose As System.Windows.Forms.Button
+    Friend WithEvents CmdMinimize As System.Windows.Forms.Button
     Friend WithEvents PnlSubDisk As System.Windows.Forms.Panel
     Friend WithEvents lbDiskScore As System.Windows.Forms.Label
     Friend WithEvents PnlSubGaming As System.Windows.Forms.Panel
@@ -1646,7 +1707,7 @@ Partial Class FormMain
     Friend WithEvents lbCompGaming As System.Windows.Forms.Label
     Friend WithEvents lbCompGraphics As System.Windows.Forms.Label
     Friend WithEvents lbCompMem As System.Windows.Forms.Label
-    Friend WithEvents lbScaleOf As System.Windows.Forms.Label
+    Friend WithEvents lbScale As System.Windows.Forms.Label
     Friend WithEvents pnlSplit As System.Windows.Forms.Panel
     Friend WithEvents pnlMenu As System.Windows.Forms.Panel
     Friend WithEvents cmdOptions As System.Windows.Forms.Button
@@ -1705,7 +1766,7 @@ Partial Class FormMain
     Friend WithEvents cmsHelp As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents TroubleshootingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents CheckForUpdateToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents UpdateAvailableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AboutToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents MediaFeaturePackToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
@@ -1714,9 +1775,18 @@ Partial Class FormMain
     Friend WithEvents CleanupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents ViewSystemDetailsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents lbHeadVer As Label
+    Friend WithEvents LbHeadVer As Label
     Friend WithEvents ChangelogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents cmdHotfix As Button
+    Friend WithEvents cmsExplorer As ContextMenuStrip
+    Friend WithEvents MinimiseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
+    Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
+    Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents Notifier1 As Gambol.Notifier.Notifier
+    Friend WithEvents HotfixAvailableToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResetPositionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ResetApplicationToolStripMenuItem As ToolStripMenuItem
 End Class

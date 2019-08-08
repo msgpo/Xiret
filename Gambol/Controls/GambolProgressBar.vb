@@ -107,21 +107,20 @@ Namespace Controls
 
         Protected Overrides Sub OnPaint(e As PaintEventArgs)
 
-            Dim g As Graphics = e.Graphics
-            Dim dbl As Double
-            g.Clear(BackColor)
+            Dim G As Graphics = e.Graphics
+            Dim IntDouble As Double
+
+            G.Clear(BackColor)
 
             If ShowBorder Then
-                dbl = pValue / pMaximum * (Width - 2)
-                g.FillRectangle(New SolidBrush(Color.FromArgb(20, BackColor)), New Rectangle(0, 0, Width - 1, Height - 1))
-                If dbl > 0 Then g.FillRectangle(New SolidBrush(ProgressColor), New Rectangle(1, 1, CInt(dbl), Height - 2))
-                g.DrawRectangle(New Pen(BorderColor), New Rectangle(0, 0, Width - 1, Height - 1))
+                IntDouble = pValue / pMaximum * (Width - 2)
+                G.FillRectangle(New SolidBrush(Color.FromArgb(20, BackColor)), New Rectangle(0, 0, Width - 1, Height - 1))
+                If IntDouble > 0 Then G.FillRectangle(New SolidBrush(ProgressColor), New Rectangle(1, 1, CInt(IntDouble), Height - 2))
+                G.DrawRectangle(New Pen(BorderColor), New Rectangle(0, 0, Width - 1, Height - 1))
             Else
-                If Not ShowBorder Then
-                    dbl = pValue / pMaximum * (Width)
-                    g.FillRectangle(New SolidBrush(Color.FromArgb(20, BackColor)), New Rectangle(0, 0, Width, Height))
-                    If dbl > 0 Then g.FillRectangle(New SolidBrush(ProgressColor), New Rectangle(0, 0, CInt(dbl), Height))
-                End If
+                IntDouble = pValue / pMaximum * (Width)
+                G.FillRectangle(New SolidBrush(Color.FromArgb(20, BackColor)), New Rectangle(0, 0, Width, Height))
+                If IntDouble > 0 Then G.FillRectangle(New SolidBrush(ProgressColor), New Rectangle(0, 0, CInt(IntDouble), Height))
             End If
 
         End Sub

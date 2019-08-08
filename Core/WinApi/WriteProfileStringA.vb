@@ -20,7 +20,7 @@ Namespace WinApi
 
         '// http://pinvoke.net/default.aspx/kernel32.WriteProfileString
         <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("kernel32.dll", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)>
-        Shared Function WriteProfileString(ByVal lpszSection As String, ByVal lpszKeyName As String, ByVal lpszString As String) As Integer
+        Public Shared Function WriteProfileString(lpszSection As String, lpszKeyName As String, lpszString As String) As Integer
         End Function
 
     End Class

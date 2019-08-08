@@ -25,15 +25,16 @@ Partial Class FormUpdate
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormUpdate))
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.BtnClose = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
         Me.lbHead = New System.Windows.Forms.Label()
         Me.pnlMain = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cmdUpdate = New System.Windows.Forms.Button()
+        Me.tlpButtons = New System.Windows.Forms.TableLayoutPanel()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.cmdCancel = New System.Windows.Forms.Button()
-        Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
+        Me.cmdUpdate = New System.Windows.Forms.Button()
+        Me.tlpItms = New System.Windows.Forms.TableLayoutPanel()
         Me.pnlCurrent = New System.Windows.Forms.Panel()
         Me.sOne = New System.Windows.Forms.Label()
         Me.pnlServer = New System.Windows.Forms.Panel()
@@ -52,8 +53,8 @@ Partial Class FormUpdate
         Me.tlpIcon.SuspendLayout()
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel2.SuspendLayout()
+        Me.tlpButtons.SuspendLayout()
+        Me.tlpItms.SuspendLayout()
         Me.pnlCurrent.SuspendLayout()
         Me.pnlServer.SuspendLayout()
         Me.pnlType.SuspendLayout()
@@ -75,7 +76,7 @@ Partial Class FormUpdate
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.BtnClose)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
@@ -85,24 +86,24 @@ Partial Class FormUpdate
         Me.pnlHead.Size = New System.Drawing.Size(373, 40)
         Me.pnlHead.TabIndex = 73
         '
-        'BtnClose
+        'CmdClose
         '
-        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
-        Me.BtnClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnClose.FlatAppearance.BorderSize = 0
-        Me.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.Location = New System.Drawing.Point(333, 0)
-        Me.BtnClose.Margin = New System.Windows.Forms.Padding(4)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(40, 40)
-        Me.BtnClose.TabIndex = 7
-        Me.BtnClose.TabStop = False
-        Me.BtnClose.Text = "✕"
-        Me.BtnClose.UseVisualStyleBackColor = False
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(333, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 7
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -116,7 +117,7 @@ Partial Class FormUpdate
         Me.tlpIcon.Name = "tlpIcon"
         Me.tlpIcon.RowCount = 1
         Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(51, 40)
+        Me.tlpIcon.Size = New System.Drawing.Size(43, 40)
         Me.tlpIcon.TabIndex = 71
         '
         'pbxMain
@@ -149,8 +150,8 @@ Partial Class FormUpdate
         'pnlMain
         '
         Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.pnlMain.Controls.Add(Me.TableLayoutPanel3)
-        Me.pnlMain.Controls.Add(Me.TableLayoutPanel2)
+        Me.pnlMain.Controls.Add(Me.tlpButtons)
+        Me.pnlMain.Controls.Add(Me.tlpItms)
         Me.pnlMain.Controls.Add(Me.llChangelog)
         Me.pnlMain.Controls.Add(Me.lbInfo)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -159,51 +160,53 @@ Partial Class FormUpdate
         Me.pnlMain.Size = New System.Drawing.Size(373, 266)
         Me.pnlMain.TabIndex = 75
         '
-        'TableLayoutPanel3
+        'tlpButtons
         '
-        Me.TableLayoutPanel3.ColumnCount = 3
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.cmdUpdate, 0, 0)
-        Me.TableLayoutPanel3.Controls.Add(Me.cmdCancel, 2, 0)
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(218, 221)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(146, 35)
-        Me.TableLayoutPanel3.TabIndex = 88
+        Me.tlpButtons.ColumnCount = 5
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120.0!))
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71.0!))
+        Me.tlpButtons.Controls.Add(Me.Button1, 2, 0)
+        Me.tlpButtons.Controls.Add(Me.cmdCancel, 0, 0)
+        Me.tlpButtons.Controls.Add(Me.cmdUpdate, 4, 0)
+        Me.tlpButtons.Location = New System.Drawing.Point(90, 221)
+        Me.tlpButtons.Name = "tlpButtons"
+        Me.tlpButtons.RowCount = 1
+        Me.tlpButtons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpButtons.Size = New System.Drawing.Size(275, 35)
+        Me.tlpButtons.TabIndex = 88
         '
-        'cmdUpdate
+        'Button1
         '
-        Me.cmdUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdUpdate.Enabled = False
-        Me.cmdUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdUpdate.FlatAppearance.BorderSize = 0
-        Me.cmdUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdUpdate.Location = New System.Drawing.Point(0, 0)
-        Me.cmdUpdate.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdUpdate.Name = "cmdUpdate"
-        Me.cmdUpdate.Size = New System.Drawing.Size(70, 35)
-        Me.cmdUpdate.TabIndex = 75
-        Me.cmdUpdate.Text = "Update"
-        Me.cmdUpdate.UseVisualStyleBackColor = False
+        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.Button1.Location = New System.Drawing.Point(77, 0)
+        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(120, 35)
+        Me.Button1.TabIndex = 77
+        Me.Button1.Text = "Download Only"
+        Me.Button1.UseVisualStyleBackColor = False
         '
         'cmdCancel
         '
-        Me.cmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdCancel.FlatAppearance.BorderSize = 0
-        Me.cmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.cmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdCancel.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdCancel.Location = New System.Drawing.Point(77, 0)
+        Me.cmdCancel.Location = New System.Drawing.Point(0, 0)
         Me.cmdCancel.Margin = New System.Windows.Forms.Padding(0)
         Me.cmdCancel.Name = "cmdCancel"
         Me.cmdCancel.Size = New System.Drawing.Size(70, 35)
@@ -211,25 +214,44 @@ Partial Class FormUpdate
         Me.cmdCancel.Text = "Cancel"
         Me.cmdCancel.UseVisualStyleBackColor = False
         '
-        'TableLayoutPanel2
+        'cmdUpdate
         '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202.0!))
-        Me.TableLayoutPanel2.Controls.Add(Me.pnlCurrent, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.pnlServer, 0, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.pnlType, 0, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel5, 1, 2)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel3, 1, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.Panel4, 1, 1)
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(21, 87)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 3
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(332, 87)
-        Me.TableLayoutPanel2.TabIndex = 87
+        Me.cmdUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdUpdate.Enabled = False
+        Me.cmdUpdate.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdUpdate.FlatAppearance.BorderSize = 0
+        Me.cmdUpdate.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdUpdate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdUpdate.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdUpdate.Location = New System.Drawing.Point(204, 0)
+        Me.cmdUpdate.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmdUpdate.Name = "cmdUpdate"
+        Me.cmdUpdate.Size = New System.Drawing.Size(70, 35)
+        Me.cmdUpdate.TabIndex = 75
+        Me.cmdUpdate.Text = "Update"
+        Me.cmdUpdate.UseVisualStyleBackColor = False
+        '
+        'tlpItms
+        '
+        Me.tlpItms.ColumnCount = 2
+        Me.tlpItms.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130.0!))
+        Me.tlpItms.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 202.0!))
+        Me.tlpItms.Controls.Add(Me.pnlCurrent, 0, 0)
+        Me.tlpItms.Controls.Add(Me.pnlServer, 0, 1)
+        Me.tlpItms.Controls.Add(Me.pnlType, 0, 2)
+        Me.tlpItms.Controls.Add(Me.Panel5, 1, 2)
+        Me.tlpItms.Controls.Add(Me.Panel3, 1, 0)
+        Me.tlpItms.Controls.Add(Me.Panel4, 1, 1)
+        Me.tlpItms.Location = New System.Drawing.Point(21, 87)
+        Me.tlpItms.Name = "tlpItms"
+        Me.tlpItms.RowCount = 3
+        Me.tlpItms.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
+        Me.tlpItms.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
+        Me.tlpItms.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
+        Me.tlpItms.Size = New System.Drawing.Size(332, 87)
+        Me.tlpItms.TabIndex = 87
         '
         'pnlCurrent
         '
@@ -390,9 +412,9 @@ Partial Class FormUpdate
         Me.lbInfo.ForeColor = System.Drawing.Color.White
         Me.lbInfo.Location = New System.Drawing.Point(17, 18)
         Me.lbInfo.Name = "lbInfo"
-        Me.lbInfo.Size = New System.Drawing.Size(306, 20)
+        Me.lbInfo.Size = New System.Drawing.Size(18, 20)
         Me.lbInfo.TabIndex = 85
-        Me.lbInfo.Text = "A new version of Xiret is ready for download."
+        Me.lbInfo.Text = "..."
         '
         'FormUpdate
         '
@@ -420,8 +442,8 @@ Partial Class FormUpdate
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMain.ResumeLayout(False)
         Me.pnlMain.PerformLayout()
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel2.ResumeLayout(False)
+        Me.tlpButtons.ResumeLayout(False)
+        Me.tlpItms.ResumeLayout(False)
         Me.pnlCurrent.ResumeLayout(False)
         Me.pnlCurrent.PerformLayout()
         Me.pnlServer.ResumeLayout(False)
@@ -440,7 +462,7 @@ Partial Class FormUpdate
     Friend WithEvents pnlSplit As System.Windows.Forms.Panel
     Friend WithEvents pnlHead As System.Windows.Forms.Panel
     Friend WithEvents lbHead As System.Windows.Forms.Label
-    Friend WithEvents BtnClose As System.Windows.Forms.Button
+    Friend WithEvents CmdClose As System.Windows.Forms.Button
     Friend WithEvents pnlMain As System.Windows.Forms.Panel
     Friend WithEvents Panel4 As System.Windows.Forms.Panel
     Friend WithEvents lbServer As System.Windows.Forms.Label
@@ -458,8 +480,9 @@ Partial Class FormUpdate
     Friend WithEvents sThree As System.Windows.Forms.Label
     Friend WithEvents llChangelog As System.Windows.Forms.LinkLabel
     Friend WithEvents lbInfo As System.Windows.Forms.Label
-    Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents tlpItms As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents tlpButtons As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
+    Friend WithEvents Button1 As Button
 End Class

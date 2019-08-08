@@ -25,26 +25,34 @@ Partial Class FormMetrics
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMetrics))
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.tlpHead = New System.Windows.Forms.TableLayoutPanel()
+        Me.lbHead = New System.Windows.Forms.Label()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
-        Me.lbHead = New System.Windows.Forms.Label()
         Me.pnlMain = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.cmdWinsat = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button3 = New System.Windows.Forms.Button()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.tlpWindow = New System.Windows.Forms.TableLayoutPanel()
+        Me.rtbInfo = New System.Windows.Forms.RichTextBox()
+        Me.tlpMenu = New System.Windows.Forms.TableLayoutPanel()
+        Me.CmdProgramInfo = New System.Windows.Forms.Button()
+        Me.CmdSysEnviron = New System.Windows.Forms.Button()
+        Me.CmdWinSpr = New System.Windows.Forms.Button()
+        Me.CmdGraphics = New System.Windows.Forms.Button()
+        Me.CmdMemory = New System.Windows.Forms.Button()
+        Me.CmdProcessor = New System.Windows.Forms.Button()
+        Me.cmdMetrics = New System.Windows.Forms.Button()
+        Me.CmdOS = New System.Windows.Forms.Button()
+        Me.CmdSystem = New System.Windows.Forms.Button()
+        Me.CmdDisk = New System.Windows.Forms.Button()
+        Me.CmdDwm = New System.Windows.Forms.Button()
+        Me.CmdD3D = New System.Windows.Forms.Button()
         Me.pnlHead.SuspendLayout()
+        Me.tlpHead.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
-        Me.TableLayoutPanel3.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.tlpWindow.SuspendLayout()
+        Me.tlpMenu.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlSplit
@@ -60,9 +68,9 @@ Partial Class FormMetrics
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = CType(resources.GetObject("pnlHead.BackgroundImage"), System.Drawing.Image)
-        Me.pnlHead.Controls.Add(Me.cmdClose)
+        Me.pnlHead.Controls.Add(Me.tlpHead)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
-        Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHead.Location = New System.Drawing.Point(1, 1)
         Me.pnlHead.Margin = New System.Windows.Forms.Padding(4)
@@ -70,24 +78,52 @@ Partial Class FormMetrics
         Me.pnlHead.Size = New System.Drawing.Size(998, 40)
         Me.pnlHead.TabIndex = 73
         '
-        'cmdClose
+        'tlpHead
         '
-        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdClose.FlatAppearance.BorderSize = 0
-        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdClose.ForeColor = System.Drawing.Color.White
-        Me.cmdClose.Location = New System.Drawing.Point(958, 0)
-        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.cmdClose.TabIndex = 95
-        Me.cmdClose.TabStop = False
-        Me.cmdClose.Text = "✕"
-        Me.cmdClose.UseVisualStyleBackColor = False
+        Me.tlpHead.BackColor = System.Drawing.Color.Transparent
+        Me.tlpHead.ColumnCount = 1
+        Me.tlpHead.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpHead.Controls.Add(Me.lbHead, 0, 0)
+        Me.tlpHead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpHead.Location = New System.Drawing.Point(40, 0)
+        Me.tlpHead.Name = "tlpHead"
+        Me.tlpHead.RowCount = 1
+        Me.tlpHead.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpHead.Size = New System.Drawing.Size(918, 40)
+        Me.tlpHead.TabIndex = 96
+        '
+        'lbHead
+        '
+        Me.lbHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.lbHead.BackColor = System.Drawing.Color.Transparent
+        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lbHead.ForeColor = System.Drawing.Color.White
+        Me.lbHead.Location = New System.Drawing.Point(407, 1)
+        Me.lbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lbHead.Name = "lbHead"
+        Me.lbHead.Size = New System.Drawing.Size(104, 38)
+        Me.lbHead.TabIndex = 69
+        Me.lbHead.Text = "Metrics"
+        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'CmdClose
+        '
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(958, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 95
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -118,202 +154,311 @@ Partial Class FormMetrics
         Me.pbxMain.TabIndex = 1
         Me.pbxMain.TabStop = False
         '
-        'lbHead
-        '
-        Me.lbHead.BackColor = System.Drawing.Color.Transparent
-        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbHead.ForeColor = System.Drawing.Color.White
-        Me.lbHead.Location = New System.Drawing.Point(448, 2)
-        Me.lbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbHead.Name = "lbHead"
-        Me.lbHead.Size = New System.Drawing.Size(104, 38)
-        Me.lbHead.TabIndex = 69
-        Me.lbHead.Text = "Metrics"
-        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
         'pnlMain
         '
         Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.pnlMain.Controls.Add(Me.TableLayoutPanel3)
-        Me.pnlMain.Controls.Add(Me.TableLayoutPanel1)
+        Me.pnlMain.Controls.Add(Me.tlpWindow)
+        Me.pnlMain.Controls.Add(Me.tlpMenu)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(1, 43)
         Me.pnlMain.Name = "pnlMain"
         Me.pnlMain.Size = New System.Drawing.Size(998, 556)
         Me.pnlMain.TabIndex = 75
         '
-        'TableLayoutPanel3
+        'tlpWindow
         '
-        Me.TableLayoutPanel3.ColumnCount = 1
-        Me.TableLayoutPanel3.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Controls.Add(Me.RichTextBox1, 0, 0)
-        Me.TableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel3.Location = New System.Drawing.Point(132, 0)
-        Me.TableLayoutPanel3.Name = "TableLayoutPanel3"
-        Me.TableLayoutPanel3.Padding = New System.Windows.Forms.Padding(4, 9, 4, 9)
-        Me.TableLayoutPanel3.RowCount = 1
-        Me.TableLayoutPanel3.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel3.Size = New System.Drawing.Size(866, 556)
-        Me.TableLayoutPanel3.TabIndex = 2
+        Me.tlpWindow.ColumnCount = 1
+        Me.tlpWindow.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpWindow.Controls.Add(Me.rtbInfo, 0, 0)
+        Me.tlpWindow.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tlpWindow.Location = New System.Drawing.Point(159, 0)
+        Me.tlpWindow.Name = "tlpWindow"
+        Me.tlpWindow.Padding = New System.Windows.Forms.Padding(4, 9, 4, 9)
+        Me.tlpWindow.RowCount = 1
+        Me.tlpWindow.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.tlpWindow.Size = New System.Drawing.Size(839, 556)
+        Me.tlpWindow.TabIndex = 2
         '
-        'RichTextBox1
+        'rtbInfo
         '
-        Me.RichTextBox1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RichTextBox1.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.RichTextBox1.ForeColor = System.Drawing.Color.White
-        Me.RichTextBox1.Location = New System.Drawing.Point(7, 12)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(852, 532)
-        Me.RichTextBox1.TabIndex = 4
-        Me.RichTextBox1.Text = ""
+        Me.rtbInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.rtbInfo.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.rtbInfo.DetectUrls = False
+        Me.rtbInfo.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.rtbInfo.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.rtbInfo.ForeColor = System.Drawing.Color.White
+        Me.rtbInfo.Location = New System.Drawing.Point(7, 12)
+        Me.rtbInfo.Name = "rtbInfo"
+        Me.rtbInfo.ReadOnly = True
+        Me.rtbInfo.Size = New System.Drawing.Size(825, 532)
+        Me.rtbInfo.TabIndex = 4
+        Me.rtbInfo.Text = ""
         '
-        'TableLayoutPanel1
+        'tlpMenu
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.cmdWinsat, 0, 1)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button1, 0, 2)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button2, 0, 3)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button3, 0, 4)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button4, 0, 5)
-        Me.TableLayoutPanel1.Controls.Add(Me.Button5, 0, 6)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 8
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(132, 556)
-        Me.TableLayoutPanel1.TabIndex = 0
+        Me.tlpMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.tlpMenu.ColumnCount = 1
+        Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpMenu.Controls.Add(Me.CmdProgramInfo, 0, 1)
+        Me.tlpMenu.Controls.Add(Me.CmdSysEnviron, 0, 2)
+        Me.tlpMenu.Controls.Add(Me.CmdWinSpr, 0, 3)
+        Me.tlpMenu.Controls.Add(Me.cmdMetrics, 0, 4)
+        Me.tlpMenu.Controls.Add(Me.CmdOS, 0, 5)
+        Me.tlpMenu.Controls.Add(Me.CmdGraphics, 0, 9)
+        Me.tlpMenu.Controls.Add(Me.CmdMemory, 0, 8)
+        Me.tlpMenu.Controls.Add(Me.CmdProcessor, 0, 7)
+        Me.tlpMenu.Controls.Add(Me.CmdSystem, 0, 6)
+        Me.tlpMenu.Controls.Add(Me.CmdDisk, 0, 10)
+        Me.tlpMenu.Controls.Add(Me.CmdDwm, 0, 11)
+        Me.tlpMenu.Controls.Add(Me.CmdD3D, 0, 12)
+        Me.tlpMenu.Dock = System.Windows.Forms.DockStyle.Left
+        Me.tlpMenu.Location = New System.Drawing.Point(0, 0)
+        Me.tlpMenu.Name = "tlpMenu"
+        Me.tlpMenu.RowCount = 14
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.tlpMenu.Size = New System.Drawing.Size(159, 556)
+        Me.tlpMenu.TabIndex = 0
         '
-        'cmdWinsat
+        'CmdProgramInfo
         '
-        Me.cmdWinsat.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.cmdWinsat.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdWinsat.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.cmdWinsat.FlatAppearance.BorderSize = 0
-        Me.cmdWinsat.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdWinsat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdWinsat.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdWinsat.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdWinsat.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdWinsat.Location = New System.Drawing.Point(0, 20)
-        Me.cmdWinsat.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdWinsat.Name = "cmdWinsat"
-        Me.cmdWinsat.Size = New System.Drawing.Size(132, 36)
-        Me.cmdWinsat.TabIndex = 3
-        Me.cmdWinsat.Text = "  WinSAT"
-        Me.cmdWinsat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdWinsat.UseVisualStyleBackColor = False
+        Me.CmdProgramInfo.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdProgramInfo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdProgramInfo.FlatAppearance.BorderSize = 0
+        Me.CmdProgramInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdProgramInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdProgramInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdProgramInfo.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdProgramInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdProgramInfo.Location = New System.Drawing.Point(0, 20)
+        Me.CmdProgramInfo.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdProgramInfo.Name = "CmdProgramInfo"
+        Me.CmdProgramInfo.Size = New System.Drawing.Size(159, 36)
+        Me.CmdProgramInfo.TabIndex = 3
+        Me.CmdProgramInfo.Text = "  ProgramInfo"
+        Me.CmdProgramInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdProgramInfo.UseVisualStyleBackColor = False
         '
-        'Button1
+        'CmdSysEnviron
         '
-        Me.Button1.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button1.Location = New System.Drawing.Point(0, 56)
-        Me.Button1.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(132, 36)
-        Me.Button1.TabIndex = 4
-        Me.Button1.Text = "  Environment"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.CmdSysEnviron.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdSysEnviron.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdSysEnviron.FlatAppearance.BorderSize = 0
+        Me.CmdSysEnviron.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSysEnviron.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSysEnviron.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdSysEnviron.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdSysEnviron.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdSysEnviron.Location = New System.Drawing.Point(0, 56)
+        Me.CmdSysEnviron.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdSysEnviron.Name = "CmdSysEnviron"
+        Me.CmdSysEnviron.Size = New System.Drawing.Size(159, 36)
+        Me.CmdSysEnviron.TabIndex = 4
+        Me.CmdSysEnviron.Text = "  SystemEnvironment"
+        Me.CmdSysEnviron.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdSysEnviron.UseVisualStyleBackColor = False
         '
-        'Button2
+        'CmdWinSpr
         '
-        Me.Button2.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button2.FlatAppearance.BorderSize = 0
-        Me.Button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button2.Location = New System.Drawing.Point(0, 92)
-        Me.Button2.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(132, 36)
-        Me.Button2.TabIndex = 5
-        Me.Button2.Text = "  Processor"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.CmdWinSpr.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdWinSpr.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdWinSpr.FlatAppearance.BorderSize = 0
+        Me.CmdWinSpr.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdWinSpr.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdWinSpr.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdWinSpr.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdWinSpr.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdWinSpr.Location = New System.Drawing.Point(0, 92)
+        Me.CmdWinSpr.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdWinSpr.Name = "CmdWinSpr"
+        Me.CmdWinSpr.Size = New System.Drawing.Size(159, 36)
+        Me.CmdWinSpr.TabIndex = 8
+        Me.CmdWinSpr.Text = "  WinSPR"
+        Me.CmdWinSpr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdWinSpr.UseVisualStyleBackColor = False
         '
-        'Button3
+        'CmdGraphics
         '
-        Me.Button3.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button3.FlatAppearance.BorderSize = 0
-        Me.Button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button3.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button3.Location = New System.Drawing.Point(0, 128)
-        Me.Button3.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button3.Name = "Button3"
-        Me.Button3.Size = New System.Drawing.Size(132, 36)
-        Me.Button3.TabIndex = 6
-        Me.Button3.Text = "  Memory (RAM)"
-        Me.Button3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button3.UseVisualStyleBackColor = False
+        Me.CmdGraphics.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdGraphics.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdGraphics.FlatAppearance.BorderSize = 0
+        Me.CmdGraphics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdGraphics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdGraphics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdGraphics.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdGraphics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdGraphics.Location = New System.Drawing.Point(0, 308)
+        Me.CmdGraphics.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdGraphics.Name = "CmdGraphics"
+        Me.CmdGraphics.Size = New System.Drawing.Size(159, 36)
+        Me.CmdGraphics.TabIndex = 7
+        Me.CmdGraphics.Text = "  Graphics"
+        Me.CmdGraphics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdGraphics.UseVisualStyleBackColor = False
         '
-        'Button4
+        'CmdMemory
         '
-        Me.Button4.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button4.FlatAppearance.BorderSize = 0
-        Me.Button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button4.Location = New System.Drawing.Point(0, 164)
-        Me.Button4.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(132, 36)
-        Me.Button4.TabIndex = 7
-        Me.Button4.Text = "  Graphics"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button4.UseVisualStyleBackColor = False
+        Me.CmdMemory.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdMemory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdMemory.FlatAppearance.BorderSize = 0
+        Me.CmdMemory.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdMemory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdMemory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdMemory.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdMemory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdMemory.Location = New System.Drawing.Point(0, 272)
+        Me.CmdMemory.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdMemory.Name = "CmdMemory"
+        Me.CmdMemory.Size = New System.Drawing.Size(159, 36)
+        Me.CmdMemory.TabIndex = 6
+        Me.CmdMemory.Text = "  Memory (RAM)"
+        Me.CmdMemory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdMemory.UseVisualStyleBackColor = False
         '
-        'Button5
+        'CmdProcessor
         '
-        Me.Button5.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.Button5.Location = New System.Drawing.Point(0, 200)
-        Me.Button5.Margin = New System.Windows.Forms.Padding(0)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(132, 36)
-        Me.Button5.TabIndex = 8
-        Me.Button5.Text = "  Disk"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.UseVisualStyleBackColor = False
+        Me.CmdProcessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdProcessor.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdProcessor.FlatAppearance.BorderSize = 0
+        Me.CmdProcessor.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdProcessor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdProcessor.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdProcessor.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdProcessor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdProcessor.Location = New System.Drawing.Point(0, 236)
+        Me.CmdProcessor.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdProcessor.Name = "CmdProcessor"
+        Me.CmdProcessor.Size = New System.Drawing.Size(159, 36)
+        Me.CmdProcessor.TabIndex = 5
+        Me.CmdProcessor.Text = "  Processor"
+        Me.CmdProcessor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdProcessor.UseVisualStyleBackColor = False
+        '
+        'cmdMetrics
+        '
+        Me.cmdMetrics.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.BorderSize = 0
+        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdMetrics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdMetrics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdMetrics.Location = New System.Drawing.Point(0, 128)
+        Me.cmdMetrics.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmdMetrics.Name = "cmdMetrics"
+        Me.cmdMetrics.Size = New System.Drawing.Size(159, 36)
+        Me.cmdMetrics.TabIndex = 9
+        Me.cmdMetrics.Text = "  Metrics"
+        Me.cmdMetrics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdMetrics.UseVisualStyleBackColor = False
+        '
+        'CmdOS
+        '
+        Me.CmdOS.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdOS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdOS.FlatAppearance.BorderSize = 0
+        Me.CmdOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdOS.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdOS.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdOS.Location = New System.Drawing.Point(0, 164)
+        Me.CmdOS.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdOS.Name = "CmdOS"
+        Me.CmdOS.Size = New System.Drawing.Size(159, 36)
+        Me.CmdOS.TabIndex = 10
+        Me.CmdOS.Text = "  OSVersion"
+        Me.CmdOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdOS.UseVisualStyleBackColor = False
+        '
+        'CmdSystem
+        '
+        Me.CmdSystem.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdSystem.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdSystem.FlatAppearance.BorderSize = 0
+        Me.CmdSystem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSystem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSystem.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdSystem.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdSystem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdSystem.Location = New System.Drawing.Point(0, 200)
+        Me.CmdSystem.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdSystem.Name = "CmdSystem"
+        Me.CmdSystem.Size = New System.Drawing.Size(159, 36)
+        Me.CmdSystem.TabIndex = 11
+        Me.CmdSystem.Text = "  System"
+        Me.CmdSystem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdSystem.UseVisualStyleBackColor = False
+        '
+        'CmdDisk
+        '
+        Me.CmdDisk.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdDisk.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdDisk.FlatAppearance.BorderSize = 0
+        Me.CmdDisk.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdDisk.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdDisk.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdDisk.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdDisk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdDisk.Location = New System.Drawing.Point(0, 344)
+        Me.CmdDisk.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdDisk.Name = "CmdDisk"
+        Me.CmdDisk.Size = New System.Drawing.Size(159, 36)
+        Me.CmdDisk.TabIndex = 12
+        Me.CmdDisk.Text = "  Disk"
+        Me.CmdDisk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdDisk.UseVisualStyleBackColor = False
+        '
+        'CmdDwm
+        '
+        Me.CmdDwm.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdDwm.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdDwm.FlatAppearance.BorderSize = 0
+        Me.CmdDwm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdDwm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdDwm.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdDwm.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdDwm.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdDwm.Location = New System.Drawing.Point(0, 380)
+        Me.CmdDwm.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdDwm.Name = "CmdDwm"
+        Me.CmdDwm.Size = New System.Drawing.Size(159, 36)
+        Me.CmdDwm.TabIndex = 13
+        Me.CmdDwm.Text = "  DWMAssessment"
+        Me.CmdDwm.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdDwm.UseVisualStyleBackColor = False
+        '
+        'CmdD3D
+        '
+        Me.CmdD3D.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdD3D.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdD3D.FlatAppearance.BorderSize = 0
+        Me.CmdD3D.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdD3D.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdD3D.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdD3D.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdD3D.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdD3D.Location = New System.Drawing.Point(0, 416)
+        Me.CmdD3D.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdD3D.Name = "CmdD3D"
+        Me.CmdD3D.Size = New System.Drawing.Size(159, 36)
+        Me.CmdD3D.TabIndex = 14
+        Me.CmdD3D.Text = "  D3DAssessment"
+        Me.CmdD3D.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdD3D.UseVisualStyleBackColor = False
         '
         'FormMetrics
         '
@@ -326,36 +471,45 @@ Partial Class FormMetrics
         Me.Controls.Add(Me.pnlHead)
         Me.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.MaximumSize = New System.Drawing.Size(1000, 600)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.KeyPreview = True
         Me.MinimumSize = New System.Drawing.Size(1000, 600)
         Me.Name = "FormMetrics"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "FormMetrics"
+        Me.Text = "Metrics"
         Me.pnlHead.ResumeLayout(False)
+        Me.tlpHead.ResumeLayout(False)
         Me.tlpIcon.ResumeLayout(False)
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMain.ResumeLayout(False)
-        Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.tlpWindow.ResumeLayout(False)
+        Me.tlpMenu.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents pnlSplit As Panel
     Friend WithEvents pnlHead As Panel
-    Friend WithEvents cmdClose As Button
+    Friend WithEvents CmdClose As Button
     Friend WithEvents tlpIcon As TableLayoutPanel
     Friend WithEvents pbxMain As PictureBox
     Friend WithEvents lbHead As Label
     Friend WithEvents pnlMain As Panel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents cmdWinsat As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button3 As Button
-    Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
-    Friend WithEvents TableLayoutPanel3 As TableLayoutPanel
-    Friend WithEvents RichTextBox1 As RichTextBox
+    Friend WithEvents tlpMenu As TableLayoutPanel
+    Friend WithEvents CmdProgramInfo As Button
+    Friend WithEvents CmdSysEnviron As Button
+    Friend WithEvents CmdProcessor As Button
+    Friend WithEvents CmdMemory As Button
+    Friend WithEvents CmdGraphics As Button
+    Friend WithEvents tlpWindow As TableLayoutPanel
+    Friend WithEvents rtbInfo As RichTextBox
+    Friend WithEvents tlpHead As TableLayoutPanel
+    Friend WithEvents CmdWinSpr As Button
+    Friend WithEvents cmdMetrics As Button
+    Friend WithEvents CmdOS As Button
+    Friend WithEvents CmdSystem As Button
+    Friend WithEvents CmdDisk As Button
+    Friend WithEvents CmdDwm As Button
+    Friend WithEvents CmdD3D As Button
 End Class

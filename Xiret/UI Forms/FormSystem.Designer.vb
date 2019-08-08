@@ -24,7 +24,7 @@ Partial Class FormSystem
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormSystem))
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.BtnClose = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
         Me.lbHead = New System.Windows.Forms.Label()
@@ -57,7 +57,7 @@ Partial Class FormSystem
         Me.pSeven = New System.Windows.Forms.Panel()
         Me.sSeven = New System.Windows.Forms.Label()
         Me.Panel12 = New System.Windows.Forms.Panel()
-        Me.cmdrefresh = New System.Windows.Forms.Button()
+        Me.CmdRefresh = New System.Windows.Forms.Button()
         Me.lbUptime = New System.Windows.Forms.Label()
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlHead.SuspendLayout()
@@ -85,7 +85,7 @@ Partial Class FormSystem
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.BtnClose)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
@@ -95,24 +95,24 @@ Partial Class FormSystem
         Me.pnlHead.Size = New System.Drawing.Size(488, 40)
         Me.pnlHead.TabIndex = 0
         '
-        'BtnClose
+        'CmdClose
         '
-        Me.BtnClose.BackColor = System.Drawing.Color.Transparent
-        Me.BtnClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.BtnClose.FlatAppearance.BorderSize = 0
-        Me.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.BtnClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BtnClose.ForeColor = System.Drawing.Color.White
-        Me.BtnClose.Location = New System.Drawing.Point(448, 0)
-        Me.BtnClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.BtnClose.Name = "BtnClose"
-        Me.BtnClose.Size = New System.Drawing.Size(40, 40)
-        Me.BtnClose.TabIndex = 71
-        Me.BtnClose.TabStop = False
-        Me.BtnClose.Text = "✕"
-        Me.BtnClose.UseVisualStyleBackColor = False
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(448, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 0
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -126,7 +126,7 @@ Partial Class FormSystem
         Me.tlpIcon.Name = "tlpIcon"
         Me.tlpIcon.RowCount = 1
         Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(51, 40)
+        Me.tlpIcon.Size = New System.Drawing.Size(42, 40)
         Me.tlpIcon.TabIndex = 73
         '
         'pbxMain
@@ -503,7 +503,7 @@ Partial Class FormSystem
         'Panel12
         '
         Me.Panel12.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel12.Controls.Add(Me.cmdrefresh)
+        Me.Panel12.Controls.Add(Me.CmdRefresh)
         Me.Panel12.Controls.Add(Me.lbUptime)
         Me.Panel12.Dock = System.Windows.Forms.DockStyle.Fill
         Me.Panel12.Location = New System.Drawing.Point(167, 190)
@@ -512,26 +512,26 @@ Partial Class FormSystem
         Me.Panel12.Size = New System.Drawing.Size(306, 29)
         Me.Panel12.TabIndex = 92
         '
-        'cmdrefresh
+        'CmdRefresh
         '
-        Me.cmdrefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.cmdrefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdrefresh.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.cmdrefresh.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdrefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdrefresh.FlatAppearance.BorderSize = 0
-        Me.cmdrefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdrefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdrefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdrefresh.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdrefresh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdrefresh.Location = New System.Drawing.Point(233, 0)
-        Me.cmdrefresh.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdrefresh.Name = "cmdrefresh"
-        Me.cmdrefresh.Size = New System.Drawing.Size(73, 29)
-        Me.cmdrefresh.TabIndex = 129
-        Me.cmdrefresh.Text = "Refresh"
-        Me.cmdrefresh.UseVisualStyleBackColor = False
+        Me.CmdRefresh.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.CmdRefresh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CmdRefresh.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.CmdRefresh.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdRefresh.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.CmdRefresh.FlatAppearance.BorderSize = 0
+        Me.CmdRefresh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdRefresh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdRefresh.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdRefresh.Font = New System.Drawing.Font("Segoe UI Semibold", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdRefresh.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdRefresh.Location = New System.Drawing.Point(233, 0)
+        Me.CmdRefresh.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdRefresh.Name = "CmdRefresh"
+        Me.CmdRefresh.Size = New System.Drawing.Size(73, 29)
+        Me.CmdRefresh.TabIndex = 129
+        Me.CmdRefresh.Text = "Refresh"
+        Me.CmdRefresh.UseVisualStyleBackColor = False
         '
         'lbUptime
         '
@@ -615,7 +615,7 @@ Partial Class FormSystem
     End Sub
     Friend WithEvents pnlHead As System.Windows.Forms.Panel
     Friend WithEvents lbHead As System.Windows.Forms.Label
-    Friend WithEvents BtnClose As System.Windows.Forms.Button
+    Friend WithEvents CmdClose As System.Windows.Forms.Button
     Friend WithEvents Panel7 As System.Windows.Forms.Panel
     Friend WithEvents pnlSplit As System.Windows.Forms.Panel
     Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
@@ -649,5 +649,5 @@ Partial Class FormSystem
     Friend WithEvents sSeven As System.Windows.Forms.Label
     Friend WithEvents Panel12 As System.Windows.Forms.Panel
     Friend WithEvents lbUptime As System.Windows.Forms.Label
-    Friend WithEvents cmdrefresh As System.Windows.Forms.Button
+    Friend WithEvents CmdRefresh As System.Windows.Forms.Button
 End Class

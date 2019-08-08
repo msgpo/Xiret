@@ -18,8 +18,9 @@ Namespace WinApi
 
     Public Class LockWindowUpdateA
 
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll")>
-        Shared Function LockWindowUpdate(ByVal hWndLock As IntPtr) As Boolean
+        '// http://pinvoke.net/default.aspx/user32.LockWindowUpdate
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Public Shared Function LockWindowUpdate(hWndLock As IntPtr) As Boolean
         End Function
 
     End Class

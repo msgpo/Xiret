@@ -24,37 +24,37 @@ Partial Class FormAbout
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAbout))
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
         Me.lbHead = New System.Windows.Forms.Label()
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.llSOurce = New System.Windows.Forms.LinkLabel()
         Me.llBitmight = New System.Windows.Forms.LinkLabel()
         Me.llVectors = New System.Windows.Forms.LinkLabel()
         Me.llFlaticon = New System.Windows.Forms.LinkLabel()
         Me.llDonate = New System.Windows.Forms.LinkLabel()
         Me.llContact = New System.Windows.Forms.LinkLabel()
         Me.llForum = New System.Windows.Forms.LinkLabel()
-        Me.pbxLogo = New System.Windows.Forms.PictureBox()
-        Me.tlpText = New System.Windows.Forms.TableLayoutPanel()
+        Me.PbxLogo = New System.Windows.Forms.PictureBox()
+        Me.TlpLabels = New System.Windows.Forms.TableLayoutPanel()
         Me.lbName = New System.Windows.Forms.Label()
         Me.lbCopyright = New System.Windows.Forms.Label()
-        Me.lbInfo = New System.Windows.Forms.Label()
-        Me.llSOurce = New System.Windows.Forms.LinkLabel()
+        Me.LbInfo = New System.Windows.Forms.Label()
         Me.pnlHead.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.tlpText.SuspendLayout()
+        CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TlpLabels.SuspendLayout()
         Me.SuspendLayout()
         '
         'pnlHead
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.cmdClose)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
@@ -64,25 +64,25 @@ Partial Class FormAbout
         Me.pnlHead.Size = New System.Drawing.Size(578, 40)
         Me.pnlHead.TabIndex = 69
         '
-        'cmdClose
+        'CmdClose
         '
-        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.cmdClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdClose.FlatAppearance.BorderSize = 0
-        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdClose.ForeColor = System.Drawing.Color.White
-        Me.cmdClose.Location = New System.Drawing.Point(538, 0)
-        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.cmdClose.TabIndex = 95
-        Me.cmdClose.TabStop = False
-        Me.cmdClose.Text = "✕"
-        Me.cmdClose.UseVisualStyleBackColor = False
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(538, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 95
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -137,7 +137,7 @@ Partial Class FormAbout
         '
         'pnlMain
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.pnlMain.Controls.Add(Me.llSOurce)
         Me.pnlMain.Controls.Add(Me.llBitmight)
         Me.pnlMain.Controls.Add(Me.llVectors)
@@ -145,14 +145,29 @@ Partial Class FormAbout
         Me.pnlMain.Controls.Add(Me.llDonate)
         Me.pnlMain.Controls.Add(Me.llContact)
         Me.pnlMain.Controls.Add(Me.llForum)
-        Me.pnlMain.Controls.Add(Me.pbxLogo)
-        Me.pnlMain.Controls.Add(Me.tlpText)
-        Me.pnlMain.Controls.Add(Me.lbInfo)
+        Me.pnlMain.Controls.Add(Me.PbxLogo)
+        Me.pnlMain.Controls.Add(Me.TlpLabels)
+        Me.pnlMain.Controls.Add(Me.LbInfo)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(1, 43)
         Me.pnlMain.Name = "pnlMain"
         Me.pnlMain.Size = New System.Drawing.Size(578, 316)
         Me.pnlMain.TabIndex = 73
+        '
+        'llSOurce
+        '
+        Me.llSOurce.ActiveLinkColor = System.Drawing.Color.White
+        Me.llSOurce.AutoSize = True
+        Me.llSOurce.BackColor = System.Drawing.Color.Transparent
+        Me.llSOurce.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llSOurce.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llSOurce.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llSOurce.Location = New System.Drawing.Point(88, 271)
+        Me.llSOurce.Name = "llSOurce"
+        Me.llSOurce.Size = New System.Drawing.Size(55, 20)
+        Me.llSOurce.TabIndex = 94
+        Me.llSOurce.TabStop = True
+        Me.llSOurce.Text = "Github"
         '
         'llBitmight
         '
@@ -244,33 +259,33 @@ Partial Class FormAbout
         Me.llForum.TabStop = True
         Me.llForum.Text = "Forum"
         '
-        'pbxLogo
+        'PbxLogo
         '
-        Me.pbxLogo.BackColor = System.Drawing.Color.Transparent
-        Me.pbxLogo.Image = Global.Xiret.My.Resources.Resources.icon64px
-        Me.pbxLogo.Location = New System.Drawing.Point(16, 16)
-        Me.pbxLogo.Margin = New System.Windows.Forms.Padding(0)
-        Me.pbxLogo.Name = "pbxLogo"
-        Me.pbxLogo.Size = New System.Drawing.Size(64, 64)
-        Me.pbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxLogo.TabIndex = 78
-        Me.pbxLogo.TabStop = False
+        Me.PbxLogo.BackColor = System.Drawing.Color.Transparent
+        Me.PbxLogo.Image = Global.Xiret.My.Resources.Resources.icon64px
+        Me.PbxLogo.Location = New System.Drawing.Point(16, 16)
+        Me.PbxLogo.Margin = New System.Windows.Forms.Padding(0)
+        Me.PbxLogo.Name = "PbxLogo"
+        Me.PbxLogo.Size = New System.Drawing.Size(64, 64)
+        Me.PbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PbxLogo.TabIndex = 78
+        Me.PbxLogo.TabStop = False
         '
-        'tlpText
+        'TlpLabels
         '
-        Me.tlpText.BackColor = System.Drawing.Color.Transparent
-        Me.tlpText.ColumnCount = 1
-        Me.tlpText.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpText.Controls.Add(Me.lbName, 0, 0)
-        Me.tlpText.Controls.Add(Me.lbCopyright, 0, 1)
-        Me.tlpText.Location = New System.Drawing.Point(87, 25)
-        Me.tlpText.Name = "tlpText"
-        Me.tlpText.RowCount = 2
-        Me.tlpText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
-        Me.tlpText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
-        Me.tlpText.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.tlpText.Size = New System.Drawing.Size(366, 46)
-        Me.tlpText.TabIndex = 82
+        Me.TlpLabels.BackColor = System.Drawing.Color.Transparent
+        Me.TlpLabels.ColumnCount = 1
+        Me.TlpLabels.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpLabels.Controls.Add(Me.lbName, 0, 0)
+        Me.TlpLabels.Controls.Add(Me.lbCopyright, 0, 1)
+        Me.TlpLabels.Location = New System.Drawing.Point(87, 25)
+        Me.TlpLabels.Name = "TlpLabels"
+        Me.TlpLabels.RowCount = 2
+        Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
+        Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TlpLabels.Size = New System.Drawing.Size(366, 46)
+        Me.TlpLabels.TabIndex = 82
         '
         'lbName
         '
@@ -302,33 +317,18 @@ Partial Class FormAbout
         Me.lbCopyright.Text = "Copyright © 2016-2019 Bitmight Software"
         Me.lbCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lbInfo
+        'LbInfo
         '
-        Me.lbInfo.BackColor = System.Drawing.Color.Transparent
-        Me.lbInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbInfo.Location = New System.Drawing.Point(14, 93)
-        Me.lbInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbInfo.Name = "lbInfo"
-        Me.lbInfo.Size = New System.Drawing.Size(552, 156)
-        Me.lbInfo.TabIndex = 76
-        Me.lbInfo.Text = resources.GetString("lbInfo.Text")
-        Me.lbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'llSOurce
-        '
-        Me.llSOurce.ActiveLinkColor = System.Drawing.Color.White
-        Me.llSOurce.AutoSize = True
-        Me.llSOurce.BackColor = System.Drawing.Color.Transparent
-        Me.llSOurce.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llSOurce.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llSOurce.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llSOurce.Location = New System.Drawing.Point(88, 271)
-        Me.llSOurce.Name = "llSOurce"
-        Me.llSOurce.Size = New System.Drawing.Size(55, 20)
-        Me.llSOurce.TabIndex = 94
-        Me.llSOurce.TabStop = True
-        Me.llSOurce.Text = "Github"
+        Me.LbInfo.BackColor = System.Drawing.Color.Transparent
+        Me.LbInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.LbInfo.Location = New System.Drawing.Point(14, 93)
+        Me.LbInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LbInfo.Name = "LbInfo"
+        Me.LbInfo.Size = New System.Drawing.Size(552, 156)
+        Me.LbInfo.TabIndex = 76
+        Me.LbInfo.Text = resources.GetString("LbInfo.Text")
+        Me.LbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'FormAbout
         '
@@ -361,9 +361,9 @@ Partial Class FormAbout
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMain.ResumeLayout(False)
         Me.pnlMain.PerformLayout()
-        CType(Me.pbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.tlpText.ResumeLayout(False)
-        Me.tlpText.PerformLayout()
+        CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TlpLabels.ResumeLayout(False)
+        Me.TlpLabels.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -373,9 +373,9 @@ Partial Class FormAbout
     Friend WithEvents pnlMain As System.Windows.Forms.Panel
     Friend WithEvents lbName As System.Windows.Forms.Label
     Friend WithEvents lbCopyright As System.Windows.Forms.Label
-    Friend WithEvents pbxLogo As System.Windows.Forms.PictureBox
-    Friend WithEvents lbInfo As System.Windows.Forms.Label
-    Friend WithEvents tlpText As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents PbxLogo As System.Windows.Forms.PictureBox
+    Friend WithEvents LbInfo As System.Windows.Forms.Label
+    Friend WithEvents TlpLabels As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents llFlaticon As System.Windows.Forms.LinkLabel
     Friend WithEvents llDonate As System.Windows.Forms.LinkLabel
     Friend WithEvents llContact As System.Windows.Forms.LinkLabel
@@ -384,6 +384,6 @@ Partial Class FormAbout
     Friend WithEvents llBitmight As System.Windows.Forms.LinkLabel
     Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
-    Friend WithEvents cmdClose As Button
+    Friend WithEvents CmdClose As Button
     Friend WithEvents llSOurce As LinkLabel
 End Class

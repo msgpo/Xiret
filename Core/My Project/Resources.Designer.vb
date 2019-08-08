@@ -69,5 +69,25 @@ Namespace My.Resources
                 Return CType(obj,Byte())
             End Get
         End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Windows6_1_KB2687862_x64() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Windows6_1_KB2687862_x64", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property Windows6_1_KB2687862_x86() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Windows6_1_KB2687862_x86", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
     End Module
 End Namespace

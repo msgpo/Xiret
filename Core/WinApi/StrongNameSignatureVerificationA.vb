@@ -18,8 +18,10 @@ Namespace WinApi
 
     Public Class StrongNameSignatureVerificationA
 
+        '// http://pinvoke.net/default.aspx/mscorsn/StrongNameSignatureVerificationEx.html
         <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("mscorwks.dll", CharSet:=CharSet.Auto, SetLastError:=True)>
-        Shared Function StrongNameSignatureVerificationEx(<MarshalAs(UnmanagedType.LPWStr)> ByVal wszFilePath As String, <MarshalAs(UnmanagedType.Bool)> ByVal fForceVerification As Boolean, <Out(), MarshalAs(UnmanagedType.Bool)> ByRef pfWasVerified As Boolean) As <MarshalAs(UnmanagedType.Bool)> Boolean
+        <PreserveSig()>
+        Public Shared Function StrongNameSignatureVerificationEx(<MarshalAs(UnmanagedType.LPWStr)> wszFilePath As String, <MarshalAs(UnmanagedType.Bool)> fForceVerification As Boolean, <Out(), MarshalAs(UnmanagedType.Bool)> ByRef pfWasVerified As Boolean) As <MarshalAs(UnmanagedType.Bool)> Boolean
         End Function
 
     End Class

@@ -23,13 +23,13 @@ Partial Class FormEnvironment
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormEnvironment))
-        Me.cmdOkay = New System.Windows.Forms.Button()
-        Me.lbMessage = New System.Windows.Forms.Label()
+        Me.CmdOkay = New System.Windows.Forms.Button()
+        Me.LbMessage = New System.Windows.Forms.Label()
         Me.pnlHead = New System.Windows.Forms.Panel()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
         Me.lbHead = New System.Windows.Forms.Label()
-        Me.llWebsite = New System.Windows.Forms.LinkLabel()
+        Me.LlWebsite = New System.Windows.Forms.LinkLabel()
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlHead.SuspendLayout()
@@ -38,37 +38,37 @@ Partial Class FormEnvironment
         Me.pnlMain.SuspendLayout()
         Me.SuspendLayout()
         '
-        'cmdOkay
+        'CmdOkay
         '
-        Me.cmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdOkay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.cmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdOkay.FlatAppearance.BorderSize = 0
-        Me.cmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdOkay.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdOkay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdOkay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdOkay.Location = New System.Drawing.Point(343, 137)
-        Me.cmdOkay.Margin = New System.Windows.Forms.Padding(4)
-        Me.cmdOkay.Name = "cmdOkay"
-        Me.cmdOkay.Size = New System.Drawing.Size(75, 31)
-        Me.cmdOkay.TabIndex = 1
-        Me.cmdOkay.TabStop = False
-        Me.cmdOkay.Text = "OK"
-        Me.cmdOkay.UseVisualStyleBackColor = False
+        Me.CmdOkay.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOkay.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.CmdOkay.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOkay.FlatAppearance.BorderSize = 0
+        Me.CmdOkay.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdOkay.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.CmdOkay.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdOkay.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdOkay.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdOkay.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdOkay.Location = New System.Drawing.Point(343, 137)
+        Me.CmdOkay.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdOkay.Name = "CmdOkay"
+        Me.CmdOkay.Size = New System.Drawing.Size(75, 31)
+        Me.CmdOkay.TabIndex = 1
+        Me.CmdOkay.TabStop = False
+        Me.CmdOkay.Text = "OK"
+        Me.CmdOkay.UseVisualStyleBackColor = False
         '
-        'lbMessage
+        'LbMessage
         '
-        Me.lbMessage.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(215, Byte), Integer))
-        Me.lbMessage.Location = New System.Drawing.Point(13, 15)
-        Me.lbMessage.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbMessage.Name = "lbMessage"
-        Me.lbMessage.Size = New System.Drawing.Size(405, 98)
-        Me.lbMessage.TabIndex = 4
-        Me.lbMessage.Text = ",,,"
+        Me.LbMessage.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LbMessage.ForeColor = System.Drawing.Color.FromArgb(CType(CType(215, Byte), Integer), CType(CType(215, Byte), Integer), CType(CType(215, Byte), Integer))
+        Me.LbMessage.Location = New System.Drawing.Point(13, 15)
+        Me.LbMessage.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LbMessage.Name = "LbMessage"
+        Me.LbMessage.Size = New System.Drawing.Size(405, 98)
+        Me.LbMessage.TabIndex = 4
+        Me.LbMessage.Text = ",,,"
         '
         'pnlHead
         '
@@ -95,7 +95,7 @@ Partial Class FormEnvironment
         Me.tlpIcon.Name = "tlpIcon"
         Me.tlpIcon.RowCount = 1
         Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(51, 40)
+        Me.tlpIcon.Size = New System.Drawing.Size(40, 40)
         Me.tlpIcon.TabIndex = 10
         '
         'pbxMain
@@ -125,28 +125,28 @@ Partial Class FormEnvironment
         Me.lbHead.Text = "Application Support"
         Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'llWebsite
+        'LlWebsite
         '
-        Me.llWebsite.ActiveLinkColor = System.Drawing.Color.White
-        Me.llWebsite.AutoSize = True
-        Me.llWebsite.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llWebsite.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llWebsite.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llWebsite.Location = New System.Drawing.Point(13, 141)
-        Me.llWebsite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.llWebsite.Name = "llWebsite"
-        Me.llWebsite.Size = New System.Drawing.Size(168, 23)
-        Me.llWebsite.TabIndex = 6
-        Me.llWebsite.TabStop = True
-        Me.llWebsite.Text = "View Support Forum"
+        Me.LlWebsite.ActiveLinkColor = System.Drawing.Color.White
+        Me.LlWebsite.AutoSize = True
+        Me.LlWebsite.Font = New System.Drawing.Font("Segoe UI Semibold", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LlWebsite.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LlWebsite.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LlWebsite.Location = New System.Drawing.Point(13, 141)
+        Me.LlWebsite.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LlWebsite.Name = "LlWebsite"
+        Me.LlWebsite.Size = New System.Drawing.Size(168, 23)
+        Me.LlWebsite.TabIndex = 6
+        Me.LlWebsite.TabStop = True
+        Me.LlWebsite.Text = "View Support Forum"
         '
         'pnlMain
         '
         Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.pnlMain.Controls.Add(Me.pnlSplit)
-        Me.pnlMain.Controls.Add(Me.lbMessage)
-        Me.pnlMain.Controls.Add(Me.llWebsite)
-        Me.pnlMain.Controls.Add(Me.cmdOkay)
+        Me.pnlMain.Controls.Add(Me.LbMessage)
+        Me.pnlMain.Controls.Add(Me.LlWebsite)
+        Me.pnlMain.Controls.Add(Me.CmdOkay)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(1, 41)
         Me.pnlMain.Name = "pnlMain"
@@ -194,9 +194,9 @@ Partial Class FormEnvironment
     End Sub
     Friend WithEvents pnlHead As System.Windows.Forms.Panel
     Friend WithEvents lbHead As System.Windows.Forms.Label
-    Friend WithEvents lbMessage As System.Windows.Forms.Label
-    Friend WithEvents cmdOkay As System.Windows.Forms.Button
-    Friend WithEvents llWebsite As System.Windows.Forms.LinkLabel
+    Friend WithEvents LbMessage As System.Windows.Forms.Label
+    Friend WithEvents CmdOkay As System.Windows.Forms.Button
+    Friend WithEvents LlWebsite As System.Windows.Forms.LinkLabel
     Friend WithEvents pnlMain As System.Windows.Forms.Panel
     Friend WithEvents pnlSplit As System.Windows.Forms.Panel
     Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel

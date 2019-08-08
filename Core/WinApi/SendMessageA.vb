@@ -11,6 +11,7 @@
 '  Core class library
 '  SendMessageA.vb
 '  Created by David S
+'  Updated on 31.07.2019 - DS (Added SendMessage() variant)
 
 Imports System.Runtime.InteropServices
 
@@ -19,8 +20,13 @@ Namespace WinApi
     Public Class SendMessageA
 
         '// http://pinvoke.net/default.aspx/user32.SendMessage
-        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Unicode, SetLastError:=True, ThrowOnUnmappableChar:=True)>
-        Shared Function SendMessage(ByVal hWnd As IntPtr, ByVal Msg As UInteger, ByVal wParam As Integer, ByVal lParam As IntPtr) As Integer
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Public Shared Function SendMessage(hWnd As IntPtr, Msg As UInteger, wParam As UInteger, lParam As IntPtr) As Integer
+        End Function
+
+        '// Variant for SetCueText
+        <CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1060:MovePInvokesToNativeMethodsClass")> <DllImport("user32.dll", CharSet:=CharSet.Auto, SetLastError:=True, ThrowOnUnmappableChar:=True)>
+        Public Shared Function SendMessage(hWnd As IntPtr, Msg As UInteger, wParam As UInteger, <MarshalAs(UnmanagedType.LPWStr)> lParam As String) As Integer
         End Function
 
     End Class

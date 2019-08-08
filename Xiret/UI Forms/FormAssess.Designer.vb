@@ -27,7 +27,7 @@ Partial Class FormAssess
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormAssess))
         Me.cmdCancel = New System.Windows.Forms.Button()
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.cmdClose = New System.Windows.Forms.Button()
+        Me.CmdClose = New System.Windows.Forms.Button()
         Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
         Me.pbxMain = New System.Windows.Forms.PictureBox()
         Me.lbHead = New System.Windows.Forms.Label()
@@ -40,7 +40,7 @@ Partial Class FormAssess
         Me.lbProgress = New System.Windows.Forms.Label()
         Me.pnlMain = New System.Windows.Forms.Panel()
         Me.TableLayoutPanel3 = New System.Windows.Forms.TableLayoutPanel()
-        Me.tlpInf = New System.Windows.Forms.TableLayoutPanel()
+        Me.tlpButtons = New System.Windows.Forms.TableLayoutPanel()
         Me.cmdLog = New System.Windows.Forms.Button()
         Me.GProgressBar = New Gambol.Controls.GambolProgressBar()
         Me.pnlHead.SuspendLayout()
@@ -51,16 +51,16 @@ Partial Class FormAssess
         CType(Me.pbxLoad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
         Me.TableLayoutPanel3.SuspendLayout()
-        Me.tlpInf.SuspendLayout()
+        Me.tlpButtons.SuspendLayout()
         Me.SuspendLayout()
         '
         'cmdCancel
         '
-        Me.cmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdCancel.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdCancel.FlatAppearance.BorderSize = 0
-        Me.cmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.cmdCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdCancel.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdCancel.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -76,7 +76,7 @@ Partial Class FormAssess
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.cmdClose)
+        Me.pnlHead.Controls.Add(Me.CmdClose)
         Me.pnlHead.Controls.Add(Me.tlpIcon)
         Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
@@ -86,24 +86,24 @@ Partial Class FormAssess
         Me.pnlHead.Size = New System.Drawing.Size(598, 40)
         Me.pnlHead.TabIndex = 1
         '
-        'cmdClose
+        'CmdClose
         '
-        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdClose.FlatAppearance.BorderSize = 0
-        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!)
-        Me.cmdClose.ForeColor = System.Drawing.Color.White
-        Me.cmdClose.Location = New System.Drawing.Point(558, 0)
-        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.cmdClose.TabIndex = 73
-        Me.cmdClose.TabStop = False
-        Me.cmdClose.Text = "✕"
-        Me.cmdClose.UseVisualStyleBackColor = False
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!)
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(558, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 73
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
         '
@@ -245,7 +245,7 @@ Partial Class FormAssess
         '
         Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.pnlMain.Controls.Add(Me.TableLayoutPanel3)
-        Me.pnlMain.Controls.Add(Me.tlpInf)
+        Me.pnlMain.Controls.Add(Me.tlpButtons)
         Me.pnlMain.Controls.Add(Me.GProgressBar)
         Me.pnlMain.Controls.Add(Me.pnlTop)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
@@ -268,28 +268,28 @@ Partial Class FormAssess
         Me.TableLayoutPanel3.Size = New System.Drawing.Size(598, 144)
         Me.TableLayoutPanel3.TabIndex = 78
         '
-        'tlpInf
+        'tlpButtons
         '
-        Me.tlpInf.ColumnCount = 3
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233.0!))
-        Me.tlpInf.Controls.Add(Me.cmdCancel, 0, 0)
-        Me.tlpInf.Controls.Add(Me.cmdLog, 2, 0)
-        Me.tlpInf.Location = New System.Drawing.Point(9, 211)
-        Me.tlpInf.Name = "tlpInf"
-        Me.tlpInf.RowCount = 1
-        Me.tlpInf.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpInf.Size = New System.Drawing.Size(228, 35)
-        Me.tlpInf.TabIndex = 77
+        Me.tlpButtons.ColumnCount = 3
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110.0!))
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
+        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 233.0!))
+        Me.tlpButtons.Controls.Add(Me.cmdCancel, 0, 0)
+        Me.tlpButtons.Controls.Add(Me.cmdLog, 2, 0)
+        Me.tlpButtons.Location = New System.Drawing.Point(9, 211)
+        Me.tlpButtons.Name = "tlpButtons"
+        Me.tlpButtons.RowCount = 1
+        Me.tlpButtons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.tlpButtons.Size = New System.Drawing.Size(228, 35)
+        Me.tlpButtons.TabIndex = 77
         '
         'cmdLog
         '
-        Me.cmdLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.cmdLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.cmdLog.FlatAppearance.BorderSize = 0
-        Me.cmdLog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.cmdLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.cmdLog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
         Me.cmdLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdLog.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdLog.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
@@ -348,7 +348,7 @@ Partial Class FormAssess
         CType(Me.pbxLoad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMain.ResumeLayout(False)
         Me.TableLayoutPanel3.ResumeLayout(False)
-        Me.tlpInf.ResumeLayout(False)
+        Me.tlpButtons.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -360,7 +360,7 @@ Partial Class FormAssess
     Friend WithEvents pnlMain As System.Windows.Forms.Panel
     Friend WithEvents GProgressBar As GambolProgressBar
     Friend WithEvents lbHead As System.Windows.Forms.Label
-    Friend WithEvents tlpInf As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents tlpButtons As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents cmdLog As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pbxLoad As System.Windows.Forms.PictureBox
@@ -369,5 +369,5 @@ Partial Class FormAssess
     Friend WithEvents TableLayoutPanel3 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
-    Friend WithEvents cmdClose As Button
+    Friend WithEvents CmdClose As Button
 End Class

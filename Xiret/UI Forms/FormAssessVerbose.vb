@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,18 +8,17 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
+'  Xiret project
 '  FormAssessVerbose.vb
 '  Created by David S on 05.01.2019
 '  Updated on 08.01.2019 - DS (Updated imports, removed unnecessary parenthesis, updated theme code, fixed malformed logs)
-'  Update 04.07.2019 - DS (Changed Debug string to Xiret, added frame buttons)
-'  !! The logging bug is still present in the ProcessWatcher
+'  Updated 31.07.2019 - DS (Updated theme, cleanup)
+'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
-Imports System.Threading
 Imports System.Text
 
-Imports Xiret.Base.WinsatApi
-Imports Xiret.Base.Helpers
+Imports Core.Animation
+Imports Core.Helpers
 
 Friend Class FormAssessVerbose
 
@@ -57,13 +56,24 @@ Friend Class FormAssessVerbose
 
 #End Region
 
-#Region "Frame Interaction"
+#Region "Ctor"
+
+    Public Sub New()
+
+        InitializeComponent()
+        SetStyle(ControlStyles.SupportsTransparentBackColor, True)
+
+    End Sub
+
+#End Region
+
+#Region "WndProc"
 
     Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
-            WndProc(Message.Create(Handle, WM_NCLBUTTONDOWN, CType(HT_CAPTION, IntPtr), IntPtr.Zero))
+            WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
         End If
 
     End Sub
@@ -71,26 +81,26 @@ Friend Class FormAssessVerbose
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         cmdCancel.PerformClick()
     End Sub
 
 #End Region
 #Region "KeyDown Events"
-    Private Sub FormAssess_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
+    Private Sub FormAssessVerbose_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
             cmdCancel.PerformClick()
         End If
     End Sub
 #End Region
 
-#Region "Load Event"
+#Region "Load Event Handler"
 
-    Private Sub fAssess_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub FormAssessVerbose_Load(sender As Object, e As EventArgs) Handles Me.Load
 
         Opacity = 0
 
-        SetAssessThemeAccent()
+        SetAssessVerboseThemeAccent()
 
         InitData()
 
@@ -101,7 +111,7 @@ Friend Class FormAssessVerbose
         PSI = New ProcessStartInfo("winsat", "formal")
 
         Dim enc As Encoding
-        If OSHWinIsVista() Then
+        If OSHelper.IsWinVista() Then
             enc = Encoding.Unicode
         Else
             enc = Encoding.GetEncoding(Globalization.CultureInfo.CurrentUICulture.TextInfo.OEMCodePage)
@@ -128,65 +138,42 @@ Friend Class FormAssessVerbose
     End Sub
 
 #End Region
-#Region "Shown Event"
+#Region "Shown Event Handler"
 
-    Private Sub FormAssess_Shown(sender As Object, e As EventArgs) Handles Me.Shown
-
-        Try
-            For FadeIn = 0.0 To 1.0 Step 0.2
-                Opacity = FadeIn
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Opacity = 1.0
-        End Try
-
+    Private Sub FormAssessVerbose_Shown(sender As Object, e As EventArgs) Handles Me.Shown
+        Fade.FadeIn(Me)
     End Sub
 
 #End Region
-#Region "Closed Event"
-    Private Sub FormAssess_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-
-        Try
-            For FadeOut = 1.0 To 0.0 Step -0.2
-                Opacity = FadeOut
-                Refresh()
-                Thread.Sleep(10)
-            Next
-        Catch
-            Close()
-        End Try
-
+#Region "Closed Event Handler"
+    Private Sub FormAssessVerbose_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
+        Fade.FadeOut(Me)
     End Sub
 
 #End Region
+
 #Region "Theme"
-    Private Sub SetAssessThemeAccent()
+    Private Sub SetAssessVerboseThemeAccent()
 
-        pnlSplit.BackColor = GlobalThemeColor
+        pnlSplit.BackColor = Settings.ThemeColor
 
-        cmdCancel.ForeColor = GlobalThemeColor
-        cmdLog.ForeColor = GlobalThemeColor
-        cmdExport.ForeColor = GlobalThemeColor
+        For Each c As Control In tlpButtons.Controls
+            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        Next
 
-        If BoolThemeApplyBorder Then
-            BackColor = GlobalThemeColor
-        Else
-            BackColor = ColorBorderStandard
-        End If
+        Settings.SetBorderColor(Me)
 
     End Sub
 #End Region
 
-#Region "Buttons"
-    Private Sub cmdExport_Click(sender As Object, e As EventArgs) Handles cmdExport.Click
+#Region "Button Event Handlers"
+    Private Sub CmdExport_Click(sender As Object, e As EventArgs) Handles cmdExport.Click
 
         Dim sfd As New SaveFileDialog
-        Dim StringDate As String = DateTime.Now.ToString("yyyyMMddHHmm")
+        Dim StringDate As String = Now.ToString("yyyyMMddHHmm")
 
         With sfd
-            .InitialDirectory = DirSpecialDesktop
+            .InitialDirectory = Directories.DirSpecialDesktop
             .Filter = "Text File (*.txt)|*.txt"
             .OverwritePrompt = True
             .FileName = "SessionLog_" & StringDate
@@ -197,19 +184,19 @@ Friend Class FormAssessVerbose
         End If
 
     End Sub
-    Private Sub cmdLog_Click(sender As Object, e As EventArgs) Handles cmdLog.Click
+    Private Sub CmdLog_Click(sender As Object, e As EventArgs) Handles cmdLog.Click
 
         Try
-            Process.Start(FileXiretLog)
+            Process.Start(Files.FileXiretLog)
         Catch ex As Exception
-            SendToastToScreen("The log file is missing or has not been created.", ToastType.IsWarning)
+            ToastAlert.Show("The log file is missing or has not been created.", ToastType.IsWarning)
         End Try
 
     End Sub
     Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
 
         If Not (IsComplete) Then
-            My.Computer.FileSystem.WriteAllText(FileXiretLog, "Test interruped by user" & vbCrLf, True)
+            My.Computer.FileSystem.WriteAllText(Files.FileXiretLog, "Test interruped by user" & vbCrLf, True)
         End If
 
         IsClosing = True
@@ -221,6 +208,7 @@ Friend Class FormAssessVerbose
 
     End Sub
 #End Region
+
 #Region "AsyncOut Routines"
     Private Sub ASyncronousDataReceived(sender As Object, e As DataReceivedEventArgs)
 
@@ -277,7 +265,7 @@ Friend Class FormAssessVerbose
                     IntWarningCount = IntWarningCount + 1
                 End If
 
-                If OSHWinIsVista() Then 'Vista
+                If OSHelper.IsWinVista() Then 'Vista
 
                     If StringAsync.Contains("Running: Feature Enumeration") Then
                         lbStatus.Text = "Gathering System Information..."
@@ -321,7 +309,7 @@ Friend Class FormAssessVerbose
                     End If
 
                 Else
-                    If OSHWinIsTen() Then '10
+                    If OSHelper.IsWinTen() Then '10
 
                         If StringAsync.Contains("Running: Feature Enumeration") Then
                             lbStatus.Text = "Gathering System Information..."
@@ -390,7 +378,7 @@ Friend Class FormAssessVerbose
                         End If
 
                     Else
-                        If Not OSHWinIsVista() And Not OSHWinIsTen() Then '7 - 8.1
+                        If Not OSHelper.IsWinVista() And Not OSHelper.IsWinTen() Then '7 - 8.1
 
                             If StringAsync.Contains("Running: Feature Enumeration") Then
                                 lbStatus.Text = "Gathering System Information..."
@@ -522,7 +510,7 @@ Friend Class FormAssessVerbose
             End If
 
             Log("ExitCode: " & IntExitCode, LogType.IsDebug)
-            Log("Validity Int: " & GetAssessmentValidityInt(), LogType.IsDebug)
+            Log("Validity Int: " & WinsatApi.GetAssessmentValidityInt(), LogType.IsDebug)
             Log("Process finished", LogType.IsInfo)
 
         Else
@@ -535,14 +523,14 @@ Friend Class FormAssessVerbose
 
     Private Sub InvokeProgress(ByVal IntValue As Integer)
 
-        If Not (IsClosing) Then
-            If (InvokeRequired) Then
+        If Not IsClosing Then
+            If InvokeRequired Then
                 BeginInvoke(New ProgressDelegate(AddressOf InvokeProgress), IntValue)
             Else
                 lbProgress.Text = IntValue & "%"
             End If
         Else
-            If (IsClosing) Then
+            If IsClosing Then
                 Exit Sub
             End If
         End If
@@ -558,7 +546,7 @@ Friend Class FormAssessVerbose
             Try
                 If Not WinSATProcess.HasExited Then
                     Log("WinSAT wait...", LogType.IsDebug)
-                    Do Until (WinSATProcess.HasExited)
+                    Do Until WinSATProcess.HasExited
                         WinSATProcess.Kill()
                     Loop
                     Log("WinSAT shutdown complete", LogType.IsDebug)
@@ -595,17 +583,17 @@ Friend Class FormAssessVerbose
     End Sub
     Private Sub InitData()
 
-        Log("New Test Started on " & Format(DateTime.Now, "dddd, MMM d yyyy hh:mm tt"), LogType.IsInfo)
+        Log("New Test Started on " & Format(Now, "dddd, MMM d yyyy hh:mm tt"), LogType.IsInfo)
         Log("Xiret v" & Application.ProductVersion & " (" & Process.GetCurrentProcess().Id & ")", LogType.IsInfo)
-        Log("OS: " & OSHGetName() & " (Kernel: " & OSHKernelVersion.ProductVersion & ")", LogType.IsInfo)
-        Log("Arch: " & OSHGetBitness(True), LogType.IsInfo)
-        Log("Winsat EXE v" & OSHWinsatVersion.ProductVersion, LogType.IsInfo)
-        Log("Winsat API v" & OSHWinsatApiVersion.ProductVersion, LogType.IsInfo)
+        Log("OS: " & OSHelper.GetOSName() & " (Kernel: " & OSHelper.GetKernelVersion.ProductVersion & ")", LogType.IsInfo)
+        Log("Arch: " & OSHelper.GetOSBitness(True), LogType.IsInfo)
+        Log("Winsat EXE v" & OSHelper.GetWinsatVersion.ProductVersion, LogType.IsInfo)
+        Log("Winsat API v" & OSHelper.GetWinsatApiVersion.ProductVersion, LogType.IsInfo)
 
-        If OSHWinIsVista() Then
+        If OSHelper.IsWinVista() Then
             Log("Method: AsyncOut [Vista]", LogType.IsDebug)
         Else
-            If OSHWinIsTen() Then
+            If OSHelper.IsWinTen() Then
                 Log("Method: AsyncOut [Redstone]", LogType.IsDebug)
             Else
                 Log("Method: AsyncOut [SAE]", LogType.IsDebug)
@@ -613,7 +601,7 @@ Friend Class FormAssessVerbose
         End If
 
         Log("Mode: Verbose", LogType.isDebug)
-        Log("Validity Int: " & GetAssessmentValidityInt(), LogType.isDebug)
+        Log("Validity Int: " & WinsatApi.GetAssessmentValidityInt(), LogType.IsDebug)
 
     End Sub
 #End Region
@@ -665,7 +653,7 @@ Friend Class FormAssessVerbose
         tbxLog.AppendText(vbCrLf)
         tbxLog.ScrollToCaret()
 
-        My.Computer.FileSystem.WriteAllText(FileXiretLog, StringReceived & vbCrLf, True)
+        My.Computer.FileSystem.WriteAllText(Files.FileXiretLog, StringReceived & vbCrLf, True)
 
     End Sub
 
