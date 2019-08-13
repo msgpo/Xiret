@@ -74,7 +74,7 @@ Namespace Converters
                 Case "26"
                     Return "DDR4"
                 Case Else
-                    If Data Is Nothing Then
+            If Data = "" Then
                         Return "Unknown"
                     Else
                         Return Data 'Return what was passed
