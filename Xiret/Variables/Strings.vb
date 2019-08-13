@@ -32,6 +32,6 @@
 
     Friend Shared StringBodyFull As String = Nothing
 
-    Friend Shared StringImgurClientID As String = "35e23362c1eb67c"
+    Friend Shared StringImgurClientID As String = ""
 
 End Class
