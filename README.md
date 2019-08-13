@@ -12,7 +12,7 @@ Key features
 
 ## Current build
 
-RC2 > Release
+RC2-1
 
 ## Requested additions
  - Add option for custom Imgur API key.
