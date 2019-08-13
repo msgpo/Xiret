@@ -94,7 +94,9 @@
     <Compile Include="Helpers\NetHelper.vb" />
     <Compile Include="Helpers\OSHelper.vb" />
     <Compile Include="Helpers\PowerHelper.vb" />
+    <Compile Include="Helpers\ProcessHelper.vb" />
     <Compile Include="WinApi\AddFontResourceA.vb" />
+    <Compile Include="WinApi\NtQueryInformationProcessA.vb" />
     <Compile Include="WinApi\SetProcessWorkingSetSizeA.vb" />
     <Compile Include="WinApi\GetModuleFilenameA.vb" />
     <Compile Include="WinApi\GetTickCountA.vb" />

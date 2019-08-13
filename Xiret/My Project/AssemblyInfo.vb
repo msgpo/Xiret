@@ -1,5 +1,4 @@
-﻿Imports System
-Imports System.Reflection
+﻿Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following 
@@ -8,11 +7,11 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Xiret")> 
-<Assembly: AssemblyDescription("Adds a UI for the Experience Index from Windows 8.1 onwards")> 
-<Assembly: AssemblyCompany("Bitmight Software")> 
-<Assembly: AssemblyProduct("XiR (Experience Index Returns)")> 
-<Assembly: AssemblyCopyright("Copyright © 2016-2019 Bitmight Software")> 
+<Assembly: AssemblyTitle("Xiret")>
+<Assembly: AssemblyDescription("UI for the Windows Experience Index. Compatible with Vista+.")>
+<Assembly: AssemblyCompany("Bitmight Software")>
+<Assembly: AssemblyProduct("Xiret (Experience Index Returns)")>
+<Assembly: AssemblyCopyright("Copyright © 2016-2019 David Solorzano")>
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(False)>

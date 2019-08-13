@@ -37,11 +37,11 @@ Partial Class FormMetrics
         Me.CmdProgramInfo = New System.Windows.Forms.Button()
         Me.CmdSysEnviron = New System.Windows.Forms.Button()
         Me.CmdWinSpr = New System.Windows.Forms.Button()
+        Me.cmdMetrics = New System.Windows.Forms.Button()
+        Me.CmdOS = New System.Windows.Forms.Button()
         Me.CmdGraphics = New System.Windows.Forms.Button()
         Me.CmdMemory = New System.Windows.Forms.Button()
         Me.CmdProcessor = New System.Windows.Forms.Button()
-        Me.cmdMetrics = New System.Windows.Forms.Button()
-        Me.CmdOS = New System.Windows.Forms.Button()
         Me.CmdSystem = New System.Windows.Forms.Button()
         Me.CmdDisk = New System.Windows.Forms.Button()
         Me.CmdDwm = New System.Windows.Forms.Button()
@@ -119,6 +119,7 @@ Partial Class FormMetrics
         Me.CmdClose.Location = New System.Drawing.Point(958, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 95
         Me.CmdClose.TabStop = False
@@ -289,6 +290,44 @@ Partial Class FormMetrics
         Me.CmdWinSpr.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.CmdWinSpr.UseVisualStyleBackColor = False
         '
+        'cmdMetrics
+        '
+        Me.cmdMetrics.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.BorderSize = 0
+        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.cmdMetrics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.cmdMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cmdMetrics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.cmdMetrics.Location = New System.Drawing.Point(0, 128)
+        Me.cmdMetrics.Margin = New System.Windows.Forms.Padding(0)
+        Me.cmdMetrics.Name = "cmdMetrics"
+        Me.cmdMetrics.Size = New System.Drawing.Size(159, 36)
+        Me.cmdMetrics.TabIndex = 9
+        Me.cmdMetrics.Text = "  Metrics"
+        Me.cmdMetrics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.cmdMetrics.UseVisualStyleBackColor = False
+        '
+        'CmdOS
+        '
+        Me.CmdOS.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdOS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
+        Me.CmdOS.FlatAppearance.BorderSize = 0
+        Me.CmdOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdOS.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdOS.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdOS.Location = New System.Drawing.Point(0, 164)
+        Me.CmdOS.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdOS.Name = "CmdOS"
+        Me.CmdOS.Size = New System.Drawing.Size(159, 36)
+        Me.CmdOS.TabIndex = 10
+        Me.CmdOS.Text = "  OSVersion"
+        Me.CmdOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.CmdOS.UseVisualStyleBackColor = False
+        '
         'CmdGraphics
         '
         Me.CmdGraphics.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
@@ -345,44 +384,6 @@ Partial Class FormMetrics
         Me.CmdProcessor.Text = "  Processor"
         Me.CmdProcessor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.CmdProcessor.UseVisualStyleBackColor = False
-        '
-        'cmdMetrics
-        '
-        Me.cmdMetrics.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.cmdMetrics.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.cmdMetrics.FlatAppearance.BorderSize = 0
-        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdMetrics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdMetrics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdMetrics.Location = New System.Drawing.Point(0, 128)
-        Me.cmdMetrics.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdMetrics.Name = "cmdMetrics"
-        Me.cmdMetrics.Size = New System.Drawing.Size(159, 36)
-        Me.cmdMetrics.TabIndex = 9
-        Me.cmdMetrics.Text = "  Metrics"
-        Me.cmdMetrics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.cmdMetrics.UseVisualStyleBackColor = False
-        '
-        'CmdOS
-        '
-        Me.CmdOS.BackColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CmdOS.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer), CType(CType(38, Byte), Integer))
-        Me.CmdOS.FlatAppearance.BorderSize = 0
-        Me.CmdOS.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.CmdOS.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.CmdOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CmdOS.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CmdOS.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdOS.Location = New System.Drawing.Point(0, 164)
-        Me.CmdOS.Margin = New System.Windows.Forms.Padding(0)
-        Me.CmdOS.Name = "CmdOS"
-        Me.CmdOS.Size = New System.Drawing.Size(159, 36)
-        Me.CmdOS.TabIndex = 10
-        Me.CmdOS.Text = "  OSVersion"
-        Me.CmdOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.CmdOS.UseVisualStyleBackColor = False
         '
         'CmdSystem
         '

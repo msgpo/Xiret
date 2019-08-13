@@ -30,6 +30,11 @@ Partial Class FormAbout
         Me.lbHead = New System.Windows.Forms.Label()
         Me.pnlSplit = New System.Windows.Forms.Panel()
         Me.pnlMain = New System.Windows.Forms.Panel()
+        Me.gpnlTop = New Gambol.Controls.GambolPanel()
+        Me.PbxLogo = New System.Windows.Forms.PictureBox()
+        Me.TlpLabels = New System.Windows.Forms.TableLayoutPanel()
+        Me.lbName = New System.Windows.Forms.Label()
+        Me.lbCopyright = New System.Windows.Forms.Label()
         Me.llSOurce = New System.Windows.Forms.LinkLabel()
         Me.llBitmight = New System.Windows.Forms.LinkLabel()
         Me.llVectors = New System.Windows.Forms.LinkLabel()
@@ -37,15 +42,12 @@ Partial Class FormAbout
         Me.llDonate = New System.Windows.Forms.LinkLabel()
         Me.llContact = New System.Windows.Forms.LinkLabel()
         Me.llForum = New System.Windows.Forms.LinkLabel()
-        Me.PbxLogo = New System.Windows.Forms.PictureBox()
-        Me.TlpLabels = New System.Windows.Forms.TableLayoutPanel()
-        Me.lbName = New System.Windows.Forms.Label()
-        Me.lbCopyright = New System.Windows.Forms.Label()
         Me.LbInfo = New System.Windows.Forms.Label()
         Me.pnlHead.SuspendLayout()
         Me.tlpIcon.SuspendLayout()
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlMain.SuspendLayout()
+        Me.gpnlTop.SuspendLayout()
         CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TlpLabels.SuspendLayout()
         Me.SuspendLayout()
@@ -59,7 +61,7 @@ Partial Class FormAbout
         Me.pnlHead.Controls.Add(Me.lbHead)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHead.Location = New System.Drawing.Point(1, 1)
-        Me.pnlHead.Margin = New System.Windows.Forms.Padding(4)
+        Me.pnlHead.Margin = New System.Windows.Forms.Padding(0)
         Me.pnlHead.Name = "pnlHead"
         Me.pnlHead.Size = New System.Drawing.Size(578, 40)
         Me.pnlHead.TabIndex = 69
@@ -78,10 +80,12 @@ Partial Class FormAbout
         Me.CmdClose.Location = New System.Drawing.Point(538, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(3, 0, 0, 0)
         Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 95
         Me.CmdClose.TabStop = False
         Me.CmdClose.Text = "✕"
+        Me.CmdClose.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage
         Me.CmdClose.UseVisualStyleBackColor = False
         '
         'tlpIcon
@@ -138,6 +142,7 @@ Partial Class FormAbout
         'pnlMain
         '
         Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.pnlMain.Controls.Add(Me.gpnlTop)
         Me.pnlMain.Controls.Add(Me.llSOurce)
         Me.pnlMain.Controls.Add(Me.llBitmight)
         Me.pnlMain.Controls.Add(Me.llVectors)
@@ -145,8 +150,6 @@ Partial Class FormAbout
         Me.pnlMain.Controls.Add(Me.llDonate)
         Me.pnlMain.Controls.Add(Me.llContact)
         Me.pnlMain.Controls.Add(Me.llForum)
-        Me.pnlMain.Controls.Add(Me.PbxLogo)
-        Me.pnlMain.Controls.Add(Me.TlpLabels)
         Me.pnlMain.Controls.Add(Me.LbInfo)
         Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
         Me.pnlMain.Location = New System.Drawing.Point(1, 43)
@@ -154,121 +157,35 @@ Partial Class FormAbout
         Me.pnlMain.Size = New System.Drawing.Size(578, 316)
         Me.pnlMain.TabIndex = 73
         '
-        'llSOurce
+        'gpnlTop
         '
-        Me.llSOurce.ActiveLinkColor = System.Drawing.Color.White
-        Me.llSOurce.AutoSize = True
-        Me.llSOurce.BackColor = System.Drawing.Color.Transparent
-        Me.llSOurce.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llSOurce.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llSOurce.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llSOurce.Location = New System.Drawing.Point(88, 271)
-        Me.llSOurce.Name = "llSOurce"
-        Me.llSOurce.Size = New System.Drawing.Size(55, 20)
-        Me.llSOurce.TabIndex = 94
-        Me.llSOurce.TabStop = True
-        Me.llSOurce.Text = "Github"
-        '
-        'llBitmight
-        '
-        Me.llBitmight.ActiveLinkColor = System.Drawing.Color.White
-        Me.llBitmight.AutoSize = True
-        Me.llBitmight.BackColor = System.Drawing.Color.Transparent
-        Me.llBitmight.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llBitmight.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llBitmight.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llBitmight.Location = New System.Drawing.Point(15, 271)
-        Me.llBitmight.Name = "llBitmight"
-        Me.llBitmight.Size = New System.Drawing.Size(67, 20)
-        Me.llBitmight.TabIndex = 93
-        Me.llBitmight.TabStop = True
-        Me.llBitmight.Text = "Bitmight"
-        '
-        'llVectors
-        '
-        Me.llVectors.ActiveLinkColor = System.Drawing.Color.White
-        Me.llVectors.AutoSize = True
-        Me.llVectors.BackColor = System.Drawing.Color.Transparent
-        Me.llVectors.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llVectors.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llVectors.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llVectors.Location = New System.Drawing.Point(414, 271)
-        Me.llVectors.Name = "llVectors"
-        Me.llVectors.Size = New System.Drawing.Size(112, 20)
-        Me.llVectors.TabIndex = 92
-        Me.llVectors.TabStop = True
-        Me.llVectors.Text = "Vectors Market"
-        '
-        'llFlaticon
-        '
-        Me.llFlaticon.ActiveLinkColor = System.Drawing.Color.White
-        Me.llFlaticon.AutoSize = True
-        Me.llFlaticon.BackColor = System.Drawing.Color.Transparent
-        Me.llFlaticon.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llFlaticon.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llFlaticon.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llFlaticon.Location = New System.Drawing.Point(344, 271)
-        Me.llFlaticon.Name = "llFlaticon"
-        Me.llFlaticon.Size = New System.Drawing.Size(63, 20)
-        Me.llFlaticon.TabIndex = 91
-        Me.llFlaticon.TabStop = True
-        Me.llFlaticon.Text = "Flaticon"
-        '
-        'llDonate
-        '
-        Me.llDonate.ActiveLinkColor = System.Drawing.Color.White
-        Me.llDonate.AutoSize = True
-        Me.llDonate.BackColor = System.Drawing.Color.Transparent
-        Me.llDonate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llDonate.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llDonate.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llDonate.Location = New System.Drawing.Point(278, 271)
-        Me.llDonate.Name = "llDonate"
-        Me.llDonate.Size = New System.Drawing.Size(59, 20)
-        Me.llDonate.TabIndex = 89
-        Me.llDonate.TabStop = True
-        Me.llDonate.Text = "Donate"
-        '
-        'llContact
-        '
-        Me.llContact.ActiveLinkColor = System.Drawing.Color.White
-        Me.llContact.AutoSize = True
-        Me.llContact.BackColor = System.Drawing.Color.Transparent
-        Me.llContact.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llContact.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llContact.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llContact.Location = New System.Drawing.Point(210, 271)
-        Me.llContact.Name = "llContact"
-        Me.llContact.Size = New System.Drawing.Size(61, 20)
-        Me.llContact.TabIndex = 88
-        Me.llContact.TabStop = True
-        Me.llContact.Text = "Contact"
-        '
-        'llForum
-        '
-        Me.llForum.ActiveLinkColor = System.Drawing.Color.White
-        Me.llForum.AutoSize = True
-        Me.llForum.BackColor = System.Drawing.Color.Transparent
-        Me.llForum.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.llForum.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
-        Me.llForum.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.llForum.Location = New System.Drawing.Point(149, 271)
-        Me.llForum.Name = "llForum"
-        Me.llForum.Size = New System.Drawing.Size(54, 20)
-        Me.llForum.TabIndex = 87
-        Me.llForum.TabStop = True
-        Me.llForum.Text = "Forum"
+        Me.gpnlTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.gpnlTop.BlendBackground = False
+        Me.gpnlTop.BlendDirection = System.Drawing.Drawing2D.LinearGradientMode.Horizontal
+        Me.gpnlTop.BlendPrimaryColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.gpnlTop.BlendSecondaryColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer))
+        Me.gpnlTop.Controls.Add(Me.PbxLogo)
+        Me.gpnlTop.Controls.Add(Me.TlpLabels)
+        Me.gpnlTop.Dock = System.Windows.Forms.DockStyle.Top
+        Me.gpnlTop.Location = New System.Drawing.Point(0, 0)
+        Me.gpnlTop.Name = "gpnlTop"
+        Me.gpnlTop.SeperatorColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.gpnlTop.SeperatorLocation = Gambol.Controls.GambolPanel.SeperatorType.Bottom
+        Me.gpnlTop.ShowSeperator = True
+        Me.gpnlTop.Size = New System.Drawing.Size(578, 90)
+        Me.gpnlTop.Smoothing = System.Drawing.Drawing2D.SmoothingMode.None
+        Me.gpnlTop.TabIndex = 96
         '
         'PbxLogo
         '
         Me.PbxLogo.BackColor = System.Drawing.Color.Transparent
         Me.PbxLogo.Image = Global.Xiret.My.Resources.Resources.icon64px
-        Me.PbxLogo.Location = New System.Drawing.Point(16, 16)
+        Me.PbxLogo.Location = New System.Drawing.Point(14, 13)
         Me.PbxLogo.Margin = New System.Windows.Forms.Padding(0)
         Me.PbxLogo.Name = "PbxLogo"
         Me.PbxLogo.Size = New System.Drawing.Size(64, 64)
         Me.PbxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.PbxLogo.TabIndex = 78
+        Me.PbxLogo.TabIndex = 85
         Me.PbxLogo.TabStop = False
         '
         'TlpLabels
@@ -278,14 +195,14 @@ Partial Class FormAbout
         Me.TlpLabels.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
         Me.TlpLabels.Controls.Add(Me.lbName, 0, 0)
         Me.TlpLabels.Controls.Add(Me.lbCopyright, 0, 1)
-        Me.TlpLabels.Location = New System.Drawing.Point(87, 25)
+        Me.TlpLabels.Location = New System.Drawing.Point(85, 22)
         Me.TlpLabels.Name = "TlpLabels"
         Me.TlpLabels.RowCount = 2
         Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
         Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23.0!))
         Me.TlpLabels.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TlpLabels.Size = New System.Drawing.Size(366, 46)
-        Me.TlpLabels.TabIndex = 82
+        Me.TlpLabels.TabIndex = 86
         '
         'lbName
         '
@@ -314,15 +231,120 @@ Partial Class FormAbout
         Me.lbCopyright.Name = "lbCopyright"
         Me.lbCopyright.Size = New System.Drawing.Size(358, 23)
         Me.lbCopyright.TabIndex = 77
-        Me.lbCopyright.Text = "Copyright © 2016-2019 Bitmight Software"
+        Me.lbCopyright.Text = "Copyright © 2016-2019 David Solorzano"
         Me.lbCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'llSOurce
+        '
+        Me.llSOurce.ActiveLinkColor = System.Drawing.Color.White
+        Me.llSOurce.AutoSize = True
+        Me.llSOurce.BackColor = System.Drawing.Color.Transparent
+        Me.llSOurce.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llSOurce.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llSOurce.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llSOurce.Location = New System.Drawing.Point(87, 272)
+        Me.llSOurce.Name = "llSOurce"
+        Me.llSOurce.Size = New System.Drawing.Size(55, 20)
+        Me.llSOurce.TabIndex = 94
+        Me.llSOurce.TabStop = True
+        Me.llSOurce.Text = "Github"
+        '
+        'llBitmight
+        '
+        Me.llBitmight.ActiveLinkColor = System.Drawing.Color.White
+        Me.llBitmight.AutoSize = True
+        Me.llBitmight.BackColor = System.Drawing.Color.Transparent
+        Me.llBitmight.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llBitmight.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llBitmight.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llBitmight.Location = New System.Drawing.Point(14, 272)
+        Me.llBitmight.Name = "llBitmight"
+        Me.llBitmight.Size = New System.Drawing.Size(67, 20)
+        Me.llBitmight.TabIndex = 93
+        Me.llBitmight.TabStop = True
+        Me.llBitmight.Text = "Bitmight"
+        '
+        'llVectors
+        '
+        Me.llVectors.ActiveLinkColor = System.Drawing.Color.White
+        Me.llVectors.AutoSize = True
+        Me.llVectors.BackColor = System.Drawing.Color.Transparent
+        Me.llVectors.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llVectors.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llVectors.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llVectors.Location = New System.Drawing.Point(413, 272)
+        Me.llVectors.Name = "llVectors"
+        Me.llVectors.Size = New System.Drawing.Size(112, 20)
+        Me.llVectors.TabIndex = 92
+        Me.llVectors.TabStop = True
+        Me.llVectors.Text = "Vectors Market"
+        '
+        'llFlaticon
+        '
+        Me.llFlaticon.ActiveLinkColor = System.Drawing.Color.White
+        Me.llFlaticon.AutoSize = True
+        Me.llFlaticon.BackColor = System.Drawing.Color.Transparent
+        Me.llFlaticon.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llFlaticon.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llFlaticon.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llFlaticon.Location = New System.Drawing.Point(343, 272)
+        Me.llFlaticon.Name = "llFlaticon"
+        Me.llFlaticon.Size = New System.Drawing.Size(63, 20)
+        Me.llFlaticon.TabIndex = 91
+        Me.llFlaticon.TabStop = True
+        Me.llFlaticon.Text = "Flaticon"
+        '
+        'llDonate
+        '
+        Me.llDonate.ActiveLinkColor = System.Drawing.Color.White
+        Me.llDonate.AutoSize = True
+        Me.llDonate.BackColor = System.Drawing.Color.Transparent
+        Me.llDonate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llDonate.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llDonate.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llDonate.Location = New System.Drawing.Point(277, 272)
+        Me.llDonate.Name = "llDonate"
+        Me.llDonate.Size = New System.Drawing.Size(59, 20)
+        Me.llDonate.TabIndex = 89
+        Me.llDonate.TabStop = True
+        Me.llDonate.Text = "Donate"
+        '
+        'llContact
+        '
+        Me.llContact.ActiveLinkColor = System.Drawing.Color.White
+        Me.llContact.AutoSize = True
+        Me.llContact.BackColor = System.Drawing.Color.Transparent
+        Me.llContact.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llContact.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llContact.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llContact.Location = New System.Drawing.Point(209, 272)
+        Me.llContact.Name = "llContact"
+        Me.llContact.Size = New System.Drawing.Size(61, 20)
+        Me.llContact.TabIndex = 88
+        Me.llContact.TabStop = True
+        Me.llContact.Text = "Contact"
+        '
+        'llForum
+        '
+        Me.llForum.ActiveLinkColor = System.Drawing.Color.White
+        Me.llForum.AutoSize = True
+        Me.llForum.BackColor = System.Drawing.Color.Transparent
+        Me.llForum.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.llForum.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.llForum.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.llForum.Location = New System.Drawing.Point(148, 272)
+        Me.llForum.Name = "llForum"
+        Me.llForum.Size = New System.Drawing.Size(54, 20)
+        Me.llForum.TabIndex = 87
+        Me.llForum.TabStop = True
+        Me.llForum.Text = "Forum"
         '
         'LbInfo
         '
         Me.LbInfo.BackColor = System.Drawing.Color.Transparent
         Me.LbInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LbInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.LbInfo.Location = New System.Drawing.Point(14, 93)
+        Me.LbInfo.Location = New System.Drawing.Point(14, 94)
         Me.LbInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.LbInfo.Name = "LbInfo"
         Me.LbInfo.Size = New System.Drawing.Size(552, 156)
@@ -361,6 +383,7 @@ Partial Class FormAbout
         CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlMain.ResumeLayout(False)
         Me.pnlMain.PerformLayout()
+        Me.gpnlTop.ResumeLayout(False)
         CType(Me.PbxLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TlpLabels.ResumeLayout(False)
         Me.TlpLabels.PerformLayout()
@@ -371,11 +394,7 @@ Partial Class FormAbout
     Friend WithEvents lbHead As System.Windows.Forms.Label
     Friend WithEvents pnlSplit As System.Windows.Forms.Panel
     Friend WithEvents pnlMain As System.Windows.Forms.Panel
-    Friend WithEvents lbName As System.Windows.Forms.Label
-    Friend WithEvents lbCopyright As System.Windows.Forms.Label
-    Friend WithEvents PbxLogo As System.Windows.Forms.PictureBox
     Friend WithEvents LbInfo As System.Windows.Forms.Label
-    Friend WithEvents TlpLabels As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents llFlaticon As System.Windows.Forms.LinkLabel
     Friend WithEvents llDonate As System.Windows.Forms.LinkLabel
     Friend WithEvents llContact As System.Windows.Forms.LinkLabel
@@ -386,4 +405,9 @@ Partial Class FormAbout
     Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
     Friend WithEvents CmdClose As Button
     Friend WithEvents llSOurce As LinkLabel
+    Friend WithEvents gpnlTop As Gambol.Controls.GambolPanel
+    Friend WithEvents PbxLogo As PictureBox
+    Friend WithEvents TlpLabels As TableLayoutPanel
+    Friend WithEvents lbName As Label
+    Friend WithEvents lbCopyright As Label
 End Class

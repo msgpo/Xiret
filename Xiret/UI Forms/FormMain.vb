@@ -12,10 +12,9 @@
 '  Some ContextMenu settings are overriden by Gambol\UI\MHRenderer like background color, etc
 '  FormMain.vb
 '  Created by David S on 24.03.2016
-'  Updated on 27.07.2019 - DS (Cleanup, removed webclient block, animation, update imports, moved imgur api)
-'  Updated on 31.07.2019 - DS (Cleanup, implement FreeMemory)
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc, update CheckNotify, disabled refreshing scores when Winsat State=3)
 '  Updated on 08.08.2019 - DS (Added application context menu (Right click top image), double click icon to close application)
+'  Updated on 13.08.2019 - DS (Fixed type in the user interface (cmsExplorer))
 
 Imports System.Text
 Imports System.Threading.Tasks
@@ -365,7 +364,6 @@ Public Class FormMain
             ToastAlert.Show("The system must be rated to use this feature.", ToastType.IsWarning)
         Else
             Fade.FadeBehindChild(Me)
-
             Dim FMetrics As New FormMetrics
             AddHandler FMetrics.FormClosed, AddressOf ChildFormClosedNoRefresh
             FMetrics.ShowDialog()
@@ -804,7 +802,7 @@ Public Class FormMain
 #End Region
 #Region "Context Menu (Application)"
 
-    Private Sub MinimiseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MinimiseToolStripMenuItem.Click
+    Private Sub MinimizeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles MinimizeToolStripMenuItem.Click
         WindowState = FormWindowState.Minimized
     End Sub
 
@@ -956,6 +954,10 @@ Public Class FormMain
         UpdateAvailableToolStripMenuItem.ForeColor = Color.White
         UpdateAvailableToolStripMenuItem.Text = "! Update Available"
         UpdateAvailableToolStripMenuItem.Font = New Font("Segoe UI Semibold", 9) 'Cannot call SemiBold from FontStyle, be explicit.
+    End Sub
+
+    Private Sub LbCompProc_Click(sender As Object, e As EventArgs) Handles lbCompProc.Click
+        Process.Start(DirectoryHelper.GetApplicationPath & "\Updater.exe")
     End Sub
 
 #End Region

@@ -20,8 +20,8 @@
 #End Region
 #Region "Frame Buttons"
 
-    Private Sub cmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
-        Close()
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
+        Application.Exit()
     End Sub
 
 #End Region
@@ -90,4 +90,5 @@
     'End Sub
 
 #End Region
+
 End Class

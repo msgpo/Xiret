@@ -104,7 +104,7 @@ Friend Class FormAssessVerbose
 
         InitData()
 
-        ProcessWatcher = New Timers.Timer(2000)
+        ProcessWatcher = New Timers.Timer(10000)
         AddHandler ProcessWatcher.Elapsed, AddressOf WaitForUnexpectedExit
         ProcessWatcher.Start()
 
@@ -225,9 +225,8 @@ Friend Class FormAssessVerbose
 
             Log(StringAsync, LogType.IsWinsat)
 
-            KillWatcher()
-
             IsComplete = True
+            KillWatcher()
 
             IntProgress = 100
             Invoke(New ProgressDelegate(AddressOf InvokeProgress), IntProgress)
@@ -452,7 +451,6 @@ Friend Class FormAssessVerbose
                                 lbStatus.Text = "Assessing Disk Performance..."
                                 IntProgress = 95
                             End If
-
                         End If
                     End If
                 End If
@@ -476,10 +474,6 @@ Friend Class FormAssessVerbose
                 BeginInvoke(New StatusDelegate(AddressOf InvokeStatus), StringStatus)
             Else
                 lbStatus.Text = StringStatus
-            End If
-        Else
-            If IsClosing Then
-                Exit Sub
             End If
         End If
 
@@ -512,11 +506,6 @@ Friend Class FormAssessVerbose
             Log("ExitCode: " & IntExitCode, LogType.IsDebug)
             Log("Validity Int: " & WinsatApi.GetAssessmentValidityInt(), LogType.IsDebug)
             Log("Process finished", LogType.IsInfo)
-
-        Else
-            If IsClosing Then
-                Exit Sub
-            End If
         End If
 
     End Sub
@@ -528,10 +517,6 @@ Friend Class FormAssessVerbose
                 BeginInvoke(New ProgressDelegate(AddressOf InvokeProgress), IntValue)
             Else
                 lbProgress.Text = IntValue & "%"
-            End If
-        Else
-            If IsClosing Then
-                Exit Sub
             End If
         End If
 

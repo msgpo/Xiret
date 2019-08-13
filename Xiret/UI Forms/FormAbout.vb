@@ -69,7 +69,7 @@ Friend Class FormAbout
 
         Opacity = 0
         SetAboutThemeAccent()
-        lbName.Text = "Xiret " & Application.ProductVersion & " RC2"
+        lbName.Text = "Xiret " & Application.ProductVersion & " RC2-1"
 
     End Sub
 

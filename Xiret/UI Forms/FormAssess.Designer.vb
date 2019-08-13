@@ -99,6 +99,7 @@ Partial Class FormAssess
         Me.CmdClose.Location = New System.Drawing.Point(558, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 73
         Me.CmdClose.TabStop = False

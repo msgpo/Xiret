@@ -72,8 +72,6 @@ Public Class FormMetrics
 
         Log("Choose an option from the menu", "", Color.White, Color.White)
 
-        'GetXMLInfoWinsat("CPUEncryption2Assessment", False)
-
     End Sub
 
 #End Region
@@ -194,6 +192,7 @@ Public Class FormMetrics
 
         Dim xmlDoc As New XmlDocument
         Dim MainNodeList As XmlNodeList
+
         xmlDoc.Load(Files.FileLatestFormalXML)
 
         MainNodeList = xmlDoc.GetElementsByTagName(LookIn)
@@ -211,11 +210,9 @@ Public Class FormMetrics
                 Attribs = ""
 
                 For Each Node As XmlNode In BaseNode
-
                     If Not Blacklist.Any(Function(Str) Node.Name.IndexOf(Str, StringComparison.CurrentCultureIgnoreCase) >= 0) Then 'Ignore blacklisted nodes
 
                         If Not Node.InnerText = "" Or Node.InnerXml = "" Then
-                            'Log("  - " & Node.Name & ": ", Node.InnerText, Color.LightCoral, Color.White)
                             Log("  - " & Node.Name.Replace("#cdata-section", "CData").Replace("#text", "Text") & ": ", CType(IIf(Node.InnerText = "", "No Data", Node.InnerText), String), Color.LightSeaGreen, Color.White)
                         Else
                             Log("  - " & Node.Name & ": ", "No Data", Color.LightCoral, Color.Tomato)
@@ -233,32 +230,6 @@ Public Class FormMetrics
 
         rtbInfo.SelectionStart = 0
         rtbInfo.ScrollToCaret()
-
-    End Sub
-
-    Private Sub InnerFormat(XMLString As String)
-
-        Try
-            Dim xmlDoc As New XmlDocument
-            xmlDoc.Load(XMLString)
-
-
-            For Each Node As XmlNode In xmlDoc
-
-                If Not Node.InnerText = "" Or Node.InnerXml = "" Then
-                    If Node.HasChildNodes Then
-                        Log("  - " & Node.Name & ": ", Node.InnerText, Color.LightSeaGreen, Color.White)
-                    Else
-                        Log("  - " & Node.Name.Replace("#cdata-section", "CData").Replace("#text", "Text") & ": ", Node.InnerText, Color.LightCoral, Color.White)
-                    End If
-                Else
-                    Log("  - " & Node.Name & ": ", "No Data", Color.LightCoral, Color.Tomato)
-                End If
-            Next
-        Catch ex As Exception
-
-        End Try
-
 
     End Sub
 

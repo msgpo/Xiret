@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -15,12 +15,13 @@
 
 Imports Microsoft.VisualBasic.ApplicationServices
 
+Imports Core.Helpers
 Imports Core.WinApi
-Imports Updater.Base.Support
+Imports Updater.Support
 
 <Module: CodeName("EFA11")>
 <Module: TestedBy("K4onashi")>
-<Module: ProductChannel("Release")>
+<Module: ProductChannel("RC")>
 <Module: ProductVersion("1.0.0")>
 <Module: BuiltBy("K4onashi - 07.06.2019")>
 <Module: TableFlip("┬─┬﻿ ノ( ゜-゜ノ)")>
@@ -36,14 +37,25 @@ Public Class Program
         'Signature verification
         Dim IsSigEnforced As Boolean = False
         Dim IsSigVerified As Boolean = StrongNameSignatureVerificationA.StrongNameSignatureVerificationEx(Application.ExecutablePath, False, IsSigEnforced)
+        Dim ExecProc As Process = ProcessHelper.GetParentProcess
 
         'Start signature check
         If IsSigEnforced And IsSigVerified Then 'Valid
-            Application.EnableVisualStyles() '#
-            Application.SetCompatibleTextRenderingDefault(False) '#
+
+            Application.EnableVisualStyles()
+            Application.SetCompatibleTextRenderingDefault(False)
+
+            If Not ExecProc.MainWindowTitle = "Experience Index UI" Then
+                MessageBox.Show("This application is not designed to run under '" & ExecProc.ProcessName & "'.", "Program.Main()", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                Environment.Exit(0)
+            Else
+                ExecProc.Kill()
+            End If
+
             Dim Run As New ApplicationSupport(FormMain, Args)
+
         Else
-            MessageBox.Show("Invalid signature.", "Application Support", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("File has been edited. Cannot continue." & vbCrLf & "ISE# " & IsSigEnforced & vbCrLf & "ISV# " & IsSigVerified, "Application Support", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Environment.Exit(0)
         End If
 
@@ -51,7 +63,7 @@ Public Class Program
 
 End Class
 
-Namespace Base.Support
+Namespace Support
 
     Public Class ApplicationSupport
         Inherits WindowsFormsApplicationBase

@@ -58,7 +58,7 @@ Partial Class FormMain
         Me.sGraphics = New System.Windows.Forms.Label()
         Me.pnlHead = New System.Windows.Forms.Panel()
         Me.cmsExplorer = New System.Windows.Forms.ContextMenuStrip(Me.components)
-        Me.MinimiseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.MinimizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetPositionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetApplicationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator8 = New System.Windows.Forms.ToolStripSeparator()
@@ -594,37 +594,37 @@ Partial Class FormMain
         '
         Me.cmsExplorer.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
         Me.cmsExplorer.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsExplorer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinimiseToolStripMenuItem, Me.ResetPositionToolStripMenuItem, Me.ResetApplicationToolStripMenuItem, Me.ToolStripSeparator8, Me.CloseToolStripMenuItem, Me.ToolStripSeparator9, Me.AboutToolStripMenuItem1})
+        Me.cmsExplorer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinimizeToolStripMenuItem, Me.ResetPositionToolStripMenuItem, Me.ResetApplicationToolStripMenuItem, Me.ToolStripSeparator8, Me.CloseToolStripMenuItem, Me.ToolStripSeparator9, Me.AboutToolStripMenuItem1})
         Me.cmsExplorer.Name = "cmsExplorer"
         Me.cmsExplorer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.cmsExplorer.ShowImageMargin = False
-        Me.cmsExplorer.Size = New System.Drawing.Size(186, 164)
+        Me.cmsExplorer.Size = New System.Drawing.Size(171, 136)
         '
-        'MinimiseToolStripMenuItem
+        'MinimizeToolStripMenuItem
         '
-        Me.MinimiseToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.MinimiseToolStripMenuItem.Name = "MinimiseToolStripMenuItem"
-        Me.MinimiseToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
-        Me.MinimiseToolStripMenuItem.Text = "Minimise"
+        Me.MinimizeToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.MinimizeToolStripMenuItem.Name = "MinimizeToolStripMenuItem"
+        Me.MinimizeToolStripMenuItem.Size = New System.Drawing.Size(170, 24)
+        Me.MinimizeToolStripMenuItem.Text = "Minimize"
         '
         'ResetPositionToolStripMenuItem
         '
         Me.ResetPositionToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ResetPositionToolStripMenuItem.Name = "ResetPositionToolStripMenuItem"
-        Me.ResetPositionToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.ResetPositionToolStripMenuItem.Size = New System.Drawing.Size(170, 24)
         Me.ResetPositionToolStripMenuItem.Text = "Reset Position"
         '
         'ResetApplicationToolStripMenuItem
         '
         Me.ResetApplicationToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.ResetApplicationToolStripMenuItem.Name = "ResetApplicationToolStripMenuItem"
-        Me.ResetApplicationToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.ResetApplicationToolStripMenuItem.Size = New System.Drawing.Size(170, 24)
         Me.ResetApplicationToolStripMenuItem.Text = "Reset Application"
         '
         'ToolStripSeparator8
         '
         Me.ToolStripSeparator8.Name = "ToolStripSeparator8"
-        Me.ToolStripSeparator8.Size = New System.Drawing.Size(182, 6)
+        Me.ToolStripSeparator8.Size = New System.Drawing.Size(167, 6)
         '
         'CloseToolStripMenuItem
         '
@@ -632,19 +632,19 @@ Partial Class FormMain
         Me.CloseToolStripMenuItem.ForeColor = System.Drawing.Color.White
         Me.CloseToolStripMenuItem.Name = "CloseToolStripMenuItem"
         Me.CloseToolStripMenuItem.ShortcutKeyDisplayString = "Alt+F4"
-        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(185, 24)
+        Me.CloseToolStripMenuItem.Size = New System.Drawing.Size(170, 24)
         Me.CloseToolStripMenuItem.Text = "Close"
         '
         'ToolStripSeparator9
         '
         Me.ToolStripSeparator9.Name = "ToolStripSeparator9"
-        Me.ToolStripSeparator9.Size = New System.Drawing.Size(182, 6)
+        Me.ToolStripSeparator9.Size = New System.Drawing.Size(167, 6)
         '
         'AboutToolStripMenuItem1
         '
         Me.AboutToolStripMenuItem1.ForeColor = System.Drawing.Color.White
         Me.AboutToolStripMenuItem1.Name = "AboutToolStripMenuItem1"
-        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(185, 24)
+        Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(170, 24)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
         'CmdMinimize
@@ -660,6 +660,7 @@ Partial Class FormMain
         Me.CmdMinimize.Location = New System.Drawing.Point(732, 0)
         Me.CmdMinimize.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdMinimize.Name = "CmdMinimize"
+        Me.CmdMinimize.Padding = New System.Windows.Forms.Padding(2, 0, 0, 1)
         Me.CmdMinimize.Size = New System.Drawing.Size(58, 50)
         Me.CmdMinimize.TabIndex = 7
         Me.CmdMinimize.TabStop = False
@@ -679,6 +680,7 @@ Partial Class FormMain
         Me.CmdClose.Location = New System.Drawing.Point(790, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 1)
         Me.CmdClose.Size = New System.Drawing.Size(58, 50)
         Me.CmdClose.TabIndex = 6
         Me.CmdClose.TabStop = False
@@ -1780,7 +1782,7 @@ Partial Class FormMain
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents Panel1 As Panel
     Friend WithEvents cmsExplorer As ContextMenuStrip
-    Friend WithEvents MinimiseToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents MinimizeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator

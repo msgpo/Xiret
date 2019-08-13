@@ -97,8 +97,9 @@ Partial Class FormUpdate
         Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdClose.ForeColor = System.Drawing.Color.White
         Me.CmdClose.Location = New System.Drawing.Point(333, 0)
-        Me.CmdClose.Margin = New System.Windows.Forms.Padding(4)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 7
         Me.CmdClose.TabStop = False

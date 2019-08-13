@@ -25,8 +25,8 @@ Imports Xiret.Prog.Support
 <Module: CodeName("EFA11")>
 <Module: TestedBy("K4onashi, Carlos Detweiller, ItielMaN, MichaelJoy")>
 <Module: ProductChannel("RC")>
-<Module: ProductVersion("2.0.0")>
-<Module: BuiltBy("K4onashi - 29.07.2019")>
+<Module: ProductVersion("2.0.0 rc2-1")>
+<Module: BuiltBy("K4onashi - 13.08.2019")>
 <Module: TableFlip(" It's not a bug it's a feature (╯°□°）╯︵ ┻━┻")>
 
 Friend Class Program
@@ -47,12 +47,15 @@ Friend Class Program
         'Start signature check
         If IsSigEnforced And IsSigVerified Then 'Valid
 
-            CheckLibraries()
+            If Not Debugger.IsAttached Then
+                CheckLibraries()
+            End If
 
+            'Framework
             Application.EnableVisualStyles()
             Application.SetCompatibleTextRenderingDefault(False)
 
-            'SettingsCore
+            'Settings
             Settings.CreateUpdaterSettings()
             Settings.CheckSettings()
 
@@ -79,7 +82,7 @@ Friend Class Program
         'Plz don hack -- I find u
 
         Dim CoreDLLChecksum As String = CryptoHelper.GetSha512FromFile(Path.Combine(Directories.DirAppPath, "Core.dll"), True)
-        Dim CoreDllExpected As String = "64BC0DA488512554ADBC064E540330E1B8E496BD9A467987BBE19F3ACB45E8E55145DC5F486D34C175745B2D022BC32E385BFACFD65520C5DB7769498CE96102"
+        Dim CoreDllExpected As String = "6BBEADFEF7B73921E8794E7F29EE62DBC50A57002E047F20BC82B7B0714DD6FFF0FD141C0D28BB62CC1AC660F0F66152F8ECA3DB36F812F3AC8F74002609BF8E"
 
         Dim GambolDLLChecksum As String = CryptoHelper.GetSha512FromFile(Path.Combine(Directories.DirAppPath, "Gambol.dll"), True)
         Dim GambolDLLExpected As String = "B007E1670AC5AB0E6F5189A7745F55B24DC0FED23C144E4A9401FC06DFD1C87C7EF5467D486CAFD26B5D6FC0816DB05C73B0F6B788666DE5E889DD25C4B1D474"
@@ -94,7 +97,7 @@ Friend Class Program
             Exit Sub
         Else
             Dim DR As DialogResult = MessageBox.Show("One or more DLL files did not pass verification. Unless this is intentional, it's highly recommended not to use the application." _
-                                                     & vbCrLf & vbCrLf & "Core.dll " & Core & vbCrLf & "Gambol.dll " & Gambol & vbCrLf & vbCrLf & "Click OK to continue. Click cancel to exit.", "Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+                                                     & vbCrLf & vbCrLf & "Core.dll " & Core & vbCrLf & "Gambol.dll " & Gambol & vbCrLf & vbCrLf & "Click OK to continue. Click cancel to exit.", "Support", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
 
             If DR = DialogResult.Cancel Then
                 Environment.Exit(0)
@@ -131,9 +134,15 @@ Namespace Prog.Support
             Dim FE As New FormEnvironment
             AddHandler FE.FormClosed, AddressOf Wait
 
-            If (OSHelper.GetKernelVersion.ProductMajorPart < 6) OrElse OSHelper.IsWinServer() Then : FE.ShowDialog() : End If 'Unsupported os version
+            If (OSHelper.GetKernelVersion.ProductMajorPart < 6) OrElse OSHelper.IsWinServer() Then 'Unsupported os version
+                FE.ShowDialog()
+            Else 'Clean your mess
+                RemoveHandler FE.FormClosed, AddressOf Wait
+                FE.Dispose()
+            End If
 
         End Sub
+
         Private Sub Wait(sender As Object, e As EventArgs)
             Environment.Exit(0)
         End Sub
@@ -168,11 +177,11 @@ Namespace Prog.Support
             StringStackTrace = e.Exception.StackTrace
             StringException = e.Exception.Message
 
-            Dim ExceptionF As New FormException
+            Dim FException As New FormException
 
-            With ExceptionF
-                .TopMost = True
-                .Show()
+            With FException
+                .ShowDialog()
+                .BringToFront()
             End With
 
             e.ExitApplication = False

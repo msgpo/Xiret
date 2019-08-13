@@ -13,10 +13,9 @@
 '  Created by David S on 20.03.2016
 '  Updated on 31.07.2019 - DS (Update bool value, update PreFilterMessage)
 '  Updated on 07.08.2019 - DS (Increment PxFromEdge 6 > 10, cleanup)
+'  Updated on 13.08.2019 - DS (Temporarily disabled BlurWinForm whilst some issues are corrected)
 
 Imports Core.Animation
-Imports Core.Animation.Enums
-Imports Core.Helpers
 
 Public Class FormToast
     Implements IMessageFilter
@@ -54,14 +53,14 @@ Public Class FormToast
 
 #End Region
 
-#Region "Button Handles"
+#Region "Button Event Handlers"
 
     Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
         Close()
     End Sub
 
 #End Region
-#Region "Shown Event"
+#Region "Shown Event Handler"
 
     Private Sub Toast_Shown(sender As Object, e As EventArgs) Handles Me.Shown
         Fade.FadeIn(Me)
@@ -69,17 +68,6 @@ Public Class FormToast
 
 #End Region
 #Region "Load Handle"
-
-    Private Sub Toast_Activated(sender As Object, e As EventArgs) Handles Me.Activated
-
-        If OSHelper.IsWinTen Then
-            Composition.BlurWinForm(Me, AccentState.ACCENT_ENABLE_BLURBEHIND, WindowCompositionAttribute.WCA_ACCENT_POLICY)
-        End If
-
-        TopMost = True
-        BringToFront()
-
-    End Sub
 
     Private Sub Me_Load(sender As Object, e As EventArgs) Handles Me.Load
 
@@ -116,6 +104,14 @@ Public Class FormToast
         TopMost = True
 
         RespectTaskbar()
+
+        TopMost = True
+        BringToFront()
+
+        '// Disabled until further notice
+        'If OSHelper.IsWinTen Then
+        '    Composition.BlurWinForm(Me, AccentState.ACCENT_ENABLE_BLURBEHIND, WindowCompositionAttribute.WCA_ACCENT_POLICY)
+        'End If
 
     End Sub
 

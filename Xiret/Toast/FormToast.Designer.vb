@@ -66,6 +66,7 @@ Partial Class FormToast
         Me.cmdClose.Location = New System.Drawing.Point(458, 0)
         Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.cmdClose.Name = "cmdClose"
+        Me.cmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.cmdClose.Size = New System.Drawing.Size(40, 40)
         Me.cmdClose.TabIndex = 7
         Me.cmdClose.TabStop = False

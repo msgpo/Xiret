@@ -79,6 +79,7 @@ Partial Class FormCleanup
         Me.CmdClose.Location = New System.Drawing.Point(448, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.CmdClose.Size = New System.Drawing.Size(40, 40)
         Me.CmdClose.TabIndex = 71
         Me.CmdClose.TabStop = False
