@@ -11,43 +11,35 @@
 '  Xiret project
 '  Update.vb
 '  Created by David S on 20.03.2016
-'  Updated on 14.07.2019 - DS (Update variable)
-'  Updated on 31.07.2019 - DS (Cleanup)
+'  Updated on 24.09.2019 - DS (Cleanup)
 
 Imports System.Xml
 
-Imports Core.Helpers
+Imports Xiret.Core.Helpers
 
 Friend Class Updater
 
-    Private Shared XMLDoc As XmlDocument = New XmlDocument
+    Private Shared ReadOnly XMLDoc As XmlDocument = New XmlDocument
 
     Friend Shared LocalVersion As String = ""
     Friend Shared ServerVersion As String = ""
     Friend Shared ReleaseDate As String = ""
-    Friend Shared Type As String = ""
+    Friend Shared Channel As String = ""
 
-#Region "Routines"
 
-    Friend Shared Function CheckForUpdate() As Boolean
+    Friend Shared Function IsNewVersionAvailable() As Boolean
 
         Try
             If NetHelper.IsWebsiteAvailable(Strings.StringBitmightUrl) Then
                 XMLDoc.Load(Strings.StringServerVersionUrl)
-
                 'Remote
-                Dim XMLNode = XMLDoc.SelectSingleNode("data/CurrentBuild")
+                Dim XMLNode = XMLDoc.SelectSingleNode("data/Xiret")
                 Dim MajBuildServer = CInt(XMLNode("Maj").InnerText)
                 Dim MinBuidServer = CInt(XMLNode("Min").InnerText)
-                Dim RevBuildServer = CInt(XMLNode("Build").InnerText)
+                Dim RevBuildServer = CInt(XMLNode("Rev").InnerText)
+                ReleaseDate = XMLNode("ReleaseDate").InnerText
+                Channel = XMLNode("Channel").InnerText
                 ServerVersion = MajBuildServer & "." & MinBuidServer & "." & RevBuildServer
-
-                XMLNode = Nothing
-
-                XMLNode = XMLDoc.SelectSingleNode("data")
-                ReleaseDate = XMLNode("LatestReleaseDate").InnerText
-                Type = XMLNode("LatestReleaseType").InnerText
-
                 'Local
                 Dim VersionInfo As FileVersionInfo = FileVersionInfo.GetVersionInfo(FileHelper.GetApplicationImage)
                 Dim MajBuildLocal As Integer = VersionInfo.FileMajorPart
@@ -61,18 +53,13 @@ Friend Class Updater
                 If ServerVersion > LocalVersion Then
                     Return True
                 Else
-                    If ServerVersion < LocalVersion Then
+                    If ServerVersion <= LocalVersion Then
                         Return False
-                    Else
-                        If ServerVersion = LocalVersion Then
-                            Return False
-                        End If
                     End If
                 End If
             Else
                 Return False
             End If
-
         Catch
             Return False
         End Try
@@ -80,7 +67,5 @@ Friend Class Updater
         Return False
 
     End Function
-
-#End Region
 
 End Class

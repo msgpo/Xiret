@@ -10,7 +10,7 @@
     <OutputType>WinExe</OutputType>
     <StartupObject>Sub Main</StartupObject>
     <RootNamespace>Xiret</RootNamespace>
-    <AssemblyName>Xiret</AssemblyName>
+    <AssemblyName>Xiret 2</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsFormsWithCustomSubMain</MyType>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -38,10 +38,11 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Xiret.xml</DocumentationFile>
+    <DocumentationFile>Xiret 2.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -50,10 +51,11 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Xiret.xml</DocumentationFile>
+    <DocumentationFile>Xiret 2.xml</DocumentationFile>
     <NoWarn>
     </NoWarn>
     <WarningsAsErrors>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036</WarningsAsErrors>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <OptionExplicit>On</OptionExplicit>
@@ -83,7 +85,7 @@
     <ManifestCertificateThumbprint>04DFC6E164EC1CD78C835FF1BE16C4499F716048</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestKeyFile>Xiret.pfx</ManifestKeyFile>
+    <ManifestKeyFile>Signature\Xiret.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
@@ -106,17 +108,65 @@
     <Import Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core Lib\Animation\Composition.vb" />
+    <Compile Include="Core Lib\Animation\Enums\Enums.vb" />
+    <Compile Include="Core Lib\Animation\Fade.vb" />
+    <Compile Include="Core Lib\Animation\Structs\Structs.vb" />
+    <Compile Include="Core Lib\Converters\MemoryConverter.vb" />
+    <Compile Include="Core Lib\Converters\SizeConverter.vb" />
+    <Compile Include="Core Lib\Fonts\FontInstaller.vb" />
+    <Compile Include="Core Lib\Helpers\ControlHelper.vb" />
+    <Compile Include="Core Lib\Helpers\CryptoHelper.vb" />
+    <Compile Include="Core Lib\Helpers\DirectoryHelper.vb" />
+    <Compile Include="Core Lib\Helpers\FileHelper.vb" />
+    <Compile Include="Core Lib\Helpers\ImageHelper.vb" />
+    <Compile Include="Core Lib\Helpers\MemHelper.vb" />
+    <Compile Include="Core Lib\Helpers\NetHelper.vb" />
+    <Compile Include="Core Lib\Helpers\OSHelper.vb" />
+    <Compile Include="Core Lib\Helpers\PowerHelper.vb" />
+    <Compile Include="Core Lib\WinApi\AddFontResourceA.vb" />
+    <Compile Include="Core Lib\WinApi\GetModuleFilenameA.vb" />
+    <Compile Include="Core Lib\WinApi\GetTickCountA.vb" />
+    <Compile Include="Core Lib\WinApi\LockWindowUpdateA.vb" />
+    <Compile Include="Core Lib\WinApi\SendMessageA.vb" />
+    <Compile Include="Core Lib\WinApi\SetProcessDPIAwareA.vb" />
+    <Compile Include="Core Lib\WinApi\SetProcessWorkingSetSizeA.vb" />
+    <Compile Include="Core Lib\WinApi\SetWindowCompositionAttributeA.vb" />
+    <Compile Include="Core Lib\WinApi\StrongNameSignatureVerificationA.vb" />
+    <Compile Include="Core Lib\WinApi\WriteProfileStringA.vb" />
+    <Compile Include="Core Lib\WMI\Knowledgebase.vb" />
+    <Compile Include="Gambol Lib\Controls\Design\GambolCheckboxDesigner.vb" />
+    <Compile Include="Gambol Lib\Controls\Design\GambolRadioButtonDesigner.vb" />
+    <Compile Include="Gambol Lib\Controls\Design\GambolSwitchDesigner.vb" />
+    <Compile Include="Gambol Lib\Controls\GambolCheckbox.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gambol Lib\Controls\GambolPanel.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gambol Lib\Controls\GambolProgressBar.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gambol Lib\Controls\GambolRadioButton.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gambol Lib\Controls\GambolSwitch.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gambol Lib\Notifier\Notifier.vb">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Gambol Lib\UI\GambolToolstripRenderer.vb" />
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Toast\Enums\Enums.vb" />
     <Compile Include="UI Forms\FormException.designer.vb">
       <DependentUpon>FormException.vb</DependentUpon>
     </Compile>
     <Compile Include="UI Forms\FormException.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI Forms\FormFont.Designer.vb">
-      <DependentUpon>FormFont.vb</DependentUpon>
-    </Compile>
-    <Compile Include="UI Forms\FormFont.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI Forms\FormHotfix.Designer.vb">
@@ -138,11 +188,6 @@
     <Compile Include="Winsat\WSR.vb" />
     <Compile Include="Toast\ToastAlert.vb" />
     <Compile Include="Toast\Taskbar.vb" />
-    <Compile Include="My Project\Resources.Designer.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <Compile Include="UI Forms\FormAssessVerbose.Designer.vb">
       <DependentUpon>FormAssessVerbose.vb</DependentUpon>
     </Compile>
@@ -260,9 +305,6 @@
     <EmbeddedResource Include="UI Forms\FormException.resx">
       <DependentUpon>FormException.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI Forms\FormFont.resx">
-      <DependentUpon>FormFont.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormHotfix.resx">
       <DependentUpon>FormHotfix.vb</DependentUpon>
     </EmbeddedResource>
@@ -318,10 +360,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\img24px.png" />
-    <None Include="bin\Debug\Xiret.exe" />
     <None Include="Resources\imgtilehead.bmp" />
     <None Include="Resources\icon64px.png" />
     <Content Include="Resources\imgprocess.gif" />
+    <None Include="Resources\settingsimg.png" />
+    <None Include="Resources\mow.gif" />
     <Content Include="Resources\xico.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -347,16 +390,6 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>False</Private>
     </COMReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.vbproj">
-      <Project>{cf87b79d-d8c0-4d37-a018-b8eae27458a6}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Gambol\Gambol.vbproj">
-      <Project>{8dfd7468-9602-462c-befb-752f1c3a6488}</Project>
-      <Name>Gambol</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

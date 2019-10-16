@@ -1,4 +1,4 @@
-﻿Imports Gambol.Controls
+﻿Imports Xiret.Controls
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormToast
@@ -31,7 +31,7 @@ Partial Class FormToast
         Me.lbTitle = New System.Windows.Forms.Label()
         Me.lbMessage = New System.Windows.Forms.Label()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.GProgressBar = New Gambol.Controls.GambolProgressBar()
+        Me.GProgressBar = New Controls.GambolProgressBar()
         Me.pnlmain.SuspendLayout()
         Me.Panel1.SuspendLayout()
         Me.SuspendLayout()

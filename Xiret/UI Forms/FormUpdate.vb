@@ -13,25 +13,31 @@
 '  Created by David S on 01.11.2018
 '  Updated on 29.07.2019 - DS (Migrating to new system)
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
-'  This is a WIP
 
-Imports Core.Animation
+Imports System.IO
+Imports System.Net
+
+Imports Xiret.Core.Animation
+Imports Xiret.Core.Helpers
+
 Public Class FormUpdate
+
+    Private Shared DLPath As String = ""
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -62,21 +68,18 @@ Public Class FormUpdate
 
     Private Sub FormUpdate_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'Set opacity
-        Opacity = 0
-        'Set theme color
-        SetThemeAccent()
-
         If Booleans.BoolMissingUpdate Then
-            lbInfo.Text = "A new version of Xiret is ready for download."
-            lbType.Text = Updater.Type
+            LabInfo.Text = "A new version is ready for download."
+            LabUpdateType.Text = Updater.Channel
+            CmdDownload.Enabled = True
         Else
-            lbInfo.Text = "No update available."
-            lbType.Text = "None"
+            LabInfo.Text = "No update available."
+            LabUpdateType.Text = "None"
+            CmdDownload.Enabled = False
         End If
 
-        lbCurrent.Text = Updater.LocalVersion
-        lbServer.Text = Updater.ServerVersion & " (" & Updater.ReleaseDate & ")"
+        LabCurrent.Text = Updater.LocalVersion & " (" & Program.ProductReleaseDate & ")"
+        LabServer.Text = Updater.ServerVersion & " (" & Updater.ReleaseDate & ")"
 
     End Sub
 
@@ -100,12 +103,12 @@ Public Class FormUpdate
 
     Private Sub SetThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
 
-        llChangelog.LinkColor = Settings.ThemeColor
+        LnkChangelog.LinkColor = Settings.ThemeColor
 
-        For Each c As Control In tlpButtons.Controls
-            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        For Each Ctrl As Control In TlpBottom.Controls
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.ThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -116,15 +119,86 @@ Public Class FormUpdate
 
 #Region "Button Event Handlers"
 
-    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
         Close()
     End Sub
 
 #End Region
 #Region "Linklabel Event Handlers"
 
-    Private Sub LlChangelog_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llChangelog.LinkClicked
+    Private Sub LnkChangelog_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkChangelog.LinkClicked
         Process.Start("https://www.bitmight.uk/software/xiret/changelog.txt")
+    End Sub
+
+#End Region
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
+    End Sub
+
+#End Region
+
+#Region "WebClient"
+    Private Sub CmdDownload_Click(sender As Object, e As EventArgs) Handles CmdDownload.Click
+
+        If NetHelper.IsWebsiteAvailable(Strings.StringBitmightUrl) = True Then
+
+            Dim FBD As New FolderBrowserDialog With {
+            .ShowNewFolderButton = True,
+               .Description = "Select a path..."
+            }
+
+            If FBD.ShowDialog = Windows.Forms.DialogResult.OK Then
+
+                CType(sender, Button).Enabled = False
+
+                Dim WClient As New WebClient
+                AddHandler WClient.DownloadProgressChanged, AddressOf WClient_ProgressChanged
+                AddHandler WClient.DownloadFileCompleted, AddressOf WClient_DownloadCompleted
+
+                DLPath = Path.Combine(FBD.SelectedPath, "xiret.zip")
+
+                WClient.DownloadFileAsync(New Uri(Strings.StringXiretZip), DLPath)
+                WClient.Dispose()
+
+            End If
+            FBD.Dispose()
+        Else
+            ToastAlert.Show("Could not reach server", ToastType.IsWarning)
+        End If
+
+    End Sub
+    Private Sub WClient_ProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs)
+
+        Dim bytesIn As Double = Double.Parse(e.BytesReceived.ToString())
+        Dim totalBytes As Double = Double.Parse(e.TotalBytesToReceive.ToString())
+        Dim percentage As Double = bytesIn / totalBytes * 100
+
+        LabDownload.Text = "Downloading: " & Integer.Parse(Math.Truncate(percentage).ToString()) & "%"
+
+        'PbrUpdate.Value = Int32.Parse(Math.Truncate(percentage).ToString())
+        'PbrUpdate.Refresh()
+
+    End Sub
+    Private Sub WClient_DownloadCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
+
+        My.Computer.Audio.PlaySystemSound(Media.SystemSounds.Asterisk)
+
+        CmdDownload.Enabled = True
+        LabDownload.Text = ""
+        'PbrUpdate.Value = 0
+        'PbrUpdate.Hide()
+
+        If File.Exists(DLPath) = True Then
+            Process.Start(DLPath)
+        End If
+
+        Application.Exit()
+
     End Sub
 
 #End Region

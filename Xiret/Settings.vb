@@ -18,7 +18,7 @@
 Imports System.IO
 Imports System.Xml
 
-Imports Core.Helpers
+Imports Xiret.Core.Helpers
 
 
 Friend Class Settings
@@ -28,7 +28,7 @@ Friend Class Settings
     Friend Shared ReadOnly AppdataFile As String = Path.Combine(Directories.DirAppData, "settings.xir")
     Friend Shared ReadOnly WorkingDirFile As String = Path.Combine(Directories.DirAppPath, "settings.xir")
 
-    Friend Shared ShowHardwareOnStarup As Integer = 0
+    Friend Shared ShowHardwareOnStartup As Integer = 0
     Friend Shared UseApiHardware As Integer = 0
     Friend Shared UseVerboseMode As Integer = 0
     Friend Shared ThemeInt As Integer = 0
@@ -47,12 +47,12 @@ Friend Class Settings
 
     Friend Shared Sub CheckSettings()
 
-        If File.Exists(WorkingDirFile) Then
-            BoolWorkingDirectory = True
+        If File.Exists(AppdataFile) Then
+            BoolWorkingDirectory = False
             LoadSettings()
         Else
-            If File.Exists(AppdataFile) Then
-                BoolWorkingDirectory = False
+            If File.Exists(WorkingDirFile) Then
+                BoolWorkingDirectory = True
                 LoadSettings()
             Else
                 BoolWorkingDirectory = False
@@ -69,56 +69,56 @@ Friend Class Settings
 
         Try
 
-            Dim xdoc As XmlDocument = New XmlDocument
-            Dim xnode As XmlNode
+            Dim XmlDoc As XmlDocument = New XmlDocument
+            Dim XmlNod As XmlNode
 
             If BoolWorkingDirectory Then
-                xdoc.Load(WorkingDirFile)
+                XmlDoc.Load(WorkingDirFile)
             Else
-                xdoc.Load(AppdataFile)
+                XmlDoc.Load(AppdataFile)
             End If
 
-            xnode = xdoc.SelectSingleNode("root")
+            XmlNod = XmlDoc.SelectSingleNode("root")
 
             Try
-                ShowHardwareOnStarup = CInt(xnode("ShowHardwareOnStartup").InnerText)
+                ShowHardwareOnStartup = CInt(XmlNod("ShowHardwareOnStartup").InnerText)
             Catch ex As Exception
                 MessageBox.Show("Settings node malformation in <ShowHardwareOnStartup>", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
             Try
-                UseApiHardware = CInt(xnode("UseApiHardware").InnerText)
+                UseApiHardware = CInt(XmlNod("UseApiHardware").InnerText)
             Catch ex As Exception
                 MessageBox.Show("Settings node malformation in <UseApiHardware>", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
             Try
-                UseVerboseMode = CInt(xnode("UseVerboseMode").InnerText)
+                UseVerboseMode = CInt(XmlNod("UseVerboseMode").InnerText)
             Catch ex As Exception
                 MessageBox.Show("Settings node malformation in <UseVerboseMode>.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
             Try
-                ThemeInt = CInt(xnode("Theme").InnerText)
+                ThemeInt = CInt(XmlNod("Theme").InnerText)
                 Select Case ThemeInt
                     Case 0
-                        ThemeColor = Color.FromArgb(120, 180, 0)
+                        ThemeColor = Color.FromArgb(120, 190, 0)
                     Case 1
                         ThemeColor = Color.FromArgb(0, 191, 255)
                     Case 2
-                        ThemeColor = Color.FromArgb(0, 255, 191)
+                        ThemeColor = Color.FromArgb(0, 255, 181)
                     Case 3
-                        ThemeColor = Color.FromArgb(46, 220, 120)
+                        ThemeColor = Color.FromArgb(46, 220, 110)
                     Case 4
-                        ThemeColor = Color.FromArgb(255, 0, 255)
+                        ThemeColor = Color.FromArgb(245, 60, 245)
                     Case 5
                         ThemeColor = Color.FromArgb(255, 105, 180)
                     Case 6
-                        ThemeColor = Color.FromArgb(255, 128, 0)
+                        ThemeColor = Color.FromArgb(255, 118, 0)
                     Case 7
-                        ThemeColor = Color.FromArgb(215, 229, 18)
+                        ThemeColor = Color.FromArgb(205, 219, 18)
                     Case 8
-                        ThemeColor = Color.FromArgb(255, 40, 40)
+                        ThemeColor = Color.FromArgb(255, 50, 50)
                     Case Else
                         ThemeColor = Color.FromArgb(120, 180, 0)
                 End Select
@@ -127,16 +127,16 @@ Friend Class Settings
             End Try
 
             Try
-                ApplyThemeColorToBorder = CInt(xnode("ApplyThemeColorToBorder").InnerText)
+                ApplyThemeColorToBorder = CInt(XmlNod("ApplyThemeColorToBorder").InnerText)
             Catch ex As Exception
                 MessageBox.Show("Settings node malformation in <ApplyThemeColorToBorder>.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
 
             Try
-                UseCustomImgurApiKey = CInt(xnode("UseCustomImgurApiKey").InnerText)
+                UseCustomImgurApiKey = CInt(XmlNod("UseCustomImgurApiKey").InnerText)
                 If UseCustomImgurApiKey = 1 Then
-                    If xnode("ImgurAPIClientIdString").InnerText IsNot Nothing Then
-                        StringUserImgurClientId = xnode("ImgurAPIClientIdString").InnerText
+                    If XmlNod("ImgurAPIClientIdString").InnerText IsNot Nothing Then
+                        StringUserImgurClientId = XmlNod("ImgurAPIClientIdString").InnerText
                     End If
                 End If
             Catch ex As Exception
@@ -159,40 +159,41 @@ Friend Class Settings
 #Region "Create Settings"
     Friend Shared Sub CreateSettings()
 
+        Dim Writer As XmlTextWriter
+
         If Not Directory.Exists(Directories.DirAppData) Then
             Directory.CreateDirectory(Directories.DirAppData)
         End If
 
-        Dim xwriter As XmlTextWriter
         If BoolWorkingDirectory Then
-            xwriter = New XmlTextWriter(WorkingDirFile, Nothing)
+            Writer = New XmlTextWriter(WorkingDirFile, Nothing)
         Else
-            xwriter = New XmlTextWriter(AppdataFile, Nothing)
+            Writer = New XmlTextWriter(AppdataFile, Nothing)
         End If
 
-        xwriter.Formatting = Formatting.Indented
-        xwriter.Indentation = 4
+        Writer.Formatting = Formatting.Indented
+        Writer.Indentation = 4
 
-        xwriter.WriteStartDocument()
-        xwriter.WriteComment("Xiret Settings File")
-        xwriter.WriteStartElement("root")
-        xwriter.WriteComment("0:Off 1:On")
-        xwriter.WriteElementString("ShowHardwareOnStartup", CStr(ShowHardwareOnStarup))
-        xwriter.WriteComment("0:XML 1:API")
-        xwriter.WriteElementString("UseApiHardware", CStr(UseApiHardware))
-        xwriter.WriteComment("0:Normal 1:Verbose")
-        xwriter.WriteElementString("UseVerboseMode", CStr(UseVerboseMode))
-        xwriter.WriteComment("ThemeInteger 0-7")
-        xwriter.WriteElementString("Theme", CStr(ThemeInt))
-        xwriter.WriteComment("0:Disable 1:Enable")
-        xwriter.WriteElementString("ApplyThemeColorToBorder", CStr(ApplyThemeColorToBorder))
-        xwriter.WriteComment("0:Disable 1:Enable")
-        xwriter.WriteElementString("UseCustomImgurApiKey", CStr(UseCustomImgurApiKey))
-        xwriter.WriteComment("User defined Imgur API Client ID")
-        xwriter.WriteElementString("ImgurAPIClientIdString", StringUserImgurClientId)
-        xwriter.WriteEndElement()
-        xwriter.WriteEndDocument()
-        xwriter.Close()
+        Writer.WriteStartDocument()
+        Writer.WriteComment("Xiret Settings File")
+        Writer.WriteStartElement("root")
+        Writer.WriteComment("0:Off 1:On")
+        Writer.WriteElementString("ShowHardwareOnStartup", CStr(ShowHardwareOnStartup))
+        Writer.WriteComment("0:XML 1:API")
+        Writer.WriteElementString("UseApiHardware", CStr(UseApiHardware))
+        Writer.WriteComment("0:Normal 1:Verbose")
+        Writer.WriteElementString("UseVerboseMode", CStr(UseVerboseMode))
+        Writer.WriteComment("ThemeInteger 0-8")
+        Writer.WriteElementString("Theme", CStr(ThemeInt))
+        Writer.WriteComment("0:Disable 1:Enable")
+        Writer.WriteElementString("ApplyThemeColorToBorder", CStr(ApplyThemeColorToBorder))
+        Writer.WriteComment("0:Disable 1:Enable")
+        Writer.WriteElementString("UseCustomImgurApiKey", CStr(UseCustomImgurApiKey))
+        Writer.WriteComment("User defined Imgur API Client ID")
+        Writer.WriteElementString("ImgurAPIClientIdString", StringUserImgurClientId)
+        Writer.WriteEndElement()
+        Writer.WriteEndDocument()
+        Writer.Close()
 
         Exit Sub
 

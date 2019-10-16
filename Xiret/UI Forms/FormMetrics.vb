@@ -17,26 +17,26 @@
 Imports System.Linq
 Imports System.Xml
 
-Imports Core.Animation
+Imports Xiret.Core.Animation
 
 Public Class FormMetrics
 
-    Private Blacklist() As String = {"Signature", "L1Cache", "L2Cache", "L3Cache", "LogicalProcessorInfo"}
+    Private ReadOnly Blacklist() As String = {"Signature", "L1Cache", "L2Cache", "L3Cache", "LogicalProcessorInfo"}
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetMetricsThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, tlpHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, TlpHead.MouseMove
 
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -65,13 +65,7 @@ Public Class FormMetrics
 #Region "Load Event Handler"
 
     Private Sub FormMetrics_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        Opacity = 0
-
-        SetMetricsThemeAccent()
-
-        Log("Choose an option from the menu", "", Color.White, Color.White)
-
+        GetXMLInfoWinsat("ProgramInfo", False)
     End Sub
 
 #End Region
@@ -93,10 +87,10 @@ Public Class FormMetrics
 #Region "Theme"
     Private Sub SetMetricsThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
 
-        For Each c As Control In tlpMenu.Controls
-            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        For Each Ctrl As Control In TlpMenu.Controls
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.ThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -108,40 +102,40 @@ Public Class FormMetrics
 #Region "Button Event Handlers"
 
     Private Sub CmdProgramInfo_Click(sender As Object, e As EventArgs) Handles CmdProgramInfo.Click
-        rtbInfo.Text = ""
-        GetXMLInfoWinsat("ProgramInfo", False) 'CHECK
+        Cls()
+        GetXMLInfoWinsat("ProgramInfo", False)
     End Sub
 
     Private Sub CmdSysEnviron_Click(sender As Object, e As EventArgs) Handles CmdSysEnviron.Click
-        rtbInfo.Text = ""
-        GetXMLInfoWinsat("SystemEnvironment", False) 'CHECK
+        Cls()
+        GetXMLInfoWinsat("SystemEnvironment", False)
     End Sub
 
     Private Sub CmdWinSpr_Click(sender As Object, e As EventArgs) Handles CmdWinSpr.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("WinSPR", False)
     End Sub
 
-    Private Sub CmdMetrics_Click(sender As Object, e As EventArgs) Handles cmdMetrics.Click
-        rtbInfo.Text = ""
+    Private Sub CmdMetrics_Click(sender As Object, e As EventArgs) Handles CmdMetrics.Click
+        Cls()
         GetXMLInfoWinsat("Metrics", False) 'CHECK < This is all we need for Metrics
     End Sub
 
     Private Sub CmdOS_Click(sender As Object, e As EventArgs) Handles CmdOS.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("OSVersion", False)
         GetXMLInfoWinsat("Platform", False)
     End Sub
 
     Private Sub CmdSystem_Click(sender As Object, e As EventArgs) Handles CmdSystem.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("MotherBoard", False)
         GetXMLInfoWinsat("BIOS", False)
         GetXMLInfoWinsat("Machine", False)
     End Sub
 
     Private Sub CmdProcessor_Click(sender As Object, e As EventArgs) Handles CmdProcessor.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("Processor", False)
         GetXMLInfoWinsat("Signature", True)
         GetXMLInfoWinsat("L1Cache", True)
@@ -151,29 +145,39 @@ Public Class FormMetrics
     End Sub
 
     Private Sub CmdMemory_Click(sender As Object, e As EventArgs) Handles CmdMemory.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("Memory", False)
     End Sub
 
     Private Sub CmdGraphics_Click(sender As Object, e As EventArgs) Handles CmdGraphics.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("Graphics", False)
         GetXMLInfoWinsat("Monitors", False)
     End Sub
 
     Private Sub CmdDisk_Click(sender As Object, e As EventArgs) Handles CmdDisk.Click
-        rtbInfo.Text = ""
-        GetXMLInfoWinsat("SystemDisk", False) 'Iffy when using just 'Disk'
+        Cls()
+        GetXMLInfoWinsat("SystemDisk", False) 'Iffy when using just 'Disk' - make it SystemDisk.
     End Sub
 
     Private Sub CmdDwm_Click(sender As Object, e As EventArgs) Handles CmdDwm.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("DWMAssessment", False)
     End Sub
 
     Private Sub CmdD3D_Click(sender As Object, e As EventArgs) Handles CmdD3D.Click
-        rtbInfo.Text = ""
+        Cls()
         GetXMLInfoWinsat("D3DAssessment", False)
+    End Sub
+
+#End Region
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxMain_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
     End Sub
 
 #End Region
@@ -188,7 +192,7 @@ Public Class FormMetrics
             Log("> " & LookIn, "", Color.LightSalmon, Color.White, FontStyle.Bold)
         End If
 
-        rtbInfo.AppendText(vbCrLf)
+        RtbData.AppendText(vbCrLf)
 
         Dim xmlDoc As New XmlDocument
         Dim MainNodeList As XmlNodeList
@@ -221,18 +225,20 @@ Public Class FormMetrics
                         Log("  - " & Node.Name & ": ", "See below data", Color.MediumOrchid, Color.White)
                     End If
                 Next
-                rtbInfo.AppendText(vbCrLf)
+                RtbData.AppendText(vbCrLf)
             Next
         Next
 
         xmlDoc = Nothing
         MainNodeList = Nothing
 
-        rtbInfo.SelectionStart = 0
-        rtbInfo.ScrollToCaret()
+        RtbData.SelectionStart = 0
+        RtbData.ScrollToCaret()
 
     End Sub
-
+    Private Sub Cls()
+        RtbData.Text = ""
+    End Sub
 #End Region
 
 #Region "Logger"
@@ -245,15 +251,15 @@ Public Class FormMetrics
 
         On Error Resume Next
 
-        rtbInfo.AppendText(logTypeText)
-        rtbInfo.Select(rtbInfo.TextLength - logTypeText.Length, logTypeText.Length)
-        rtbInfo.SelectionColor = StringNodeColor
-        rtbInfo.SelectionFont = New Font("Consolas", 9, Style)
-        rtbInfo.Select(rtbInfo.TextLength, StringData.Length)
-        rtbInfo.SelectionColor = StringDataColor
-        rtbInfo.AppendText(StringData)
-        rtbInfo.AppendText(vbCrLf)
-        rtbInfo.ScrollToCaret()
+        RtbData.AppendText(logTypeText)
+        RtbData.Select(RtbData.TextLength - logTypeText.Length, logTypeText.Length)
+        RtbData.SelectionColor = StringNodeColor
+        RtbData.SelectionFont = New Font("Consolas", 9, Style)
+        RtbData.Select(RtbData.TextLength, StringData.Length)
+        RtbData.SelectionColor = StringDataColor
+        RtbData.AppendText(StringData)
+        RtbData.AppendText(vbCrLf)
+        RtbData.ScrollToCaret()
 
     End Sub
 

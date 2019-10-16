@@ -14,24 +14,24 @@
 '  Updated on 31.07.2019 - DS (Cleanup)
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
-Imports Core.Animation
+Imports Xiret.Core.Animation
 
 Public Class FormChangelog
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetChangelogThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, tlpHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, TlpHead.MouseMove
 
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -60,12 +60,7 @@ Public Class FormChangelog
 #Region "Load Event Handler"
 
     Private Sub FormChangelog_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        Opacity = 0
-        SetChangelogThemeAccent()
-
-        rtbChanges.Rtf = My.Resources.changelog
-
+        RtbChanges.Rtf = My.Resources.changelog
     End Sub
 
 #End Region
@@ -79,9 +74,7 @@ Public Class FormChangelog
 #Region "Closed Event Handler"
 
     Private Sub FormChangelog_FormClosed(sender As Object, e As FormClosedEventArgs) Handles Me.FormClosed
-
         Fade.FadeOut(Me)
-
     End Sub
 
 #End Region
@@ -89,33 +82,21 @@ Public Class FormChangelog
 #Region "Theme"
     Private Sub SetChangelogThemeAccent()
 
-        'Split colour
-        pnlSplit.BackColor = Settings.ThemeColor
-
-        'Apply border colour
+        PanSplit.BackColor = Settings.ThemeColor
         Settings.SetBorderColor(Me)
 
     End Sub
 
 #End Region
 
-#Region "Deprecated"
+#Region "Picturebox Event Handler"
 
-    'Private Sub cmdFull_MouseEnter(sender As Object, e As EventArgs) Handles cmdFull.MouseEnter
-    '    lbGlobe.Text = "" 'MDL Assets E774 (Globe)
-    '    rtbURL.Text = URL
-    '    rtbURL.Select(rtbURL.TextLength - 52, 8)
-    '    rtbURL.SelectionColor = Color.FromArgb(18, 180, 0)
-    '    rtbURL.SelectionFont = New Font("Segoe UI Semibold", 10)
-    '    rtbURL.Select(rtbURL.TextLength - 28, 28)
-    '    rtbURL.SelectionColor = Color.FromArgb(180, 180, 180)
-
-    'End Sub
-
-    'Private Sub cmdFull_MouseLeave(sender As Object, e As EventArgs) Handles cmdFull.MouseLeave
-    '    lbGlobe.Text = ""
-    '    rtbURL.Text = ""
-    'End Sub
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
+    End Sub
 
 #End Region
 

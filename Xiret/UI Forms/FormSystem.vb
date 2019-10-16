@@ -11,28 +11,36 @@
 '  Xiret project
 '  FormSystem.vb
 '  Created by David S on 07.02.2019
-'  Updated on 31.07.2019 - DS (Cleanup)
-'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WncProc)
+'  Updated on 20.09.2019 - DS (Add username, add install date, add tick to uptime and remove refresh button)
+'  Updated on 26.09.2019 - DS (Improve threading, edit keydown)
 
-Imports Core.Animation
-Imports Core.Helpers
+Imports Xiret.Core.Animation
+Imports Xiret.Core.Helpers
+Imports System.Threading
 
 Public Class FormSystem
+
+    Private ReadOnly StringOther As String = OSHelper.GetWindowsName() & " v" & OSHelper.GetWindowsCurrentBuild()
+    Private ReadOnly StringTen As String = OSHelper.GetWindowsName() & " v" & OSHelper.GetWindowsReleaseId() & " (Build: " & OSHelper.GetWindowsBuildBranch() & ")"
+
+    Private Delegate Sub Uptime(Data As String)
+    Private ThrTick As Thread
+    Private ContinueThr As Boolean = True
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetCleanupThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -45,13 +53,19 @@ Public Class FormSystem
 #Region "KeyDown Events"
     Private Sub FormSystem_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
+            StopLoop()
             Close()
+        Else
+            If e.Alt And e.KeyCode = Keys.F4 Then
+                StopLoop()
+            End If
         End If
     End Sub
 
 #End Region
 #Region "Frame Buttons"
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
+        StopLoop()
         Close()
     End Sub
 #End Region
@@ -60,20 +74,20 @@ Public Class FormSystem
 
     Private Sub FormSystem_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'Set opacity
-        Opacity = 0
-        'Set form theme
-        SetCleanupThemeAccent()
+        LabUsername.Text = OSHelper.GetUsername
+        LabOpSystem.Text = CType(IIf(OSHelper.IsWinTen, StringTen, StringOther), String)
+        LabBitness.Text = OSHelper.GetWindowsBitness()
+        LabServPack.Text = OSHelper.GetWindowsServicePack()
 
-        lbOpSys.Text = OSHelper.GetOSName()
-        lbBitness.Text = OSHelper.GetOSBitness()
-        lbServicePack.Text = OSHelper.GetServicePack()
+        LabKernel.Text = OSHelper.GetKernelVersion.ProductVersion
+        LabWinsat.Text = OSHelper.GetWinsatVersion.ProductVersion
+        LabApi.Text = OSHelper.GetWinsatApiVersion.ProductVersion
 
-        lbKernel.Text = OSHelper.GetKernelVersion.FileVersion
-        lbWinsat.Text = OSHelper.GetWinsatVersion.ProductVersion
-        lbApi.Text = OSHelper.GetWinsatApiVersion.ProductVersion
-
-        lbUptime.Text = OSHelper.GetWindowsUptime()
+        LabInstDat.Text = OSHelper.GetWindowsInstallDate
+        ThrTick = New Thread(AddressOf TickUptime) With {
+            .IsBackground = True
+        }
+        ThrTick.Start()
 
     End Sub
 
@@ -96,19 +110,46 @@ Public Class FormSystem
 #Region "Theme"
     Private Sub SetCleanupThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
-
-        CmdRefresh.ForeColor = Settings.ThemeColor
-
+        PanSplit.BackColor = Settings.ThemeColor
         Settings.SetBorderColor(Me)
 
     End Sub
 
 #End Region
 
-#Region "Button Event Handlers"
-    Private Sub Cmdrefresh_Click(sender As Object, e As EventArgs) Handles CmdRefresh.Click
-        lbUptime.Text = OSHelper.GetWindowsUptime
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxMain_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
+    End Sub
+
+#End Region
+
+#Region "Thread"
+
+    Private Sub TickUptime()
+
+        Try
+            Do While ContinueThr
+                If InvokeRequired Then
+                    Invoke(New Uptime(AddressOf InvokeTickUptime), OSHelper.GetWindowsUptime)
+                Else
+                    LabUptime.Text = OSHelper.GetWindowsUptime
+                End If
+                Thread.Sleep(500)
+            Loop
+        Catch
+        End Try
+
+    End Sub
+    Private Sub InvokeTickUptime(Data As String)
+        LabUptime.Text = Data
+    End Sub
+    Private Sub StopLoop()
+        ContinueThr = False
     End Sub
 #End Region
 

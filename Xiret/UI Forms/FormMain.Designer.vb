@@ -1,4 +1,4 @@
-﻿Imports Gambol.Controls
+﻿Imports Xiret.Controls
 
 <Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormMain
@@ -26,38 +26,8 @@ Partial Class FormMain
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormMain))
-        Me.pbxMain = New System.Windows.Forms.PictureBox()
-        Me.LbHead = New System.Windows.Forms.Label()
-        Me.lbShowOnPrint = New System.Windows.Forms.Label()
-        Me.lbScale = New System.Windows.Forms.Label()
-        Me.PnlSubDisk = New System.Windows.Forms.Panel()
-        Me.lbDiskScore = New System.Windows.Forms.Label()
-        Me.PnlSubGaming = New System.Windows.Forms.Panel()
-        Me.lbGamingScore = New System.Windows.Forms.Label()
-        Me.PnlSubGraphics = New System.Windows.Forms.Panel()
-        Me.lbGraphicsScore = New System.Windows.Forms.Label()
-        Me.PnlSubMemory = New System.Windows.Forms.Panel()
-        Me.lbMemoryScore = New System.Windows.Forms.Label()
-        Me.PnlSubProcessor = New System.Windows.Forms.Panel()
-        Me.lbCpuScore = New System.Windows.Forms.Label()
-        Me.LBaseScore = New System.Windows.Forms.Label()
-        Me.sSub = New System.Windows.Forms.Label()
-        Me.lbWhatIsRated = New System.Windows.Forms.Label()
-        Me.LComponent = New System.Windows.Forms.Label()
-        Me.pnlComp = New System.Windows.Forms.Panel()
-        Me.lbCompProc = New System.Windows.Forms.Label()
-        Me.lbCompDisk = New System.Windows.Forms.Label()
-        Me.lbCompGaming = New System.Windows.Forms.Label()
-        Me.lbCompGraphics = New System.Windows.Forms.Label()
-        Me.lbCompMem = New System.Windows.Forms.Label()
-        Me.pnlRated = New System.Windows.Forms.Panel()
-        Me.sGaming = New System.Windows.Forms.Label()
-        Me.sProcessor = New System.Windows.Forms.Label()
-        Me.sDisk = New System.Windows.Forms.Label()
-        Me.sMemory = New System.Windows.Forms.Label()
-        Me.sGraphics = New System.Windows.Forms.Label()
-        Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.cmsExplorer = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.CmsExplorer = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MinimizeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetPositionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ResetApplicationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -65,74 +35,107 @@ Partial Class FormMain
         Me.CloseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator9 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.LabHead = New System.Windows.Forms.Label()
+        Me.LabScale = New System.Windows.Forms.Label()
+        Me.PanSubDisk = New System.Windows.Forms.Panel()
+        Me.LabDiskScore = New System.Windows.Forms.Label()
+        Me.PanSubGaming = New System.Windows.Forms.Panel()
+        Me.LabGamingScore = New System.Windows.Forms.Label()
+        Me.PanSubGraphics = New System.Windows.Forms.Panel()
+        Me.LabGraphicsScore = New System.Windows.Forms.Label()
+        Me.PanSubMemory = New System.Windows.Forms.Panel()
+        Me.LabMemoryScore = New System.Windows.Forms.Label()
+        Me.PanSubProcessor = New System.Windows.Forms.Panel()
+        Me.LabProcessorScore = New System.Windows.Forms.Label()
+        Me.sBaseScore = New System.Windows.Forms.Label()
+        Me.sSubScore = New System.Windows.Forms.Label()
+        Me.sWhat = New System.Windows.Forms.Label()
+        Me.sComponent = New System.Windows.Forms.Label()
+        Me.LabProcessor = New System.Windows.Forms.Label()
+        Me.LabDisk = New System.Windows.Forms.Label()
+        Me.LabGaming = New System.Windows.Forms.Label()
+        Me.LabGraphics = New System.Windows.Forms.Label()
+        Me.LabMemory = New System.Windows.Forms.Label()
+        Me.LabWirGaming = New System.Windows.Forms.Label()
+        Me.LabWirProcessor = New System.Windows.Forms.Label()
+        Me.LabWirDisk = New System.Windows.Forms.Label()
+        Me.LabWirMemory = New System.Windows.Forms.Label()
+        Me.LabWirGraphics = New System.Windows.Forms.Label()
+        Me.PanHead = New System.Windows.Forms.Panel()
+        Me.CmdSettings = New System.Windows.Forms.Button()
         Me.CmdMinimize = New System.Windows.Forms.Button()
+        Me.LabVersion = New System.Windows.Forms.Label()
         Me.CmdClose = New System.Windows.Forms.Button()
-        Me.LbHeadVer = New System.Windows.Forms.Label()
-        Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
+        Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
         Me.sLastUpdate = New System.Windows.Forms.Label()
-        Me.lbLastUpdated = New System.Windows.Forms.Label()
-        Me.lbOperatingSystem = New System.Windows.Forms.Label()
-        Me.sOperatingSystem = New System.Windows.Forms.Label()
-        Me.lbState = New System.Windows.Forms.Label()
-        Me.pnlSplit = New System.Windows.Forms.Panel()
-        Me.pnlMenu = New System.Windows.Forms.Panel()
-        Me.tlpMenu = New System.Windows.Forms.TableLayoutPanel()
-        Me.cmdTools = New System.Windows.Forms.Button()
-        Me.cmdHelp = New System.Windows.Forms.Button()
-        Me.cmdExport = New System.Windows.Forms.Button()
-        Me.cmdOptions = New System.Windows.Forms.Button()
-        Me.pnlCapture = New System.Windows.Forms.Panel()
-        Me.tlpTop = New System.Windows.Forms.TableLayoutPanel()
-        Me.tlpMain = New System.Windows.Forms.TableLayoutPanel()
-        Me.pnlSubMain = New System.Windows.Forms.Panel()
-        Me.tlpInf = New System.Windows.Forms.TableLayoutPanel()
-        Me.tlpSubscore = New System.Windows.Forms.TableLayoutPanel()
-        Me.pnlBaseScore = New System.Windows.Forms.Panel()
-        Me.lbBaseScore = New System.Windows.Forms.Label()
-        Me.sEleven = New System.Windows.Forms.Label()
-        Me.pnlBottom = New System.Windows.Forms.Panel()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.tlpBottom = New System.Windows.Forms.TableLayoutPanel()
-        Me.pnlValidity = New System.Windows.Forms.Panel()
-        Me.pnlValidityState = New System.Windows.Forms.Panel()
+        Me.LabLastUpdate = New System.Windows.Forms.Label()
+        Me.LabOpSys = New System.Windows.Forms.Label()
+        Me.sOpSys = New System.Windows.Forms.Label()
+        Me.LabEIState = New System.Windows.Forms.Label()
+        Me.PanMenu = New System.Windows.Forms.Panel()
+        Me.TlpMenu = New System.Windows.Forms.TableLayoutPanel()
+        Me.CmdTools = New System.Windows.Forms.Button()
+        Me.CmdExport = New System.Windows.Forms.Button()
+        Me.CmdOptions = New System.Windows.Forms.Button()
+        Me.CmdHelp = New System.Windows.Forms.Button()
+        Me.PanCapture = New System.Windows.Forms.Panel()
+        Me.PanSplit = New System.Windows.Forms.Panel()
+        Me.TlpTop = New System.Windows.Forms.TableLayoutPanel()
+        Me.CmdAssess = New System.Windows.Forms.Button()
+        Me.TlpGridScore = New System.Windows.Forms.TableLayoutPanel()
+        Me.pnlGridHead = New System.Windows.Forms.Panel()
+        Me.TlpScores = New System.Windows.Forms.TableLayoutPanel()
+        Me.TlpSubscore = New System.Windows.Forms.TableLayoutPanel()
+        Me.PanBasescore = New System.Windows.Forms.Panel()
+        Me.LabBasescore = New System.Windows.Forms.Label()
+        Me.sBasedOn = New System.Windows.Forms.Label()
+        Me.TlpWhatIsRated = New System.Windows.Forms.TableLayoutPanel()
+        Me.TlpComponents = New System.Windows.Forms.TableLayoutPanel()
+        Me.PanBottom = New System.Windows.Forms.Panel()
+        Me.PanSplitCenter = New System.Windows.Forms.Panel()
+        Me.TlpBottom = New System.Windows.Forms.TableLayoutPanel()
+        Me.CmdRunInDepth = New System.Windows.Forms.Button()
+        Me.PanInDepth = New System.Windows.Forms.Panel()
+        Me.sInDepth = New System.Windows.Forms.Label()
+        Me.PanValidity = New System.Windows.Forms.Panel()
+        Me.PanValidityState = New System.Windows.Forms.Panel()
         Me.sValidity = New System.Windows.Forms.Label()
+        Me.PanLastUpdate = New System.Windows.Forms.Panel()
+        Me.PanShowHardware2 = New System.Windows.Forms.Panel()
+        Me.LabShowHardware = New System.Windows.Forms.Label()
+        Me.PanOpSys = New System.Windows.Forms.Panel()
+        Me.PanValidity2 = New System.Windows.Forms.Panel()
+        Me.PanShowHardware = New System.Windows.Forms.Panel()
+        Me.sShowHardware = New System.Windows.Forms.Label()
+        Me.PanLastUpdate2 = New System.Windows.Forms.Panel()
+        Me.PanOpSys2 = New System.Windows.Forms.Panel()
+        Me.PanMetrics = New System.Windows.Forms.Panel()
+        Me.sMetrics = New System.Windows.Forms.Label()
         Me.cmdMetrics = New System.Windows.Forms.Button()
-        Me.pnlLastUpdated = New System.Windows.Forms.Panel()
-        Me.cmdRun = New System.Windows.Forms.Button()
-        Me.pnlD = New System.Windows.Forms.Panel()
-        Me.GSwitchHardware = New Gambol.Controls.GambolSwitch()
-        Me.pnlMetrics = New System.Windows.Forms.Panel()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.pnlOperatingSystem = New System.Windows.Forms.Panel()
-        Me.pnlA = New System.Windows.Forms.Panel()
-        Me.pnlShowHardware = New System.Windows.Forms.Panel()
-        Me.sShow = New System.Windows.Forms.Label()
-        Me.pnlAssessment = New System.Windows.Forms.Panel()
-        Me.lbAssessment = New System.Windows.Forms.Label()
-        Me.pnlB = New System.Windows.Forms.Panel()
-        Me.pnlC = New System.Windows.Forms.Panel()
         Me.BMPToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.JPGToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PNGToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TXTToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmsExport = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CmsExport = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.ImgurToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmsOptions = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CmsOptions = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.ViewImgurLinksToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ViewWinSATLogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshScoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ProgramDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolstripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmsTools = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CmsTools = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CleanupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ViewSystemDetailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator6 = New System.Windows.Forms.ToolStripSeparator()
         Me.RunToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RunVerboseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.cmsHelp = New System.Windows.Forms.ContextMenuStrip(Me.components)
+        Me.CmsHelp = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.MediaFeaturePackToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TroubleshootingToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
@@ -141,464 +144,70 @@ Partial Class FormMain
         Me.ChangelogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.Notifier1 = New Gambol.Notifier.Notifier(Me.components)
-        CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.PnlSubDisk.SuspendLayout()
-        Me.PnlSubGaming.SuspendLayout()
-        Me.PnlSubGraphics.SuspendLayout()
-        Me.PnlSubMemory.SuspendLayout()
-        Me.PnlSubProcessor.SuspendLayout()
-        Me.pnlComp.SuspendLayout()
-        Me.pnlRated.SuspendLayout()
-        Me.pnlHead.SuspendLayout()
-        Me.cmsExplorer.SuspendLayout()
-        Me.tlpIcon.SuspendLayout()
-        Me.pnlMenu.SuspendLayout()
-        Me.tlpMenu.SuspendLayout()
-        Me.pnlCapture.SuspendLayout()
-        Me.tlpTop.SuspendLayout()
-        Me.tlpMain.SuspendLayout()
-        Me.pnlSubMain.SuspendLayout()
-        Me.tlpInf.SuspendLayout()
-        Me.tlpSubscore.SuspendLayout()
-        Me.pnlBaseScore.SuspendLayout()
-        Me.pnlBottom.SuspendLayout()
-        Me.tlpBottom.SuspendLayout()
-        Me.pnlValidity.SuspendLayout()
-        Me.pnlLastUpdated.SuspendLayout()
-        Me.pnlD.SuspendLayout()
-        Me.pnlMetrics.SuspendLayout()
-        Me.pnlOperatingSystem.SuspendLayout()
-        Me.pnlA.SuspendLayout()
-        Me.pnlShowHardware.SuspendLayout()
-        Me.pnlAssessment.SuspendLayout()
-        Me.pnlB.SuspendLayout()
-        Me.pnlC.SuspendLayout()
-        Me.cmsExport.SuspendLayout()
-        Me.cmsOptions.SuspendLayout()
-        Me.cmsTools.SuspendLayout()
-        Me.cmsHelp.SuspendLayout()
+        Me.GswHardware = New Xiret.Controls.GambolSwitch()
+        Me.Notifier1 = New Xiret.Notifier.Notifier(Me.components)
+        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.CmsExplorer.SuspendLayout()
+        Me.PanSubDisk.SuspendLayout()
+        Me.PanSubGaming.SuspendLayout()
+        Me.PanSubGraphics.SuspendLayout()
+        Me.PanSubMemory.SuspendLayout()
+        Me.PanSubProcessor.SuspendLayout()
+        Me.PanHead.SuspendLayout()
+        Me.TlpHeadImage.SuspendLayout()
+        Me.PanMenu.SuspendLayout()
+        Me.TlpMenu.SuspendLayout()
+        Me.PanCapture.SuspendLayout()
+        Me.TlpTop.SuspendLayout()
+        Me.TlpGridScore.SuspendLayout()
+        Me.pnlGridHead.SuspendLayout()
+        Me.TlpScores.SuspendLayout()
+        Me.TlpSubscore.SuspendLayout()
+        Me.PanBasescore.SuspendLayout()
+        Me.TlpWhatIsRated.SuspendLayout()
+        Me.TlpComponents.SuspendLayout()
+        Me.PanBottom.SuspendLayout()
+        Me.TlpBottom.SuspendLayout()
+        Me.PanInDepth.SuspendLayout()
+        Me.PanValidity.SuspendLayout()
+        Me.PanLastUpdate.SuspendLayout()
+        Me.PanShowHardware2.SuspendLayout()
+        Me.PanOpSys.SuspendLayout()
+        Me.PanValidity2.SuspendLayout()
+        Me.PanShowHardware.SuspendLayout()
+        Me.PanLastUpdate2.SuspendLayout()
+        Me.PanOpSys2.SuspendLayout()
+        Me.PanMetrics.SuspendLayout()
+        Me.CmsExport.SuspendLayout()
+        Me.CmsOptions.SuspendLayout()
+        Me.CmsTools.SuspendLayout()
+        Me.CmsHelp.SuspendLayout()
         Me.SuspendLayout()
         '
-        'pbxMain
+        'PbxHead
         '
-        Me.pbxMain.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pbxMain.BackColor = System.Drawing.Color.Transparent
-        Me.pbxMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbxMain.Image = Global.Xiret.My.Resources.Resources.icon24px
-        Me.pbxMain.Location = New System.Drawing.Point(11, 13)
-        Me.pbxMain.Margin = New System.Windows.Forms.Padding(0, 0, 6, 0)
-        Me.pbxMain.Name = "pbxMain"
-        Me.pbxMain.Size = New System.Drawing.Size(24, 24)
-        Me.pbxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxMain.TabIndex = 1
-        Me.pbxMain.TabStop = False
+        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
+        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PbxHead.ContextMenuStrip = Me.CmsExplorer
+        Me.PbxHead.Image = Global.Xiret.My.Resources.Resources.icon24px
+        Me.PbxHead.Location = New System.Drawing.Point(9, 9)
+        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 10, 8)
+        Me.PbxHead.Name = "PbxHead"
+        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
+        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PbxHead.TabIndex = 1
+        Me.PbxHead.TabStop = False
         '
-        'LbHead
+        'CmsExplorer
         '
-        Me.LbHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LbHead.BackColor = System.Drawing.Color.Transparent
-        Me.LbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LbHead.ForeColor = System.Drawing.Color.White
-        Me.LbHead.Location = New System.Drawing.Point(298, 4)
-        Me.LbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LbHead.Name = "LbHead"
-        Me.LbHead.Size = New System.Drawing.Size(255, 22)
-        Me.LbHead.TabIndex = 1
-        Me.LbHead.Text = "Xiret - Experience Index UI"
-        Me.LbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lbShowOnPrint
-        '
-        Me.lbShowOnPrint.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbShowOnPrint.BackColor = System.Drawing.Color.Transparent
-        Me.lbShowOnPrint.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbShowOnPrint.ForeColor = System.Drawing.Color.White
-        Me.lbShowOnPrint.Location = New System.Drawing.Point(626, 6)
-        Me.lbShowOnPrint.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbShowOnPrint.Name = "lbShowOnPrint"
-        Me.lbShowOnPrint.Size = New System.Drawing.Size(170, 22)
-        Me.lbShowOnPrint.TabIndex = 72
-        Me.lbShowOnPrint.Text = "Xiret"
-        Me.lbShowOnPrint.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lbScale
-        '
-        Me.lbScale.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lbScale.BackColor = System.Drawing.Color.Transparent
-        Me.lbScale.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbScale.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbScale.Location = New System.Drawing.Point(4, 7)
-        Me.lbScale.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbScale.Name = "lbScale"
-        Me.lbScale.Size = New System.Drawing.Size(602, 20)
-        Me.lbScale.TabIndex = 27
-        Me.lbScale.Text = "The Experience Index assesses key system components on a scale of"
-        '
-        'PnlSubDisk
-        '
-        Me.PnlSubDisk.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.PnlSubDisk.Controls.Add(Me.lbDiskScore)
-        Me.PnlSubDisk.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlSubDisk.Location = New System.Drawing.Point(0, 144)
-        Me.PnlSubDisk.Margin = New System.Windows.Forms.Padding(0)
-        Me.PnlSubDisk.Name = "PnlSubDisk"
-        Me.PnlSubDisk.Size = New System.Drawing.Size(78, 36)
-        Me.PnlSubDisk.TabIndex = 70
-        '
-        'lbDiskScore
-        '
-        Me.lbDiskScore.BackColor = System.Drawing.Color.Transparent
-        Me.lbDiskScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbDiskScore.ForeColor = System.Drawing.Color.White
-        Me.lbDiskScore.Location = New System.Drawing.Point(0, 0)
-        Me.lbDiskScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbDiskScore.Name = "lbDiskScore"
-        Me.lbDiskScore.Size = New System.Drawing.Size(78, 36)
-        Me.lbDiskScore.TabIndex = 24
-        Me.lbDiskScore.Text = "..."
-        Me.lbDiskScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PnlSubGaming
-        '
-        Me.PnlSubGaming.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.PnlSubGaming.Controls.Add(Me.lbGamingScore)
-        Me.PnlSubGaming.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlSubGaming.Location = New System.Drawing.Point(0, 108)
-        Me.PnlSubGaming.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.PnlSubGaming.Name = "PnlSubGaming"
-        Me.PnlSubGaming.Size = New System.Drawing.Size(78, 35)
-        Me.PnlSubGaming.TabIndex = 69
-        '
-        'lbGamingScore
-        '
-        Me.lbGamingScore.BackColor = System.Drawing.Color.Transparent
-        Me.lbGamingScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbGamingScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbGamingScore.ForeColor = System.Drawing.Color.White
-        Me.lbGamingScore.Location = New System.Drawing.Point(0, 0)
-        Me.lbGamingScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbGamingScore.Name = "lbGamingScore"
-        Me.lbGamingScore.Size = New System.Drawing.Size(78, 35)
-        Me.lbGamingScore.TabIndex = 23
-        Me.lbGamingScore.Text = "..."
-        Me.lbGamingScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PnlSubGraphics
-        '
-        Me.PnlSubGraphics.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.PnlSubGraphics.Controls.Add(Me.lbGraphicsScore)
-        Me.PnlSubGraphics.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlSubGraphics.Location = New System.Drawing.Point(0, 72)
-        Me.PnlSubGraphics.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.PnlSubGraphics.Name = "PnlSubGraphics"
-        Me.PnlSubGraphics.Size = New System.Drawing.Size(78, 35)
-        Me.PnlSubGraphics.TabIndex = 68
-        '
-        'lbGraphicsScore
-        '
-        Me.lbGraphicsScore.BackColor = System.Drawing.Color.Transparent
-        Me.lbGraphicsScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbGraphicsScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbGraphicsScore.ForeColor = System.Drawing.Color.White
-        Me.lbGraphicsScore.Location = New System.Drawing.Point(0, 0)
-        Me.lbGraphicsScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbGraphicsScore.Name = "lbGraphicsScore"
-        Me.lbGraphicsScore.Size = New System.Drawing.Size(78, 35)
-        Me.lbGraphicsScore.TabIndex = 24
-        Me.lbGraphicsScore.Text = "..."
-        Me.lbGraphicsScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PnlSubMemory
-        '
-        Me.PnlSubMemory.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.PnlSubMemory.Controls.Add(Me.lbMemoryScore)
-        Me.PnlSubMemory.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlSubMemory.Location = New System.Drawing.Point(0, 36)
-        Me.PnlSubMemory.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.PnlSubMemory.Name = "PnlSubMemory"
-        Me.PnlSubMemory.Size = New System.Drawing.Size(78, 35)
-        Me.PnlSubMemory.TabIndex = 67
-        '
-        'lbMemoryScore
-        '
-        Me.lbMemoryScore.BackColor = System.Drawing.Color.Transparent
-        Me.lbMemoryScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbMemoryScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMemoryScore.ForeColor = System.Drawing.Color.White
-        Me.lbMemoryScore.Location = New System.Drawing.Point(0, 0)
-        Me.lbMemoryScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbMemoryScore.Name = "lbMemoryScore"
-        Me.lbMemoryScore.Size = New System.Drawing.Size(78, 35)
-        Me.lbMemoryScore.TabIndex = 23
-        Me.lbMemoryScore.Text = "..."
-        Me.lbMemoryScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'PnlSubProcessor
-        '
-        Me.PnlSubProcessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.PnlSubProcessor.Controls.Add(Me.lbCpuScore)
-        Me.PnlSubProcessor.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.PnlSubProcessor.Location = New System.Drawing.Point(0, 0)
-        Me.PnlSubProcessor.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.PnlSubProcessor.Name = "PnlSubProcessor"
-        Me.PnlSubProcessor.Size = New System.Drawing.Size(78, 35)
-        Me.PnlSubProcessor.TabIndex = 66
-        '
-        'lbCpuScore
-        '
-        Me.lbCpuScore.BackColor = System.Drawing.Color.Transparent
-        Me.lbCpuScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.lbCpuScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCpuScore.ForeColor = System.Drawing.Color.White
-        Me.lbCpuScore.Location = New System.Drawing.Point(0, 0)
-        Me.lbCpuScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbCpuScore.Name = "lbCpuScore"
-        Me.lbCpuScore.Size = New System.Drawing.Size(78, 35)
-        Me.lbCpuScore.TabIndex = 22
-        Me.lbCpuScore.Text = "..."
-        Me.lbCpuScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'LBaseScore
-        '
-        Me.LBaseScore.AutoSize = True
-        Me.LBaseScore.BackColor = System.Drawing.Color.Transparent
-        Me.LBaseScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LBaseScore.ForeColor = System.Drawing.Color.White
-        Me.LBaseScore.Location = New System.Drawing.Point(671, 7)
-        Me.LBaseScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LBaseScore.Name = "LBaseScore"
-        Me.LBaseScore.Size = New System.Drawing.Size(83, 20)
-        Me.LBaseScore.TabIndex = 4
-        Me.LBaseScore.Text = "Base score"
-        Me.LBaseScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'sSub
-        '
-        Me.sSub.AutoSize = True
-        Me.sSub.BackColor = System.Drawing.Color.Transparent
-        Me.sSub.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sSub.ForeColor = System.Drawing.Color.White
-        Me.sSub.Location = New System.Drawing.Point(547, 7)
-        Me.sSub.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sSub.Name = "sSub"
-        Me.sSub.Size = New System.Drawing.Size(72, 20)
-        Me.sSub.TabIndex = 3
-        Me.sSub.Text = "Subscore"
-        Me.sSub.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'lbWhatIsRated
-        '
-        Me.lbWhatIsRated.BackColor = System.Drawing.Color.Transparent
-        Me.lbWhatIsRated.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbWhatIsRated.ForeColor = System.Drawing.Color.White
-        Me.lbWhatIsRated.Location = New System.Drawing.Point(195, 7)
-        Me.lbWhatIsRated.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbWhatIsRated.Name = "lbWhatIsRated"
-        Me.lbWhatIsRated.Size = New System.Drawing.Size(125, 20)
-        Me.lbWhatIsRated.TabIndex = 2
-        Me.lbWhatIsRated.Text = "What is rated?"
-        Me.lbWhatIsRated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'LComponent
-        '
-        Me.LComponent.BackColor = System.Drawing.Color.Transparent
-        Me.LComponent.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LComponent.ForeColor = System.Drawing.Color.White
-        Me.LComponent.Location = New System.Drawing.Point(4, 7)
-        Me.LComponent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.LComponent.Name = "LComponent"
-        Me.LComponent.Size = New System.Drawing.Size(125, 20)
-        Me.LComponent.TabIndex = 1
-        Me.LComponent.Text = "Component"
-        Me.LComponent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlComp
-        '
-        Me.pnlComp.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlComp.Controls.Add(Me.lbCompProc)
-        Me.pnlComp.Controls.Add(Me.lbCompDisk)
-        Me.pnlComp.Controls.Add(Me.lbCompGaming)
-        Me.pnlComp.Controls.Add(Me.lbCompGraphics)
-        Me.pnlComp.Controls.Add(Me.lbCompMem)
-        Me.pnlComp.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlComp.Location = New System.Drawing.Point(0, 0)
-        Me.pnlComp.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
-        Me.pnlComp.Name = "pnlComp"
-        Me.pnlComp.Size = New System.Drawing.Size(189, 178)
-        Me.pnlComp.TabIndex = 66
-        '
-        'lbCompProc
-        '
-        Me.lbCompProc.AutoSize = True
-        Me.lbCompProc.BackColor = System.Drawing.Color.Transparent
-        Me.lbCompProc.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCompProc.ForeColor = System.Drawing.Color.White
-        Me.lbCompProc.Location = New System.Drawing.Point(7, 7)
-        Me.lbCompProc.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbCompProc.Name = "lbCompProc"
-        Me.lbCompProc.Size = New System.Drawing.Size(91, 20)
-        Me.lbCompProc.TabIndex = 13
-        Me.lbCompProc.Text = "PROCESSOR"
-        '
-        'lbCompDisk
-        '
-        Me.lbCompDisk.AutoSize = True
-        Me.lbCompDisk.BackColor = System.Drawing.Color.Transparent
-        Me.lbCompDisk.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCompDisk.ForeColor = System.Drawing.Color.White
-        Me.lbCompDisk.Location = New System.Drawing.Point(7, 151)
-        Me.lbCompDisk.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbCompDisk.Name = "lbCompDisk"
-        Me.lbCompDisk.Size = New System.Drawing.Size(154, 20)
-        Me.lbCompDisk.TabIndex = 13
-        Me.lbCompDisk.Text = "PRIMARY HARD DISK"
-        '
-        'lbCompGaming
-        '
-        Me.lbCompGaming.AutoSize = True
-        Me.lbCompGaming.BackColor = System.Drawing.Color.Transparent
-        Me.lbCompGaming.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCompGaming.ForeColor = System.Drawing.Color.White
-        Me.lbCompGaming.Location = New System.Drawing.Point(7, 115)
-        Me.lbCompGaming.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbCompGaming.Name = "lbCompGaming"
-        Me.lbCompGaming.Size = New System.Drawing.Size(143, 20)
-        Me.lbCompGaming.TabIndex = 13
-        Me.lbCompGaming.Text = "GAMING GRAPHICS"
-        '
-        'lbCompGraphics
-        '
-        Me.lbCompGraphics.AutoSize = True
-        Me.lbCompGraphics.BackColor = System.Drawing.Color.Transparent
-        Me.lbCompGraphics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCompGraphics.ForeColor = System.Drawing.Color.White
-        Me.lbCompGraphics.Location = New System.Drawing.Point(7, 79)
-        Me.lbCompGraphics.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbCompGraphics.Name = "lbCompGraphics"
-        Me.lbCompGraphics.Size = New System.Drawing.Size(79, 20)
-        Me.lbCompGraphics.TabIndex = 3
-        Me.lbCompGraphics.Text = "GRAPHICS"
-        '
-        'lbCompMem
-        '
-        Me.lbCompMem.AutoSize = True
-        Me.lbCompMem.BackColor = System.Drawing.Color.Transparent
-        Me.lbCompMem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbCompMem.ForeColor = System.Drawing.Color.White
-        Me.lbCompMem.Location = New System.Drawing.Point(7, 43)
-        Me.lbCompMem.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbCompMem.Name = "lbCompMem"
-        Me.lbCompMem.Size = New System.Drawing.Size(121, 20)
-        Me.lbCompMem.TabIndex = 2
-        Me.lbCompMem.Text = "MEMORY (RAM)"
-        '
-        'pnlRated
-        '
-        Me.pnlRated.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.pnlRated.Controls.Add(Me.sGaming)
-        Me.pnlRated.Controls.Add(Me.sProcessor)
-        Me.pnlRated.Controls.Add(Me.sDisk)
-        Me.pnlRated.Controls.Add(Me.sMemory)
-        Me.pnlRated.Controls.Add(Me.sGraphics)
-        Me.pnlRated.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlRated.Location = New System.Drawing.Point(190, 0)
-        Me.pnlRated.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
-        Me.pnlRated.Name = "pnlRated"
-        Me.pnlRated.Size = New System.Drawing.Size(354, 178)
-        Me.pnlRated.TabIndex = 69
-        '
-        'sGaming
-        '
-        Me.sGaming.AutoEllipsis = True
-        Me.sGaming.BackColor = System.Drawing.Color.Transparent
-        Me.sGaming.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sGaming.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sGaming.Location = New System.Drawing.Point(7, 115)
-        Me.sGaming.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sGaming.Name = "sGaming"
-        Me.sGaming.Size = New System.Drawing.Size(339, 20)
-        Me.sGaming.TabIndex = 30
-        Me.sGaming.Text = "3D business and gaming graphics performance"
-        '
-        'sProcessor
-        '
-        Me.sProcessor.AutoEllipsis = True
-        Me.sProcessor.BackColor = System.Drawing.Color.Transparent
-        Me.sProcessor.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sProcessor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sProcessor.Location = New System.Drawing.Point(7, 7)
-        Me.sProcessor.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sProcessor.Name = "sProcessor"
-        Me.sProcessor.Size = New System.Drawing.Size(339, 20)
-        Me.sProcessor.TabIndex = 27
-        Me.sProcessor.Text = "Calculations per second"
-        '
-        'sDisk
-        '
-        Me.sDisk.AutoEllipsis = True
-        Me.sDisk.BackColor = System.Drawing.Color.Transparent
-        Me.sDisk.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sDisk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sDisk.Location = New System.Drawing.Point(7, 151)
-        Me.sDisk.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sDisk.Name = "sDisk"
-        Me.sDisk.Size = New System.Drawing.Size(339, 20)
-        Me.sDisk.TabIndex = 31
-        Me.sDisk.Text = "Disk data transfer rate"
-        '
-        'sMemory
-        '
-        Me.sMemory.AutoEllipsis = True
-        Me.sMemory.BackColor = System.Drawing.Color.Transparent
-        Me.sMemory.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sMemory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sMemory.Location = New System.Drawing.Point(7, 43)
-        Me.sMemory.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sMemory.Name = "sMemory"
-        Me.sMemory.Size = New System.Drawing.Size(339, 20)
-        Me.sMemory.TabIndex = 28
-        Me.sMemory.Text = "Memory operations per second"
-        '
-        'sGraphics
-        '
-        Me.sGraphics.AutoEllipsis = True
-        Me.sGraphics.BackColor = System.Drawing.Color.Transparent
-        Me.sGraphics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sGraphics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sGraphics.Location = New System.Drawing.Point(7, 79)
-        Me.sGraphics.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sGraphics.Name = "sGraphics"
-        Me.sGraphics.Size = New System.Drawing.Size(339, 20)
-        Me.sGraphics.TabIndex = 29
-        Me.sGraphics.Text = "Desktop graphics performance"
-        '
-        'pnlHead
-        '
-        Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.ContextMenuStrip = Me.cmsExplorer
-        Me.pnlHead.Controls.Add(Me.CmdMinimize)
-        Me.pnlHead.Controls.Add(Me.CmdClose)
-        Me.pnlHead.Controls.Add(Me.LbHeadVer)
-        Me.pnlHead.Controls.Add(Me.LbHead)
-        Me.pnlHead.Controls.Add(Me.tlpIcon)
-        Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHead.Location = New System.Drawing.Point(1, 1)
-        Me.pnlHead.Margin = New System.Windows.Forms.Padding(4)
-        Me.pnlHead.Name = "pnlHead"
-        Me.pnlHead.Size = New System.Drawing.Size(848, 50)
-        Me.pnlHead.TabIndex = 59
-        '
-        'cmsExplorer
-        '
-        Me.cmsExplorer.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmsExplorer.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsExplorer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinimizeToolStripMenuItem, Me.ResetPositionToolStripMenuItem, Me.ResetApplicationToolStripMenuItem, Me.ToolStripSeparator8, Me.CloseToolStripMenuItem, Me.ToolStripSeparator9, Me.AboutToolStripMenuItem1})
-        Me.cmsExplorer.Name = "cmsExplorer"
-        Me.cmsExplorer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.cmsExplorer.ShowImageMargin = False
-        Me.cmsExplorer.Size = New System.Drawing.Size(171, 136)
+        Me.CmsExplorer.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CmsExplorer.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CmsExplorer.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MinimizeToolStripMenuItem, Me.ResetPositionToolStripMenuItem, Me.ResetApplicationToolStripMenuItem, Me.ToolStripSeparator8, Me.CloseToolStripMenuItem, Me.ToolStripSeparator9, Me.AboutToolStripMenuItem1})
+        Me.CmsExplorer.Name = "cmsExplorer"
+        Me.CmsExplorer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.CmsExplorer.ShowImageMargin = False
+        Me.CmsExplorer.Size = New System.Drawing.Size(171, 136)
         '
         'MinimizeToolStripMenuItem
         '
@@ -647,25 +256,437 @@ Partial Class FormMain
         Me.AboutToolStripMenuItem1.Size = New System.Drawing.Size(170, 24)
         Me.AboutToolStripMenuItem1.Text = "About"
         '
+        'LabHead
+        '
+        Me.LabHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabHead.BackColor = System.Drawing.Color.Transparent
+        Me.LabHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabHead.ForeColor = System.Drawing.Color.White
+        Me.LabHead.Location = New System.Drawing.Point(216, 5)
+        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabHead.Name = "LabHead"
+        Me.LabHead.Size = New System.Drawing.Size(408, 22)
+        Me.LabHead.TabIndex = 1
+        Me.LabHead.Text = "Xiret - Experience Index UI"
+        Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'LabScale
+        '
+        Me.LabScale.AutoEllipsis = True
+        Me.LabScale.BackColor = System.Drawing.Color.Transparent
+        Me.LabScale.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabScale.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabScale.ForeColor = System.Drawing.Color.White
+        Me.LabScale.Location = New System.Drawing.Point(4, 0)
+        Me.LabScale.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabScale.Name = "LabScale"
+        Me.LabScale.Size = New System.Drawing.Size(615, 35)
+        Me.LabScale.TabIndex = 27
+        Me.LabScale.Text = "..."
+        Me.LabScale.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PanSubDisk
+        '
+        Me.PanSubDisk.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanSubDisk.Controls.Add(Me.LabDiskScore)
+        Me.PanSubDisk.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanSubDisk.Location = New System.Drawing.Point(0, 144)
+        Me.PanSubDisk.Margin = New System.Windows.Forms.Padding(0)
+        Me.PanSubDisk.Name = "PanSubDisk"
+        Me.PanSubDisk.Size = New System.Drawing.Size(78, 36)
+        Me.PanSubDisk.TabIndex = 70
+        '
+        'LabDiskScore
+        '
+        Me.LabDiskScore.BackColor = System.Drawing.Color.Transparent
+        Me.LabDiskScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabDiskScore.ForeColor = System.Drawing.Color.White
+        Me.LabDiskScore.Location = New System.Drawing.Point(0, 0)
+        Me.LabDiskScore.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabDiskScore.Name = "LabDiskScore"
+        Me.LabDiskScore.Size = New System.Drawing.Size(78, 36)
+        Me.LabDiskScore.TabIndex = 24
+        Me.LabDiskScore.Text = "..."
+        Me.LabDiskScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PanSubGaming
+        '
+        Me.PanSubGaming.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanSubGaming.Controls.Add(Me.LabGamingScore)
+        Me.PanSubGaming.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanSubGaming.Location = New System.Drawing.Point(0, 108)
+        Me.PanSubGaming.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.PanSubGaming.Name = "PanSubGaming"
+        Me.PanSubGaming.Size = New System.Drawing.Size(78, 35)
+        Me.PanSubGaming.TabIndex = 69
+        '
+        'LabGamingScore
+        '
+        Me.LabGamingScore.BackColor = System.Drawing.Color.Transparent
+        Me.LabGamingScore.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabGamingScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabGamingScore.ForeColor = System.Drawing.Color.White
+        Me.LabGamingScore.Location = New System.Drawing.Point(0, 0)
+        Me.LabGamingScore.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabGamingScore.Name = "LabGamingScore"
+        Me.LabGamingScore.Size = New System.Drawing.Size(78, 35)
+        Me.LabGamingScore.TabIndex = 23
+        Me.LabGamingScore.Text = "..."
+        Me.LabGamingScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PanSubGraphics
+        '
+        Me.PanSubGraphics.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanSubGraphics.Controls.Add(Me.LabGraphicsScore)
+        Me.PanSubGraphics.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanSubGraphics.Location = New System.Drawing.Point(0, 72)
+        Me.PanSubGraphics.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.PanSubGraphics.Name = "PanSubGraphics"
+        Me.PanSubGraphics.Size = New System.Drawing.Size(78, 35)
+        Me.PanSubGraphics.TabIndex = 68
+        '
+        'LabGraphicsScore
+        '
+        Me.LabGraphicsScore.BackColor = System.Drawing.Color.Transparent
+        Me.LabGraphicsScore.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabGraphicsScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabGraphicsScore.ForeColor = System.Drawing.Color.White
+        Me.LabGraphicsScore.Location = New System.Drawing.Point(0, 0)
+        Me.LabGraphicsScore.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabGraphicsScore.Name = "LabGraphicsScore"
+        Me.LabGraphicsScore.Size = New System.Drawing.Size(78, 35)
+        Me.LabGraphicsScore.TabIndex = 24
+        Me.LabGraphicsScore.Text = "..."
+        Me.LabGraphicsScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PanSubMemory
+        '
+        Me.PanSubMemory.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanSubMemory.Controls.Add(Me.LabMemoryScore)
+        Me.PanSubMemory.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanSubMemory.Location = New System.Drawing.Point(0, 36)
+        Me.PanSubMemory.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.PanSubMemory.Name = "PanSubMemory"
+        Me.PanSubMemory.Size = New System.Drawing.Size(78, 35)
+        Me.PanSubMemory.TabIndex = 67
+        '
+        'LabMemoryScore
+        '
+        Me.LabMemoryScore.BackColor = System.Drawing.Color.Transparent
+        Me.LabMemoryScore.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabMemoryScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabMemoryScore.ForeColor = System.Drawing.Color.White
+        Me.LabMemoryScore.Location = New System.Drawing.Point(0, 0)
+        Me.LabMemoryScore.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabMemoryScore.Name = "LabMemoryScore"
+        Me.LabMemoryScore.Size = New System.Drawing.Size(78, 35)
+        Me.LabMemoryScore.TabIndex = 23
+        Me.LabMemoryScore.Text = "..."
+        Me.LabMemoryScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PanSubProcessor
+        '
+        Me.PanSubProcessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanSubProcessor.Controls.Add(Me.LabProcessorScore)
+        Me.PanSubProcessor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanSubProcessor.Location = New System.Drawing.Point(0, 0)
+        Me.PanSubProcessor.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.PanSubProcessor.Name = "PanSubProcessor"
+        Me.PanSubProcessor.Size = New System.Drawing.Size(78, 35)
+        Me.PanSubProcessor.TabIndex = 66
+        '
+        'LabProcessorScore
+        '
+        Me.LabProcessorScore.BackColor = System.Drawing.Color.Transparent
+        Me.LabProcessorScore.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabProcessorScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabProcessorScore.ForeColor = System.Drawing.Color.White
+        Me.LabProcessorScore.Location = New System.Drawing.Point(0, 0)
+        Me.LabProcessorScore.Margin = New System.Windows.Forms.Padding(0)
+        Me.LabProcessorScore.Name = "LabProcessorScore"
+        Me.LabProcessorScore.Size = New System.Drawing.Size(78, 35)
+        Me.LabProcessorScore.TabIndex = 22
+        Me.LabProcessorScore.Text = "..."
+        Me.LabProcessorScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'sBaseScore
+        '
+        Me.sBaseScore.AutoSize = True
+        Me.sBaseScore.BackColor = System.Drawing.Color.Transparent
+        Me.sBaseScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sBaseScore.ForeColor = System.Drawing.Color.White
+        Me.sBaseScore.Location = New System.Drawing.Point(671, 7)
+        Me.sBaseScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sBaseScore.Name = "sBaseScore"
+        Me.sBaseScore.Size = New System.Drawing.Size(83, 20)
+        Me.sBaseScore.TabIndex = 4
+        Me.sBaseScore.Text = "Base score"
+        Me.sBaseScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'sSubScore
+        '
+        Me.sSubScore.AutoSize = True
+        Me.sSubScore.BackColor = System.Drawing.Color.Transparent
+        Me.sSubScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sSubScore.ForeColor = System.Drawing.Color.White
+        Me.sSubScore.Location = New System.Drawing.Point(547, 7)
+        Me.sSubScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sSubScore.Name = "sSubScore"
+        Me.sSubScore.Size = New System.Drawing.Size(72, 20)
+        Me.sSubScore.TabIndex = 3
+        Me.sSubScore.Text = "Subscore"
+        Me.sSubScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'sWhat
+        '
+        Me.sWhat.BackColor = System.Drawing.Color.Transparent
+        Me.sWhat.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sWhat.ForeColor = System.Drawing.Color.White
+        Me.sWhat.Location = New System.Drawing.Point(194, 7)
+        Me.sWhat.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sWhat.Name = "sWhat"
+        Me.sWhat.Size = New System.Drawing.Size(125, 20)
+        Me.sWhat.TabIndex = 2
+        Me.sWhat.Text = "What is rated?"
+        Me.sWhat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'sComponent
+        '
+        Me.sComponent.BackColor = System.Drawing.Color.Transparent
+        Me.sComponent.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sComponent.ForeColor = System.Drawing.Color.White
+        Me.sComponent.Location = New System.Drawing.Point(5, 7)
+        Me.sComponent.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sComponent.Name = "sComponent"
+        Me.sComponent.Size = New System.Drawing.Size(97, 20)
+        Me.sComponent.TabIndex = 1
+        Me.sComponent.Text = "Component"
+        Me.sComponent.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabProcessor
+        '
+        Me.LabProcessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabProcessor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabProcessor.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabProcessor.ForeColor = System.Drawing.Color.White
+        Me.LabProcessor.Location = New System.Drawing.Point(0, 0)
+        Me.LabProcessor.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabProcessor.Name = "LabProcessor"
+        Me.LabProcessor.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabProcessor.Size = New System.Drawing.Size(189, 35)
+        Me.LabProcessor.TabIndex = 13
+        Me.LabProcessor.Text = "Processor"
+        Me.LabProcessor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabDisk
+        '
+        Me.LabDisk.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabDisk.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabDisk.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabDisk.ForeColor = System.Drawing.Color.White
+        Me.LabDisk.Location = New System.Drawing.Point(0, 144)
+        Me.LabDisk.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
+        Me.LabDisk.Name = "LabDisk"
+        Me.LabDisk.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabDisk.Size = New System.Drawing.Size(189, 36)
+        Me.LabDisk.TabIndex = 13
+        Me.LabDisk.Text = "Primary Hard DIsk"
+        Me.LabDisk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabGaming
+        '
+        Me.LabGaming.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabGaming.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabGaming.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabGaming.ForeColor = System.Drawing.Color.White
+        Me.LabGaming.Location = New System.Drawing.Point(0, 108)
+        Me.LabGaming.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabGaming.Name = "LabGaming"
+        Me.LabGaming.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabGaming.Size = New System.Drawing.Size(189, 35)
+        Me.LabGaming.TabIndex = 13
+        Me.LabGaming.Text = "Gaming Graphics"
+        Me.LabGaming.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabGraphics
+        '
+        Me.LabGraphics.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabGraphics.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabGraphics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabGraphics.ForeColor = System.Drawing.Color.White
+        Me.LabGraphics.Location = New System.Drawing.Point(0, 72)
+        Me.LabGraphics.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabGraphics.Name = "LabGraphics"
+        Me.LabGraphics.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabGraphics.Size = New System.Drawing.Size(189, 35)
+        Me.LabGraphics.TabIndex = 3
+        Me.LabGraphics.Text = "Graphics"
+        Me.LabGraphics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabMemory
+        '
+        Me.LabMemory.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabMemory.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabMemory.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabMemory.ForeColor = System.Drawing.Color.White
+        Me.LabMemory.Location = New System.Drawing.Point(0, 36)
+        Me.LabMemory.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabMemory.Name = "LabMemory"
+        Me.LabMemory.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabMemory.Size = New System.Drawing.Size(189, 35)
+        Me.LabMemory.TabIndex = 2
+        Me.LabMemory.Text = "Memory (RAM)"
+        Me.LabMemory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabWirGaming
+        '
+        Me.LabWirGaming.AutoEllipsis = True
+        Me.LabWirGaming.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.LabWirGaming.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabWirGaming.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabWirGaming.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabWirGaming.Location = New System.Drawing.Point(0, 108)
+        Me.LabWirGaming.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabWirGaming.Name = "LabWirGaming"
+        Me.LabWirGaming.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabWirGaming.Size = New System.Drawing.Size(354, 35)
+        Me.LabWirGaming.TabIndex = 30
+        Me.LabWirGaming.Text = "3D business and gaming graphics performance"
+        Me.LabWirGaming.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabWirProcessor
+        '
+        Me.LabWirProcessor.AutoEllipsis = True
+        Me.LabWirProcessor.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.LabWirProcessor.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabWirProcessor.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabWirProcessor.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabWirProcessor.Location = New System.Drawing.Point(0, 0)
+        Me.LabWirProcessor.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabWirProcessor.Name = "LabWirProcessor"
+        Me.LabWirProcessor.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabWirProcessor.Size = New System.Drawing.Size(354, 35)
+        Me.LabWirProcessor.TabIndex = 27
+        Me.LabWirProcessor.Text = "Calculations per second"
+        Me.LabWirProcessor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabWirDisk
+        '
+        Me.LabWirDisk.AutoEllipsis = True
+        Me.LabWirDisk.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.LabWirDisk.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabWirDisk.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabWirDisk.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabWirDisk.Location = New System.Drawing.Point(0, 144)
+        Me.LabWirDisk.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
+        Me.LabWirDisk.Name = "LabWirDisk"
+        Me.LabWirDisk.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabWirDisk.Size = New System.Drawing.Size(354, 36)
+        Me.LabWirDisk.TabIndex = 31
+        Me.LabWirDisk.Text = "Disk data transfer rate"
+        Me.LabWirDisk.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabWirMemory
+        '
+        Me.LabWirMemory.AutoEllipsis = True
+        Me.LabWirMemory.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.LabWirMemory.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabWirMemory.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabWirMemory.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabWirMemory.Location = New System.Drawing.Point(0, 36)
+        Me.LabWirMemory.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabWirMemory.Name = "LabWirMemory"
+        Me.LabWirMemory.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabWirMemory.Size = New System.Drawing.Size(354, 35)
+        Me.LabWirMemory.TabIndex = 28
+        Me.LabWirMemory.Text = "Memory operations per second"
+        Me.LabWirMemory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'LabWirGraphics
+        '
+        Me.LabWirGraphics.AutoEllipsis = True
+        Me.LabWirGraphics.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.LabWirGraphics.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabWirGraphics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabWirGraphics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.LabWirGraphics.Location = New System.Drawing.Point(0, 72)
+        Me.LabWirGraphics.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.LabWirGraphics.Name = "LabWirGraphics"
+        Me.LabWirGraphics.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabWirGraphics.Size = New System.Drawing.Size(354, 35)
+        Me.LabWirGraphics.TabIndex = 29
+        Me.LabWirGraphics.Text = "Desktop graphics performance"
+        Me.LabWirGraphics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PanHead
+        '
+        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.PanHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
+        Me.PanHead.Controls.Add(Me.CmdSettings)
+        Me.PanHead.Controls.Add(Me.CmdMinimize)
+        Me.PanHead.Controls.Add(Me.LabVersion)
+        Me.PanHead.Controls.Add(Me.CmdClose)
+        Me.PanHead.Controls.Add(Me.LabHead)
+        Me.PanHead.Controls.Add(Me.TlpHeadImage)
+        Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanHead.Location = New System.Drawing.Point(1, 1)
+        Me.PanHead.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanHead.Name = "PanHead"
+        Me.PanHead.Size = New System.Drawing.Size(838, 50)
+        Me.PanHead.TabIndex = 59
+        '
+        'CmdSettings
+        '
+        Me.CmdSettings.BackColor = System.Drawing.Color.Transparent
+        Me.CmdSettings.Dock = System.Windows.Forms.DockStyle.Right
+        Me.CmdSettings.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSettings.FlatAppearance.BorderSize = 0
+        Me.CmdSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CmdSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CmdSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdSettings.Image = Global.Xiret.My.Resources.Resources.settingsimg
+        Me.CmdSettings.Location = New System.Drawing.Point(688, 0)
+        Me.CmdSettings.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdSettings.Name = "CmdSettings"
+        Me.CmdSettings.Size = New System.Drawing.Size(50, 50)
+        Me.CmdSettings.TabIndex = 0
+        Me.CmdSettings.TabStop = False
+        Me.CmdSettings.UseVisualStyleBackColor = False
+        '
         'CmdMinimize
         '
         Me.CmdMinimize.BackColor = System.Drawing.Color.Transparent
         Me.CmdMinimize.Dock = System.Windows.Forms.DockStyle.Right
         Me.CmdMinimize.FlatAppearance.BorderSize = 0
         Me.CmdMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.CmdMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.CmdMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(70, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.CmdMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdMinimize.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdMinimize.ForeColor = System.Drawing.Color.White
-        Me.CmdMinimize.Location = New System.Drawing.Point(732, 0)
+        Me.CmdMinimize.Location = New System.Drawing.Point(738, 0)
         Me.CmdMinimize.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdMinimize.Name = "CmdMinimize"
         Me.CmdMinimize.Padding = New System.Windows.Forms.Padding(2, 0, 0, 1)
-        Me.CmdMinimize.Size = New System.Drawing.Size(58, 50)
-        Me.CmdMinimize.TabIndex = 7
+        Me.CmdMinimize.Size = New System.Drawing.Size(50, 50)
+        Me.CmdMinimize.TabIndex = 0
         Me.CmdMinimize.TabStop = False
         Me.CmdMinimize.Text = "—"
         Me.CmdMinimize.UseVisualStyleBackColor = False
+        '
+        'LabVersion
+        '
+        Me.LabVersion.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.LabVersion.BackColor = System.Drawing.Color.Transparent
+        Me.LabVersion.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.LabVersion.Location = New System.Drawing.Point(313, 31)
+        Me.LabVersion.Name = "LabVersion"
+        Me.LabVersion.Size = New System.Drawing.Size(214, 14)
+        Me.LabVersion.TabIndex = 8
+        Me.LabVersion.Text = "..."
+        Me.LabVersion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'CmdClose
         '
@@ -677,447 +698,684 @@ Partial Class FormMain
         Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(790, 0)
+        Me.CmdClose.Location = New System.Drawing.Point(788, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 1)
-        Me.CmdClose.Size = New System.Drawing.Size(58, 50)
-        Me.CmdClose.TabIndex = 6
+        Me.CmdClose.Size = New System.Drawing.Size(50, 50)
+        Me.CmdClose.TabIndex = 0
         Me.CmdClose.TabStop = False
         Me.CmdClose.Text = "✕"
         Me.CmdClose.UseVisualStyleBackColor = False
         '
-        'LbHeadVer
+        'TlpHeadImage
         '
-        Me.LbHeadVer.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.LbHeadVer.BackColor = System.Drawing.Color.Transparent
-        Me.LbHeadVer.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LbHeadVer.ForeColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.LbHeadVer.Location = New System.Drawing.Point(318, 30)
-        Me.LbHeadVer.Name = "LbHeadVer"
-        Me.LbHeadVer.Size = New System.Drawing.Size(214, 14)
-        Me.LbHeadVer.TabIndex = 8
-        Me.LbHeadVer.Text = "..."
-        Me.LbHeadVer.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'tlpIcon
-        '
-        Me.tlpIcon.BackColor = System.Drawing.Color.Transparent
-        Me.tlpIcon.ColumnCount = 1
-        Me.tlpIcon.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.tlpIcon.Controls.Add(Me.pbxMain, 0, 0)
-        Me.tlpIcon.Dock = System.Windows.Forms.DockStyle.Left
-        Me.tlpIcon.Location = New System.Drawing.Point(0, 0)
-        Me.tlpIcon.Name = "tlpIcon"
-        Me.tlpIcon.RowCount = 1
-        Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(43, 50)
-        Me.tlpIcon.TabIndex = 8
+        Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
+        Me.TlpHeadImage.ColumnCount = 1
+        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
+        Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpHeadImage.Name = "TlpHeadImage"
+        Me.TlpHeadImage.RowCount = 1
+        Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 50)
+        Me.TlpHeadImage.TabIndex = 8
         '
         'sLastUpdate
         '
-        Me.sLastUpdate.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.sLastUpdate.AutoSize = True
         Me.sLastUpdate.BackColor = System.Drawing.Color.Transparent
+        Me.sLastUpdate.Dock = System.Windows.Forms.DockStyle.Fill
         Me.sLastUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.sLastUpdate.ForeColor = System.Drawing.Color.White
-        Me.sLastUpdate.Location = New System.Drawing.Point(4, 4)
-        Me.sLastUpdate.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sLastUpdate.Location = New System.Drawing.Point(0, 0)
+        Me.sLastUpdate.Margin = New System.Windows.Forms.Padding(5, 0, 4, 0)
         Me.sLastUpdate.Name = "sLastUpdate"
-        Me.sLastUpdate.Size = New System.Drawing.Size(89, 20)
+        Me.sLastUpdate.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.sLastUpdate.Size = New System.Drawing.Size(189, 33)
         Me.sLastUpdate.TabIndex = 67
         Me.sLastUpdate.Text = "Last Update"
         Me.sLastUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lbLastUpdated
+        'LabLastUpdate
         '
-        Me.lbLastUpdated.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbLastUpdated.AutoSize = True
-        Me.lbLastUpdated.BackColor = System.Drawing.Color.Transparent
-        Me.lbLastUpdated.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbLastUpdated.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbLastUpdated.Location = New System.Drawing.Point(5, 4)
-        Me.lbLastUpdated.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbLastUpdated.Name = "lbLastUpdated"
-        Me.lbLastUpdated.Size = New System.Drawing.Size(21, 20)
-        Me.lbLastUpdated.TabIndex = 70
-        Me.lbLastUpdated.Text = "..."
-        Me.lbLastUpdated.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.LabLastUpdate.BackColor = System.Drawing.Color.Transparent
+        Me.LabLastUpdate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabLastUpdate.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabLastUpdate.ForeColor = System.Drawing.Color.White
+        Me.LabLastUpdate.Location = New System.Drawing.Point(0, 0)
+        Me.LabLastUpdate.Margin = New System.Windows.Forms.Padding(4, 0, 0, 0)
+        Me.LabLastUpdate.Name = "LabLastUpdate"
+        Me.LabLastUpdate.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabLastUpdate.Size = New System.Drawing.Size(355, 33)
+        Me.LabLastUpdate.TabIndex = 70
+        Me.LabLastUpdate.Text = "..."
+        Me.LabLastUpdate.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lbOperatingSystem
+        'LabOpSys
         '
-        Me.lbOperatingSystem.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbOperatingSystem.AutoSize = True
-        Me.lbOperatingSystem.BackColor = System.Drawing.Color.Transparent
-        Me.lbOperatingSystem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbOperatingSystem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbOperatingSystem.Location = New System.Drawing.Point(5, 4)
-        Me.lbOperatingSystem.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbOperatingSystem.Name = "lbOperatingSystem"
-        Me.lbOperatingSystem.Size = New System.Drawing.Size(21, 20)
-        Me.lbOperatingSystem.TabIndex = 71
-        Me.lbOperatingSystem.Text = "..."
+        Me.LabOpSys.BackColor = System.Drawing.Color.Transparent
+        Me.LabOpSys.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabOpSys.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabOpSys.ForeColor = System.Drawing.Color.White
+        Me.LabOpSys.Location = New System.Drawing.Point(0, 0)
+        Me.LabOpSys.Margin = New System.Windows.Forms.Padding(4, 0, 0, 0)
+        Me.LabOpSys.Name = "LabOpSys"
+        Me.LabOpSys.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabOpSys.Size = New System.Drawing.Size(355, 32)
+        Me.LabOpSys.TabIndex = 71
+        Me.LabOpSys.Text = "..."
+        Me.LabOpSys.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'sOperatingSystem
+        'sOpSys
         '
-        Me.sOperatingSystem.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.sOperatingSystem.AutoSize = True
-        Me.sOperatingSystem.BackColor = System.Drawing.Color.Transparent
-        Me.sOperatingSystem.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sOperatingSystem.ForeColor = System.Drawing.Color.White
-        Me.sOperatingSystem.Location = New System.Drawing.Point(3, 4)
-        Me.sOperatingSystem.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sOperatingSystem.Name = "sOperatingSystem"
-        Me.sOperatingSystem.Size = New System.Drawing.Size(130, 20)
-        Me.sOperatingSystem.TabIndex = 67
-        Me.sOperatingSystem.Text = "Operating System"
-        Me.sOperatingSystem.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.sOpSys.BackColor = System.Drawing.Color.Transparent
+        Me.sOpSys.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.sOpSys.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sOpSys.ForeColor = System.Drawing.Color.White
+        Me.sOpSys.Location = New System.Drawing.Point(0, 0)
+        Me.sOpSys.Margin = New System.Windows.Forms.Padding(5, 0, 4, 0)
+        Me.sOpSys.Name = "sOpSys"
+        Me.sOpSys.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.sOpSys.Size = New System.Drawing.Size(189, 32)
+        Me.sOpSys.TabIndex = 67
+        Me.sOpSys.Text = "Operating System"
+        Me.sOpSys.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'lbState
+        'LabEIState
         '
-        Me.lbState.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbState.AutoSize = True
-        Me.lbState.BackColor = System.Drawing.Color.Transparent
-        Me.lbState.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbState.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbState.Location = New System.Drawing.Point(5, 4)
-        Me.lbState.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbState.Name = "lbState"
-        Me.lbState.Size = New System.Drawing.Size(21, 20)
-        Me.lbState.TabIndex = 78
-        Me.lbState.Text = "..."
+        Me.LabEIState.BackColor = System.Drawing.Color.Transparent
+        Me.LabEIState.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabEIState.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabEIState.ForeColor = System.Drawing.Color.White
+        Me.LabEIState.Location = New System.Drawing.Point(0, 0)
+        Me.LabEIState.Margin = New System.Windows.Forms.Padding(4, 0, 0, 0)
+        Me.LabEIState.Name = "LabEIState"
+        Me.LabEIState.Padding = New System.Windows.Forms.Padding(5, 0, 0, 0)
+        Me.LabEIState.Size = New System.Drawing.Size(355, 33)
+        Me.LabEIState.TabIndex = 78
+        Me.LabEIState.Text = "..."
+        Me.LabEIState.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'pnlSplit
+        'PanMenu
         '
-        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlSplit.ForeColor = System.Drawing.Color.Black
-        Me.pnlSplit.Location = New System.Drawing.Point(1, 51)
-        Me.pnlSplit.Margin = New System.Windows.Forms.Padding(4)
-        Me.pnlSplit.Name = "pnlSplit"
-        Me.pnlSplit.Size = New System.Drawing.Size(848, 2)
-        Me.pnlSplit.TabIndex = 60
+        Me.PanMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanMenu.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
+        Me.PanMenu.Controls.Add(Me.TlpMenu)
+        Me.PanMenu.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanMenu.Location = New System.Drawing.Point(1, 51)
+        Me.PanMenu.Name = "PanMenu"
+        Me.PanMenu.Size = New System.Drawing.Size(838, 40)
+        Me.PanMenu.TabIndex = 85
         '
-        'pnlMenu
+        'TlpMenu
         '
-        Me.pnlMenu.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.pnlMenu.Controls.Add(Me.tlpMenu)
-        Me.pnlMenu.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlMenu.Location = New System.Drawing.Point(1, 53)
-        Me.pnlMenu.Name = "pnlMenu"
-        Me.pnlMenu.Size = New System.Drawing.Size(848, 40)
-        Me.pnlMenu.TabIndex = 85
+        Me.TlpMenu.BackColor = System.Drawing.Color.Transparent
+        Me.TlpMenu.ColumnCount = 5
+        Me.TlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
+        Me.TlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 558.0!))
+        Me.TlpMenu.Controls.Add(Me.CmdTools, 2, 0)
+        Me.TlpMenu.Controls.Add(Me.CmdExport, 0, 0)
+        Me.TlpMenu.Controls.Add(Me.CmdOptions, 1, 0)
+        Me.TlpMenu.Controls.Add(Me.CmdHelp, 3, 0)
+        Me.TlpMenu.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TlpMenu.Location = New System.Drawing.Point(0, 0)
+        Me.TlpMenu.Name = "TlpMenu"
+        Me.TlpMenu.RowCount = 1
+        Me.TlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpMenu.Size = New System.Drawing.Size(838, 40)
+        Me.TlpMenu.TabIndex = 0
         '
-        'tlpMenu
+        'CmdTools
         '
-        Me.tlpMenu.ColumnCount = 5
-        Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.tlpMenu.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70.0!))
-        Me.tlpMenu.Controls.Add(Me.cmdTools, 2, 0)
-        Me.tlpMenu.Controls.Add(Me.cmdHelp, 3, 0)
-        Me.tlpMenu.Controls.Add(Me.cmdExport, 0, 0)
-        Me.tlpMenu.Controls.Add(Me.cmdOptions, 1, 0)
-        Me.tlpMenu.Dock = System.Windows.Forms.DockStyle.Left
-        Me.tlpMenu.Location = New System.Drawing.Point(0, 0)
-        Me.tlpMenu.Name = "tlpMenu"
-        Me.tlpMenu.RowCount = 1
-        Me.tlpMenu.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpMenu.Size = New System.Drawing.Size(350, 40)
-        Me.tlpMenu.TabIndex = 0
+        Me.CmdTools.BackColor = System.Drawing.Color.Transparent
+        Me.CmdTools.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmdTools.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdTools.FlatAppearance.BorderSize = 0
+        Me.CmdTools.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(110, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdTools.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdTools.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdTools.Location = New System.Drawing.Point(140, 0)
+        Me.CmdTools.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdTools.Name = "CmdTools"
+        Me.CmdTools.Size = New System.Drawing.Size(70, 40)
+        Me.CmdTools.TabIndex = 2
+        Me.CmdTools.Text = "Tools"
+        Me.CmdTools.UseVisualStyleBackColor = False
         '
-        'cmdTools
+        'CmdExport
         '
-        Me.cmdTools.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdTools.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdTools.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdTools.FlatAppearance.BorderSize = 0
-        Me.cmdTools.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdTools.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdTools.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdTools.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdTools.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdTools.Location = New System.Drawing.Point(140, 0)
-        Me.cmdTools.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdTools.Name = "cmdTools"
-        Me.cmdTools.Size = New System.Drawing.Size(70, 40)
-        Me.cmdTools.TabIndex = 3
-        Me.cmdTools.Text = "Tools"
-        Me.cmdTools.UseVisualStyleBackColor = False
+        Me.CmdExport.BackColor = System.Drawing.Color.Transparent
+        Me.CmdExport.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdExport.FlatAppearance.BorderSize = 0
+        Me.CmdExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(110, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdExport.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdExport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdExport.Location = New System.Drawing.Point(0, 0)
+        Me.CmdExport.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdExport.Name = "CmdExport"
+        Me.CmdExport.Size = New System.Drawing.Size(70, 40)
+        Me.CmdExport.TabIndex = 0
+        Me.CmdExport.Text = "Export"
+        Me.CmdExport.UseVisualStyleBackColor = False
         '
-        'cmdHelp
+        'CmdOptions
         '
-        Me.cmdHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdHelp.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdHelp.FlatAppearance.BorderSize = 0
-        Me.cmdHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdHelp.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdHelp.Location = New System.Drawing.Point(210, 0)
-        Me.cmdHelp.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdHelp.Name = "cmdHelp"
-        Me.cmdHelp.Size = New System.Drawing.Size(70, 40)
-        Me.cmdHelp.TabIndex = 4
-        Me.cmdHelp.Text = "Help"
-        Me.cmdHelp.UseVisualStyleBackColor = False
+        Me.CmdOptions.BackColor = System.Drawing.Color.Transparent
+        Me.CmdOptions.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmdOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdOptions.FlatAppearance.BorderSize = 0
+        Me.CmdOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(110, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdOptions.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdOptions.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdOptions.Location = New System.Drawing.Point(70, 0)
+        Me.CmdOptions.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdOptions.Name = "CmdOptions"
+        Me.CmdOptions.Size = New System.Drawing.Size(70, 40)
+        Me.CmdOptions.TabIndex = 1
+        Me.CmdOptions.Text = "Options"
+        Me.CmdOptions.UseVisualStyleBackColor = False
         '
-        'cmdExport
+        'CmdHelp
         '
-        Me.cmdExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdExport.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdExport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdExport.FlatAppearance.BorderSize = 0
-        Me.cmdExport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdExport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdExport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdExport.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdExport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdExport.Location = New System.Drawing.Point(0, 0)
-        Me.cmdExport.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdExport.Name = "cmdExport"
-        Me.cmdExport.Size = New System.Drawing.Size(70, 40)
-        Me.cmdExport.TabIndex = 1
-        Me.cmdExport.Text = "Export"
-        Me.cmdExport.UseVisualStyleBackColor = False
+        Me.CmdHelp.BackColor = System.Drawing.Color.Transparent
+        Me.CmdHelp.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmdHelp.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdHelp.FlatAppearance.BorderSize = 0
+        Me.CmdHelp.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdHelp.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(110, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdHelp.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdHelp.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdHelp.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdHelp.Location = New System.Drawing.Point(210, 0)
+        Me.CmdHelp.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdHelp.Name = "CmdHelp"
+        Me.CmdHelp.Size = New System.Drawing.Size(70, 40)
+        Me.CmdHelp.TabIndex = 3
+        Me.CmdHelp.Text = "Help"
+        Me.CmdHelp.UseVisualStyleBackColor = False
         '
-        'cmdOptions
+        'PanCapture
         '
-        Me.cmdOptions.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmdOptions.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdOptions.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdOptions.FlatAppearance.BorderSize = 0
-        Me.cmdOptions.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdOptions.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdOptions.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdOptions.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdOptions.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdOptions.Location = New System.Drawing.Point(70, 0)
-        Me.cmdOptions.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdOptions.Name = "cmdOptions"
-        Me.cmdOptions.Size = New System.Drawing.Size(70, 40)
-        Me.cmdOptions.TabIndex = 2
-        Me.cmdOptions.Text = "Options"
-        Me.cmdOptions.UseVisualStyleBackColor = False
+        Me.PanCapture.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanCapture.Controls.Add(Me.PanSplit)
+        Me.PanCapture.Controls.Add(Me.TlpTop)
+        Me.PanCapture.Controls.Add(Me.TlpGridScore)
+        Me.PanCapture.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanCapture.Location = New System.Drawing.Point(1, 91)
+        Me.PanCapture.Name = "PanCapture"
+        Me.PanCapture.Size = New System.Drawing.Size(838, 291)
+        Me.PanCapture.TabIndex = 86
         '
-        'pnlCapture
+        'PanSplit
         '
-        Me.pnlCapture.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.pnlCapture.Controls.Add(Me.tlpTop)
-        Me.pnlCapture.Controls.Add(Me.tlpMain)
-        Me.pnlCapture.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlCapture.Location = New System.Drawing.Point(1, 93)
-        Me.pnlCapture.Name = "pnlCapture"
-        Me.pnlCapture.Size = New System.Drawing.Size(848, 284)
-        Me.pnlCapture.TabIndex = 86
+        Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanSplit.ForeColor = System.Drawing.Color.Black
+        Me.PanSplit.Location = New System.Drawing.Point(0, 0)
+        Me.PanSplit.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanSplit.Name = "PanSplit"
+        Me.PanSplit.Size = New System.Drawing.Size(838, 2)
+        Me.PanSplit.TabIndex = 88
         '
-        'tlpTop
+        'TlpTop
         '
-        Me.tlpTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.tlpTop.ColumnCount = 2
-        Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 75.12315!))
-        Me.tlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.87685!))
-        Me.tlpTop.Controls.Add(Me.lbScale, 0, 0)
-        Me.tlpTop.Controls.Add(Me.lbShowOnPrint, 1, 0)
-        Me.tlpTop.Location = New System.Drawing.Point(18, 10)
-        Me.tlpTop.Name = "tlpTop"
-        Me.tlpTop.RowCount = 1
-        Me.tlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpTop.Size = New System.Drawing.Size(812, 35)
-        Me.tlpTop.TabIndex = 87
+        Me.TlpTop.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.TlpTop.ColumnCount = 2
+        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 76.84729!))
+        Me.TlpTop.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 23.15271!))
+        Me.TlpTop.Controls.Add(Me.LabScale, 0, 0)
+        Me.TlpTop.Controls.Add(Me.CmdAssess, 1, 0)
+        Me.TlpTop.Location = New System.Drawing.Point(13, 16)
+        Me.TlpTop.Name = "TlpTop"
+        Me.TlpTop.RowCount = 1
+        Me.TlpTop.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpTop.Size = New System.Drawing.Size(812, 35)
+        Me.TlpTop.TabIndex = 87
         '
-        'tlpMain
+        'CmdAssess
         '
-        Me.tlpMain.ColumnCount = 1
-        Me.tlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 812.0!))
-        Me.tlpMain.Controls.Add(Me.pnlSubMain, 0, 0)
-        Me.tlpMain.Controls.Add(Me.tlpInf, 0, 1)
-        Me.tlpMain.Location = New System.Drawing.Point(18, 53)
-        Me.tlpMain.Name = "tlpMain"
-        Me.tlpMain.RowCount = 2
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
-        Me.tlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 168.0!))
-        Me.tlpMain.Size = New System.Drawing.Size(812, 216)
-        Me.tlpMain.TabIndex = 86
+        Me.CmdAssess.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CmdAssess.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmdAssess.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.CmdAssess.FlatAppearance.BorderSize = 0
+        Me.CmdAssess.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdAssess.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdAssess.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdAssess.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdAssess.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdAssess.Location = New System.Drawing.Point(623, 0)
+        Me.CmdAssess.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdAssess.Name = "CmdAssess"
+        Me.CmdAssess.Size = New System.Drawing.Size(189, 35)
+        Me.CmdAssess.TabIndex = 6
+        Me.CmdAssess.Text = "..."
+        Me.CmdAssess.UseVisualStyleBackColor = False
         '
-        'pnlSubMain
+        'TlpGridScore
         '
-        Me.pnlSubMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlSubMain.Controls.Add(Me.lbWhatIsRated)
-        Me.pnlSubMain.Controls.Add(Me.LBaseScore)
-        Me.pnlSubMain.Controls.Add(Me.LComponent)
-        Me.pnlSubMain.Controls.Add(Me.sSub)
-        Me.pnlSubMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlSubMain.Location = New System.Drawing.Point(0, 0)
-        Me.pnlSubMain.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.pnlSubMain.Name = "pnlSubMain"
-        Me.pnlSubMain.Size = New System.Drawing.Size(812, 34)
-        Me.pnlSubMain.TabIndex = 84
+        Me.TlpGridScore.ColumnCount = 1
+        Me.TlpGridScore.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 812.0!))
+        Me.TlpGridScore.Controls.Add(Me.pnlGridHead, 0, 0)
+        Me.TlpGridScore.Controls.Add(Me.TlpScores, 0, 1)
+        Me.TlpGridScore.Location = New System.Drawing.Point(13, 63)
+        Me.TlpGridScore.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpGridScore.Name = "TlpGridScore"
+        Me.TlpGridScore.RowCount = 2
+        Me.TlpGridScore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35.0!))
+        Me.TlpGridScore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 169.0!))
+        Me.TlpGridScore.Size = New System.Drawing.Size(812, 215)
+        Me.TlpGridScore.TabIndex = 86
         '
-        'tlpInf
+        'pnlGridHead
         '
-        Me.tlpInf.ColumnCount = 4
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355.0!))
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78.0!))
-        Me.tlpInf.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189.0!))
-        Me.tlpInf.Controls.Add(Me.pnlComp, 0, 0)
-        Me.tlpInf.Controls.Add(Me.tlpSubscore, 2, 0)
-        Me.tlpInf.Controls.Add(Me.pnlRated, 1, 0)
-        Me.tlpInf.Controls.Add(Me.pnlBaseScore, 3, 0)
-        Me.tlpInf.Location = New System.Drawing.Point(0, 35)
-        Me.tlpInf.Margin = New System.Windows.Forms.Padding(0)
-        Me.tlpInf.Name = "tlpInf"
-        Me.tlpInf.RowCount = 1
-        Me.tlpInf.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpInf.Size = New System.Drawing.Size(812, 178)
-        Me.tlpInf.TabIndex = 85
+        Me.pnlGridHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.pnlGridHead.Controls.Add(Me.sWhat)
+        Me.pnlGridHead.Controls.Add(Me.sBaseScore)
+        Me.pnlGridHead.Controls.Add(Me.sComponent)
+        Me.pnlGridHead.Controls.Add(Me.sSubScore)
+        Me.pnlGridHead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.pnlGridHead.Location = New System.Drawing.Point(0, 0)
+        Me.pnlGridHead.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.pnlGridHead.Name = "pnlGridHead"
+        Me.pnlGridHead.Size = New System.Drawing.Size(812, 34)
+        Me.pnlGridHead.TabIndex = 84
         '
-        'tlpSubscore
+        'TlpScores
         '
-        Me.tlpSubscore.ColumnCount = 1
-        Me.tlpSubscore.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpSubscore.Controls.Add(Me.PnlSubDisk, 0, 4)
-        Me.tlpSubscore.Controls.Add(Me.PnlSubProcessor, 0, 0)
-        Me.tlpSubscore.Controls.Add(Me.PnlSubMemory, 0, 1)
-        Me.tlpSubscore.Controls.Add(Me.PnlSubGaming, 0, 3)
-        Me.tlpSubscore.Controls.Add(Me.PnlSubGraphics, 0, 2)
-        Me.tlpSubscore.Location = New System.Drawing.Point(545, 0)
-        Me.tlpSubscore.Margin = New System.Windows.Forms.Padding(0)
-        Me.tlpSubscore.Name = "tlpSubscore"
-        Me.tlpSubscore.RowCount = 5
-        Me.tlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.tlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.tlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.tlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.tlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
-        Me.tlpSubscore.Size = New System.Drawing.Size(78, 178)
-        Me.tlpSubscore.TabIndex = 70
+        Me.TlpScores.ColumnCount = 4
+        Me.TlpScores.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
+        Me.TlpScores.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355.0!))
+        Me.TlpScores.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 78.0!))
+        Me.TlpScores.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 189.0!))
+        Me.TlpScores.Controls.Add(Me.TlpSubscore, 2, 0)
+        Me.TlpScores.Controls.Add(Me.PanBasescore, 3, 0)
+        Me.TlpScores.Controls.Add(Me.TlpWhatIsRated, 1, 0)
+        Me.TlpScores.Controls.Add(Me.TlpComponents, 0, 0)
+        Me.TlpScores.Location = New System.Drawing.Point(0, 35)
+        Me.TlpScores.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpScores.Name = "TlpScores"
+        Me.TlpScores.RowCount = 1
+        Me.TlpScores.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpScores.Size = New System.Drawing.Size(812, 180)
+        Me.TlpScores.TabIndex = 85
         '
-        'pnlBaseScore
+        'TlpSubscore
         '
-        Me.pnlBaseScore.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlBaseScore.Controls.Add(Me.lbBaseScore)
-        Me.pnlBaseScore.Controls.Add(Me.sEleven)
-        Me.pnlBaseScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlBaseScore.Location = New System.Drawing.Point(624, 0)
-        Me.pnlBaseScore.Margin = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.pnlBaseScore.Name = "pnlBaseScore"
-        Me.pnlBaseScore.Size = New System.Drawing.Size(188, 178)
-        Me.pnlBaseScore.TabIndex = 71
+        Me.TlpSubscore.ColumnCount = 1
+        Me.TlpSubscore.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpSubscore.Controls.Add(Me.PanSubDisk, 0, 4)
+        Me.TlpSubscore.Controls.Add(Me.PanSubProcessor, 0, 0)
+        Me.TlpSubscore.Controls.Add(Me.PanSubMemory, 0, 1)
+        Me.TlpSubscore.Controls.Add(Me.PanSubGaming, 0, 3)
+        Me.TlpSubscore.Controls.Add(Me.PanSubGraphics, 0, 2)
+        Me.TlpSubscore.Location = New System.Drawing.Point(545, 0)
+        Me.TlpSubscore.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpSubscore.Name = "TlpSubscore"
+        Me.TlpSubscore.RowCount = 5
+        Me.TlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpSubscore.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpSubscore.Size = New System.Drawing.Size(78, 180)
+        Me.TlpSubscore.TabIndex = 70
         '
-        'lbBaseScore
+        'PanBasescore
         '
-        Me.lbBaseScore.BackColor = System.Drawing.Color.Transparent
-        Me.lbBaseScore.Font = New System.Drawing.Font("Segoe UI Semibold", 33.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbBaseScore.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lbBaseScore.Location = New System.Drawing.Point(24, 15)
-        Me.lbBaseScore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbBaseScore.Name = "lbBaseScore"
-        Me.lbBaseScore.Size = New System.Drawing.Size(139, 80)
-        Me.lbBaseScore.TabIndex = 23
-        Me.lbBaseScore.Text = "..."
-        Me.lbBaseScore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.PanBasescore.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanBasescore.Controls.Add(Me.LabBasescore)
+        Me.PanBasescore.Controls.Add(Me.sBasedOn)
+        Me.PanBasescore.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanBasescore.Location = New System.Drawing.Point(624, 0)
+        Me.PanBasescore.Margin = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.PanBasescore.Name = "PanBasescore"
+        Me.PanBasescore.Size = New System.Drawing.Size(188, 180)
+        Me.PanBasescore.TabIndex = 71
         '
-        'sEleven
+        'LabBasescore
         '
-        Me.sEleven.BackColor = System.Drawing.Color.Transparent
-        Me.sEleven.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sEleven.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.sEleven.Location = New System.Drawing.Point(15, 110)
-        Me.sEleven.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sEleven.Name = "sEleven"
-        Me.sEleven.Size = New System.Drawing.Size(159, 54)
-        Me.sEleven.TabIndex = 22
-        Me.sEleven.Text = "Based on the lowest" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "subscore"
-        Me.sEleven.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabBasescore.BackColor = System.Drawing.Color.Transparent
+        Me.LabBasescore.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabBasescore.Font = New System.Drawing.Font("Segoe UI Semibold", 33.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabBasescore.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LabBasescore.Location = New System.Drawing.Point(0, 0)
+        Me.LabBasescore.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabBasescore.Name = "LabBasescore"
+        Me.LabBasescore.Size = New System.Drawing.Size(188, 110)
+        Me.LabBasescore.TabIndex = 23
+        Me.LabBasescore.Text = "..."
+        Me.LabBasescore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'pnlBottom
+        'sBasedOn
         '
-        Me.pnlBottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
-        Me.pnlBottom.Controls.Add(Me.Panel1)
-        Me.pnlBottom.Controls.Add(Me.tlpBottom)
-        Me.pnlBottom.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlBottom.Location = New System.Drawing.Point(1, 377)
-        Me.pnlBottom.Name = "pnlBottom"
-        Me.pnlBottom.Size = New System.Drawing.Size(848, 142)
-        Me.pnlBottom.TabIndex = 87
+        Me.sBasedOn.BackColor = System.Drawing.Color.Transparent
+        Me.sBasedOn.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.sBasedOn.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sBasedOn.ForeColor = System.Drawing.Color.FromArgb(CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer), CType(CType(240, Byte), Integer))
+        Me.sBasedOn.Location = New System.Drawing.Point(0, 117)
+        Me.sBasedOn.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sBasedOn.Name = "sBasedOn"
+        Me.sBasedOn.Size = New System.Drawing.Size(188, 63)
+        Me.sBasedOn.TabIndex = 22
+        Me.sBasedOn.Text = "Based on the lowest" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "subscore"
+        Me.sBasedOn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'Panel1
+        'TlpWhatIsRated
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.Panel1.Location = New System.Drawing.Point(18, 6)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(812, 1)
-        Me.Panel1.TabIndex = 81
+        Me.TlpWhatIsRated.BackColor = System.Drawing.Color.Transparent
+        Me.TlpWhatIsRated.ColumnCount = 1
+        Me.TlpWhatIsRated.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpWhatIsRated.Controls.Add(Me.LabWirDisk, 0, 4)
+        Me.TlpWhatIsRated.Controls.Add(Me.LabWirGaming, 0, 3)
+        Me.TlpWhatIsRated.Controls.Add(Me.LabWirProcessor, 0, 0)
+        Me.TlpWhatIsRated.Controls.Add(Me.LabWirMemory, 0, 1)
+        Me.TlpWhatIsRated.Controls.Add(Me.LabWirGraphics, 0, 2)
+        Me.TlpWhatIsRated.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TlpWhatIsRated.Location = New System.Drawing.Point(190, 0)
+        Me.TlpWhatIsRated.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpWhatIsRated.Name = "TlpWhatIsRated"
+        Me.TlpWhatIsRated.RowCount = 5
+        Me.TlpWhatIsRated.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpWhatIsRated.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpWhatIsRated.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpWhatIsRated.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpWhatIsRated.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpWhatIsRated.Size = New System.Drawing.Size(355, 180)
+        Me.TlpWhatIsRated.TabIndex = 72
         '
-        'tlpBottom
+        'TlpComponents
         '
-        Me.tlpBottom.ColumnCount = 4
-        Me.tlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
-        Me.tlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355.0!))
-        Me.tlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 145.0!))
-        Me.tlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 122.0!))
-        Me.tlpBottom.Controls.Add(Me.pnlValidity, 0, 0)
-        Me.tlpBottom.Controls.Add(Me.cmdMetrics, 3, 2)
-        Me.tlpBottom.Controls.Add(Me.pnlLastUpdated, 0, 1)
-        Me.tlpBottom.Controls.Add(Me.cmdRun, 3, 1)
-        Me.tlpBottom.Controls.Add(Me.pnlD, 3, 0)
-        Me.tlpBottom.Controls.Add(Me.pnlMetrics, 2, 2)
-        Me.tlpBottom.Controls.Add(Me.pnlOperatingSystem, 0, 2)
-        Me.tlpBottom.Controls.Add(Me.pnlA, 1, 0)
-        Me.tlpBottom.Controls.Add(Me.pnlShowHardware, 2, 0)
-        Me.tlpBottom.Controls.Add(Me.pnlAssessment, 2, 1)
-        Me.tlpBottom.Controls.Add(Me.pnlB, 1, 1)
-        Me.tlpBottom.Controls.Add(Me.pnlC, 1, 2)
-        Me.tlpBottom.Location = New System.Drawing.Point(18, 30)
-        Me.tlpBottom.Name = "tlpBottom"
-        Me.tlpBottom.RowCount = 3
-        Me.tlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.tlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29.0!))
-        Me.tlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpBottom.Size = New System.Drawing.Size(812, 86)
-        Me.tlpBottom.TabIndex = 80
+        Me.TlpComponents.ColumnCount = 1
+        Me.TlpComponents.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpComponents.Controls.Add(Me.LabDisk, 0, 4)
+        Me.TlpComponents.Controls.Add(Me.LabProcessor, 0, 0)
+        Me.TlpComponents.Controls.Add(Me.LabGaming, 0, 3)
+        Me.TlpComponents.Controls.Add(Me.LabMemory, 0, 1)
+        Me.TlpComponents.Controls.Add(Me.LabGraphics, 0, 2)
+        Me.TlpComponents.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TlpComponents.Location = New System.Drawing.Point(0, 0)
+        Me.TlpComponents.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpComponents.Name = "TlpComponents"
+        Me.TlpComponents.RowCount = 5
+        Me.TlpComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpComponents.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 36.0!))
+        Me.TlpComponents.Size = New System.Drawing.Size(190, 180)
+        Me.TlpComponents.TabIndex = 73
         '
-        'pnlValidity
+        'PanBottom
         '
-        Me.pnlValidity.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlValidity.Controls.Add(Me.pnlValidityState)
-        Me.pnlValidity.Controls.Add(Me.sValidity)
-        Me.pnlValidity.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlValidity.Location = New System.Drawing.Point(0, 0)
-        Me.pnlValidity.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
-        Me.pnlValidity.Name = "pnlValidity"
-        Me.pnlValidity.Padding = New System.Windows.Forms.Padding(1)
-        Me.pnlValidity.Size = New System.Drawing.Size(189, 28)
-        Me.pnlValidity.TabIndex = 73
+        Me.PanBottom.BackColor = System.Drawing.Color.FromArgb(CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer), CType(CType(60, Byte), Integer))
+        Me.PanBottom.Controls.Add(Me.PanSplitCenter)
+        Me.PanBottom.Controls.Add(Me.TlpBottom)
+        Me.PanBottom.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanBottom.Location = New System.Drawing.Point(1, 382)
+        Me.PanBottom.Name = "PanBottom"
+        Me.PanBottom.Size = New System.Drawing.Size(838, 137)
+        Me.PanBottom.TabIndex = 87
         '
-        'pnlValidityState
+        'PanSplitCenter
         '
-        Me.pnlValidityState.Dock = System.Windows.Forms.DockStyle.Right
-        Me.pnlValidityState.Location = New System.Drawing.Point(185, 1)
-        Me.pnlValidityState.Name = "pnlValidityState"
-        Me.pnlValidityState.Size = New System.Drawing.Size(3, 26)
-        Me.pnlValidityState.TabIndex = 68
+        Me.PanSplitCenter.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.PanSplitCenter.Location = New System.Drawing.Point(13, 6)
+        Me.PanSplitCenter.Name = "PanSplitCenter"
+        Me.PanSplitCenter.Size = New System.Drawing.Size(812, 1)
+        Me.PanSplitCenter.TabIndex = 81
+        '
+        'TlpBottom
+        '
+        Me.TlpBottom.ColumnCount = 4
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 190.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 355.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 163.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104.0!))
+        Me.TlpBottom.Controls.Add(Me.CmdRunInDepth, 3, 2)
+        Me.TlpBottom.Controls.Add(Me.PanInDepth, 2, 2)
+        Me.TlpBottom.Controls.Add(Me.PanValidity, 0, 0)
+        Me.TlpBottom.Controls.Add(Me.PanLastUpdate, 0, 1)
+        Me.TlpBottom.Controls.Add(Me.PanShowHardware2, 3, 0)
+        Me.TlpBottom.Controls.Add(Me.PanOpSys, 0, 2)
+        Me.TlpBottom.Controls.Add(Me.PanValidity2, 1, 0)
+        Me.TlpBottom.Controls.Add(Me.PanShowHardware, 2, 0)
+        Me.TlpBottom.Controls.Add(Me.PanLastUpdate2, 1, 1)
+        Me.TlpBottom.Controls.Add(Me.PanOpSys2, 1, 2)
+        Me.TlpBottom.Controls.Add(Me.PanMetrics, 2, 1)
+        Me.TlpBottom.Controls.Add(Me.cmdMetrics, 3, 1)
+        Me.TlpBottom.Location = New System.Drawing.Point(13, 25)
+        Me.TlpBottom.Name = "TlpBottom"
+        Me.TlpBottom.RowCount = 3
+        Me.TlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34.0!))
+        Me.TlpBottom.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30.0!))
+        Me.TlpBottom.Size = New System.Drawing.Size(812, 100)
+        Me.TlpBottom.TabIndex = 80
+        '
+        'CmdRunInDepth
+        '
+        Me.CmdRunInDepth.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.CmdRunInDepth.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.CmdRunInDepth.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.CmdRunInDepth.FlatAppearance.BorderSize = 0
+        Me.CmdRunInDepth.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdRunInDepth.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdRunInDepth.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdRunInDepth.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdRunInDepth.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdRunInDepth.Location = New System.Drawing.Point(709, 68)
+        Me.CmdRunInDepth.Margin = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.CmdRunInDepth.Name = "CmdRunInDepth"
+        Me.CmdRunInDepth.Size = New System.Drawing.Size(103, 32)
+        Me.CmdRunInDepth.TabIndex = 6
+        Me.CmdRunInDepth.Text = "Run"
+        Me.CmdRunInDepth.UseVisualStyleBackColor = False
+        '
+        'PanInDepth
+        '
+        Me.PanInDepth.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanInDepth.Controls.Add(Me.sInDepth)
+        Me.PanInDepth.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanInDepth.Location = New System.Drawing.Point(546, 68)
+        Me.PanInDepth.Margin = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.PanInDepth.Name = "PanInDepth"
+        Me.PanInDepth.Size = New System.Drawing.Size(162, 32)
+        Me.PanInDepth.TabIndex = 82
+        '
+        'sInDepth
+        '
+        Me.sInDepth.BackColor = System.Drawing.Color.Transparent
+        Me.sInDepth.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.sInDepth.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sInDepth.ForeColor = System.Drawing.Color.White
+        Me.sInDepth.Location = New System.Drawing.Point(0, 0)
+        Me.sInDepth.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sInDepth.Name = "sInDepth"
+        Me.sInDepth.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.sInDepth.Size = New System.Drawing.Size(162, 32)
+        Me.sInDepth.TabIndex = 67
+        Me.sInDepth.Text = "In-depth Assessment"
+        Me.sInDepth.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PanValidity
+        '
+        Me.PanValidity.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanValidity.Controls.Add(Me.PanValidityState)
+        Me.PanValidity.Controls.Add(Me.sValidity)
+        Me.PanValidity.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanValidity.Location = New System.Drawing.Point(0, 0)
+        Me.PanValidity.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.PanValidity.Name = "PanValidity"
+        Me.PanValidity.Padding = New System.Windows.Forms.Padding(1)
+        Me.PanValidity.Size = New System.Drawing.Size(189, 33)
+        Me.PanValidity.TabIndex = 73
+        '
+        'PanValidityState
+        '
+        Me.PanValidityState.Dock = System.Windows.Forms.DockStyle.Right
+        Me.PanValidityState.Location = New System.Drawing.Point(186, 1)
+        Me.PanValidityState.Name = "PanValidityState"
+        Me.PanValidityState.Size = New System.Drawing.Size(2, 31)
+        Me.PanValidityState.TabIndex = 68
         '
         'sValidity
         '
-        Me.sValidity.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.sValidity.AutoSize = True
         Me.sValidity.BackColor = System.Drawing.Color.Transparent
+        Me.sValidity.Dock = System.Windows.Forms.DockStyle.Fill
         Me.sValidity.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.sValidity.ForeColor = System.Drawing.Color.White
-        Me.sValidity.Location = New System.Drawing.Point(5, 4)
-        Me.sValidity.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sValidity.Location = New System.Drawing.Point(1, 1)
+        Me.sValidity.Margin = New System.Windows.Forms.Padding(5, 0, 4, 0)
         Me.sValidity.Name = "sValidity"
-        Me.sValidity.Size = New System.Drawing.Size(60, 20)
+        Me.sValidity.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.sValidity.Size = New System.Drawing.Size(187, 31)
         Me.sValidity.TabIndex = 67
-        Me.sValidity.Text = "Validity"
+        Me.sValidity.Text = "Score Validity"
         Me.sValidity.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PanLastUpdate
+        '
+        Me.PanLastUpdate.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanLastUpdate.Controls.Add(Me.sLastUpdate)
+        Me.PanLastUpdate.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanLastUpdate.Location = New System.Drawing.Point(0, 34)
+        Me.PanLastUpdate.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
+        Me.PanLastUpdate.Name = "PanLastUpdate"
+        Me.PanLastUpdate.Size = New System.Drawing.Size(189, 33)
+        Me.PanLastUpdate.TabIndex = 72
+        '
+        'PanShowHardware2
+        '
+        Me.PanShowHardware2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.PanShowHardware2.Controls.Add(Me.LabShowHardware)
+        Me.PanShowHardware2.Controls.Add(Me.GswHardware)
+        Me.PanShowHardware2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanShowHardware2.Location = New System.Drawing.Point(709, 0)
+        Me.PanShowHardware2.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
+        Me.PanShowHardware2.Name = "PanShowHardware2"
+        Me.PanShowHardware2.Size = New System.Drawing.Size(103, 33)
+        Me.PanShowHardware2.TabIndex = 75
+        '
+        'LabShowHardware
+        '
+        Me.LabShowHardware.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.LabShowHardware.Dock = System.Windows.Forms.DockStyle.Right
+        Me.LabShowHardware.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabShowHardware.ForeColor = System.Drawing.Color.White
+        Me.LabShowHardware.Location = New System.Drawing.Point(53, 0)
+        Me.LabShowHardware.Name = "LabShowHardware"
+        Me.LabShowHardware.Size = New System.Drawing.Size(50, 33)
+        Me.LabShowHardware.TabIndex = 0
+        Me.LabShowHardware.Text = "..."
+        Me.LabShowHardware.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        '
+        'PanOpSys
+        '
+        Me.PanOpSys.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanOpSys.Controls.Add(Me.sOpSys)
+        Me.PanOpSys.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanOpSys.Location = New System.Drawing.Point(0, 68)
+        Me.PanOpSys.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
+        Me.PanOpSys.Name = "PanOpSys"
+        Me.PanOpSys.Size = New System.Drawing.Size(189, 32)
+        Me.PanOpSys.TabIndex = 73
+        '
+        'PanValidity2
+        '
+        Me.PanValidity2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.PanValidity2.Controls.Add(Me.LabEIState)
+        Me.PanValidity2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanValidity2.Location = New System.Drawing.Point(190, 0)
+        Me.PanValidity2.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.PanValidity2.Name = "PanValidity2"
+        Me.PanValidity2.Size = New System.Drawing.Size(355, 33)
+        Me.PanValidity2.TabIndex = 75
+        '
+        'PanShowHardware
+        '
+        Me.PanShowHardware.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanShowHardware.Controls.Add(Me.sShowHardware)
+        Me.PanShowHardware.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanShowHardware.Location = New System.Drawing.Point(546, 0)
+        Me.PanShowHardware.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
+        Me.PanShowHardware.Name = "PanShowHardware"
+        Me.PanShowHardware.Size = New System.Drawing.Size(162, 33)
+        Me.PanShowHardware.TabIndex = 77
+        '
+        'sShowHardware
+        '
+        Me.sShowHardware.BackColor = System.Drawing.Color.Transparent
+        Me.sShowHardware.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.sShowHardware.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sShowHardware.ForeColor = System.Drawing.Color.White
+        Me.sShowHardware.Location = New System.Drawing.Point(0, 0)
+        Me.sShowHardware.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sShowHardware.Name = "sShowHardware"
+        Me.sShowHardware.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.sShowHardware.Size = New System.Drawing.Size(162, 33)
+        Me.sShowHardware.TabIndex = 67
+        Me.sShowHardware.Text = "Show Hardware"
+        Me.sShowHardware.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        '
+        'PanLastUpdate2
+        '
+        Me.PanLastUpdate2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.PanLastUpdate2.Controls.Add(Me.LabLastUpdate)
+        Me.PanLastUpdate2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanLastUpdate2.Location = New System.Drawing.Point(190, 34)
+        Me.PanLastUpdate2.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
+        Me.PanLastUpdate2.Name = "PanLastUpdate2"
+        Me.PanLastUpdate2.Size = New System.Drawing.Size(355, 33)
+        Me.PanLastUpdate2.TabIndex = 74
+        '
+        'PanOpSys2
+        '
+        Me.PanOpSys2.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
+        Me.PanOpSys2.Controls.Add(Me.LabOpSys)
+        Me.PanOpSys2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanOpSys2.Location = New System.Drawing.Point(190, 68)
+        Me.PanOpSys2.Margin = New System.Windows.Forms.Padding(0)
+        Me.PanOpSys2.Name = "PanOpSys2"
+        Me.PanOpSys2.Size = New System.Drawing.Size(355, 32)
+        Me.PanOpSys2.TabIndex = 75
+        '
+        'PanMetrics
+        '
+        Me.PanMetrics.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.PanMetrics.Controls.Add(Me.sMetrics)
+        Me.PanMetrics.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanMetrics.Location = New System.Drawing.Point(546, 34)
+        Me.PanMetrics.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
+        Me.PanMetrics.Name = "PanMetrics"
+        Me.PanMetrics.Size = New System.Drawing.Size(162, 33)
+        Me.PanMetrics.TabIndex = 79
+        '
+        'sMetrics
+        '
+        Me.sMetrics.BackColor = System.Drawing.Color.Transparent
+        Me.sMetrics.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.sMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.sMetrics.ForeColor = System.Drawing.Color.White
+        Me.sMetrics.Location = New System.Drawing.Point(0, 0)
+        Me.sMetrics.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.sMetrics.Name = "sMetrics"
+        Me.sMetrics.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.sMetrics.Size = New System.Drawing.Size(162, 33)
+        Me.sMetrics.TabIndex = 67
+        Me.sMetrics.Text = "Score Metrics"
+        Me.sMetrics.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
         'cmdMetrics
         '
@@ -1125,196 +1383,18 @@ Partial Class FormMain
         Me.cmdMetrics.Dock = System.Windows.Forms.DockStyle.Fill
         Me.cmdMetrics.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
         Me.cmdMetrics.FlatAppearance.BorderSize = 0
-        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.cmdMetrics.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
         Me.cmdMetrics.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.cmdMetrics.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cmdMetrics.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdMetrics.Location = New System.Drawing.Point(691, 58)
-        Me.cmdMetrics.Margin = New System.Windows.Forms.Padding(1, 0, 0, 0)
+        Me.cmdMetrics.Location = New System.Drawing.Point(709, 34)
+        Me.cmdMetrics.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
         Me.cmdMetrics.Name = "cmdMetrics"
-        Me.cmdMetrics.Size = New System.Drawing.Size(121, 28)
-        Me.cmdMetrics.TabIndex = 7
+        Me.cmdMetrics.Size = New System.Drawing.Size(103, 33)
+        Me.cmdMetrics.TabIndex = 5
         Me.cmdMetrics.Text = "View"
         Me.cmdMetrics.UseVisualStyleBackColor = False
-        '
-        'pnlLastUpdated
-        '
-        Me.pnlLastUpdated.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlLastUpdated.Controls.Add(Me.sLastUpdate)
-        Me.pnlLastUpdated.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlLastUpdated.Location = New System.Drawing.Point(0, 29)
-        Me.pnlLastUpdated.Margin = New System.Windows.Forms.Padding(0, 0, 1, 1)
-        Me.pnlLastUpdated.Name = "pnlLastUpdated"
-        Me.pnlLastUpdated.Size = New System.Drawing.Size(189, 28)
-        Me.pnlLastUpdated.TabIndex = 72
-        '
-        'cmdRun
-        '
-        Me.cmdRun.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.cmdRun.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.cmdRun.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.cmdRun.FlatAppearance.BorderSize = 0
-        Me.cmdRun.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdRun.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdRun.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdRun.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdRun.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdRun.Location = New System.Drawing.Point(691, 29)
-        Me.cmdRun.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
-        Me.cmdRun.Name = "cmdRun"
-        Me.cmdRun.Size = New System.Drawing.Size(121, 28)
-        Me.cmdRun.TabIndex = 6
-        Me.cmdRun.Text = "Start"
-        Me.cmdRun.UseVisualStyleBackColor = False
-        '
-        'pnlD
-        '
-        Me.pnlD.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.pnlD.Controls.Add(Me.GSwitchHardware)
-        Me.pnlD.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlD.Location = New System.Drawing.Point(691, 0)
-        Me.pnlD.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
-        Me.pnlD.Name = "pnlD"
-        Me.pnlD.Size = New System.Drawing.Size(121, 28)
-        Me.pnlD.TabIndex = 75
-        '
-        'GSwitchHardware
-        '
-        Me.GSwitchHardware.ActiveBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.GSwitchHardware.ActiveBorderColor = System.Drawing.Color.White
-        Me.GSwitchHardware.BackColor = System.Drawing.Color.Transparent
-        Me.GSwitchHardware.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.GSwitchHardware.Location = New System.Drawing.Point(42, 5)
-        Me.GSwitchHardware.Margin = New System.Windows.Forms.Padding(4)
-        Me.GSwitchHardware.Name = "GSwitchHardware"
-        Me.GSwitchHardware.Size = New System.Drawing.Size(36, 18)
-        Me.GSwitchHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.GSwitchHardware.SwitchOffColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.GSwitchHardware.SwitchOnColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GSwitchHardware.TabIndex = 5
-        '
-        'pnlMetrics
-        '
-        Me.pnlMetrics.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlMetrics.Controls.Add(Me.Label1)
-        Me.pnlMetrics.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMetrics.Location = New System.Drawing.Point(546, 58)
-        Me.pnlMetrics.Margin = New System.Windows.Forms.Padding(1, 0, 0, 0)
-        Me.pnlMetrics.Name = "pnlMetrics"
-        Me.pnlMetrics.Size = New System.Drawing.Size(144, 28)
-        Me.pnlMetrics.TabIndex = 79
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.White
-        Me.Label1.Location = New System.Drawing.Point(4, 4)
-        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(101, 20)
-        Me.Label1.TabIndex = 67
-        Me.Label1.Text = "Score Metrics"
-        Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlOperatingSystem
-        '
-        Me.pnlOperatingSystem.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlOperatingSystem.Controls.Add(Me.sOperatingSystem)
-        Me.pnlOperatingSystem.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlOperatingSystem.Location = New System.Drawing.Point(0, 58)
-        Me.pnlOperatingSystem.Margin = New System.Windows.Forms.Padding(0, 0, 1, 0)
-        Me.pnlOperatingSystem.Name = "pnlOperatingSystem"
-        Me.pnlOperatingSystem.Size = New System.Drawing.Size(189, 28)
-        Me.pnlOperatingSystem.TabIndex = 73
-        '
-        'pnlA
-        '
-        Me.pnlA.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.pnlA.Controls.Add(Me.lbState)
-        Me.pnlA.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlA.Location = New System.Drawing.Point(190, 0)
-        Me.pnlA.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.pnlA.Name = "pnlA"
-        Me.pnlA.Size = New System.Drawing.Size(355, 28)
-        Me.pnlA.TabIndex = 75
-        '
-        'pnlShowHardware
-        '
-        Me.pnlShowHardware.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlShowHardware.Controls.Add(Me.sShow)
-        Me.pnlShowHardware.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlShowHardware.Location = New System.Drawing.Point(546, 0)
-        Me.pnlShowHardware.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
-        Me.pnlShowHardware.Name = "pnlShowHardware"
-        Me.pnlShowHardware.Size = New System.Drawing.Size(144, 28)
-        Me.pnlShowHardware.TabIndex = 77
-        '
-        'sShow
-        '
-        Me.sShow.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.sShow.AutoSize = True
-        Me.sShow.BackColor = System.Drawing.Color.Transparent
-        Me.sShow.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.sShow.ForeColor = System.Drawing.Color.White
-        Me.sShow.Location = New System.Drawing.Point(4, 4)
-        Me.sShow.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.sShow.Name = "sShow"
-        Me.sShow.Size = New System.Drawing.Size(115, 20)
-        Me.sShow.TabIndex = 67
-        Me.sShow.Text = "Show hardware"
-        Me.sShow.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlAssessment
-        '
-        Me.pnlAssessment.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
-        Me.pnlAssessment.Controls.Add(Me.lbAssessment)
-        Me.pnlAssessment.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlAssessment.Location = New System.Drawing.Point(546, 29)
-        Me.pnlAssessment.Margin = New System.Windows.Forms.Padding(1, 0, 0, 1)
-        Me.pnlAssessment.Name = "pnlAssessment"
-        Me.pnlAssessment.Size = New System.Drawing.Size(144, 28)
-        Me.pnlAssessment.TabIndex = 76
-        '
-        'lbAssessment
-        '
-        Me.lbAssessment.Anchor = System.Windows.Forms.AnchorStyles.Left
-        Me.lbAssessment.AutoSize = True
-        Me.lbAssessment.BackColor = System.Drawing.Color.Transparent
-        Me.lbAssessment.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbAssessment.ForeColor = System.Drawing.Color.White
-        Me.lbAssessment.Location = New System.Drawing.Point(4, 4)
-        Me.lbAssessment.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbAssessment.Name = "lbAssessment"
-        Me.lbAssessment.Size = New System.Drawing.Size(115, 20)
-        Me.lbAssessment.TabIndex = 67
-        Me.lbAssessment.Text = "Run assessment"
-        Me.lbAssessment.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        '
-        'pnlB
-        '
-        Me.pnlB.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.pnlB.Controls.Add(Me.lbLastUpdated)
-        Me.pnlB.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlB.Location = New System.Drawing.Point(190, 29)
-        Me.pnlB.Margin = New System.Windows.Forms.Padding(0, 0, 0, 1)
-        Me.pnlB.Name = "pnlB"
-        Me.pnlB.Size = New System.Drawing.Size(355, 28)
-        Me.pnlB.TabIndex = 74
-        '
-        'pnlC
-        '
-        Me.pnlC.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.pnlC.Controls.Add(Me.lbOperatingSystem)
-        Me.pnlC.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlC.Location = New System.Drawing.Point(190, 58)
-        Me.pnlC.Margin = New System.Windows.Forms.Padding(0)
-        Me.pnlC.Name = "pnlC"
-        Me.pnlC.Size = New System.Drawing.Size(355, 28)
-        Me.pnlC.TabIndex = 75
         '
         'BMPToolStripMenuItem
         '
@@ -1361,16 +1441,16 @@ Partial Class FormMain
         Me.TXTToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
         Me.TXTToolStripMenuItem.Text = "Save scores to text file"
         '
-        'cmsExport
+        'CmsExport
         '
-        Me.cmsExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmsExport.DropShadowEnabled = False
-        Me.cmsExport.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsExport.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.JPGToolStripMenuItem, Me.PNGToolStripMenuItem, Me.BMPToolStripMenuItem, Me.ToolStripSeparator4, Me.TXTToolStripMenuItem, Me.ToolStripSeparator1, Me.ImgurToolStripMenuItem})
-        Me.cmsExport.Name = "ContextMenuStrip1"
-        Me.cmsExport.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.cmsExport.ShowImageMargin = False
-        Me.cmsExport.Size = New System.Drawing.Size(284, 136)
+        Me.CmsExport.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CmsExport.DropShadowEnabled = False
+        Me.CmsExport.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CmsExport.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.JPGToolStripMenuItem, Me.PNGToolStripMenuItem, Me.BMPToolStripMenuItem, Me.ToolStripSeparator4, Me.TXTToolStripMenuItem, Me.ToolStripSeparator1, Me.ImgurToolStripMenuItem})
+        Me.CmsExport.Name = "ContextMenuStrip1"
+        Me.CmsExport.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.CmsExport.ShowImageMargin = False
+        Me.CmsExport.Size = New System.Drawing.Size(284, 136)
         '
         'ToolStripSeparator4
         '
@@ -1393,16 +1473,16 @@ Partial Class FormMain
         Me.ImgurToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
         Me.ImgurToolStripMenuItem.Text = "Upload screenshot to Imgur"
         '
-        'cmsOptions
+        'CmsOptions
         '
-        Me.cmsOptions.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmsOptions.DropShadowEnabled = False
-        Me.cmsOptions.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewImgurLinksToolStripMenuItem, Me.ViewLogToolStripMenuItem, Me.ToolStripSeparator5, Me.RefreshScoresToolStripMenuItem, Me.ToolStripSeparator2, Me.SettingsToolstripMenuItem})
-        Me.cmsOptions.Name = "ContextMenuStrip1"
-        Me.cmsOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.cmsOptions.ShowImageMargin = False
-        Me.cmsOptions.Size = New System.Drawing.Size(239, 112)
+        Me.CmsOptions.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CmsOptions.DropShadowEnabled = False
+        Me.CmsOptions.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CmsOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewImgurLinksToolStripMenuItem, Me.ViewLogToolStripMenuItem, Me.ViewWinSATLogToolStripMenuItem, Me.ToolStripSeparator5, Me.RefreshScoresToolStripMenuItem, Me.ToolStripSeparator2, Me.ProgramDataToolStripMenuItem, Me.SettingsToolstripMenuItem})
+        Me.CmsOptions.Name = "ContextMenuStrip1"
+        Me.CmsOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.CmsOptions.ShowImageMargin = False
+        Me.CmsOptions.Size = New System.Drawing.Size(251, 160)
         '
         'ViewImgurLinksToolStripMenuItem
         '
@@ -1412,7 +1492,7 @@ Partial Class FormMain
         Me.ViewImgurLinksToolStripMenuItem.Name = "ViewImgurLinksToolStripMenuItem"
         Me.ViewImgurLinksToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ViewImgurLinksToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
-        Me.ViewImgurLinksToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
+        Me.ViewImgurLinksToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
         Me.ViewImgurLinksToolStripMenuItem.Text = "View Imgur links"
         '
         'ViewLogToolStripMenuItem
@@ -1423,13 +1503,21 @@ Partial Class FormMain
         Me.ViewLogToolStripMenuItem.Name = "ViewLogToolStripMenuItem"
         Me.ViewLogToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ViewLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.ViewLogToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
+        Me.ViewLogToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
         Me.ViewLogToolStripMenuItem.Text = "View Xiret log"
+        '
+        'ViewWinSATLogToolStripMenuItem
+        '
+        Me.ViewWinSATLogToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ViewWinSATLogToolStripMenuItem.Name = "ViewWinSATLogToolStripMenuItem"
+        Me.ViewWinSATLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
+        Me.ViewWinSATLogToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
+        Me.ViewWinSATLogToolStripMenuItem.Text = "View WinSAT log"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(235, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(247, 6)
         '
         'RefreshScoresToolStripMenuItem
         '
@@ -1440,13 +1528,21 @@ Partial Class FormMain
         Me.RefreshScoresToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RefreshScoresToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.RefreshScoresToolStripMenuItem.Size = New System.Drawing.Size(238, 24)
+        Me.RefreshScoresToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
         Me.RefreshScoresToolStripMenuItem.Text = "Refresh scores"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(235, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(247, 6)
+        '
+        'ProgramDataToolStripMenuItem
+        '
+        Me.ProgramDataToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.ProgramDataToolStripMenuItem.Name = "ProgramDataToolStripMenuItem"
+        Me.ProgramDataToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
+        Me.ProgramDataToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
+        Me.ProgramDataToolStripMenuItem.Text = "View Application Data"
         '
         'SettingsToolstripMenuItem
         '
@@ -1456,18 +1552,18 @@ Partial Class FormMain
         Me.SettingsToolstripMenuItem.Name = "SettingsToolstripMenuItem"
         Me.SettingsToolstripMenuItem.ShortcutKeyDisplayString = ""
         Me.SettingsToolstripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SettingsToolstripMenuItem.Size = New System.Drawing.Size(238, 24)
+        Me.SettingsToolstripMenuItem.Size = New System.Drawing.Size(250, 24)
         Me.SettingsToolstripMenuItem.Text = "Settings"
         '
-        'cmsTools
+        'CmsTools
         '
-        Me.cmsTools.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmsTools.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsTools.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CleanupToolStripMenuItem, Me.ViewSystemDetailsToolStripMenuItem, Me.ToolStripSeparator6, Me.RunToolStripMenuItem, Me.RunVerboseToolStripMenuItem})
-        Me.cmsTools.Name = "ContextMenuStrip1"
-        Me.cmsTools.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.cmsTools.ShowImageMargin = False
-        Me.cmsTools.Size = New System.Drawing.Size(260, 106)
+        Me.CmsTools.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CmsTools.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CmsTools.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CleanupToolStripMenuItem, Me.ViewSystemDetailsToolStripMenuItem, Me.ToolStripSeparator6, Me.RunToolStripMenuItem, Me.RunVerboseToolStripMenuItem})
+        Me.CmsTools.Name = "ContextMenuStrip1"
+        Me.CmsTools.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.CmsTools.ShowImageMargin = False
+        Me.CmsTools.Size = New System.Drawing.Size(265, 106)
         '
         'CleanupToolStripMenuItem
         '
@@ -1477,7 +1573,7 @@ Partial Class FormMain
         Me.CleanupToolStripMenuItem.Name = "CleanupToolStripMenuItem"
         Me.CleanupToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.CleanupToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CleanupToolStripMenuItem.Size = New System.Drawing.Size(259, 24)
+        Me.CleanupToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
         Me.CleanupToolStripMenuItem.Text = "Cleanup"
         '
         'ViewSystemDetailsToolStripMenuItem
@@ -1487,13 +1583,13 @@ Partial Class FormMain
         Me.ViewSystemDetailsToolStripMenuItem.Name = "ViewSystemDetailsToolStripMenuItem"
         Me.ViewSystemDetailsToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ViewSystemDetailsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.ViewSystemDetailsToolStripMenuItem.Size = New System.Drawing.Size(259, 24)
+        Me.ViewSystemDetailsToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
         Me.ViewSystemDetailsToolStripMenuItem.Text = "View system details"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(256, 6)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(261, 6)
         '
         'RunToolStripMenuItem
         '
@@ -1503,7 +1599,7 @@ Partial Class FormMain
         Me.RunToolStripMenuItem.Name = "RunToolStripMenuItem"
         Me.RunToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RunToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(259, 24)
+        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
         Me.RunToolStripMenuItem.Text = "Run normal assessment"
         '
         'RunVerboseToolStripMenuItem
@@ -1514,18 +1610,18 @@ Partial Class FormMain
         Me.RunVerboseToolStripMenuItem.Name = "RunVerboseToolStripMenuItem"
         Me.RunVerboseToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RunVerboseToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.RunVerboseToolStripMenuItem.Size = New System.Drawing.Size(259, 24)
-        Me.RunVerboseToolStripMenuItem.Text = "Run verbose assessment"
+        Me.RunVerboseToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
+        Me.RunVerboseToolStripMenuItem.Text = "Run in-depth assessment"
         '
-        'cmsHelp
+        'CmsHelp
         '
-        Me.cmsHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
-        Me.cmsHelp.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.cmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator7, Me.AboutToolStripMenuItem})
-        Me.cmsHelp.Name = "cmsHelp"
-        Me.cmsHelp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
-        Me.cmsHelp.ShowImageMargin = False
-        Me.cmsHelp.Size = New System.Drawing.Size(237, 160)
+        Me.CmsHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
+        Me.CmsHelp.ImageScalingSize = New System.Drawing.Size(20, 20)
+        Me.CmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator7, Me.AboutToolStripMenuItem})
+        Me.CmsHelp.Name = "cmsHelp"
+        Me.CmsHelp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
+        Me.CmsHelp.ShowImageMargin = False
+        Me.CmsHelp.Size = New System.Drawing.Size(237, 160)
         '
         'MediaFeaturePackToolStripMenuItem
         '
@@ -1599,6 +1695,21 @@ Partial Class FormMain
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
         Me.AboutToolStripMenuItem.Text = "About"
         '
+        'GswHardware
+        '
+        Me.GswHardware.ActiveBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.GswHardware.ActiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.GswHardware.BackColor = System.Drawing.Color.Transparent
+        Me.GswHardware.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.GswHardware.Location = New System.Drawing.Point(11, 8)
+        Me.GswHardware.Margin = New System.Windows.Forms.Padding(4)
+        Me.GswHardware.Name = "GswHardware"
+        Me.GswHardware.Size = New System.Drawing.Size(32, 18)
+        Me.GswHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.GswHardware.SwitchOffColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.GswHardware.SwitchOnColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GswHardware.TabIndex = 4
+        '
         'FormMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(120.0!, 120.0!)
@@ -1606,12 +1717,11 @@ Partial Class FormMain
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(850, 520)
-        Me.Controls.Add(Me.pnlBottom)
-        Me.Controls.Add(Me.pnlCapture)
-        Me.Controls.Add(Me.pnlMenu)
-        Me.Controls.Add(Me.pnlSplit)
-        Me.Controls.Add(Me.pnlHead)
+        Me.ClientSize = New System.Drawing.Size(840, 520)
+        Me.Controls.Add(Me.PanBottom)
+        Me.Controls.Add(Me.PanCapture)
+        Me.Controls.Add(Me.PanMenu)
+        Me.Controls.Add(Me.PanHead)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
@@ -1619,153 +1729,137 @@ Partial Class FormMain
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
         Me.MaximizeBox = False
-        Me.MaximumSize = New System.Drawing.Size(850, 520)
-        Me.MinimumSize = New System.Drawing.Size(850, 520)
+        Me.MaximumSize = New System.Drawing.Size(840, 520)
+        Me.MinimumSize = New System.Drawing.Size(840, 520)
         Me.Name = "FormMain"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Experience Index UI"
-        CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.PnlSubDisk.ResumeLayout(False)
-        Me.PnlSubGaming.ResumeLayout(False)
-        Me.PnlSubGraphics.ResumeLayout(False)
-        Me.PnlSubMemory.ResumeLayout(False)
-        Me.PnlSubProcessor.ResumeLayout(False)
-        Me.pnlComp.ResumeLayout(False)
-        Me.pnlComp.PerformLayout()
-        Me.pnlRated.ResumeLayout(False)
-        Me.pnlHead.ResumeLayout(False)
-        Me.cmsExplorer.ResumeLayout(False)
-        Me.tlpIcon.ResumeLayout(False)
-        Me.pnlMenu.ResumeLayout(False)
-        Me.tlpMenu.ResumeLayout(False)
-        Me.pnlCapture.ResumeLayout(False)
-        Me.tlpTop.ResumeLayout(False)
-        Me.tlpMain.ResumeLayout(False)
-        Me.pnlSubMain.ResumeLayout(False)
-        Me.pnlSubMain.PerformLayout()
-        Me.tlpInf.ResumeLayout(False)
-        Me.tlpSubscore.ResumeLayout(False)
-        Me.pnlBaseScore.ResumeLayout(False)
-        Me.pnlBottom.ResumeLayout(False)
-        Me.tlpBottom.ResumeLayout(False)
-        Me.pnlValidity.ResumeLayout(False)
-        Me.pnlValidity.PerformLayout()
-        Me.pnlLastUpdated.ResumeLayout(False)
-        Me.pnlLastUpdated.PerformLayout()
-        Me.pnlD.ResumeLayout(False)
-        Me.pnlMetrics.ResumeLayout(False)
-        Me.pnlMetrics.PerformLayout()
-        Me.pnlOperatingSystem.ResumeLayout(False)
-        Me.pnlOperatingSystem.PerformLayout()
-        Me.pnlA.ResumeLayout(False)
-        Me.pnlA.PerformLayout()
-        Me.pnlShowHardware.ResumeLayout(False)
-        Me.pnlShowHardware.PerformLayout()
-        Me.pnlAssessment.ResumeLayout(False)
-        Me.pnlAssessment.PerformLayout()
-        Me.pnlB.ResumeLayout(False)
-        Me.pnlB.PerformLayout()
-        Me.pnlC.ResumeLayout(False)
-        Me.pnlC.PerformLayout()
-        Me.cmsExport.ResumeLayout(False)
-        Me.cmsOptions.ResumeLayout(False)
-        Me.cmsTools.ResumeLayout(False)
-        Me.cmsHelp.ResumeLayout(False)
+        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.CmsExplorer.ResumeLayout(False)
+        Me.PanSubDisk.ResumeLayout(False)
+        Me.PanSubGaming.ResumeLayout(False)
+        Me.PanSubGraphics.ResumeLayout(False)
+        Me.PanSubMemory.ResumeLayout(False)
+        Me.PanSubProcessor.ResumeLayout(False)
+        Me.PanHead.ResumeLayout(False)
+        Me.TlpHeadImage.ResumeLayout(False)
+        Me.PanMenu.ResumeLayout(False)
+        Me.TlpMenu.ResumeLayout(False)
+        Me.PanCapture.ResumeLayout(False)
+        Me.TlpTop.ResumeLayout(False)
+        Me.TlpGridScore.ResumeLayout(False)
+        Me.pnlGridHead.ResumeLayout(False)
+        Me.pnlGridHead.PerformLayout()
+        Me.TlpScores.ResumeLayout(False)
+        Me.TlpSubscore.ResumeLayout(False)
+        Me.PanBasescore.ResumeLayout(False)
+        Me.TlpWhatIsRated.ResumeLayout(False)
+        Me.TlpComponents.ResumeLayout(False)
+        Me.PanBottom.ResumeLayout(False)
+        Me.TlpBottom.ResumeLayout(False)
+        Me.PanInDepth.ResumeLayout(False)
+        Me.PanValidity.ResumeLayout(False)
+        Me.PanLastUpdate.ResumeLayout(False)
+        Me.PanShowHardware2.ResumeLayout(False)
+        Me.PanOpSys.ResumeLayout(False)
+        Me.PanValidity2.ResumeLayout(False)
+        Me.PanShowHardware.ResumeLayout(False)
+        Me.PanLastUpdate2.ResumeLayout(False)
+        Me.PanOpSys2.ResumeLayout(False)
+        Me.PanMetrics.ResumeLayout(False)
+        Me.CmsExport.ResumeLayout(False)
+        Me.CmsOptions.ResumeLayout(False)
+        Me.CmsTools.ResumeLayout(False)
+        Me.CmsHelp.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
-    Friend WithEvents LbHead As System.Windows.Forms.Label
-    Friend WithEvents lbState As System.Windows.Forms.Label
-    Friend WithEvents GSwitchHardware As GambolSwitch
-    Friend WithEvents lbShowOnPrint As System.Windows.Forms.Label
-    Friend WithEvents lbOperatingSystem As System.Windows.Forms.Label
-    Friend WithEvents lbBaseScore As System.Windows.Forms.Label
-    Friend WithEvents sEleven As System.Windows.Forms.Label
-    Friend WithEvents LBaseScore As System.Windows.Forms.Label
-    Friend WithEvents sSub As System.Windows.Forms.Label
-    Friend WithEvents lbWhatIsRated As System.Windows.Forms.Label
-    Friend WithEvents LComponent As System.Windows.Forms.Label
-    Friend WithEvents lbLastUpdated As System.Windows.Forms.Label
-    Friend WithEvents pnlHead As System.Windows.Forms.Panel
-    Friend WithEvents sOperatingSystem As System.Windows.Forms.Label
+    Friend WithEvents PbxHead As System.Windows.Forms.PictureBox
+    Friend WithEvents LabHead As System.Windows.Forms.Label
+    Friend WithEvents LabEIState As System.Windows.Forms.Label
+    Friend WithEvents GswHardware As GambolSwitch
+    Friend WithEvents LabOpSys As System.Windows.Forms.Label
+    Friend WithEvents LabBasescore As System.Windows.Forms.Label
+    Friend WithEvents sBasedOn As System.Windows.Forms.Label
+    Friend WithEvents sBaseScore As System.Windows.Forms.Label
+    Friend WithEvents sSubScore As System.Windows.Forms.Label
+    Friend WithEvents sWhat As System.Windows.Forms.Label
+    Friend WithEvents sComponent As System.Windows.Forms.Label
+    Friend WithEvents LabLastUpdate As System.Windows.Forms.Label
+    Friend WithEvents PanHead As System.Windows.Forms.Panel
+    Friend WithEvents sOpSys As System.Windows.Forms.Label
     Friend WithEvents sLastUpdate As System.Windows.Forms.Label
     Friend WithEvents CmdClose As System.Windows.Forms.Button
     Friend WithEvents CmdMinimize As System.Windows.Forms.Button
-    Friend WithEvents PnlSubDisk As System.Windows.Forms.Panel
-    Friend WithEvents lbDiskScore As System.Windows.Forms.Label
-    Friend WithEvents PnlSubGaming As System.Windows.Forms.Panel
-    Friend WithEvents lbGamingScore As System.Windows.Forms.Label
-    Friend WithEvents PnlSubGraphics As System.Windows.Forms.Panel
-    Friend WithEvents lbGraphicsScore As System.Windows.Forms.Label
-    Friend WithEvents PnlSubMemory As System.Windows.Forms.Panel
-    Friend WithEvents lbMemoryScore As System.Windows.Forms.Label
-    Friend WithEvents PnlSubProcessor As System.Windows.Forms.Panel
-    Friend WithEvents lbCpuScore As System.Windows.Forms.Label
-    Friend WithEvents pnlComp As System.Windows.Forms.Panel
-    Friend WithEvents lbCompProc As System.Windows.Forms.Label
-    Friend WithEvents lbCompDisk As System.Windows.Forms.Label
-    Friend WithEvents lbCompGaming As System.Windows.Forms.Label
-    Friend WithEvents lbCompGraphics As System.Windows.Forms.Label
-    Friend WithEvents lbCompMem As System.Windows.Forms.Label
-    Friend WithEvents lbScale As System.Windows.Forms.Label
-    Friend WithEvents pnlSplit As System.Windows.Forms.Panel
-    Friend WithEvents pnlMenu As System.Windows.Forms.Panel
-    Friend WithEvents cmdOptions As System.Windows.Forms.Button
-    Friend WithEvents cmdHelp As System.Windows.Forms.Button
-    Friend WithEvents cmdExport As System.Windows.Forms.Button
-    Friend WithEvents pnlCapture As System.Windows.Forms.Panel
-    Friend WithEvents pnlBottom As System.Windows.Forms.Panel
-    Friend WithEvents pnlSubMain As System.Windows.Forms.Panel
-    Friend WithEvents pnlOperatingSystem As System.Windows.Forms.Panel
-    Friend WithEvents pnlLastUpdated As System.Windows.Forms.Panel
-    Friend WithEvents pnlC As System.Windows.Forms.Panel
-    Friend WithEvents pnlB As System.Windows.Forms.Panel
-    Friend WithEvents cmdRun As System.Windows.Forms.Button
-    Friend WithEvents pnlAssessment As System.Windows.Forms.Panel
-    Friend WithEvents lbAssessment As System.Windows.Forms.Label
-    Friend WithEvents pnlShowHardware As System.Windows.Forms.Panel
-    Friend WithEvents sShow As System.Windows.Forms.Label
-    Friend WithEvents pnlD As System.Windows.Forms.Panel
-    Friend WithEvents pnlA As System.Windows.Forms.Panel
-    Friend WithEvents pnlRated As System.Windows.Forms.Panel
-    Friend WithEvents sProcessor As System.Windows.Forms.Label
-    Friend WithEvents sDisk As System.Windows.Forms.Label
-    Friend WithEvents sMemory As System.Windows.Forms.Label
-    Friend WithEvents sGraphics As System.Windows.Forms.Label
-    Friend WithEvents sGaming As System.Windows.Forms.Label
+    Friend WithEvents PanSubDisk As System.Windows.Forms.Panel
+    Friend WithEvents LabDiskScore As System.Windows.Forms.Label
+    Friend WithEvents PanSubGaming As System.Windows.Forms.Panel
+    Friend WithEvents LabGamingScore As System.Windows.Forms.Label
+    Friend WithEvents PanSubGraphics As System.Windows.Forms.Panel
+    Friend WithEvents LabGraphicsScore As System.Windows.Forms.Label
+    Friend WithEvents PanSubMemory As System.Windows.Forms.Panel
+    Friend WithEvents LabMemoryScore As System.Windows.Forms.Label
+    Friend WithEvents PanSubProcessor As System.Windows.Forms.Panel
+    Friend WithEvents LabProcessorScore As System.Windows.Forms.Label
+    Friend WithEvents LabProcessor As System.Windows.Forms.Label
+    Friend WithEvents LabDisk As System.Windows.Forms.Label
+    Friend WithEvents LabGaming As System.Windows.Forms.Label
+    Friend WithEvents LabGraphics As System.Windows.Forms.Label
+    Friend WithEvents LabMemory As System.Windows.Forms.Label
+    Friend WithEvents LabScale As System.Windows.Forms.Label
+    Friend WithEvents PanMenu As System.Windows.Forms.Panel
+    Friend WithEvents CmdOptions As System.Windows.Forms.Button
+    Friend WithEvents CmdHelp As System.Windows.Forms.Button
+    Friend WithEvents CmdExport As System.Windows.Forms.Button
+    Friend WithEvents PanCapture As System.Windows.Forms.Panel
+    Friend WithEvents PanBottom As System.Windows.Forms.Panel
+    Friend WithEvents pnlGridHead As System.Windows.Forms.Panel
+    Friend WithEvents PanOpSys As System.Windows.Forms.Panel
+    Friend WithEvents PanLastUpdate As System.Windows.Forms.Panel
+    Friend WithEvents PanOpSys2 As System.Windows.Forms.Panel
+    Friend WithEvents PanLastUpdate2 As System.Windows.Forms.Panel
+    Friend WithEvents CmdAssess As System.Windows.Forms.Button
+    Friend WithEvents PanShowHardware As System.Windows.Forms.Panel
+    Friend WithEvents sShowHardware As System.Windows.Forms.Label
+    Friend WithEvents PanShowHardware2 As System.Windows.Forms.Panel
+    Friend WithEvents PanValidity2 As System.Windows.Forms.Panel
+    Friend WithEvents LabWirProcessor As System.Windows.Forms.Label
+    Friend WithEvents LabWirDisk As System.Windows.Forms.Label
+    Friend WithEvents LabWirMemory As System.Windows.Forms.Label
+    Friend WithEvents LabWirGraphics As System.Windows.Forms.Label
+    Friend WithEvents LabWirGaming As System.Windows.Forms.Label
     Friend WithEvents cmdMetrics As System.Windows.Forms.Button
-    Friend WithEvents pnlMetrics As System.Windows.Forms.Panel
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents PanMetrics As System.Windows.Forms.Panel
+    Friend WithEvents sMetrics As System.Windows.Forms.Label
     Friend WithEvents BMPToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents JPGToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PNGToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TXTToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmsExport As System.Windows.Forms.ContextMenuStrip
-    Friend WithEvents cmsOptions As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CmsExport As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CmsOptions As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents SettingsToolstripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ImgurToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents tlpBottom As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents pnlValidity As System.Windows.Forms.Panel
-    Friend WithEvents pnlValidityState As System.Windows.Forms.Panel
+    Friend WithEvents TlpBottom As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents PanValidity As System.Windows.Forms.Panel
+    Friend WithEvents PanValidityState As System.Windows.Forms.Panel
     Friend WithEvents sValidity As System.Windows.Forms.Label
-    Friend WithEvents tlpMain As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents tlpInf As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents tlpSubscore As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents tlpTop As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents tlpMenu As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents pnlBaseScore As System.Windows.Forms.Panel
+    Friend WithEvents TlpGridScore As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TlpScores As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TlpSubscore As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TlpHeadImage As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TlpTop As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents TlpMenu As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents PanBasescore As System.Windows.Forms.Panel
     Friend WithEvents ViewLogToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RefreshScoresToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents cmdTools As System.Windows.Forms.Button
-    Friend WithEvents cmsTools As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CmdTools As System.Windows.Forms.Button
+    Friend WithEvents CmsTools As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents RunToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RunVerboseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cmsHelp As System.Windows.Forms.ContextMenuStrip
+    Friend WithEvents CmsHelp As System.Windows.Forms.ContextMenuStrip
     Friend WithEvents TroubleshootingToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents UpdateAvailableToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -1777,18 +1871,28 @@ Partial Class FormMain
     Friend WithEvents CleanupToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator6 As ToolStripSeparator
     Friend WithEvents ViewSystemDetailsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents LbHeadVer As Label
+    Friend WithEvents LabVersion As Label
     Friend WithEvents ChangelogToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents cmsExplorer As ContextMenuStrip
+    Friend WithEvents PanSplitCenter As Panel
+    Friend WithEvents CmsExplorer As ContextMenuStrip
     Friend WithEvents MinimizeToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator8 As ToolStripSeparator
     Friend WithEvents CloseToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ToolStripSeparator9 As ToolStripSeparator
     Friend WithEvents AboutToolStripMenuItem1 As ToolStripMenuItem
-    Friend WithEvents Notifier1 As Gambol.Notifier.Notifier
+    Friend WithEvents Notifier1 As Notifier.Notifier
     Friend WithEvents HotfixAvailableToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResetPositionToolStripMenuItem As ToolStripMenuItem
     Friend WithEvents ResetApplicationToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents PanSplit As Panel
+    Friend WithEvents CmdRunInDepth As Button
+    Friend WithEvents PanInDepth As Panel
+    Friend WithEvents sInDepth As Label
+    Friend WithEvents LabShowHardware As Label
+    Friend WithEvents ViewWinSATLogToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents TlpWhatIsRated As TableLayoutPanel
+    Friend WithEvents TlpComponents As TableLayoutPanel
+    Friend WithEvents CmdSettings As Button
+    Friend WithEvents ProgramDataToolStripMenuItem As ToolStripMenuItem
 End Class

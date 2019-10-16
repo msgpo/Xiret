@@ -15,35 +15,31 @@
 '  Updated on 31.07.2019 - DS (Animation, update imports, cleanup)
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
 
+#Disable Warning IDE0067
+
 Imports System.IO
 
-Imports Core.Animation
-Imports Core.Helpers
+Imports Xiret.Core.Animation
+Imports Xiret.Core.Helpers
 
-Imports Gambol.Controls
+Imports Xiret.Controls
 
 Public Class FormSettings
-
-#Region "Variables"
-
-    Private IntAccent As Integer = 0
-
-#End Region
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetOptionsThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -71,12 +67,7 @@ Public Class FormSettings
 
     Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'Set opacity
-        Opacity = 0
-        'Set theme colors
-        SetOptionsThemeAccent()
-
-        cmdWarn.Hide()
+        CmdWarn.Hide()
 
         'Check current settings and set controls state
         CheckAutoHardware()
@@ -87,11 +78,11 @@ Public Class FormSettings
         CheckPortable()
         CheckCustomClientId()
 
-        If rbnClientDisable.Checked Then
-            tbxClientId.Hide()
+        If RadCustomClientOff.Checked Then
+            TbxClientId.Hide()
         Else
-            tbxClientId.Show()
-            tbxClientId.Text = Settings.StringUserImgurClientId
+            TbxClientId.Show()
+            TbxClientId.Text = Settings.StringUserImgurClientId
         End If
 
     End Sub
@@ -115,36 +106,36 @@ Public Class FormSettings
 #Region "Theme"
     Private Sub SetOptionsThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
 
-        tbxClientId.ForeColor = Settings.ThemeColor
+        TbxClientId.ForeColor = Settings.ThemeColor
 
-        For Each c As Control In pnlShowHardware.Controls
-            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanShowHardware.Controls
+            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.ThemeColor
         Next
 
-        For Each c As Control In pnlHardwareMode.Controls
-            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanHardwareMode.Controls
+            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.ThemeColor
         Next
 
-        For Each c As Control In pnlAssessmentMode.Controls
-            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanAssessmentMode.Controls
+            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.ThemeColor
         Next
 
-        For Each c As Control In pnlThemeColor.Controls
-            If TypeOf c Is GambolCheckbox Then DirectCast(c, GambolCheckbox).CheckedColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanThemeColor.Controls
+            If TypeOf Ctrl Is GambolCheckbox Then DirectCast(Ctrl, GambolCheckbox).CheckedColor = Settings.ThemeColor
         Next
 
-        For Each c As Control In pnlPortability.Controls
-            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanPortability.Controls
+            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.ThemeColor
         Next
 
-        For Each c As Control In pnlCustomID.Controls
-            If TypeOf c Is GambolRadioButton Then DirectCast(c, GambolRadioButton).CheckedColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanImgur.Controls
+            If TypeOf Ctrl Is GambolRadioButton Then DirectCast(Ctrl, GambolRadioButton).CheckedColor = Settings.ThemeColor
         Next
 
-        For Each c As Control In pnlConfiguration.Controls
-            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanConfig.Controls
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.ThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -154,7 +145,7 @@ Public Class FormSettings
 #End Region
 
 #Region "Button Event Handlers"
-    Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles cmdOkay.Click
+    Private Sub CmdOkay_Click(sender As Object, e As EventArgs) Handles CmdOkay.Click
 
         MoveSettings()
         CheckPortable()
@@ -169,7 +160,7 @@ Public Class FormSettings
         'Load new settings to memory
         Settings.LoadSettings()
 
-        If FormMain.GSwitchHardware.Checked Then
+        If FormMain.GswHardware.Checked Then
             FormMain.SetHW()
         End If
 
@@ -182,7 +173,7 @@ Public Class FormSettings
         Close()
 
     End Sub
-    Private Sub CmdApply_Click(sender As Object, e As EventArgs) Handles cmdApply.Click
+    Private Sub CmdApply_Click(sender As Object, e As EventArgs) Handles CmdApply.Click
 
         MoveSettings()
         CheckPortable()
@@ -205,7 +196,7 @@ Public Class FormSettings
         ToastAlert.Show("Settings updated.", ToastType.IsInformational)
 
     End Sub
-    Private Sub CmdWarn_Click(sender As Object, e As EventArgs) Handles cmdWarn.Click
+    Private Sub CmdWarn_Click(sender As Object, e As EventArgs) Handles CmdWarn.Click
 
         Fade.FadeBehindChild(Me)
 
@@ -214,8 +205,18 @@ Public Class FormSettings
         FWarn.ShowDialog()
 
     End Sub
-    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
         Close()
+    End Sub
+
+#End Region
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
     End Sub
 
 #End Region
@@ -224,13 +225,13 @@ Public Class FormSettings
 
     Private Sub CheckAutoHardware()
 
-        Select Case Settings.ShowHardwareOnStarup
+        Select Case Settings.ShowHardwareOnStartup
             Case 0
-                rbnHardwareDisable.Checked = True
+                RadHardwareDisable.Checked = True
             Case 1
-                rbnHardwareEnable.Checked = True
+                RadHardwareEnable.Checked = True
             Case Else
-                rbnHardwareDisable.Checked = True
+                RadHardwareDisable.Checked = True
         End Select
 
     End Sub
@@ -238,11 +239,11 @@ Public Class FormSettings
 
         Select Case Settings.UseApiHardware
             Case 0
-                rbnXml.Checked = True
+                RadHardwaremodeXml.Checked = True
             Case 1
-                rbnApi.Checked = True
+                RadHardwaremodeApi.Checked = True
             Case Else
-                rbnXml.Checked = True
+                RadHardwaremodeXml.Checked = True
         End Select
 
     End Sub
@@ -251,11 +252,11 @@ Public Class FormSettings
 
         Select Case Settings.UseVerboseMode
             Case 0
-                rbnNormal.Checked = True
+                RadAssessmentNormal.Checked = True
             Case 1
-                rbnVerbose.Checked = True
+                RadAssessmentVerbose.Checked = True
             Case Else
-                rbnNormal.Checked = True
+                RadAssessmentNormal.Checked = True
         End Select
 
     End Sub
@@ -263,25 +264,25 @@ Public Class FormSettings
 
         Select Case Settings.ThemeInt
             Case 0
-                rbnDefault0.Checked = True
+                RadDefault0.Checked = True
             Case 1
-                rbnSky1.Checked = True
+                RadSky1.Checked = True
             Case 2
-                rbnTurq2.Checked = True
+                RadTurquoise2.Checked = True
             Case 3
-                rbnEmerald3.Checked = True
+                RadEmerald3.Checked = True
             Case 4
-                rbnMegenta4.Checked = True
+                RadMegenta4.Checked = True
             Case 5
-                rbnPink5.Checked = True
+                RadPink5.Checked = True
             Case 6
-                rbnCarrot6.Checked = True
+                RadCarrot6.Checked = True
             Case 7
-                rbnYellow7.Checked = True
+                RadYellow7.Checked = True
             Case 8
-                rbnAlazarin8.Checked = True
+                RadAlazarin8.Checked = True
             Case Else
-                rbnDefault0.Checked = True
+                RadDefault0.Checked = True
         End Select
 
     End Sub
@@ -290,11 +291,11 @@ Public Class FormSettings
 
         Select Case Settings.ApplyThemeColorToBorder
             Case 0
-                cbxApplyToBorder.Checked = False
+                CbxApplyToBorder.Checked = False
             Case 1
-                cbxApplyToBorder.Checked = True
+                CbxApplyToBorder.Checked = True
             Case Else
-                cbxApplyToBorder.Checked = False
+                CbxApplyToBorder.Checked = False
         End Select
 
     End Sub
@@ -303,11 +304,11 @@ Public Class FormSettings
 
         Select Case Settings.UseCustomImgurApiKey
             Case 0
-                rbnClientDisable.Checked = True
+                RadCustomClientOff.Checked = True
             Case 1
-                rbnClientEnable.Checked = True
+                RadCustomClientOn.Checked = True
             Case Else
-                rbnClientDisable.Checked = True
+                RadCustomClientOff.Checked = True
         End Select
 
     End Sub
@@ -315,67 +316,67 @@ Public Class FormSettings
     Private Sub ApplySettingsIntegers()
 
         '// Show hardware on startup
-        If rbnHardwareDisable.Checked Then
-            Settings.ShowHardwareOnStarup = 0
+        If RadHardwareDisable.Checked Then
+            Settings.ShowHardwareOnStartup = 0
         Else
-            Settings.ShowHardwareOnStarup = 1
+            Settings.ShowHardwareOnStartup = 1
         End If
 
         '// Hardware mode
-        If rbnXml.Checked Then
+        If RadHardwaremodeXml.Checked Then
             Settings.UseApiHardware = 0
         Else
             Settings.UseApiHardware = 1
         End If
 
         '// Assessment Mode
-        If rbnNormal.Checked Then
+        If RadAssessmentNormal.Checked Then
             Settings.UseVerboseMode = 0
         Else
             Settings.UseVerboseMode = 1
         End If
 
         '// Theme
-        If rbnDefault0.Checked Then
+        If RadDefault0.Checked Then
             Settings.ThemeInt = 0
         End If
-        If rbnSky1.Checked Then
+        If RadSky1.Checked Then
             Settings.ThemeInt = 1
         End If
-        If rbnTurq2.Checked Then
+        If RadTurquoise2.Checked Then
             Settings.ThemeInt = 2
         End If
-        If rbnEmerald3.Checked Then
+        If RadEmerald3.Checked Then
             Settings.ThemeInt = 3
         End If
-        If rbnMegenta4.Checked Then
+        If RadMegenta4.Checked Then
             Settings.ThemeInt = 4
         End If
-        If rbnPink5.Checked Then
+        If RadPink5.Checked Then
             Settings.ThemeInt = 5
         End If
-        If rbnCarrot6.Checked Then
+        If RadCarrot6.Checked Then
             Settings.ThemeInt = 6
         End If
-        If rbnYellow7.Checked Then
+        If RadYellow7.Checked Then
             Settings.ThemeInt = 7
         End If
-        If rbnAlazarin8.Checked Then
+        If RadAlazarin8.Checked Then
             Settings.ThemeInt = 8
         End If
 
         'Apply theme to border
-        If Not cbxApplyToBorder.Checked Then
+        If Not CbxApplyToBorder.Checked Then
             Settings.ApplyThemeColorToBorder = 0
         Else
             Settings.ApplyThemeColorToBorder = 1
         End If
 
         'Custom Imgur Client ID
-        If rbnClientDisable.Checked Then
+        If RadCustomClientOff.Checked Then
             Settings.UseCustomImgurApiKey = 0
         Else
-            If rbnClientEnable.Checked And tbxClientId.Text = "" Then
+            If RadCustomClientOn.Checked And TbxClientId.Text = "" Then
                 Settings.UseCustomImgurApiKey = 0
             Else
                 Settings.UseCustomImgurApiKey = 1
@@ -389,22 +390,22 @@ Public Class FormSettings
 
         If File.Exists(Settings.WorkingDirFile) And File.Exists(Settings.AppdataFile) Then
 
-            cmdWarn.Show()
+            CmdWarn.Show()
 
-            rbnAppath.Checked = False
-            rbnAppath.Enabled = False
+            RadPortabilityOn.Checked = False
+            RadPortabilityOn.Enabled = False
 
-            rbnAppdata.Checked = False
-            rbnAppdata.Enabled = False
+            RadPortabilityOff.Checked = False
+            RadPortabilityOff.Enabled = False
 
         Else
             If File.Exists(Settings.WorkingDirFile) Then
                 Settings.BoolWorkingDirectory = True
-                rbnAppath.Checked = True
+                RadPortabilityOn.Checked = True
             Else
                 If File.Exists(Settings.AppdataFile) Then
                     Settings.BoolWorkingDirectory = False
-                    rbnAppdata.Checked = True
+                    RadPortabilityOff.Checked = True
                 End If
             End If
         End If
@@ -412,12 +413,12 @@ Public Class FormSettings
     End Sub
     Private Sub MoveSettings()
 
-        If rbnAppath.Checked Then 'Move to working dir
+        If RadPortabilityOn.Checked Then 'Move to working dir
             If Not File.Exists(Settings.WorkingDirFile) Then
                 FileHelper.MoveSafely(Settings.AppdataFile, Settings.WorkingDirFile)
             End If
         Else
-            If rbnAppdata.Checked Then 'Move to appdata
+            If RadPortabilityOff.Checked Then 'Move to appdata
                 If Not File.Exists(Settings.AppdataFile) Then
                     FileHelper.MoveSafely(Settings.WorkingDirFile, Settings.AppdataFile)
                 End If
@@ -428,22 +429,22 @@ Public Class FormSettings
 
     Private Sub WriteClientID()
 
-        If rbnClientDisable.Checked Then
+        If RadCustomClientOff.Checked Then
             Settings.StringUserImgurClientId = ""
         Else
-            Settings.StringUserImgurClientId = tbxClientId.Text
+            Settings.StringUserImgurClientId = TbxClientId.Text
         End If
 
     End Sub
 
-    Private Sub RbnClientDisable_CheckedChanged(sender As Object, e As EventArgs) Handles rbnClientDisable.CheckedChanged
-        tbxClientId.Text = ""
-        tbxClientId.Hide()
+    Private Sub RbnClientDisable_CheckedChanged(sender As Object, e As EventArgs) Handles RadCustomClientOff.CheckedChanged
+        TbxClientId.Text = ""
+        TbxClientId.Hide()
     End Sub
 
-    Private Sub RbnClientEnable_CheckedChanged(sender As Object, e As EventArgs) Handles rbnClientEnable.CheckedChanged
-        tbxClientId.Show()
-        ControlHelper.SetCueText(tbxClientId, "Enter Client ID")
+    Private Sub RbnClientEnable_CheckedChanged(sender As Object, e As EventArgs) Handles RadCustomClientOn.CheckedChanged
+        TbxClientId.Show()
+        ControlHelper.SetCueText(TbxClientId, "Enter Client ID")
     End Sub
 #End Region
 

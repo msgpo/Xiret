@@ -23,74 +23,74 @@ Partial Class FormChangelog
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormChangelog))
-        Me.pnlSplit = New System.Windows.Forms.Panel()
+        Me.PanSplit = New System.Windows.Forms.Panel()
         Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.tlpHead = New System.Windows.Forms.TableLayoutPanel()
-        Me.lbHead = New System.Windows.Forms.Label()
+        Me.TlpHead = New System.Windows.Forms.TableLayoutPanel()
+        Me.LabHead = New System.Windows.Forms.Label()
         Me.CmdClose = New System.Windows.Forms.Button()
-        Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
-        Me.pbxMain = New System.Windows.Forms.PictureBox()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
-        Me.rtbChanges = New System.Windows.Forms.RichTextBox()
+        Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
+        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.PanMain = New System.Windows.Forms.Panel()
+        Me.TlpMain = New System.Windows.Forms.TableLayoutPanel()
+        Me.RtbChanges = New System.Windows.Forms.RichTextBox()
         Me.pnlHead.SuspendLayout()
-        Me.tlpHead.SuspendLayout()
-        Me.tlpIcon.SuspendLayout()
-        CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.Panel1.SuspendLayout()
-        Me.TableLayoutPanel1.SuspendLayout()
+        Me.TlpHead.SuspendLayout()
+        Me.TlpHeadImage.SuspendLayout()
+        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanMain.SuspendLayout()
+        Me.TlpMain.SuspendLayout()
         Me.SuspendLayout()
         '
-        'pnlSplit
+        'PanSplit
         '
-        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlSplit.Location = New System.Drawing.Point(1, 41)
-        Me.pnlSplit.Name = "pnlSplit"
-        Me.pnlSplit.Size = New System.Drawing.Size(858, 2)
-        Me.pnlSplit.TabIndex = 74
+        Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
+        Me.PanSplit.Name = "PanSplit"
+        Me.PanSplit.Size = New System.Drawing.Size(778, 2)
+        Me.PanSplit.TabIndex = 74
         '
         'pnlHead
         '
         Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
         Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.tlpHead)
+        Me.pnlHead.Controls.Add(Me.TlpHead)
         Me.pnlHead.Controls.Add(Me.CmdClose)
-        Me.pnlHead.Controls.Add(Me.tlpIcon)
+        Me.pnlHead.Controls.Add(Me.TlpHeadImage)
         Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
         Me.pnlHead.Location = New System.Drawing.Point(1, 1)
         Me.pnlHead.Margin = New System.Windows.Forms.Padding(4)
         Me.pnlHead.Name = "pnlHead"
-        Me.pnlHead.Size = New System.Drawing.Size(858, 40)
+        Me.pnlHead.Size = New System.Drawing.Size(778, 40)
         Me.pnlHead.TabIndex = 73
         '
-        'tlpHead
+        'TlpHead
         '
-        Me.tlpHead.BackColor = System.Drawing.Color.Transparent
-        Me.tlpHead.ColumnCount = 1
-        Me.tlpHead.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpHead.Controls.Add(Me.lbHead, 0, 0)
-        Me.tlpHead.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tlpHead.Location = New System.Drawing.Point(40, 0)
-        Me.tlpHead.Name = "tlpHead"
-        Me.tlpHead.RowCount = 1
-        Me.tlpHead.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.tlpHead.Size = New System.Drawing.Size(778, 40)
-        Me.tlpHead.TabIndex = 96
+        Me.TlpHead.BackColor = System.Drawing.Color.Transparent
+        Me.TlpHead.ColumnCount = 1
+        Me.TlpHead.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpHead.Controls.Add(Me.LabHead, 0, 0)
+        Me.TlpHead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TlpHead.Location = New System.Drawing.Point(40, 0)
+        Me.TlpHead.Name = "TlpHead"
+        Me.TlpHead.RowCount = 1
+        Me.TlpHead.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpHead.Size = New System.Drawing.Size(698, 40)
+        Me.TlpHead.TabIndex = 96
         '
-        'lbHead
+        'LabHead
         '
-        Me.lbHead.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.lbHead.BackColor = System.Drawing.Color.Transparent
-        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbHead.ForeColor = System.Drawing.Color.White
-        Me.lbHead.Location = New System.Drawing.Point(331, 1)
-        Me.lbHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbHead.Name = "lbHead"
-        Me.lbHead.Size = New System.Drawing.Size(115, 38)
-        Me.lbHead.TabIndex = 70
-        Me.lbHead.Text = "Changelog"
-        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabHead.BackColor = System.Drawing.Color.Transparent
+        Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabHead.ForeColor = System.Drawing.Color.White
+        Me.LabHead.Location = New System.Drawing.Point(4, 0)
+        Me.LabHead.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabHead.Name = "LabHead"
+        Me.LabHead.Size = New System.Drawing.Size(690, 40)
+        Me.LabHead.TabIndex = 70
+        Me.LabHead.Text = "Changelog"
+        Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'CmdClose
         '
@@ -102,85 +102,85 @@ Partial Class FormChangelog
         Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdClose.ForeColor = System.Drawing.Color.White
-        Me.CmdClose.Location = New System.Drawing.Point(818, 0)
+        Me.CmdClose.Location = New System.Drawing.Point(738, 0)
         Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdClose.Name = "CmdClose"
         Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
         Me.CmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.CmdClose.TabIndex = 95
+        Me.CmdClose.TabIndex = 0
         Me.CmdClose.TabStop = False
         Me.CmdClose.Text = "✕"
         Me.CmdClose.UseVisualStyleBackColor = False
         '
-        'tlpIcon
+        'TlpHeadImage
         '
-        Me.tlpIcon.BackColor = System.Drawing.Color.Transparent
-        Me.tlpIcon.ColumnCount = 1
-        Me.tlpIcon.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.tlpIcon.Controls.Add(Me.pbxMain, 0, 0)
-        Me.tlpIcon.Dock = System.Windows.Forms.DockStyle.Left
-        Me.tlpIcon.Location = New System.Drawing.Point(0, 0)
-        Me.tlpIcon.Margin = New System.Windows.Forms.Padding(0)
-        Me.tlpIcon.Name = "tlpIcon"
-        Me.tlpIcon.RowCount = 1
-        Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(40, 40)
-        Me.tlpIcon.TabIndex = 74
+        Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
+        Me.TlpHeadImage.ColumnCount = 1
+        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
+        Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpHeadImage.Name = "TlpHeadImage"
+        Me.TlpHeadImage.RowCount = 1
+        Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
+        Me.TlpHeadImage.TabIndex = 74
         '
-        'pbxMain
+        'PbxHead
         '
-        Me.pbxMain.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pbxMain.BackColor = System.Drawing.Color.Transparent
-        Me.pbxMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbxMain.Image = Global.Xiret.My.Resources.Resources.icon24px
-        Me.pbxMain.Location = New System.Drawing.Point(9, 8)
-        Me.pbxMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
-        Me.pbxMain.Name = "pbxMain"
-        Me.pbxMain.Size = New System.Drawing.Size(24, 24)
-        Me.pbxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxMain.TabIndex = 1
-        Me.pbxMain.TabStop = False
+        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
+        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PbxHead.Image = Global.Xiret.My.Resources.Resources.icon24px
+        Me.PbxHead.Location = New System.Drawing.Point(9, 8)
+        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.PbxHead.Name = "PbxHead"
+        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
+        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PbxHead.TabIndex = 1
+        Me.PbxHead.TabStop = False
         '
-        'Panel1
+        'PanMain
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.TableLayoutPanel1)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(1, 43)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(858, 606)
-        Me.Panel1.TabIndex = 75
+        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.PanMain.Controls.Add(Me.TlpMain)
+        Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanMain.Location = New System.Drawing.Point(1, 43)
+        Me.PanMain.Name = "PanMain"
+        Me.PanMain.Size = New System.Drawing.Size(778, 656)
+        Me.PanMain.TabIndex = 75
         '
-        'TableLayoutPanel1
+        'TlpMain
         '
-        Me.TableLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.TableLayoutPanel1.ColumnCount = 1
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.rtbChanges, 0, 0)
-        Me.TableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(858, 606)
-        Me.TableLayoutPanel1.TabIndex = 1
+        Me.TlpMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.TlpMain.ColumnCount = 1
+        Me.TlpMain.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpMain.Controls.Add(Me.RtbChanges, 0, 0)
+        Me.TlpMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TlpMain.Location = New System.Drawing.Point(0, 0)
+        Me.TlpMain.Name = "TlpMain"
+        Me.TlpMain.RowCount = 1
+        Me.TlpMain.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpMain.Size = New System.Drawing.Size(778, 656)
+        Me.TlpMain.TabIndex = 1
         '
-        'rtbChanges
+        'RtbChanges
         '
-        Me.rtbChanges.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.rtbChanges.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.rtbChanges.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.rtbChanges.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.rtbChanges.ForeColor = System.Drawing.Color.White
-        Me.rtbChanges.Location = New System.Drawing.Point(6, 6)
-        Me.rtbChanges.Margin = New System.Windows.Forms.Padding(6)
-        Me.rtbChanges.MaxLength = 999999
-        Me.rtbChanges.Name = "rtbChanges"
-        Me.rtbChanges.ReadOnly = True
-        Me.rtbChanges.Size = New System.Drawing.Size(846, 594)
-        Me.rtbChanges.TabIndex = 0
-        Me.rtbChanges.TabStop = False
-        Me.rtbChanges.Text = "" & Global.Microsoft.VisualBasic.ChrW(10)
+        Me.RtbChanges.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.RtbChanges.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RtbChanges.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RtbChanges.Font = New System.Drawing.Font("Consolas", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.RtbChanges.ForeColor = System.Drawing.Color.White
+        Me.RtbChanges.Location = New System.Drawing.Point(6, 6)
+        Me.RtbChanges.Margin = New System.Windows.Forms.Padding(6)
+        Me.RtbChanges.MaxLength = 999999
+        Me.RtbChanges.Name = "RtbChanges"
+        Me.RtbChanges.ReadOnly = True
+        Me.RtbChanges.Size = New System.Drawing.Size(766, 644)
+        Me.RtbChanges.TabIndex = 0
+        Me.RtbChanges.TabStop = False
+        Me.RtbChanges.Text = "" & Global.Microsoft.VisualBasic.ChrW(10)
         '
         'FormChangelog
         '
@@ -189,38 +189,38 @@ Partial Class FormChangelog
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(860, 650)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.pnlSplit)
+        Me.ClientSize = New System.Drawing.Size(780, 700)
+        Me.Controls.Add(Me.PanMain)
+        Me.Controls.Add(Me.PanSplit)
         Me.Controls.Add(Me.pnlHead)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
-        Me.MinimumSize = New System.Drawing.Size(860, 650)
+        Me.MinimumSize = New System.Drawing.Size(780, 700)
         Me.Name = "FormChangelog"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Changelog"
         Me.pnlHead.ResumeLayout(False)
-        Me.tlpHead.ResumeLayout(False)
-        Me.tlpIcon.ResumeLayout(False)
-        CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.Panel1.ResumeLayout(False)
-        Me.TableLayoutPanel1.ResumeLayout(False)
+        Me.TlpHead.ResumeLayout(False)
+        Me.TlpHeadImage.ResumeLayout(False)
+        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanMain.ResumeLayout(False)
+        Me.TlpMain.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
 
-    Friend WithEvents pnlSplit As Panel
+    Friend WithEvents PanSplit As Panel
     Friend WithEvents pnlHead As Panel
     Friend WithEvents CmdClose As Button
-    Friend WithEvents tlpIcon As TableLayoutPanel
-    Friend WithEvents pbxMain As PictureBox
-    Friend WithEvents Panel1 As Panel
-    Friend WithEvents TableLayoutPanel1 As TableLayoutPanel
-    Friend WithEvents rtbChanges As RichTextBox
-    Friend WithEvents tlpHead As TableLayoutPanel
-    Friend WithEvents lbHead As Label
+    Friend WithEvents TlpHeadImage As TableLayoutPanel
+    Friend WithEvents PbxHead As PictureBox
+    Friend WithEvents PanMain As Panel
+    Friend WithEvents TlpMain As TableLayoutPanel
+    Friend WithEvents RtbChanges As RichTextBox
+    Friend WithEvents TlpHead As TableLayoutPanel
+    Friend WithEvents LabHead As Label
 End Class

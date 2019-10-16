@@ -16,26 +16,26 @@
 
 Imports System.IO
 
-Imports Core.Animation
+Imports Xiret.Core.Animation
 
-Imports Gambol.Controls
+Imports Xiret.Controls
 
 Public Class FormCleanup
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetCleanupThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -59,18 +59,6 @@ Public Class FormCleanup
     End Sub
 #End Region
 
-#Region "Load Event Handler"
-
-    Private Sub FormCleanup_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        'Set opacity
-        Opacity = 0
-        'Set theme color
-        SetCleanupThemeAccent()
-
-    End Sub
-
-#End Region
 #Region "Shown Event Handler"
 
     Private Sub FormCleanup_Shown(sender As Object, e As EventArgs) Handles Me.Shown
@@ -89,7 +77,7 @@ Public Class FormCleanup
 #Region "Theme"
     Private Sub SetCleanupThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
 
         CbxResetWinsat.CheckedColor = Settings.ThemeColor
         CbxPurgeSettings.CheckedColor = Settings.ThemeColor
@@ -137,32 +125,42 @@ Public Class FormCleanup
     Private Sub CbxResetWinsat_CheckedChanged(sender As Object, e As EventArgs) Handles CbxResetWinsat.CheckedChanged
         If CType(sender, GambolCheckbox).Checked Then
             CmdReset.Enabled = True
-            pnlPurge.Enabled = False
+            PanPurge.Enabled = False
         Else
             CmdReset.Enabled = False
-            pnlPurge.Enabled = True
+            PanPurge.Enabled = True
         End If
     End Sub
 
     Private Sub CbxPurgeSettings_CheckedChanged(sender As Object, e As EventArgs) Handles CbxPurgeSettings.CheckedChanged
 
-        If (CType(sender, GambolCheckbox).Checked) Then : CmdPurge.Enabled = True : pnlReset.Enabled = False
-        Else : CmdPurge.Enabled = False : pnlReset.Enabled = True
+        If CType(sender, GambolCheckbox).Checked Then : CmdPurge.Enabled = True : PanReset.Enabled = False
+        Else : CmdPurge.Enabled = False : PanReset.Enabled = True
         End If
 
+    End Sub
+
+#End Region
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
     End Sub
 
 #End Region
 
 #Region "Routines"
 
-    Private Sub BatchRemoveFiles(fileFlags As String, ByVal fileDir As String)
+    Private Sub BatchRemoveFiles(FileFlags As String, ByVal FileDirectory As String)
 
         Dim Array() As String
-        Array = Directory.GetFileSystemEntries(fileDir, fileFlags)
-        For Each element As String In Array
-            If Not Directory.Exists(element) Then
-                File.Delete(Path.Combine(fileDir, Path.GetFileName(element)))
+        Array = Directory.GetFileSystemEntries(FileDirectory, FileFlags)
+        For Each Element As String In Array
+            If Not Directory.Exists(Element) Then
+                File.Delete(Path.Combine(FileDirectory, Path.GetFileName(Element)))
             End If
         Next
 

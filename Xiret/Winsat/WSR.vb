@@ -13,16 +13,17 @@
 '  Created by David S on 20.03.2016
 '  Updated on 01.08.2019 - DS (Hardware cleanup)
 '  Updated on 07.08.2019 - DS (Gain GetLatestFormalXML())
+'  Updated on 22.09.2019 - DS (Cleanup of GetWinsatSPR())
 
 Imports System.IO
 Imports System.Xml
 
-Imports Core.Converters
-Imports Core.Helpers
+Imports Xiret.Core.Converters
+Imports Xiret.Core.Helpers
 
 Namespace Winsat
 
-    Friend Class WSR
+    Friend Class WSR4
 
 #Region "WinSPR"
 
@@ -39,10 +40,10 @@ Namespace Winsat
                     FormMain.UpdateControls()
                 Else
                     Try
-                        Strings.StringBaseScore = WinsatApi.GetWinsatBaseScore()
+                        Strings.StringBaseScore = CType(WinsatApi.GetWinsatBaseScore(), String)
                         'Append if length is 1
                         If Strings.StringBaseScore.Length = 1 Then
-                            Strings.StringBaseScore = Strings.StringBaseScore & ".0"
+                            Strings.StringBaseScore &= ".0"
                         Else
                             'Remove extra char
                             If Strings.StringBaseScore.Length > 3 Then
@@ -58,7 +59,7 @@ Namespace Winsat
                         Strings.StringProcessorScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_CPU, InfoType.Score)
                         'Append if length is 1
                         If Strings.StringProcessorScore.Length = 1 Then
-                            Strings.StringProcessorScore = Strings.StringProcessorScore & ".0"
+                            Strings.StringProcessorScore &= ".0"
                         Else
                             'Remove extra char
                             If Strings.StringProcessorScore.Length > 3 Then
@@ -74,7 +75,7 @@ Namespace Winsat
                         Strings.StringMemoryScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_MEMORY, InfoType.Score)
                         'Append if length is 1
                         If Strings.StringMemoryScore.Length = 1 Then
-                            Strings.StringMemoryScore = Strings.StringMemoryScore & ".0"
+                            Strings.StringMemoryScore &= ".0"
                         Else
                             'Remove extra char
                             If Strings.StringMemoryScore.Length > 3 Then
@@ -90,7 +91,7 @@ Namespace Winsat
                         Strings.StringGraphicsScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_GRAPHICS, InfoType.Score)
                         'Append if length is 1
                         If Strings.StringGraphicsScore.Length = 1 Then
-                            Strings.StringGraphicsScore = Strings.StringGraphicsScore & ".0"
+                            Strings.StringGraphicsScore &= ".0"
                         Else
                             'Remove extra char
                             If Strings.StringGraphicsScore.Length > 3 Then
@@ -106,7 +107,7 @@ Namespace Winsat
                         Strings.StringGamingScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_D3D, InfoType.Score)
                         'Append if length is 1
                         If Strings.StringGamingScore.Length = 1 Then
-                            Strings.StringGamingScore = Strings.StringGamingScore & ".0"
+                            Strings.StringGamingScore &= ".0"
                         Else
                             'Remove extra char
                             If Strings.StringGamingScore.Length > 3 Then
@@ -122,7 +123,7 @@ Namespace Winsat
                         Strings.StringDiskScore = WinsatApi.GetWinsatHardwareAPIInfo(WINSATLib.WINSAT_ASSESSMENT_TYPE.WINSAT_ASSESSMENT_DISK, InfoType.Score)
                         'Append is length is 1
                         If Strings.StringDiskScore.Length = 1 Then
-                            Strings.StringDiskScore = Strings.StringDiskScore & ".0"
+                            Strings.StringDiskScore &= ".0"
                         Else
                             'Remove extra char
                             If Strings.StringDiskScore.Length > 3 Then
@@ -148,7 +149,6 @@ Namespace Winsat
                 Strings.StringGraphicsScore = "Unrated"
                 Strings.StringGamingScore = "Unrated"
                 Strings.StringDiskScore = "Unrated"
-                FormMain.lbState.Text = "Your scores could not be read"
                 FormMain.UpdateControls()
                 MessageBox.Show(ex.ToString, "WSR.GetWinsatSPR", MessageBoxButtons.OK, MessageBoxIcon.Error)
             End Try
@@ -160,7 +160,7 @@ Namespace Winsat
 
         Friend Shared Sub ReadXMLHardware()
 
-            If WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unreated systems
+            If WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
                 Exit Sub
             Else
                 Strings.StringProcessorHW = XMLGetProcessor()
@@ -267,7 +267,7 @@ Namespace Winsat
 
         Friend Shared Sub ReadAPIHardware()
 
-            If WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unreated systems
+            If WinsatApi.GetAssessmentValidityInt() = 3 Then 'Block attempts to load hardware on unrated systems
                 Exit Sub
             Else
                 Strings.StringProcessorHW = APIGetProcessor()

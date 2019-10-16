@@ -11,26 +11,29 @@
 '  Xiret project
 '  FormAbout.vb
 '  Created by David S on 20.03.2016
-'  Updated on 31.07.2019 - DS (Cleanup)
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
+'  Updated on 07.10.2019 - DS (Cleanup)
 
-Imports Core.Animation
+Imports Xiret.Core.Animation
 
 Friend Class FormAbout
+
+    Private TheCatReturns As Boolean = False
+    Private ReadOnly Version As String = "Build " & Program.XiretBuild & " (V" & Application.ProductVersion & ") - " & Program.ProductChannel
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetAboutThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
         If e.Button = MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
             WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
@@ -53,10 +56,10 @@ Friend Class FormAbout
 #Region "Theme"
     Private Sub SetAboutThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
 
-        For Each c As Control In pnlMain.Controls
-            If TypeOf c Is LinkLabel Then DirectCast(c, LinkLabel).LinkColor = Settings.ThemeColor
+        For Each Ctrl As Control In PanMain.Controls
+            If TypeOf Ctrl Is LinkLabel Then DirectCast(Ctrl, LinkLabel).LinkColor = Settings.ThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -66,11 +69,7 @@ Friend Class FormAbout
 
 #Region "Load Event Handler"
     Private Sub FormAbout_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        Opacity = 0
-        SetAboutThemeAccent()
-        lbName.Text = "Xiret " & Application.ProductVersion & " RC2-1"
-
+        LabBuild.Text = Version
     End Sub
 
 #End Region
@@ -86,29 +85,69 @@ Friend Class FormAbout
 
 #End Region
 
+#Region "Picturebox Event Handler"
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
+    End Sub
+
+#End Region
 #Region "Linklabel Event Handlers"
-    Private Sub LlBitmight_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llBitmight.LinkClicked
-        Process.Start(Strings.StringBitmightUrl)
-    End Sub
-    Private Sub LlSOurce_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llSOurce.LinkClicked
-        Process.Start("https://github.com/K4onashi/Xiret")
-    End Sub
-    Private Sub LlForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llForum.LinkClicked
+    Private Sub LnkForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkForum.LinkClicked
         Process.Start("https://forums.mydigitallife.net/threads/xiret-experience-index-returns.68890/")
     End Sub
-    Private Sub LlContact_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llContact.LinkClicked
-        Dim str As String = "Xiret version " & Application.ProductVersion
-        Process.Start("mailto:support@bitmight.uk?subject=Xiret Bug Report&body=" & vbCrLf & str)
+    Private Sub LnkContact_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkContact.LinkClicked
+        Dim str As String = "Xiret build: " & Program.XiretBuild
+        Process.Start("mailto:support@bitmight.uk?subject=" & "Software enquiry or bug report&body=" & vbCrLf & str)
     End Sub
-    Private Sub LlDonate_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llDonate.LinkClicked
+    Private Sub LnkSource_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkSource.LinkClicked
+        Process.Start("https://github.com/K4onashi/Xiret")
+    End Sub
+    Private Sub LnkDonate_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkDonate.LinkClicked
         Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CUZ2TP495UZZS")
     End Sub
-    Private Sub LlFlaticon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llFlaticon.LinkClicked
+    Private Sub LnkBitmight_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkBitmight.LinkClicked
+        Process.Start(Strings.StringBitmightUrl)
+    End Sub
+    Private Sub LnkMajorgeeks_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkMajorgeeks.LinkClicked
+        Process.Start("https://www.majorgeeks.com/")
+    End Sub
+    Private Sub LnkFlaticon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkFlaticon.LinkClicked
         Process.Start("http://www.flaticon.com")
     End Sub
-    Private Sub LlVectors_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llVectors.LinkClicked
+    Private Sub LnkVectors_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkVectors.LinkClicked
         Process.Start("https://www.flaticon.com/authors/vectors-market")
     End Sub
+#End Region
+
+#Region "Neko no Ongaeshi"
+
+    Private Sub PbxLogo_Click(sender As Object, e As EventArgs) Handles PbxLogo.Click
+        If TheCatReturns Then
+            TheCatReturns = False
+            CType(sender, PictureBox).Image = My.Resources.icon64px
+            LabAppName.Text = "Scratch, scratch"
+        Else
+            TheCatReturns = True
+            CType(sender, PictureBox).Image = My.Resources.mow
+            LabAppName.Text = "Purrrrrrrrrrr"
+        End If
+    End Sub
+
+    Private Sub PbxLogo_MouseEnter(sender As Object, e As EventArgs) Handles PbxLogo.MouseEnter
+        If TheCatReturns Then
+            LabAppName.Text = "Purrrrrrrrrrr"
+        Else
+            LabAppName.Text = "Scratch, scratch"
+        End If
+    End Sub
+
+    Private Sub PbxLogo_MouseLeave(sender As Object, e As EventArgs) Handles PbxLogo.MouseLeave
+        LabAppName.Text = "Xiret❷"
+    End Sub
+
 #End Region
 
 End Class

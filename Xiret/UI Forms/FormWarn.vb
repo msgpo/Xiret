@@ -19,17 +19,16 @@ Public Class FormWarn
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        SetWarnThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -47,22 +46,12 @@ Public Class FormWarn
     End Sub
 #End Region
 
-#Region "Load Event Handler"
-
-    Private Sub FormWarn_Load(sender As Object, e As EventArgs) Handles Me.Load
-        SetWarnThemeAccent()
-    End Sub
-
-#End Region
-
 #Region "Theme"
     Private Sub SetWarnThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
-
+        PanSplit.BackColor = Settings.ThemeColor
         CmdOkay.ForeColor = Settings.ThemeColor
-
-        llWebsite.LinkColor = Settings.ThemeColor
+        LnkForum.LinkColor = Settings.ThemeColor
 
         Settings.SetBorderColor(Me)
 
@@ -78,8 +67,18 @@ Public Class FormWarn
 #End Region
 #Region "Linklabel Event Handlers"
 
-    Private Sub LlWebsite_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llWebsite.LinkClicked
+    Private Sub LnkForum_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkForum.LinkClicked
         Process.Start("https://forums.mydigitallife.net/threads/xiret-experience-index-returns.68890/")
+    End Sub
+
+#End Region
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
     End Sub
 
 #End Region

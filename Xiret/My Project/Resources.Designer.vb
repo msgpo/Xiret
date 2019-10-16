@@ -22,7 +22,7 @@ Namespace My.Resources
     '''<summary>
     '''  A strongly-typed resource class, for looking up localized strings, etc.
     '''</summary>
-    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0"),  _
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0"),  _
      Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
      Global.Microsoft.VisualBasic.HideModuleNameAttribute()>  _
@@ -61,15 +61,8 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1\ansi\ansicpg1252\deff0\nouicompat{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
-        '''{\colortbl ;\red221\green132\blue132;\red255\green255\blue255;}
-        '''{\*\generator Riched20 10.0.17763}\viewkind4\uc1 
-        '''\pard\sl240\slmult1\cf1\b\f0\fs22\lang9  - v2.0.0 RC1\cf0\b0\par
-        '''\par
-        '''\cf2\b New:\b0\par
-        '''1. The application will now automatically save Imgur links &apos;Options &gt; View Imgur Links&apos;\par
-        '''2. Added new form where users can view system details &apos;Tools &gt; View system details&apos;\par
-        '''3. Added new form where users can remove  [rest of string was truncated]&quot;;.
+        '''  Looks up a localized string similar to {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff40\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang2057\deflangfe2057\themelang2057\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}
+        '''{\f39\fbidi \fswiss\fcharset0\fprq2{\*\panose 020f0502020204030204}Calibri;}{\f40\fbidi \froman\fcharset0\fprq2{\*\panose 00000000000000000000}Liberation Serif{\*\ [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property changelog() As String
             Get
@@ -118,8 +111,58 @@ Namespace My.Resources
         End Property
         
         '''<summary>
-        '''  Looks up a localized string similar to {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff0\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang2057\deflangfe2057\themelang2057\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f2\fbidi \fmodern\fcharset0\fprq1{\*\panose 02070309020205020404}Courier New;}
-        '''{\f3\fbidi \froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}{\f10\fbidi \fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}{\f10\fbidi \fn [rest of string was truncated]&quot;;.
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property mow() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("mow", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property segoeui() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("segoeui", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property segoeuib() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("segoeuib", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Byte[].
+        '''</summary>
+        Friend ReadOnly Property seguisb() As Byte()
+            Get
+                Dim obj As Object = ResourceManager.GetObject("seguisb", resourceCulture)
+                Return CType(obj,Byte())
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property settingsimg() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("settingsimg", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to {\rtf1\adeflang1025\ansi\ansicpg1252\uc1\adeff39\deff0\stshfdbch31505\stshfloch31506\stshfhich31506\stshfbi0\deflang2057\deflangfe2057\themelang2057\themelangfe0\themelangcs0{\fonttbl{\f0\fbidi \froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f34\fbidi \froman\fcharset0\fprq2{\*\panose 02040503050406030204}Cambria Math;}
+        '''{\f39\fbidi \fswiss\fcharset0\fprq2{\*\panose 020f0502020204030204}Calibri;}{\f40\fbidi \froman\fcharset0\fprq2{\*\panose 00000000000000000000}Liberation Serif{\*\ [rest of string was truncated]&quot;;.
         '''</summary>
         Friend ReadOnly Property troubleshooting() As String
             Get

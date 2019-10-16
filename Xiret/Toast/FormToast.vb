@@ -15,7 +15,7 @@
 '  Updated on 07.08.2019 - DS (Increment PxFromEdge 6 > 10, cleanup)
 '  Updated on 13.08.2019 - DS (Temporarily disabled BlurWinForm whilst some issues are corrected)
 
-Imports Core.Animation
+Imports Xiret.Core.Animation
 
 Public Class FormToast
     Implements IMessageFilter

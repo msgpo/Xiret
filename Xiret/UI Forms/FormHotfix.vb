@@ -12,33 +12,32 @@
 '  FormHotfix.vb
 '  Created by David S on 25.07.2019
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
+'  Updated on 23.09.2019 - DS (Move checksum generation from SHA256 to SHA512)
 
 Imports System.IO
+Imports System.Net
 Imports System.Threading.Tasks
 
-Imports Core.Animation
-Imports Core.Helpers
-
-Imports Gambol.Controls
+Imports Xiret.Core.Animation
+Imports Xiret.Core.Helpers
 
 Public Class FormHotfix
 
-    Private ReadOnly StringTemp As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp\Windows6.1-KB2687862.msu")
-    Private exitcode As Integer = 0
+    Private ReadOnly StringTempPath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp\Windows6.1-KB2687862.msu")
 
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetHotfixThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
             WndProc(Message.Create(Handle, Integers.WM_NCLBUTTONDOWN, CType(Integers.HT_CAPTION, IntPtr), IntPtr.Zero))
@@ -55,11 +54,7 @@ Public Class FormHotfix
 #End Region
 #Region "Frame Buttons"
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
-        If Booleans.BoolRestartApp Then
-            Application.Restart()
-        Else
-            Close()
-        End If
+        Close()
     End Sub
 #End Region
 
@@ -67,12 +62,12 @@ Public Class FormHotfix
 
     Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'Set opacity
-        Opacity = 0
-        'Set form theme
-        SetHotfixThemeAccent()
-
-        cbxResetWinsat.Hide()
+        'If OSHelper.IsWinSeven Then
+        '    CmdInstall.Enabled = True
+        'Else
+        '    LabHead.Text = "Support (Disabled on this OS)"
+        '    CmdInstall.Enabled = False
+        'End If
 
     End Sub
 
@@ -95,14 +90,12 @@ Public Class FormHotfix
 #Region "Theme"
     Private Sub SetHotfixThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
+        LnkHotfix.LinkColor = Settings.ThemeColor
+        PbrPercentage.ProgressColor = Settings.ThemeColor
 
-        llInfo.LinkColor = Settings.ThemeColor
-        pbrPerc.ProgressColor = Settings.ThemeColor
-        cbxResetWinsat.CheckedColor = Settings.ThemeColor
-
-        For Each c As Control In tlpBottom.Controls
-            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        For Each Ctrl As Control In TlpBottom.Controls
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.ThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -113,59 +106,19 @@ Public Class FormHotfix
 
 #Region "Routines"
 
-    Private Sub ValidateAndInstall()
-
-        Dim DoInstall As Task = Nothing
-
-        'Validate x64 download success
-        If OSHelper.IsOS64Bit() Then
-            If CryptoHelper.GetSha256FromFile(StringTemp) = Strings.StringHotfixChecksum64 Then
-                lbInfo.Text = "Validation success. Installing KB2687862..."
-                DoInstall = Task.Factory.StartNew(Sub() InstallKB())
-            Else
-                File.Delete(StringTemp)
-                lbInfo.Text = "File validation failure. Download was deleted."
-            End If
-        Else
-            'Validate x86 download success
-            If CryptoHelper.GetSha256FromFile(StringTemp) = Strings.StringHotfixChecksum86 Then
-                lbInfo.Text = "Validation success. Installing KB2687862..."
-                DoInstall = Task.Factory.StartNew(Sub() InstallKB())
-            Else
-                File.Delete(StringTemp)
-                lbInfo.Text = "File validation failure. Download was deleted."
-            End If
-        End If
-
-        InstallFinished()
-
-    End Sub
     Private Sub InstallKB()
-        exitcode = FileHelper.InstallMsu(StringTemp)
+        FileHelper.InstallMsu(StringTempPath)
     End Sub
 
     Private Sub InstallFinished()
 
-        'Check exit code from install
-        FormMain.HotfixAvailableToolStripMenuItem.Visible = False
-
-        If exitcode = 0 Or exitcode = 1 Then
-            Booleans.BoolRestartApp = True
-            lbInfo.Text = "Hotfix installed. Application will restart."
-            CmdCancel.Enabled = False
-            CmdInstall.Enabled = True
-            CmdInstall.Text = "Restart"
-            pbrPerc.Value = 0
-        Else
-            Booleans.BoolRestartWin = True
-            lbInfo.Text = "Hotfix installed. A system restart is required."
-            CmdClose.Enabled = False
-            CmdCancel.Enabled = False
-            CmdInstall.Enabled = False
-            CmdInstall.Text = "Restart"
-            pbrPerc.Value = 0
-            cbxResetWinsat.Show()
-        End If
+        Booleans.BoolRestartWin = True
+        LabDownload.Text = "Hotfix installed. A system restart is required."
+        CmdClose.Enabled = False
+        CmdCancel.Enabled = False
+        CmdInstall.Enabled = True
+        CmdInstall.Text = "Restart"
+        PbrPercentage.Value = 0
 
     End Sub
 
@@ -178,23 +131,31 @@ Public Class FormHotfix
         If Booleans.BoolRestartWin Then
             Process.Start("shutdown", "-r -t 00")
         Else
-            If Booleans.BoolRestartApp Then
-                Application.Restart()
-            Else
-                lbInfo.Text = "Working..."
-                'Disable button from clicking
-                CType(sender, Button).Enabled = False
 
-                'Determine bitness for appropriate hotfix
-                If OSHelper.IsOS64Bit() Then
-                    File.WriteAllBytes(StringTemp, FileHelper.Hotfix64)
+            LabDownload.Text = "Please wait..."
+            'Disable button from clicking
+            CType(sender, Button).Enabled = False
+
+            'Determine bitness for appropriate hotfix
+
+            If NetHelper.IsWebsiteAvailable(Strings.StringBitmightUrl) = True Then
+
+                Dim WClient As New WebClient
+                AddHandler WClient.DownloadProgressChanged, AddressOf WClient_ProgressChanged
+                AddHandler WClient.DownloadFileCompleted, AddressOf WClient_DownloadCompleted
+
+                If OSHelper.IsWindows64Bit() Then
+                    WClient.DownloadFileAsync(New Uri(Strings.StringHotfix64Url), StringTempPath)
                 Else
-                    File.WriteAllBytes(StringTemp, FileHelper.Hotfix86)
+                    WClient.DownloadFileAsync(New Uri(Strings.StringHotfix86Url), StringTempPath)
                 End If
 
-                ValidateAndInstall()
+                WClient.Dispose()
 
+            Else
+                ToastAlert.Show("Could not reach server", ToastType.IsWarning)
             End If
+
         End If
 
     End Sub
@@ -206,20 +167,64 @@ Public Class FormHotfix
 #End Region
 #Region "LinkLabel Event Handlers"
 
-    Private Sub LlInfo_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles llInfo.LinkClicked
+    Private Sub LnkHotfix_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkHotfix.LinkClicked
         Process.Start("https://support.microsoft.com/help/2687862")
     End Sub
 
 #End Region
-#Region "Checkbox Event Handlers"
+#Region "Picturebox Event Handler"
 
-    Private Sub CbxResetWinsat_CheckedChanged(sender As Object, e As EventArgs) Handles cbxResetWinsat.CheckedChanged
-
-        If CType(sender, GambolCheckbox).Checked Then
-            CmdInstall.Enabled = True
-        Else
-            CmdInstall.Enabled = False
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
         End If
+        CenterToParent()
+    End Sub
+
+#End Region
+
+#Region "WebClient"
+
+    Private Sub WClient_ProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs)
+
+        Dim bytesIn As Double = Double.Parse(e.BytesReceived.ToString())
+        Dim totalBytes As Double = Double.Parse(e.TotalBytesToReceive.ToString())
+        Dim percentage As Double = bytesIn / totalBytes * 100
+
+        Invoke(DirectCast(Sub() LabDownload.Text = "Downloading: " & Integer.Parse(Math.Truncate(percentage).ToString()) & "%", MethodInvoker))
+
+        'PbrUpdate.Value = Int32.Parse(Math.Truncate(percentage).ToString())
+        'PbrUpdate.Refresh()
+
+    End Sub
+    Private Sub WClient_DownloadCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
+
+        'PbrUpdate.Value = 0
+        'PbrUpdate.Hide()
+
+        Dim DoInstall As Task = Nothing
+
+        'Validate x64 download success
+        If OSHelper.IsWindows64Bit() Then
+            If CryptoHelper.GetSha512FromFile(StringTempPath) = Strings.StringHotfixChecksum64 Then
+                Invoke(DirectCast(Sub() LabDownload.Text = "Validation success. Installing KB2687862...", MethodInvoker))
+                DoInstall = Task.Factory.StartNew(Sub() InstallKB())
+            Else
+                File.Delete(StringTempPath)
+                Invoke(DirectCast(Sub() LabDownload.Text = "File validation failure. Download was deleted.", MethodInvoker))
+            End If
+        Else
+            'Validate x86 download success
+            If CryptoHelper.GetSha512FromFile(StringTempPath) = Strings.StringHotfixChecksum86 Then
+                Invoke(DirectCast(Sub() LabDownload.Text = "Validation success. Installing KB2687862...", MethodInvoker))
+                DoInstall = Task.Factory.StartNew(Sub() InstallKB())
+            Else
+                File.Delete(StringTempPath)
+                Invoke(DirectCast(Sub() LabDownload.Text = "File validation failure. Download was deleted.", MethodInvoker))
+            End If
+        End If
+
+        InstallFinished()
 
     End Sub
 

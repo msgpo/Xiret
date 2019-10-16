@@ -11,34 +11,42 @@
 '  Xiret project
 '  Program.vb
 '  Created by David S on 20.03.2016
-'  Updated on 14.07.2019 - DS (Update Main())
+'  Updated on 09.10.2019 - DS (Removed imports form Xiret.dll and copied some api and functions to here. Program.vb needs to be self-sustaining to check missing files.)
+'  Updated on 16.10.2019 - DS (Removed library check)
 
 Imports Microsoft.VisualBasic.ApplicationServices
 Imports System.IO
 
-Imports Core.Fonts
-Imports Core.Helpers
-Imports Core.WinApi
+Imports System.Text
 
-Imports Xiret.Prog.Support
+Imports Xiret.Main.Support
+
+Imports Xiret.Core.Fonts
+Imports Xiret.Core.Helpers
+Imports Xiret.Core.WinApi
+
+
+#Disable Warning IDE0060
 
 <Module: CodeName("EFA11")>
-<Module: TestedBy("K4onashi, Carlos Detweiller, ItielMaN, MichaelJoy")>
-<Module: ProductChannel("RC")>
-<Module: ProductVersion("2.0.0 rc2-1")>
-<Module: BuiltBy("K4onashi - 13.08.2019")>
+<Module: TestedBy("K4onashi, Carlos Detweiller, ItielMaN")>
+<Module: ProductChannel("Release")>
+<Module: ProductVersion("2.0.1")>
+<Module: BuiltBy("David S aka K4onashi")>
 <Module: TableFlip(" It's not a bug it's a feature (╯°□°）╯︵ ┻━┻")>
 
 Friend Class Program
+
+    ' ## PLEASE FILL BEFORE RELEASE ## '
+    Friend Shared ReadOnly ProductChannel As String = "Release"
+    Friend Shared ReadOnly ProductReleaseDate As String = "16th October 2019"
+    Friend Shared XiretBuild As String = "1HK20"
 
     <STAThread()>
     Friend Shared Sub Main(ByVal Args() As String)
 
         'Set DPI scaling
         SetProcessDPIAwareA.SetProcessDPIAware()
-
-        'Check Hotfix
-        '// Moved to thread in FormMain - Caused slow loading time on WIndows 7
 
         'Signature verification
         Dim IsSigVerified As Boolean = False
@@ -47,9 +55,8 @@ Friend Class Program
         'Start signature check
         If IsSigEnforced And IsSigVerified Then 'Valid
 
-            If Not Debugger.IsAttached Then
-                CheckLibraries()
-            End If
+            CreateAppdataFolder()
+            RunLaunchDiags()
 
             'Framework
             Application.EnableVisualStyles()
@@ -59,59 +66,151 @@ Friend Class Program
             Settings.CreateUpdaterSettings()
             Settings.CheckSettings()
 
-            'Check missing Vista font
-            If OSHelper.IsWinVista() Then
-                If Not File.Exists(FontInstaller.FileFontStatic) Then
-                    FormFont.ShowDialog()
-                End If
-            End If
+            'Check fonts
+            CheckFonts()
 
             Dim DEC25OCT31 As New ApplicationSupport(FormMain, Args)
 
         Else
-            MessageBox.Show("File has been edited. Cannot continue." & vbCrLf & "ISE# " & IsSigEnforced & vbCrLf & "ISV# " & IsSigVerified, "Application Support", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("File has been edited. Cannot continue." & vbCrLf & "Enforced: " & IsSigEnforced & vbCrLf & "Verified: " & IsSigVerified, "Application Support", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Environment.Exit(0)
         End If
 
     End Sub
 
-#Region "Library Protection"
+#Region "Create Folder(s)"
 
-    Friend Shared Sub CheckLibraries()
+    Private Shared Sub CreateAppdataFolder()
 
-        'Plz don hack -- I find u
+        Try
+            If Not Directory.Exists(Directories.DirAppData) Then
+                Directory.CreateDirectory(Directories.DirAppData)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Program.CreateAppdataFolder()", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
 
-        Dim CoreDLLChecksum As String = CryptoHelper.GetSha512FromFile(Path.Combine(Directories.DirAppPath, "Core.dll"), True)
-        Dim CoreDllExpected As String = "6BBEADFEF7B73921E8794E7F29EE62DBC50A57002E047F20BC82B7B0714DD6FFF0FD141C0D28BB62CC1AC660F0F66152F8ECA3DB36F812F3AC8F74002609BF8E"
+    End Sub
 
-        Dim GambolDLLChecksum As String = CryptoHelper.GetSha512FromFile(Path.Combine(Directories.DirAppPath, "Gambol.dll"), True)
-        Dim GambolDLLExpected As String = "B007E1670AC5AB0E6F5189A7745F55B24DC0FED23C144E4A9401FC06DFD1C87C7EF5467D486CAFD26B5D6FC0816DB05C73B0F6B788666DE5E889DD25C4B1D474"
+#End Region
+#Region "Pre-launch Diagnostics"
 
-        Dim IsCoreDllVerified As Boolean = CoreDLLChecksum = CoreDllExpected
-        Dim IsGambolDllVerified As Boolean = GambolDLLChecksum = GambolDLLExpected
+    Friend Shared Sub RunLaunchDiags()
 
-        Dim Core As String = CType(IIf(IsCoreDllVerified, "is verified.", "checksum mismatch!"), String)
-        Dim Gambol As String = CType(IIf(IsGambolDllVerified, "is verified.", "checksum mismatch!"), String)
+        Dim SBuilder As New StringBuilder
 
-        If IsCoreDllVerified And IsGambolDllVerified Then
-            Exit Sub
-        Else
-            Dim DR As DialogResult = MessageBox.Show("One or more DLL files did not pass verification. Unless this is intentional, it's highly recommended not to use the application." _
-                                                     & vbCrLf & vbCrLf & "Core.dll " & Core & vbCrLf & "Gambol.dll " & Gambol & vbCrLf & vbCrLf & "Click OK to continue. Click cancel to exit.", "Support", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)
+        Try
+            SBuilder.AppendLine("Pre-launch diagnostics")
+            SBuilder.AppendLine()
+            SBuilder.AppendLine("Build: " & Application.ProductVersion & " " & XiretBuild)
+            SBuilder.AppendLine("OpSys: " & OSHelper.GetWindowsBuildLab)
 
-            If DR = DialogResult.Cancel Then
-                Environment.Exit(0)
+            If File.Exists(Files.FontSegoeUI) Then
+                SBuilder.AppendLine("SegoeUI: Found")
+            Else
+                SBuilder.AppendLine("SegoeUI: Missing")
             End If
 
+            If File.Exists(Files.FontSegoeUIBold) Then
+                SBuilder.AppendLine("SegoeUIBold: Found")
+            Else
+                SBuilder.AppendLine("SegoeUIBold: Missing")
+            End If
+
+            If File.Exists(Files.FontSegoeUISemibold) Then
+                SBuilder.AppendLine("SegoeUISemibold: Found")
+            Else
+                SBuilder.AppendLine("SegoeUISemibold: Missing")
+            End If
+
+            If File.Exists(Files.FileWinsat) Then
+                SBuilder.AppendLine("WinSAT: Found")
+            Else
+                SBuilder.AppendLine("WinSAT: Missing")
+            End If
+
+            If File.Exists(Files.FileWinsatApi) Then
+                SBuilder.AppendLine("WinSAT API: Found")
+            Else
+                SBuilder.AppendLine("WinSAT API: Missing")
+            End If
+
+            If OSHelper.IsElevated Then
+                SBuilder.AppendLine("Token: WellKnown")
+            Else
+                SBuilder.AppendLine("Token: Standard")
+            End If
+
+            If OSHelper.GetNetv4Reg Then
+                SBuilder.AppendLine("Framework: Found (v4)")
+                SBuilder.AppendLine(" - Path: " & OSHelper.GetNetv4Value("InstallPath"))
+                SBuilder.AppendLine(" - Release: " & OSHelper.GetNetv4Value("Release"))
+                SBuilder.AppendLine(" - Target: " & OSHelper.GetNetv4Value("TargetVersion"))
+                SBuilder.AppendLine(" - Version: " & OSHelper.GetNetv4Value("Version"))
+            Else
+                SBuilder.AppendLine("Framework: Missing")
+            End If
+
+            My.Computer.FileSystem.WriteAllText(Directories.DirAppData & "\prelaunch.log", SBuilder.ToString(), False)
+
+        Catch ex As Exception
+            MessageBox.Show(ex.ToString, "Program.RunLaunchDiags()", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End Try
+
+    End Sub
+
+#End Region
+#Region "Font Checker"
+
+    Private Shared Function DoesFontExist(ByVal fontFamilyName As String, ByVal fontStyle As FontStyle) As Boolean
+
+        Try
+            Using Fam As FontFamily = New FontFamily(fontFamilyName)
+                Return Fam.IsStyleAvailable(fontStyle)
+            End Using
+
+        Catch ex As ArgumentException
+            Return False
+        End Try
+
+    End Function
+
+    Private Shared Sub CheckFonts()
+
+        Dim DidInstall As Boolean = False
+
+        If Not DoesFontExist("Segoe UI", FontStyle.Regular) Then
+            Dim i = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUI, My.Resources.segoeui, "Segoe UI")
+            If i = 1 Then
+                DidInstall = True
+            End If
+        End If
+
+        If Not DoesFontExist("Segoe UI", FontStyle.Bold) Then
+            Dim i = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUIBold, My.Resources.segoeuib, "Segoe UI Bold")
+            If i = 1 Then
+                DidInstall = True
+            End If
+        End If
+
+        If Not DoesFontExist("Segoe UI Semibold", FontStyle.Regular) Then
+            Dim i = FontInstaller.InstallFont(FontInstaller.SystemFontSegoeUISemibold, My.Resources.seguisb, "Segoe UI Semibold")
+            If i = 1 Then
+                DidInstall = True
+            End If
+        End If
+
+        If DidInstall Then
+            MessageBox.Show("One or more fonts from the Segoe UI family were missing and installed for proper functionality. If application fonts are displayed incorrectly, a system restart may be required." & vbCrLf & vbCrLf & "Please start the application again.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information)
+            Environment.Exit(0)
         End If
 
     End Sub
 
-End Class
-
 #End Region
 
-Namespace Prog.Support
+End Class
+Namespace Main.Support
 
     Friend Class ApplicationSupport
         Inherits WindowsFormsApplicationBase
@@ -128,17 +227,15 @@ Namespace Prog.Support
         End Sub
 
 #Region "Application Startup"
-
+        Private ReadOnly FEnvironment As New FormEnvironment
         Private Sub ApplicationSupport_Startup(sender As Object, e As StartupEventArgs) Handles Me.Startup
 
-            Dim FE As New FormEnvironment
-            AddHandler FE.FormClosed, AddressOf Wait
+            AddHandler FEnvironment.FormClosed, AddressOf Wait
 
             If (OSHelper.GetKernelVersion.ProductMajorPart < 6) OrElse OSHelper.IsWinServer() Then 'Unsupported os version
-                FE.ShowDialog()
+                FEnvironment.ShowDialog()
             Else 'Clean your mess
-                RemoveHandler FE.FormClosed, AddressOf Wait
-                FE.Dispose()
+                RemoveHandler FEnvironment.FormClosed, AddressOf Wait
             End If
 
         End Sub
@@ -169,13 +266,14 @@ Namespace Prog.Support
 #End Region
 #Region "Unhandled Exception"
 
-        Public Shared StringStackTrace As String = Nothing
-        Public Shared StringException As String = Nothing
+        Friend Shared StringException As String
+        Friend Shared StringExceptionMessage As String
+
 
         Private Sub ApplicationSupport_UnhandledException(sender As Object, e As UnhandledExceptionEventArgs) Handles Me.UnhandledException
 
-            StringStackTrace = e.Exception.StackTrace
             StringException = e.Exception.Message
+            StringExceptionMessage = Convert.ToString(e.Exception)
 
             Dim FException As New FormException
 
@@ -231,6 +329,3 @@ Friend Class TableFlip
     End Sub
 End Class
 #End Region
-
-
-

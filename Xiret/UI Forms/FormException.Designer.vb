@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class FormException
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,217 +20,257 @@ Partial Class FormException
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FormException))
-        Me.pnlHead = New System.Windows.Forms.Panel()
-        Me.tlpIcon = New System.Windows.Forms.TableLayoutPanel()
-        Me.pbxMain = New System.Windows.Forms.PictureBox()
-        Me.lbHead = New System.Windows.Forms.Label()
-        Me.lbStatus = New System.Windows.Forms.Label()
-        Me.cmdContinue = New System.Windows.Forms.Button()
-        Me.cmdForceQuit = New System.Windows.Forms.Button()
-        Me.lbText = New System.Windows.Forms.Label()
-        Me.lbInfo = New System.Windows.Forms.Label()
-        Me.pnlSplit = New System.Windows.Forms.Panel()
-        Me.pnlMain = New System.Windows.Forms.Panel()
-        Me.tlpButtons = New System.Windows.Forms.TableLayoutPanel()
-        Me.cmdSendReport = New System.Windows.Forms.Button()
-        Me.pnlHead.SuspendLayout()
-        Me.tlpIcon.SuspendLayout()
-        CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.pnlMain.SuspendLayout()
-        Me.tlpButtons.SuspendLayout()
+        Me.PanHead = New System.Windows.Forms.Panel()
+        Me.TlpHeadImage = New System.Windows.Forms.TableLayoutPanel()
+        Me.PbxHead = New System.Windows.Forms.PictureBox()
+        Me.LabHead = New System.Windows.Forms.Label()
+        Me.CmdContinue = New System.Windows.Forms.Button()
+        Me.CmdForceQuit = New System.Windows.Forms.Button()
+        Me.LabInfo = New System.Windows.Forms.Label()
+        Me.LabError = New System.Windows.Forms.Label()
+        Me.PanSplit = New System.Windows.Forms.Panel()
+        Me.PanMain = New System.Windows.Forms.Panel()
+        Me.LnkForum = New System.Windows.Forms.LinkLabel()
+        Me.LnkEmail = New System.Windows.Forms.LinkLabel()
+        Me.TlpButtons = New System.Windows.Forms.TableLayoutPanel()
+        Me.CmdSaveLog = New System.Windows.Forms.Button()
+        Me.TlpSep = New System.Windows.Forms.TableLayoutPanel()
+        Me.PanHead.SuspendLayout()
+        Me.TlpHeadImage.SuspendLayout()
+        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.PanMain.SuspendLayout()
+        Me.TlpButtons.SuspendLayout()
         Me.SuspendLayout()
         '
-        'pnlHead
+        'PanHead
         '
-        Me.pnlHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.pnlHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlHead.Controls.Add(Me.tlpIcon)
-        Me.pnlHead.Controls.Add(Me.lbHead)
-        Me.pnlHead.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHead.Location = New System.Drawing.Point(1, 1)
-        Me.pnlHead.Margin = New System.Windows.Forms.Padding(4)
-        Me.pnlHead.Name = "pnlHead"
-        Me.pnlHead.Size = New System.Drawing.Size(648, 40)
-        Me.pnlHead.TabIndex = 1
+        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.PanHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
+        Me.PanHead.Controls.Add(Me.LabHead)
+        Me.PanHead.Controls.Add(Me.TlpHeadImage)
+        Me.PanHead.Controls.Add(Me.TlpSep)
+        Me.PanHead.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanHead.Location = New System.Drawing.Point(1, 1)
+        Me.PanHead.Margin = New System.Windows.Forms.Padding(4)
+        Me.PanHead.Name = "PanHead"
+        Me.PanHead.Size = New System.Drawing.Size(588, 40)
+        Me.PanHead.TabIndex = 1
         '
-        'tlpIcon
+        'TlpHeadImage
         '
-        Me.tlpIcon.BackColor = System.Drawing.Color.Transparent
-        Me.tlpIcon.ColumnCount = 1
-        Me.tlpIcon.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
-        Me.tlpIcon.Controls.Add(Me.pbxMain, 0, 0)
-        Me.tlpIcon.Dock = System.Windows.Forms.DockStyle.Left
-        Me.tlpIcon.Location = New System.Drawing.Point(0, 0)
-        Me.tlpIcon.Margin = New System.Windows.Forms.Padding(0)
-        Me.tlpIcon.Name = "tlpIcon"
-        Me.tlpIcon.RowCount = 1
-        Me.tlpIcon.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpIcon.Size = New System.Drawing.Size(41, 40)
-        Me.tlpIcon.TabIndex = 16
+        Me.TlpHeadImage.BackColor = System.Drawing.Color.Transparent
+        Me.TlpHeadImage.ColumnCount = 1
+        Me.TlpHeadImage.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 52.0!))
+        Me.TlpHeadImage.Controls.Add(Me.PbxHead, 0, 0)
+        Me.TlpHeadImage.Dock = System.Windows.Forms.DockStyle.Left
+        Me.TlpHeadImage.Location = New System.Drawing.Point(0, 0)
+        Me.TlpHeadImage.Margin = New System.Windows.Forms.Padding(0)
+        Me.TlpHeadImage.Name = "TlpHeadImage"
+        Me.TlpHeadImage.RowCount = 1
+        Me.TlpHeadImage.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpHeadImage.Size = New System.Drawing.Size(40, 40)
+        Me.TlpHeadImage.TabIndex = 16
         '
-        'pbxMain
+        'PbxHead
         '
-        Me.pbxMain.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.pbxMain.BackColor = System.Drawing.Color.Transparent
-        Me.pbxMain.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
-        Me.pbxMain.Image = Global.Xiret.My.Resources.Resources.icon24px
-        Me.pbxMain.Location = New System.Drawing.Point(9, 8)
-        Me.pbxMain.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
-        Me.pbxMain.Name = "pbxMain"
-        Me.pbxMain.Size = New System.Drawing.Size(24, 24)
-        Me.pbxMain.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
-        Me.pbxMain.TabIndex = 1
-        Me.pbxMain.TabStop = False
+        Me.PbxHead.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PbxHead.BackColor = System.Drawing.Color.Transparent
+        Me.PbxHead.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom
+        Me.PbxHead.Image = Global.Xiret.My.Resources.Resources.icon24px
+        Me.PbxHead.Location = New System.Drawing.Point(9, 8)
+        Me.PbxHead.Margin = New System.Windows.Forms.Padding(0, 0, 10, 0)
+        Me.PbxHead.Name = "PbxHead"
+        Me.PbxHead.Size = New System.Drawing.Size(24, 24)
+        Me.PbxHead.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
+        Me.PbxHead.TabIndex = 1
+        Me.PbxHead.TabStop = False
         '
-        'lbHead
+        'LabHead
         '
-        Me.lbHead.BackColor = System.Drawing.Color.Transparent
-        Me.lbHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbHead.ForeColor = System.Drawing.Color.White
-        Me.lbHead.Location = New System.Drawing.Point(205, 2)
-        Me.lbHead.Name = "lbHead"
-        Me.lbHead.Size = New System.Drawing.Size(240, 38)
-        Me.lbHead.TabIndex = 15
-        Me.lbHead.Text = "Application Support"
-        Me.lbHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabHead.BackColor = System.Drawing.Color.Transparent
+        Me.LabHead.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.LabHead.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabHead.ForeColor = System.Drawing.Color.White
+        Me.LabHead.Location = New System.Drawing.Point(40, 0)
+        Me.LabHead.Name = "LabHead"
+        Me.LabHead.Size = New System.Drawing.Size(508, 40)
+        Me.LabHead.TabIndex = 15
+        Me.LabHead.Text = "Unhandled Exception Caught"
+        Me.LabHead.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lbStatus
+        'CmdContinue
         '
-        Me.lbStatus.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.lbStatus.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbStatus.ForeColor = System.Drawing.Color.White
-        Me.lbStatus.Location = New System.Drawing.Point(4, 224)
-        Me.lbStatus.Name = "lbStatus"
-        Me.lbStatus.Size = New System.Drawing.Size(640, 30)
-        Me.lbStatus.TabIndex = 14
-        Me.lbStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.CmdContinue.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdContinue.Enabled = False
+        Me.CmdContinue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdContinue.FlatAppearance.BorderSize = 0
+        Me.CmdContinue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdContinue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdContinue.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdContinue.Location = New System.Drawing.Point(107, 0)
+        Me.CmdContinue.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdContinue.Name = "CmdContinue"
+        Me.CmdContinue.Size = New System.Drawing.Size(100, 35)
+        Me.CmdContinue.TabIndex = 3
+        Me.CmdContinue.TabStop = False
+        Me.CmdContinue.Text = "Continue"
+        Me.CmdContinue.UseVisualStyleBackColor = False
         '
-        'cmdContinue
+        'CmdForceQuit
         '
-        Me.cmdContinue.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdContinue.Enabled = False
-        Me.cmdContinue.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdContinue.FlatAppearance.BorderSize = 0
-        Me.cmdContinue.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdContinue.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdContinue.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdContinue.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdContinue.Location = New System.Drawing.Point(115, 0)
-        Me.cmdContinue.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdContinue.Name = "cmdContinue"
-        Me.cmdContinue.Size = New System.Drawing.Size(108, 35)
-        Me.cmdContinue.TabIndex = 10
-        Me.cmdContinue.TabStop = False
-        Me.cmdContinue.Text = "Continue"
-        Me.cmdContinue.UseVisualStyleBackColor = False
+        Me.CmdForceQuit.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdForceQuit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdForceQuit.FlatAppearance.BorderSize = 0
+        Me.CmdForceQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdForceQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdForceQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdForceQuit.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdForceQuit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdForceQuit.Location = New System.Drawing.Point(0, 0)
+        Me.CmdForceQuit.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdForceQuit.Name = "CmdForceQuit"
+        Me.CmdForceQuit.Size = New System.Drawing.Size(100, 35)
+        Me.CmdForceQuit.TabIndex = 2
+        Me.CmdForceQuit.TabStop = False
+        Me.CmdForceQuit.Text = "Force Quit"
+        Me.CmdForceQuit.UseVisualStyleBackColor = False
         '
-        'cmdForceQuit
+        'LabInfo
         '
-        Me.cmdForceQuit.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdForceQuit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdForceQuit.FlatAppearance.BorderSize = 0
-        Me.cmdForceQuit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdForceQuit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdForceQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdForceQuit.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdForceQuit.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdForceQuit.Location = New System.Drawing.Point(0, 0)
-        Me.cmdForceQuit.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdForceQuit.Name = "cmdForceQuit"
-        Me.cmdForceQuit.Size = New System.Drawing.Size(108, 35)
-        Me.cmdForceQuit.TabIndex = 9
-        Me.cmdForceQuit.TabStop = False
-        Me.cmdForceQuit.Text = "Force Quit"
-        Me.cmdForceQuit.UseVisualStyleBackColor = False
+        Me.LabInfo.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabInfo.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
+        Me.LabInfo.Location = New System.Drawing.Point(0, 122)
+        Me.LabInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabInfo.Name = "LabInfo"
+        Me.LabInfo.Size = New System.Drawing.Size(588, 110)
+        Me.LabInfo.TabIndex = 7
+        Me.LabInfo.Text = resources.GetString("LabInfo.Text")
+        Me.LabInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lbText
+        'LabError
         '
-        Me.lbText.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbText.ForeColor = System.Drawing.Color.FromArgb(CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer), CType(CType(230, Byte), Integer))
-        Me.lbText.Location = New System.Drawing.Point(4, 114)
-        Me.lbText.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbText.Name = "lbText"
-        Me.lbText.Size = New System.Drawing.Size(640, 93)
-        Me.lbText.TabIndex = 7
-        Me.lbText.Text = resources.GetString("lbText.Text")
-        Me.lbText.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.LabError.BackColor = System.Drawing.Color.FromArgb(CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer), CType(CType(30, Byte), Integer))
+        Me.LabError.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabError.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabError.ForeColor = System.Drawing.Color.Tomato
+        Me.LabError.Location = New System.Drawing.Point(0, 0)
+        Me.LabError.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.LabError.Name = "LabError"
+        Me.LabError.Size = New System.Drawing.Size(588, 122)
+        Me.LabError.TabIndex = 6
+        Me.LabError.Text = "..."
+        Me.LabError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
-        'lbInfo
+        'PanSplit
         '
-        Me.lbInfo.BackColor = System.Drawing.Color.Transparent
-        Me.lbInfo.Font = New System.Drawing.Font("Segoe UI Semibold", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbInfo.ForeColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(128, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.lbInfo.Location = New System.Drawing.Point(4, 10)
-        Me.lbInfo.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.lbInfo.Name = "lbInfo"
-        Me.lbInfo.Size = New System.Drawing.Size(640, 91)
-        Me.lbInfo.TabIndex = 6
-        Me.lbInfo.Text = "..."
-        Me.lbInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        Me.PanSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.PanSplit.Dock = System.Windows.Forms.DockStyle.Top
+        Me.PanSplit.Location = New System.Drawing.Point(1, 41)
+        Me.PanSplit.Name = "PanSplit"
+        Me.PanSplit.Size = New System.Drawing.Size(588, 2)
+        Me.PanSplit.TabIndex = 73
         '
-        'pnlSplit
+        'PanMain
         '
-        Me.pnlSplit.BackColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.pnlSplit.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlSplit.Location = New System.Drawing.Point(1, 41)
-        Me.pnlSplit.Name = "pnlSplit"
-        Me.pnlSplit.Size = New System.Drawing.Size(648, 2)
-        Me.pnlSplit.TabIndex = 73
+        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
+        Me.PanMain.Controls.Add(Me.LnkForum)
+        Me.PanMain.Controls.Add(Me.LnkEmail)
+        Me.PanMain.Controls.Add(Me.LabInfo)
+        Me.PanMain.Controls.Add(Me.TlpButtons)
+        Me.PanMain.Controls.Add(Me.LabError)
+        Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanMain.Location = New System.Drawing.Point(1, 43)
+        Me.PanMain.Name = "PanMain"
+        Me.PanMain.Size = New System.Drawing.Size(588, 296)
+        Me.PanMain.TabIndex = 74
         '
-        'pnlMain
+        'LnkForum
         '
-        Me.pnlMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
-        Me.pnlMain.Controls.Add(Me.lbStatus)
-        Me.pnlMain.Controls.Add(Me.tlpButtons)
-        Me.pnlMain.Controls.Add(Me.lbInfo)
-        Me.pnlMain.Controls.Add(Me.lbText)
-        Me.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMain.Location = New System.Drawing.Point(1, 43)
-        Me.pnlMain.Name = "pnlMain"
-        Me.pnlMain.Size = New System.Drawing.Size(648, 326)
-        Me.pnlMain.TabIndex = 74
+        Me.LnkForum.ActiveLinkColor = System.Drawing.Color.White
+        Me.LnkForum.AutoSize = True
+        Me.LnkForum.BackColor = System.Drawing.Color.Transparent
+        Me.LnkForum.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LnkForum.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LnkForum.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LnkForum.Location = New System.Drawing.Point(14, 254)
+        Me.LnkForum.Name = "LnkForum"
+        Me.LnkForum.Size = New System.Drawing.Size(108, 20)
+        Me.LnkForum.TabIndex = 0
+        Me.LnkForum.TabStop = True
+        Me.LnkForum.Text = "Support Forum"
         '
-        'tlpButtons
+        'LnkEmail
         '
-        Me.tlpButtons.ColumnCount = 5
-        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
-        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
-        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
-        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
-        Me.tlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 108.0!))
-        Me.tlpButtons.Controls.Add(Me.cmdForceQuit, 0, 0)
-        Me.tlpButtons.Controls.Add(Me.cmdContinue, 2, 0)
-        Me.tlpButtons.Controls.Add(Me.cmdSendReport, 4, 0)
-        Me.tlpButtons.Location = New System.Drawing.Point(155, 271)
-        Me.tlpButtons.Name = "tlpButtons"
-        Me.tlpButtons.RowCount = 1
-        Me.tlpButtons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
-        Me.tlpButtons.Size = New System.Drawing.Size(340, 35)
-        Me.tlpButtons.TabIndex = 12
+        Me.LnkEmail.ActiveLinkColor = System.Drawing.Color.White
+        Me.LnkEmail.AutoSize = True
+        Me.LnkEmail.BackColor = System.Drawing.Color.Transparent
+        Me.LnkEmail.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LnkEmail.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline
+        Me.LnkEmail.LinkColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.LnkEmail.Location = New System.Drawing.Point(128, 254)
+        Me.LnkEmail.Name = "LnkEmail"
+        Me.LnkEmail.Size = New System.Drawing.Size(46, 20)
+        Me.LnkEmail.TabIndex = 1
+        Me.LnkEmail.TabStop = True
+        Me.LnkEmail.Text = "Email"
         '
-        'cmdSendReport
+        'TlpButtons
         '
-        Me.cmdSendReport.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdSendReport.Enabled = False
-        Me.cmdSendReport.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.cmdSendReport.FlatAppearance.BorderSize = 0
-        Me.cmdSendReport.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdSendReport.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer), CType(CType(15, Byte), Integer))
-        Me.cmdSendReport.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdSendReport.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdSendReport.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdSendReport.Location = New System.Drawing.Point(230, 0)
-        Me.cmdSendReport.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdSendReport.Name = "cmdSendReport"
-        Me.cmdSendReport.Size = New System.Drawing.Size(108, 35)
-        Me.cmdSendReport.TabIndex = 11
-        Me.cmdSendReport.TabStop = False
-        Me.cmdSendReport.Text = "Send Report"
-        Me.cmdSendReport.UseVisualStyleBackColor = False
+        Me.TlpButtons.ColumnCount = 5
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 7.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100.0!))
+        Me.TlpButtons.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
+        Me.TlpButtons.Controls.Add(Me.CmdForceQuit, 0, 0)
+        Me.TlpButtons.Controls.Add(Me.CmdContinue, 2, 0)
+        Me.TlpButtons.Controls.Add(Me.CmdSaveLog, 4, 0)
+        Me.TlpButtons.Location = New System.Drawing.Point(260, 247)
+        Me.TlpButtons.Name = "TlpButtons"
+        Me.TlpButtons.RowCount = 1
+        Me.TlpButtons.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpButtons.Size = New System.Drawing.Size(314, 35)
+        Me.TlpButtons.TabIndex = 12
+        '
+        'CmdSaveLog
+        '
+        Me.CmdSaveLog.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSaveLog.Enabled = False
+        Me.CmdSaveLog.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.CmdSaveLog.FlatAppearance.BorderSize = 0
+        Me.CmdSaveLog.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdSaveLog.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer), CType(CType(10, Byte), Integer))
+        Me.CmdSaveLog.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdSaveLog.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdSaveLog.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.CmdSaveLog.Location = New System.Drawing.Point(214, 0)
+        Me.CmdSaveLog.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdSaveLog.Name = "CmdSaveLog"
+        Me.CmdSaveLog.Size = New System.Drawing.Size(100, 35)
+        Me.CmdSaveLog.TabIndex = 4
+        Me.CmdSaveLog.TabStop = False
+        Me.CmdSaveLog.Text = "Save Log"
+        Me.CmdSaveLog.UseVisualStyleBackColor = False
+        '
+        'TlpSep
+        '
+        Me.TlpSep.BackColor = System.Drawing.Color.Transparent
+        Me.TlpSep.ColumnCount = 1
+        Me.TlpSep.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpSep.Dock = System.Windows.Forms.DockStyle.Right
+        Me.TlpSep.Location = New System.Drawing.Point(548, 0)
+        Me.TlpSep.Name = "TlpSep"
+        Me.TlpSep.RowCount = 1
+        Me.TlpSep.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TlpSep.Size = New System.Drawing.Size(40, 40)
+        Me.TlpSep.TabIndex = 17
         '
         'FormException
         '
@@ -239,41 +279,44 @@ Partial Class FormException
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer), CType(CType(80, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(650, 370)
-        Me.Controls.Add(Me.pnlMain)
-        Me.Controls.Add(Me.pnlSplit)
-        Me.Controls.Add(Me.pnlHead)
+        Me.ClientSize = New System.Drawing.Size(590, 340)
+        Me.Controls.Add(Me.PanMain)
+        Me.Controls.Add(Me.PanSplit)
+        Me.Controls.Add(Me.PanHead)
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Margin = New System.Windows.Forms.Padding(4)
-        Me.MaximumSize = New System.Drawing.Size(650, 370)
-        Me.MinimumSize = New System.Drawing.Size(650, 370)
+        Me.MaximumSize = New System.Drawing.Size(590, 340)
+        Me.MinimumSize = New System.Drawing.Size(590, 340)
         Me.Name = "FormException"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Application Support (Exception)"
-        Me.pnlHead.ResumeLayout(False)
-        Me.tlpIcon.ResumeLayout(False)
-        CType(Me.pbxMain, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.pnlMain.ResumeLayout(False)
-        Me.tlpButtons.ResumeLayout(False)
+        Me.Text = "Unhandled Exception"
+        Me.PanHead.ResumeLayout(False)
+        Me.TlpHeadImage.ResumeLayout(False)
+        CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.PanMain.ResumeLayout(False)
+        Me.PanMain.PerformLayout()
+        Me.TlpButtons.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents pnlHead As System.Windows.Forms.Panel
-    Friend WithEvents lbText As System.Windows.Forms.Label
-    Friend WithEvents lbInfo As System.Windows.Forms.Label
-    Friend WithEvents cmdContinue As System.Windows.Forms.Button
-    Friend WithEvents cmdForceQuit As System.Windows.Forms.Button
-    Friend WithEvents lbStatus As System.Windows.Forms.Label
-    Friend WithEvents pnlSplit As System.Windows.Forms.Panel
-    Friend WithEvents pnlMain As System.Windows.Forms.Panel
-    Friend WithEvents tlpButtons As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents cmdSendReport As System.Windows.Forms.Button
-    Friend WithEvents lbHead As System.Windows.Forms.Label
-    Friend WithEvents tlpIcon As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents pbxMain As System.Windows.Forms.PictureBox
+    Friend WithEvents PanHead As System.Windows.Forms.Panel
+    Friend WithEvents LabInfo As System.Windows.Forms.Label
+    Friend WithEvents LabError As System.Windows.Forms.Label
+    Friend WithEvents CmdContinue As System.Windows.Forms.Button
+    Friend WithEvents CmdForceQuit As System.Windows.Forms.Button
+    Friend WithEvents PanSplit As System.Windows.Forms.Panel
+    Friend WithEvents PanMain As System.Windows.Forms.Panel
+    Friend WithEvents TlpButtons As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents CmdSaveLog As System.Windows.Forms.Button
+    Friend WithEvents LabHead As System.Windows.Forms.Label
+    Friend WithEvents TlpHeadImage As System.Windows.Forms.TableLayoutPanel
+    Friend WithEvents PbxHead As System.Windows.Forms.PictureBox
+    Friend WithEvents LnkEmail As LinkLabel
+    Friend WithEvents LnkForum As LinkLabel
+    Friend WithEvents TlpSep As TableLayoutPanel
 End Class

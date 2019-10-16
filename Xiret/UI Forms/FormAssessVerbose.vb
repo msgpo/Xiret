@@ -11,15 +11,16 @@
 '  Xiret project
 '  FormAssessVerbose.vb
 '  Created by David S on 05.01.2019
-'  Updated on 08.01.2019 - DS (Updated imports, removed unnecessary parenthesis, updated theme code, fixed malformed logs)
-'  Updated 31.07.2019 - DS (Updated theme, cleanup)
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
+'  Updated on 06.10.2019 - DS (Add build number to InitData(), bugfixing)
 
 Imports System.Text
+Imports System.IO
 
-Imports Core.Animation
-Imports Core.Helpers
+Imports Xiret.Core.Animation
+Imports Xiret.Core.Helpers
 
+#Disable Warning IDE0069
 Friend Class FormAssessVerbose
 
 #Region "Variables"
@@ -42,7 +43,6 @@ Friend Class FormAssessVerbose
     Private IsComplete As Boolean = False
     Private IsClosing As Boolean = False
 
-    Private BoolRunning As Boolean = False
     Private BoolRanWithError As Boolean = False
     Private BoolRanWithWarning As Boolean = False
 
@@ -59,17 +59,17 @@ Friend Class FormAssessVerbose
 #Region "Ctor"
 
     Public Sub New()
-
         InitializeComponent()
         SetStyle(ControlStyles.SupportsTransparentBackColor, True)
-
+        Opacity = 0
+        SetAssessVerboseThemeAccent()
     End Sub
 
 #End Region
 
 #Region "WndProc"
 
-    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, pbxMain.MouseMove, tlpIcon.MouseMove, lbHead.MouseMove, pnlHead.MouseMove
+    Private Sub Frame_Move(ByVal sender As Object, ByVal e As MouseEventArgs) Handles Me.MouseMove, PbxHead.MouseMove, TlpHeadImage.MouseMove, LabHead.MouseMove, PanHead.MouseMove
 
         If e.Button = Windows.Forms.MouseButtons.Left Then
             DirectCast(sender, Control).Capture = False
@@ -82,14 +82,14 @@ Friend Class FormAssessVerbose
 #Region "Frame Buttons"
 
     Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
-        cmdCancel.PerformClick()
+        CmdCancel.PerformClick()
     End Sub
 
 #End Region
 #Region "KeyDown Events"
     Private Sub FormAssessVerbose_KeyDown(sender As Object, e As KeyEventArgs) Handles Me.KeyDown
         If e.KeyCode = Keys.Escape Then
-            cmdCancel.PerformClick()
+            CmdCancel.PerformClick()
         End If
     End Sub
 #End Region
@@ -97,10 +97,6 @@ Friend Class FormAssessVerbose
 #Region "Load Event Handler"
 
     Private Sub FormAssessVerbose_Load(sender As Object, e As EventArgs) Handles Me.Load
-
-        Opacity = 0
-
-        SetAssessVerboseThemeAccent()
 
         InitData()
 
@@ -155,10 +151,10 @@ Friend Class FormAssessVerbose
 #Region "Theme"
     Private Sub SetAssessVerboseThemeAccent()
 
-        pnlSplit.BackColor = Settings.ThemeColor
+        PanSplit.BackColor = Settings.ThemeColor
 
-        For Each c As Control In tlpButtons.Controls
-            If TypeOf c Is Button Then DirectCast(c, Button).ForeColor = Settings.ThemeColor
+        For Each Ctrl As Control In TlpButtons.Controls
+            If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.ThemeColor
         Next
 
         Settings.SetBorderColor(Me)
@@ -167,24 +163,24 @@ Friend Class FormAssessVerbose
 #End Region
 
 #Region "Button Event Handlers"
-    Private Sub CmdExport_Click(sender As Object, e As EventArgs) Handles cmdExport.Click
+    Private Sub CmdExport_Click(sender As Object, e As EventArgs) Handles CmdExport.Click
 
-        Dim sfd As New SaveFileDialog
         Dim StringDate As String = Now.ToString("yyyyMMddHHmm")
-
-        With sfd
-            .InitialDirectory = Directories.DirSpecialDesktop
-            .Filter = "Text File (*.txt)|*.txt"
+        Dim Sfd As New SaveFileDialog With {
+            .FileName = "SessionLog_" & StringDate,
+            .Filter = "Text File (*.txt)|*.txt",
+            .InitialDirectory = Directories.DirSpecialDesktop,
             .OverwritePrompt = True
-            .FileName = "SessionLog_" & StringDate
-        End With
+        }
 
-        If sfd.ShowDialog = Windows.Forms.DialogResult.OK Then
-            IO.File.WriteAllLines(sfd.FileName, tbxLog.Lines)
+        If Sfd.ShowDialog = Windows.Forms.DialogResult.OK Then
+            File.WriteAllLines(Sfd.FileName, RtbLog.Lines)
         End If
 
+        Sfd.Dispose()
+
     End Sub
-    Private Sub CmdLog_Click(sender As Object, e As EventArgs) Handles cmdLog.Click
+    Private Sub CmdViewLog_Click(sender As Object, e As EventArgs) Handles CmdViewLog.Click
 
         Try
             Process.Start(Files.FileXiretLog)
@@ -193,9 +189,9 @@ Friend Class FormAssessVerbose
         End Try
 
     End Sub
-    Private Sub BtnCancel_Click(sender As Object, e As EventArgs) Handles cmdCancel.Click
+    Private Sub CmdCancel_Click(sender As Object, e As EventArgs) Handles CmdCancel.Click
 
-        If Not (IsComplete) Then
+        If Not IsComplete Then
             My.Computer.FileSystem.WriteAllText(Files.FileXiretLog, "Test interruped by user" & vbCrLf, True)
         End If
 
@@ -204,9 +200,19 @@ Friend Class FormAssessVerbose
         KillWatcher()
         KillWinsat()
 
-        Me.Close()
+        Close()
 
     End Sub
+#End Region
+#Region "Picturebox Event Handler"
+
+    Private Sub PbxHead_Click(sender As Object, e As EventArgs) Handles PbxHead.DoubleClick
+        If Not WindowState = FormWindowState.Normal Then
+            WindowState = FormWindowState.Normal
+        End If
+        CenterToParent()
+    End Sub
+
 #End Region
 
 #Region "AsyncOut Routines"
@@ -257,53 +263,53 @@ Friend Class FormAssessVerbose
 
                 If StringAsync.Contains("Error") Then
                     BoolRanWithError = True
-                    IntErrorCount = IntErrorCount + 1
+                    IntErrorCount += 1
                 End If
                 If StringAsync.Contains("Warning") Then
                     BoolRanWithWarning = True
-                    IntWarningCount = IntWarningCount + 1
+                    IntWarningCount += 1
                 End If
 
                 If OSHelper.IsWinVista() Then 'Vista
 
                     If StringAsync.Contains("Running: Feature Enumeration") Then
-                        lbStatus.Text = "Gathering System Information..."
+                        LabStatus.Text = "Gathering System Information..."
                         IntProgress = 0
                     End If
                     If StringAsync.Contains("Assessing desktop graphics") Then
-                        lbStatus.Text = "Running the Direct3D 9 Aero Assessment..."
+                        LabStatus.Text = "Running the Direct3D 9 Aero Assessment..."
                         IntProgress = 10
                     End If
                     If StringAsync.Contains("Direct3D9 alpha blend") Then
-                        lbStatus.Text = "Running the Direct3D 9 Alpha Blend Assessment..."
+                        LabStatus.Text = "Running the Direct3D 9 Alpha Blend Assessment..."
                         IntProgress = 20
                     End If
                     If StringAsync.Contains("Direct3D9 texture load") Then
-                        lbStatus.Text = "Running the Direct3D 9 Texture Load Assessment..."
+                        LabStatus.Text = "Running the Direct3D 9 Texture Load Assessment..."
                         IntProgress = 30
                     End If
                     If StringAsync.Contains("Direct3D9 ALU performance") Then
-                        lbStatus.Text = "Running the Direct3D 9 ALU Assessment..."
+                        LabStatus.Text = "Running the Direct3D 9 ALU Assessment..."
                         IntProgress = 40
                     End If
                     If StringAsync.Contains("Running: Media Decode/Encode") Then
-                        lbStatus.Text = "Assessing Windows Media Encoding Performance..."
+                        LabStatus.Text = "Assessing Windows Media Encoding Performance..."
                         IntProgress = 50
                     End If
                     If StringAsync.Contains("Running: Media Foundation") Then
-                        lbStatus.Text = "Assessing Windows Media Decoding Performance..."
+                        LabStatus.Text = "Assessing Windows Media Decoding Performance..."
                         IntProgress = 60
                     End If
                     If StringAsync.Contains("Running: CPU Assessment") Then
-                        lbStatus.Text = "Assessing CPU Performance..."
+                        LabStatus.Text = "Assessing CPU Performance..."
                         IntProgress = 70
                     End If
                     If StringAsync.Contains("Running: System memory performance") Then
-                        lbStatus.Text = "Assessing Memory Performance..."
+                        LabStatus.Text = "Assessing Memory Performance..."
                         IntProgress = 80
                     End If
                     If StringAsync.Contains("Running: Storage Assessment") Then
-                        lbStatus.Text = "Assessing Disk Performance..."
+                        LabStatus.Text = "Assessing Disk Performance..."
                         IntProgress = 90
                     End If
 
@@ -311,11 +317,11 @@ Friend Class FormAssessVerbose
                     If OSHelper.IsWinTen() Then '10
 
                         If StringAsync.Contains("Running: Feature Enumeration") Then
-                            lbStatus.Text = "Gathering System Information..."
+                            LabStatus.Text = "Gathering System Information..."
                             IntProgress = 5
                         End If
                         If StringAsync.Contains("WinSAT Direct3D Assessment '-aname DWM") Then
-                            lbStatus.Text = "Running the Direct3D 9 Aero Assessment..."
+                            LabStatus.Text = "Running the Direct3D 9 Aero Assessment..."
                             IntProgress = 10
                         End If
                         '// From here, Windows 10 skips these tests
@@ -351,28 +357,28 @@ Friend Class FormAssessVerbose
                             Log(" ! Skipped the Direct3D 10 Constant Buffer Assessment", LogType.IsInfo)
                         End If
                         If StringAsync.Contains("Running: Media Foundation") Then
-                            lbStatus.Text = "Assessing Windows Media Decoding Performance..."
+                            LabStatus.Text = "Assessing Windows Media Decoding Performance..."
                             IntProgress = 65
                         End If
                         If StringAsync.Contains("Running: Extended Media Assessment") Then
-                            lbStatus.Text = "Tuning Windows Media Decoding..."
+                            LabStatus.Text = "Tuning Windows Media Decoding..."
                             IntProgress = 70
                         End If
                         If StringAsync.Contains("Running: Media Decode/Encode") Then
-                            lbStatus.Text = "Assessing Windows Media Encoding Performance..."
+                            LabStatus.Text = "Assessing Windows Media Encoding Performance..."
                             IntProgress = 75
                         End If
                         '//
                         If StringAsync.Contains("Running: CPU Assessment") Then
-                            lbStatus.Text = "Assessing CPU Performance..."
+                            LabStatus.Text = "Assessing CPU Performance..."
                             IntProgress = 80
                         End If
                         If StringAsync.Contains("Running: System memory performance") Then
-                            lbStatus.Text = "Assessing Memory Performance..."
+                            LabStatus.Text = "Assessing Memory Performance..."
                             IntProgress = 85
                         End If
                         If StringAsync.Contains("Running: Storage Assessment") Then
-                            lbStatus.Text = "Assessing Disk Performance..."
+                            LabStatus.Text = "Assessing Disk Performance..."
                             IntProgress = 95
                         End If
 
@@ -380,75 +386,75 @@ Friend Class FormAssessVerbose
                         If Not OSHelper.IsWinVista() And Not OSHelper.IsWinTen() Then '7 - 8.1
 
                             If StringAsync.Contains("Running: Feature Enumeration") Then
-                                lbStatus.Text = "Gathering System Information..."
+                                LabStatus.Text = "Gathering System Information..."
                                 IntProgress = 5
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-aname DWM") Then
-                                lbStatus.Text = "Running the Direct3D 9 Aero Assessment..."
+                                LabStatus.Text = "Running the Direct3D 9 Aero Assessment..."
                                 IntProgress = 10
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-aname Batch") Then
-                                lbStatus.Text = "Running the Direct3D 9 Batch Assessment..."
+                                LabStatus.Text = "Running the Direct3D 9 Batch Assessment..."
                                 IntProgress = 15
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-aname Alpha") Then
-                                lbStatus.Text = "Running the Direct3D 9 Alpha Blend Assessment..."
+                                LabStatus.Text = "Running the Direct3D 9 Alpha Blend Assessment..."
                                 IntProgress = 25
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-aname Tex") Then
-                                lbStatus.Text = "Running the Direct3D 9 Texture Load Assessment..."
+                                LabStatus.Text = "Running the Direct3D 9 Texture Load Assessment..."
                                 IntProgress = 20
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-aname ALU") Then
-                                lbStatus.Text = "Running the Direct3D 9 ALU Assessment..."
+                                LabStatus.Text = "Running the Direct3D 9 ALU Assessment..."
                                 IntProgress = 30
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-dx10  -aname Batch") Then
-                                lbStatus.Text = "Running the Direct3D 10 Batch Assessment..."
+                                LabStatus.Text = "Running the Direct3D 10 Batch Assessment..."
                                 IntProgress = 35
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-dx10  -aname Alpha") Then
-                                lbStatus.Text = "Running the Direct3D 10 Alpha Blend Assessment..."
+                                LabStatus.Text = "Running the Direct3D 10 Alpha Blend Assessment..."
                                 IntProgress = 40
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-dx10  -aname Tex") Then
-                                lbStatus.Text = "Running the Direct3D 10 Texture Load Assessment..."
+                                LabStatus.Text = "Running the Direct3D 10 Texture Load Assessment..."
                                 IntProgress = 45
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-dx10  -aname ALU") Then
-                                lbStatus.Text = "Running the Direct3D 10 ALU Assessment..."
+                                LabStatus.Text = "Running the Direct3D 10 ALU Assessment..."
                                 IntProgress = 50
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-dx10  -aname Geom") Then
-                                lbStatus.Text = "Running the Direct3D 10 Geometry Assessment..."
+                                LabStatus.Text = "Running the Direct3D 10 Geometry Assessment..."
                                 IntProgress = 55
                             End If
                             If StringAsync.Contains("WinSAT Direct3D Assessment '-dx10  -aname CBuffer") Then
-                                lbStatus.Text = "Running the Direct3D 10 Constant Buffer Assessment..."
+                                LabStatus.Text = "Running the Direct3D 10 Constant Buffer Assessment..."
                                 IntProgress = 60
                             End If
                             If StringAsync.Contains("Running: Media Foundation") Then
-                                lbStatus.Text = "Assessing Windows Media Decoding Performance..."
+                                LabStatus.Text = "Assessing Windows Media Decoding Performance..."
                                 IntProgress = 65
                             End If
                             If StringAsync.Contains("Running: Extended Media Assessment") Then
-                                lbStatus.Text = "Tuning Windows Media Decoding..."
+                                LabStatus.Text = "Tuning Windows Media Decoding..."
                                 IntProgress = 70
                             End If
                             If StringAsync.Contains("Running: Media Decode/Encode") Then
-                                lbStatus.Text = "Assessing Windows Media Encoding Performance..."
+                                LabStatus.Text = "Assessing Windows Media Encoding Performance..."
                                 IntProgress = 75
                             End If
                             If StringAsync.Contains("Running: CPU Assessment") Then
-                                lbStatus.Text = "Assessing CPU Performance..."
+                                LabStatus.Text = "Assessing CPU Performance..."
                                 IntProgress = 80
                             End If
                             If StringAsync.Contains("Running: System memory performance") Then
-                                lbStatus.Text = "Assessing Memory Performance..."
+                                LabStatus.Text = "Assessing Memory Performance..."
                                 IntProgress = 85
                             End If
                             If StringAsync.Contains("Running: Storage Assessment") Then
-                                lbStatus.Text = "Assessing Disk Performance..."
+                                LabStatus.Text = "Assessing Disk Performance..."
                                 IntProgress = 95
                             End If
                         End If
@@ -466,20 +472,6 @@ Friend Class FormAssessVerbose
 #End Region
 #Region "Delegate Routines"
 
-    'Invoke status message
-    Private Sub InvokeStatus(StringStatus As String)
-
-        If Not IsClosing Then
-            If InvokeRequired Then
-                BeginInvoke(New StatusDelegate(AddressOf InvokeStatus), StringStatus)
-            Else
-                lbStatus.Text = StringStatus
-            End If
-        End If
-
-    End Sub
-
-    'Invoke exit code
     Private Sub InvokeExitCode(IntExitCode As Integer)
 
         If Not IsClosing Then
@@ -496,11 +488,11 @@ Friend Class FormAssessVerbose
             If InvokeRequired Then
                 BeginInvoke(New ExitCodeDelegate(AddressOf InvokeExitCode), IntProgress)
             Else
-                lbStatus.Text = StringStatusMessage
-                cmdCancel.Text = "Close"
-                cmdExport.Enabled = True
-                pbxLoad.Hide()
-                lbProgress.Text = ""
+                LabStatus.Text = StringStatusMessage
+                CmdCancel.Text = "Close"
+                CmdExport.Enabled = True
+                PbxLoad.Hide()
+                LabProgress.Text = ""
             End If
 
             Log("ExitCode: " & IntExitCode, LogType.IsDebug)
@@ -516,7 +508,7 @@ Friend Class FormAssessVerbose
             If InvokeRequired Then
                 BeginInvoke(New ProgressDelegate(AddressOf InvokeProgress), IntValue)
             Else
-                lbProgress.Text = IntValue & "%"
+                LabProgress.Text = IntValue & "%"
             End If
         End If
 
@@ -556,12 +548,16 @@ Friend Class FormAssessVerbose
 
     Private Sub WaitForUnexpectedExit(sender As Object, e As EventArgs)
 
-        If Not IsComplete And (WinSATProcess.HasExited = True) Then
-            If Not IsClosing Then
-                ProcessWatcher.Stop()
-                Invoke(DirectCast(Sub() Log("ProcessWatcher: WinSAT was closed or unexpectedly quit", LogType.IsError), MethodInvoker))
-                IntExitCode = 2
-                Invoke(New ExitCodeDelegate(AddressOf InvokeExitCode), New Object() {IntExitCode})
+        If IsComplete Then
+            Exit Sub
+        Else
+            If Not IsComplete And (WinSATProcess.HasExited = True) Then
+                If Not IsClosing Then
+                    ProcessWatcher.Stop()
+                    Invoke(DirectCast(Sub() Log("ProcessWatcher: WinSAT was closed or unexpectedly quit", LogType.IsError), MethodInvoker))
+                    IntExitCode = 2
+                    Invoke(New ExitCodeDelegate(AddressOf InvokeExitCode), New Object() {IntExitCode})
+                End If
             End If
         End If
 
@@ -569,9 +565,9 @@ Friend Class FormAssessVerbose
     Private Sub InitData()
 
         Log("New Test Started on " & Format(Now, "dddd, MMM d yyyy hh:mm tt"), LogType.IsInfo)
-        Log("Xiret v" & Application.ProductVersion & " (" & Process.GetCurrentProcess().Id & ")", LogType.IsInfo)
-        Log("OS: " & OSHelper.GetOSName() & " (Kernel: " & OSHelper.GetKernelVersion.ProductVersion & ")", LogType.IsInfo)
-        Log("Arch: " & OSHelper.GetOSBitness(True), LogType.IsInfo)
+        Log("Xiret v" & Application.ProductVersion & " " & Program.ProductChannel & " (" & Program.XiretBuild & ")", LogType.IsInfo)
+        Log("OS: " & OSHelper.GetWindowsName() & " (Kernel: " & OSHelper.GetKernelVersion.ProductVersion & ")", LogType.IsInfo)
+        Log("Arch: " & OSHelper.GetWindowsBitness(True), LogType.IsInfo)
         Log("Winsat EXE v" & OSHelper.GetWinsatVersion.ProductVersion, LogType.IsInfo)
         Log("Winsat API v" & OSHelper.GetWinsatApiVersion.ProductVersion, LogType.IsInfo)
 
@@ -631,12 +627,12 @@ Friend Class FormAssessVerbose
                 logTextColor = Color.White
         End Select
 
-        tbxLog.AppendText(logTypeText & ": ")
-        tbxLog.Select(tbxLog.TextLength - logTypeText.Length - 2, logTypeText.Length + 1)
-        tbxLog.SelectionColor = logTextColor
-        tbxLog.AppendText(StringReceived)
-        tbxLog.AppendText(vbCrLf)
-        tbxLog.ScrollToCaret()
+        RtbLog.AppendText(logTypeText & ": ")
+        RtbLog.Select(RtbLog.TextLength - logTypeText.Length - 2, logTypeText.Length + 1)
+        RtbLog.SelectionColor = logTextColor
+        RtbLog.AppendText(StringReceived)
+        RtbLog.AppendText(vbCrLf)
+        RtbLog.ScrollToCaret()
 
         My.Computer.FileSystem.WriteAllText(Files.FileXiretLog, StringReceived & vbCrLf, True)
 

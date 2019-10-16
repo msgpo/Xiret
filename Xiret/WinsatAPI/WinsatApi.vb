@@ -8,7 +8,7 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
+'  Xiret project
 '  WinSATAPI.vb
 '  Created by David S
 '  Updated on 31.07.2019 - DS (Better error handling)
@@ -27,9 +27,10 @@ Friend Class WinsatApi
 
     Friend Shared Function GetAssessmentValidityInt() As Integer
 
-        Dim query = New CQueryWinSAT()
+        Dim WinSAT = New CQueryWinSAT()
+
         Try
-            Return query.Info.AssessmentState
+            Return WinSAT.Info.AssessmentState
         Catch ex As Exception
             MessageBox.Show(ex.Message, "WinsatApi.GetAssessmentValidityInt", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return 0
@@ -39,16 +40,17 @@ Friend Class WinsatApi
 
     Friend Shared Function GetWinsatHardwareAPIInfo(WinType As WINSAT_ASSESSMENT_TYPE, InfType As InfoType) As String
 
-        Dim query As New CQueryWinSAT()
-        Dim queryInf As IProvideWinSATAssessmentInfo = query.Info.GetAssessmentInfo(WinType)
+        Dim WinSAT As New CQueryWinSAT()
+        Dim QueryInf As IProvideWinSATAssessmentInfo = WinSAT.Info.GetAssessmentInfo(WinType)
+
         Try
             Select Case InfType
                 Case InfoType.Description
-                    Return queryInf.Description
+                    Return QueryInf.Description
                 Case InfoType.Score
-                    Return CStr(queryInf.Score)
+                    Return CStr(QueryInf.Score)
                 Case InfoType.Title
-                    Return queryInf.Title
+                    Return QueryInf.Title
                 Case Else
                     Return Nothing
             End Select
@@ -59,23 +61,25 @@ Friend Class WinsatApi
 
     End Function
 
-    Friend Shared Function GetWinsatBaseScore() As String
+    Friend Shared Function GetWinsatBaseScore() As Single
+
+        Dim WinSAT As New CQueryWinSAT()
 
         Try
-            Dim query As New CQueryWinSAT()
-            Return CStr(query.Info.SystemRating)
+            Return Winsat.Info.SystemRating
         Catch ex As Exception
             MessageBox.Show(ex.Message, "WinsatApi.GetWinsatBaseScore", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Return "Unknown"
+            Return 0.0
         End Try
 
     End Function
 
     Friend Shared Function GetWinsatLastUpdateDate() As Date
 
+        Dim WinSAT As New CQueryWinSAT()
+
         Try
-            Dim query As New CQueryWinSAT()
-            Return CDate(query.Info.AssessmentDateTime)
+            Return CDate(WinSAT.Info.AssessmentDateTime)
         Catch ex As Exception
             MessageBox.Show(ex.Message, "WinsatApi.GetWinsatLastUpdateDate", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Return Nothing
@@ -90,7 +94,7 @@ Friend Class WinsatApi
         'VisualSize.Small returns the small image seen in Control Panel > All > System (Up to Windows 8)
         'VisualSize.Large returns the large image seen in the graph in Control Panel > All > Performance Information and Tools (Up to Windows 8)
 
-        Dim query As New CQueryWinSAT()
+        Dim WinSAT As New CQueryWinSAT()
         Dim Buffer(3) As Byte
         Dim GHC As GCHandle = GCHandle.Alloc(Buffer, GCHandleType.Pinned)
         Dim Pointer As IntPtr = GHC.AddrOfPinnedObject()
@@ -98,9 +102,9 @@ Friend Class WinsatApi
 
         Try
             If SizeMode = VisualSize.Small Then
-                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_SMALL, query.Info.AssessmentState, query.Info.SystemRating, Pointer)
+                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_SMALL, WinSAT.Info.AssessmentState, WinSAT.Info.SystemRating, Pointer)
             Else
-                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_NORMAL, query.Info.AssessmentState, query.Info.SystemRating, Pointer)
+                queryVisual.get_Bitmap(WINSAT_BITMAP_SIZE_NORMAL, WinSAT.Info.AssessmentState, WinSAT.Info.SystemRating, Pointer)
             End If
 
             GHC.Free()

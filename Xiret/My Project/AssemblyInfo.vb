@@ -1,4 +1,5 @@
-﻿Imports System.Reflection
+﻿Imports System.Resources
+Imports System.Reflection
 Imports System.Runtime.InteropServices
 
 ' General Information about an assembly is controlled through the following 
@@ -7,17 +8,17 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Xiret")>
+<Assembly: AssemblyTitle("Xiret 2")>
 <Assembly: AssemblyDescription("UI for the Windows Experience Index. Compatible with Vista+.")>
 <Assembly: AssemblyCompany("Bitmight Software")>
 <Assembly: AssemblyProduct("Xiret (Experience Index Returns)")>
 <Assembly: AssemblyCopyright("Copyright © 2016-2019 David Solorzano")>
-<Assembly: AssemblyTrademark("")> 
+<Assembly: AssemblyTrademark("")>
 
 <Assembly: ComVisible(False)>
 
 'The following GUID is for the ID of the typelib if this project is exposed to COM
-<Assembly: Guid("58871b0c-ccd9-42a2-88a2-1a621e2262e5")> 
+<Assembly: Guid("58871b0c-ccd9-42a2-88a2-1a621e2262e5")>
 
 ' Version information for an assembly consists of the following four values:
 '
@@ -30,5 +31,6 @@ Imports System.Runtime.InteropServices
 ' by using the '*' as shown below:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.0.0")> 
-<Assembly: AssemblyFileVersion("2.0.0")> 
+<Assembly: AssemblyVersion("2.0.1")>
+<Assembly: AssemblyFileVersion("2.0.1")>
+<Assembly: NeutralResourcesLanguage("en-GB")>
