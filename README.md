@@ -11,7 +11,7 @@ Key features
  - Windows Vista support
 
 ## Current version
-2.0.0 Build 1HK20 (Release, Stable)
+2.0.1 Build 1HK20 (Release, Stable)
 
 ## Motivation
 Initially Xiret was created to pass some time when the Experience Index UI was removed in Windows 8.1. Since it's growing into V2 I though 'why not share?' VB isn't too hard to get into and it may help someone learn a thing or two, like I did. Other motivation was anti-virus engines flagging this software as malware, now everyone can see its guts they know they're safe.
