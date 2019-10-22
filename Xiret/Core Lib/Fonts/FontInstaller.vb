@@ -25,14 +25,10 @@ Namespace Core.Fonts
         Public Shared ReadOnly SystemFontSegoeUIBold As String = Environment.GetFolderPath(Environment.SpecialFolder.Fonts) & "\segoeuib.ttf"
         Public Shared ReadOnly SystemFontSegoeUISemibold As String = Environment.GetFolderPath(Environment.SpecialFolder.Fonts) & "\seguisb.ttf"
 
-        Public Shared FontInstallerError As String = ""
-
         Private Const WM_FONTCHANGE As Integer = &H1D
         Private Const HWND_BROADCAST As Integer = &HFFFF
 
         Public Shared Function InstallFont(FileName As String, FontToInstall As Byte(), ProfileName As String) As Integer
-
-            '// This needs more work.
 
             Try
                 File.WriteAllBytes(FileName, FontToInstall)
@@ -43,10 +39,9 @@ Namespace Core.Fonts
                     IntRet = WriteProfileStringA.WriteProfileString("fonts", ProfileName, FileName)
                     Return 1 'Install success
                 Else
-                    Return 2
+                    Return 2 'File did not copy
                 End If
             Catch ex As Exception
-                FontInstallerError = ex.ToString
                 Return 0 'Error
             End Try
 

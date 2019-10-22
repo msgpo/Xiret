@@ -11,19 +11,28 @@
 '  Xiret project
 '  Toast.vb
 '  Created by David S on 20.03.2016
-'  Updated on 31.07.2019 - DS (Update bool value, update PreFilterMessage)
 '  Updated on 07.08.2019 - DS (Increment PxFromEdge 6 > 10, cleanup)
-'  Updated on 13.08.2019 - DS (Temporarily disabled BlurWinForm whilst some issues are corrected)
+'  Updated on 13.08.2019 - DS (Disabled BlurWinForm whilst some issues are corrected)
 
 Imports Xiret.Core.Animation
 
 Public Class FormToast
     Implements IMessageFilter
 
-#Region "Variables"
+    Private ReadOnly ColorInfo As Color = Color.FromArgb(0, 120, 215)
+    Private ReadOnly ColorWarning As Color = Color.FromArgb(255, 185, 0)
+    Private ReadOnly ColorError As Color = Color.FromArgb(240, 58, 23)
 
     Private MouseInForm As Boolean = False
     Private Int As Integer = 0
+
+#Region "Overriden Properties"
+
+    Protected Overloads Overrides ReadOnly Property ShowWithoutActivation() As Boolean
+        Get
+            Return True
+        End Get
+    End Property
 
 #End Region
 
@@ -55,7 +64,7 @@ Public Class FormToast
 
 #Region "Button Event Handlers"
 
-    Private Sub BtnClose_Click(sender As Object, e As EventArgs) Handles cmdClose.Click
+    Private Sub CmdClose_Click(sender As Object, e As EventArgs) Handles CmdClose.Click
         Close()
     End Sub
 
@@ -71,47 +80,44 @@ Public Class FormToast
 
     Private Sub Me_Load(sender As Object, e As EventArgs) Handles Me.Load
 
+        'This works great with different DPI scaling
+        CmdClose.Location = New Point(PanMain.Right - CmdClose.Width, 0)
+
         'Set opactity
         Opacity = 0
 
         'Hide the close button
-        cmdClose.Hide()
+        CmdClose.Hide()
 
         'Add mouseover message override
         Application.AddMessageFilter(Me)
 
         'Set toast type passed
         Select Case ToastAlert.AlertType
-            Case ToastType.IsError
-                lbTitle.Text = "Error"
-                GProgressBar.ProgressColor = Color.FromArgb(232, 17, 35)
-                BackColor = Color.FromArgb(232, 17, 35)
-            Case ToastType.IsInformational
-                lbTitle.Text = "Information"
-                GProgressBar.ProgressColor = Color.FromArgb(120, 120, 120)
-                BackColor = Color.FromArgb(120, 120, 120)
-            Case ToastType.IsWarning
-                lbTitle.Text = "Warning"
-                GProgressBar.ProgressColor = Color.Tomato
-                BackColor = Color.Tomato
-            Case ToastType.IsDebug
-                lbTitle.Text = "Debug"
-                GProgressBar.ProgressColor = Color.BurlyWood
-                BackColor = Color.BurlyWood
+            Case ToastType.Critical
+                PbxTypeImage.BackgroundImage = My.Resources.imgtoasterror
+                LabTitle.Text = "Error"
+                GProgressBar.ProgressColor = ColorError
+                BackColor = ColorError
+            Case ToastType.Information
+                PbxTypeImage.BackgroundImage = My.Resources.imgtoastinfo
+                LabTitle.Text = "Information"
+                GProgressBar.ProgressColor = ColorInfo
+                BackColor = ColorInfo
+            Case ToastType.Warning
+                PbxTypeImage.BackgroundImage = My.Resources.imgtoastwarn
+                LabTitle.Text = "Warning"
+                GProgressBar.ProgressColor = ColorWarning
+                BackColor = ColorWarning
         End Select
 
-        lbMessage.Text = ToastAlert.AlertMessage
+        LabMessage.Text = ToastAlert.AlertMessage
         TopMost = True
 
         RespectTaskbar()
 
         TopMost = True
         BringToFront()
-
-        '// Disabled until further notice
-        'If OSHelper.IsWinTen Then
-        '    Composition.BlurWinForm(Me, AccentState.ACCENT_ENABLE_BLURBEHIND, WindowCompositionAttribute.WCA_ACCENT_POLICY)
-        'End If
 
     End Sub
 
@@ -161,7 +167,7 @@ Public Class FormToast
 
 #Region "Timer"
 
-    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles tDraw.Tick
+    Private Sub Timer_Tick(sender As Object, e As EventArgs) Handles TimerTick.Tick
 
         If Int = 20000 Then
             Close()
@@ -175,14 +181,14 @@ Public Class FormToast
 
     Private Sub Toast_MouseDetect(sender As Object, e As EventArgs) Handles Me.MouseEnter, Me.MouseLeave
 
-        If tDraw.Enabled = True Then
-            tDraw.Stop()
+        If TimerTick.Enabled = True Then
+            TimerTick.Stop()
             GProgressBar.Hide()
-            cmdClose.Show()
+            CmdClose.Show()
         Else
-            tDraw.Start()
+            TimerTick.Start()
             GProgressBar.Show()
-            cmdClose.Hide()
+            CmdClose.Hide()
         End If
 
     End Sub

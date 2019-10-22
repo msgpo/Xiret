@@ -136,9 +136,6 @@
   <data name="imgprocess" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\imgprocess.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="settingsimg" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\settingsimg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="mow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mow.gif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -150,5 +147,26 @@
   </data>
   <data name="seguisb" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\seguisb.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Windows6_1_KB2687862_x64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Windows6.1-KB2687862-x64.msu;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Windows6_1_KB2687862_x86" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Windows6.1-KB2687862-x86.msu;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="imgtoasterror" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgtoasterror.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgtoastinfo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgtoastinfo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgtoastwarn" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgtoastwarn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EFA11" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EFA11.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="imgsettings" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\imgsettings.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

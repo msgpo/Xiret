@@ -194,9 +194,9 @@ Namespace Core.Helpers
                 Return key.GetValue("ReleaseId").ToString()
             Catch ex As Exception
                 Return ""
+            Finally
+                key.Dispose()
             End Try
-
-            Return ""
 
         End Function
 
@@ -205,16 +205,16 @@ Namespace Core.Helpers
 
         Public Shared Function GetWindowsBuildBranch() As String
 
-            Dim Rk = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
+            Dim Key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
 
             Try
-                Rk = Rk.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion", False)
-                Return Rk.GetValue("BuildBranch").ToString().Replace("_release", "").ToUpper
+                Key = Key.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion", False)
+                Return Key.GetValue("BuildBranch").ToString().Replace("_release", "").ToUpper
             Catch ex As Exception
                 Return ""
+            Finally
+                Key.Dispose()
             End Try
-
-            Return ""
 
         End Function
 
@@ -223,16 +223,16 @@ Namespace Core.Helpers
 
         Public Shared Function GetWindowsCurrentBuild() As String
 
-            Dim Rk = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
+            Dim Key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
 
             Try
-                Rk = Rk.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion", False)
-                Return Rk.GetValue("CurrentBuild").ToString()
+                Key = Key.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion", False)
+                Return Key.GetValue("CurrentBuild").ToString()
             Catch ex As Exception
                 Return ""
+            Finally
+                Key.Dispose()
             End Try
-
-            Return ""
 
         End Function
 
@@ -241,16 +241,16 @@ Namespace Core.Helpers
 
         Public Shared Function GetWindowsBuildLab() As String
 
-            Dim Rk = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
+            Dim Key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
 
             Try
-                Rk = Rk.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion", False)
-                Return Rk.GetValue("BuildLab").ToString()
+                Key = Key.OpenSubKey("SOFTWARE\Microsoft\Windows NT\CurrentVersion", False)
+                Return Key.GetValue("BuildLab").ToString()
             Catch ex As Exception
                 Return ""
+            Finally
+                Key.Dispose()
             End Try
-
-            Return ""
 
         End Function
 
@@ -271,29 +271,33 @@ Namespace Core.Helpers
 
         Public Shared Function GetNetv4Reg() As Boolean
 
-            Dim key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
+            Dim Key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
 
             Try
-                key = key.OpenSubKey("SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full", False)
-                If key IsNot Nothing Then
+                Key = Key.OpenSubKey("SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full", False)
+                If Key IsNot Nothing Then
                     Return True
                 Else Return False
                 End If
             Catch ex As Exception
                 Return False
+            Finally
+                Key.Dispose()
             End Try
 
         End Function
 
         Public Shared Function GetNetv4Value(Value As String) As String
 
-            Dim key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
+            Dim Key = RegistryKey.OpenRemoteBaseKey(RegistryHive.LocalMachine, CompName)
 
             Try
-                key = key.OpenSubKey("SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full", False)
-                Return key.GetValue(Value).ToString()
+                Key = Key.OpenSubKey("SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full", False)
+                Return Key.GetValue(Value).ToString()
             Catch ex As Exception
                 Return "Unknown"
+            Finally
+                Key.Dispose()
             End Try
 
         End Function

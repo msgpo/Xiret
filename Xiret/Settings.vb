@@ -23,8 +23,6 @@ Imports Xiret.Core.Helpers
 
 Friend Class Settings
 
-#Region "Variables"
-
     Friend Shared ReadOnly AppdataFile As String = Path.Combine(Directories.DirAppData, "settings.xir")
     Friend Shared ReadOnly WorkingDirFile As String = Path.Combine(Directories.DirAppPath, "settings.xir")
 
@@ -40,8 +38,6 @@ Friend Class Settings
     Friend Shared StringUserImgurClientId As String = ""
 
     Friend Shared ThemeColor As Color = Color.FromArgb(120, 180, 0)
-
-#End Region
 
 #Region "Check Settings"
 

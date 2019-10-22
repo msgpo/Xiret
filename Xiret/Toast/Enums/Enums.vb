@@ -15,10 +15,9 @@
 Module Enums
 
     Friend Enum ToastType
-        IsInformational
-        IsWarning
-        IsError
-        IsDebug
+        Information
+        Warning
+        Critical
     End Enum
 
     Friend Enum TaskBarLocation

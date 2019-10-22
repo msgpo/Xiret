@@ -9,7 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret project
-'  Update.vb
+'  Updater.vb
 '  Created by David S on 20.03.2016
 '  Updated on 24.09.2019 - DS (Cleanup)
 
@@ -60,7 +60,7 @@ Friend Class Updater
             Else
                 Return False
             End If
-        Catch
+        Catch ex As Exception
             Return False
         End Try
 

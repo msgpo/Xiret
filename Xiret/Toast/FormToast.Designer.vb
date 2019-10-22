@@ -25,88 +25,88 @@ Partial Class FormToast
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Me.tDraw = New System.Windows.Forms.Timer(Me.components)
-        Me.pnlmain = New System.Windows.Forms.Panel()
-        Me.cmdClose = New System.Windows.Forms.Button()
-        Me.lbTitle = New System.Windows.Forms.Label()
-        Me.lbMessage = New System.Windows.Forms.Label()
-        Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.GProgressBar = New Controls.GambolProgressBar()
-        Me.pnlmain.SuspendLayout()
-        Me.Panel1.SuspendLayout()
+        Me.TimerTick = New System.Windows.Forms.Timer(Me.components)
+        Me.LabTitle = New System.Windows.Forms.Label()
+        Me.LabMessage = New System.Windows.Forms.Label()
+        Me.PanMain = New System.Windows.Forms.Panel()
+        Me.PbxTypeImage = New System.Windows.Forms.PictureBox()
+        Me.CmdClose = New System.Windows.Forms.Button()
+        Me.GProgressBar = New Xiret.Controls.GambolProgressBar()
+        Me.PanMain.SuspendLayout()
+        CType(Me.PbxTypeImage, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
-        'tDraw
+        'TimerTick
         '
-        Me.tDraw.Enabled = True
-        Me.tDraw.Interval = 10
+        Me.TimerTick.Enabled = True
+        Me.TimerTick.Interval = 10
         '
-        'pnlmain
+        'LabTitle
         '
-        Me.pnlmain.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
-        Me.pnlmain.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
-        Me.pnlmain.Controls.Add(Me.cmdClose)
-        Me.pnlmain.Controls.Add(Me.lbTitle)
-        Me.pnlmain.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlmain.Location = New System.Drawing.Point(1, 1)
-        Me.pnlmain.Name = "pnlmain"
-        Me.pnlmain.Size = New System.Drawing.Size(498, 40)
-        Me.pnlmain.TabIndex = 0
+        Me.LabTitle.AutoSize = True
+        Me.LabTitle.BackColor = System.Drawing.Color.Transparent
+        Me.LabTitle.Font = New System.Drawing.Font("Segoe UI Semibold", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabTitle.ForeColor = System.Drawing.Color.White
+        Me.LabTitle.Location = New System.Drawing.Point(50, 17)
+        Me.LabTitle.Name = "LabTitle"
+        Me.LabTitle.Size = New System.Drawing.Size(22, 23)
+        Me.LabTitle.TabIndex = 0
+        Me.LabTitle.Text = "..."
+        Me.LabTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         '
-        'cmdClose
+        'LabMessage
         '
-        Me.cmdClose.BackColor = System.Drawing.Color.Transparent
-        Me.cmdClose.Dock = System.Windows.Forms.DockStyle.Right
-        Me.cmdClose.FlatAppearance.BorderSize = 0
-        Me.cmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(0, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.cmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.cmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cmdClose.ForeColor = System.Drawing.Color.White
-        Me.cmdClose.Location = New System.Drawing.Point(458, 0)
-        Me.cmdClose.Margin = New System.Windows.Forms.Padding(0)
-        Me.cmdClose.Name = "cmdClose"
-        Me.cmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
-        Me.cmdClose.Size = New System.Drawing.Size(40, 40)
-        Me.cmdClose.TabIndex = 7
-        Me.cmdClose.TabStop = False
-        Me.cmdClose.Text = "✕"
-        Me.cmdClose.UseVisualStyleBackColor = False
+        Me.LabMessage.BackColor = System.Drawing.Color.Transparent
+        Me.LabMessage.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabMessage.ForeColor = System.Drawing.Color.White
+        Me.LabMessage.Location = New System.Drawing.Point(52, 47)
+        Me.LabMessage.Name = "LabMessage"
+        Me.LabMessage.Size = New System.Drawing.Size(435, 75)
+        Me.LabMessage.TabIndex = 1
+        Me.LabMessage.Text = "..."
         '
-        'lbTitle
+        'PanMain
         '
-        Me.lbTitle.AutoSize = True
-        Me.lbTitle.BackColor = System.Drawing.Color.Transparent
-        Me.lbTitle.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbTitle.ForeColor = System.Drawing.Color.White
-        Me.lbTitle.Location = New System.Drawing.Point(13, 9)
-        Me.lbTitle.Name = "lbTitle"
-        Me.lbTitle.Size = New System.Drawing.Size(25, 23)
-        Me.lbTitle.TabIndex = 0
-        Me.lbTitle.Text = "..."
-        Me.lbTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.PanMain.Controls.Add(Me.PbxTypeImage)
+        Me.PanMain.Controls.Add(Me.CmdClose)
+        Me.PanMain.Controls.Add(Me.GProgressBar)
+        Me.PanMain.Controls.Add(Me.LabTitle)
+        Me.PanMain.Controls.Add(Me.LabMessage)
+        Me.PanMain.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.PanMain.Location = New System.Drawing.Point(1, 1)
+        Me.PanMain.Name = "PanMain"
+        Me.PanMain.Size = New System.Drawing.Size(498, 143)
+        Me.PanMain.TabIndex = 0
         '
-        'lbMessage
+        'PbxTypeImage
         '
-        Me.lbMessage.BackColor = System.Drawing.Color.Transparent
-        Me.lbMessage.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lbMessage.ForeColor = System.Drawing.Color.White
-        Me.lbMessage.Location = New System.Drawing.Point(13, 12)
-        Me.lbMessage.Name = "lbMessage"
-        Me.lbMessage.Size = New System.Drawing.Size(475, 109)
-        Me.lbMessage.TabIndex = 1
-        Me.lbMessage.Text = "..."
+        Me.PbxTypeImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PbxTypeImage.Location = New System.Drawing.Point(12, 12)
+        Me.PbxTypeImage.Name = "PbxTypeImage"
+        Me.PbxTypeImage.Size = New System.Drawing.Size(32, 32)
+        Me.PbxTypeImage.TabIndex = 9
+        Me.PbxTypeImage.TabStop = False
         '
-        'Panel1
+        'CmdClose
         '
-        Me.Panel1.BackColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.Panel1.Controls.Add(Me.GProgressBar)
-        Me.Panel1.Controls.Add(Me.lbMessage)
-        Me.Panel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Panel1.Location = New System.Drawing.Point(1, 41)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(498, 138)
-        Me.Panel1.TabIndex = 2
+        Me.CmdClose.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.CmdClose.BackColor = System.Drawing.Color.Transparent
+        Me.CmdClose.FlatAppearance.BorderSize = 0
+        Me.CmdClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer), CType(CType(100, Byte), Integer))
+        Me.CmdClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.CmdClose.Font = New System.Drawing.Font("Segoe UI", 10.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CmdClose.ForeColor = System.Drawing.Color.White
+        Me.CmdClose.Location = New System.Drawing.Point(458, 0)
+        Me.CmdClose.Margin = New System.Windows.Forms.Padding(0)
+        Me.CmdClose.Name = "CmdClose"
+        Me.CmdClose.Padding = New System.Windows.Forms.Padding(2, 0, 0, 0)
+        Me.CmdClose.Size = New System.Drawing.Size(40, 40)
+        Me.CmdClose.TabIndex = 0
+        Me.CmdClose.TabStop = False
+        Me.CmdClose.Text = "✕"
+        Me.CmdClose.UseVisualStyleBackColor = False
         '
         'GProgressBar
         '
@@ -114,14 +114,15 @@ Partial Class FormToast
         Me.GProgressBar.BorderColor = System.Drawing.Color.Transparent
         Me.GProgressBar.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.GProgressBar.ForeColor = System.Drawing.Color.Transparent
-        Me.GProgressBar.Location = New System.Drawing.Point(0, 128)
+        Me.GProgressBar.Location = New System.Drawing.Point(0, 137)
         Me.GProgressBar.Margin = New System.Windows.Forms.Padding(0)
         Me.GProgressBar.Maximum = 200
         Me.GProgressBar.Name = "GProgressBar"
         Me.GProgressBar.ProgressColor = System.Drawing.Color.White
         Me.GProgressBar.ShowBorder = False
-        Me.GProgressBar.Size = New System.Drawing.Size(498, 10)
-        Me.GProgressBar.TabIndex = 3
+        Me.GProgressBar.Size = New System.Drawing.Size(498, 6)
+        Me.GProgressBar.TabIndex = 0
+        Me.GProgressBar.TabStop = False
         Me.GProgressBar.Text = "GProgressBar"
         Me.GProgressBar.Value = 0
         '
@@ -132,31 +133,30 @@ Partial Class FormToast
         Me.AutoSize = True
         Me.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer), CType(CType(130, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(500, 180)
-        Me.Controls.Add(Me.Panel1)
-        Me.Controls.Add(Me.pnlmain)
+        Me.ClientSize = New System.Drawing.Size(500, 145)
+        Me.Controls.Add(Me.PanMain)
         Me.DoubleBuffered = True
         Me.Font = New System.Drawing.Font("Segoe UI", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
-        Me.MaximumSize = New System.Drawing.Size(500, 180)
-        Me.MinimumSize = New System.Drawing.Size(500, 180)
+        Me.MaximumSize = New System.Drawing.Size(500, 145)
+        Me.MinimumSize = New System.Drawing.Size(500, 145)
         Me.Name = "FormToast"
         Me.Padding = New System.Windows.Forms.Padding(1)
         Me.ShowIcon = False
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.Manual
         Me.Text = "Notification"
-        Me.pnlmain.ResumeLayout(False)
-        Me.pnlmain.PerformLayout()
-        Me.Panel1.ResumeLayout(False)
+        Me.PanMain.ResumeLayout(False)
+        Me.PanMain.PerformLayout()
+        CType(Me.PbxTypeImage, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-    Friend WithEvents tDraw As System.Windows.Forms.Timer
-    Friend WithEvents pnlmain As System.Windows.Forms.Panel
-    Friend WithEvents lbMessage As System.Windows.Forms.Label
-    Friend WithEvents cmdClose As System.Windows.Forms.Button
-    Friend WithEvents lbTitle As System.Windows.Forms.Label
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
+    Friend WithEvents TimerTick As System.Windows.Forms.Timer
+    Friend WithEvents LabMessage As System.Windows.Forms.Label
+    Friend WithEvents LabTitle As System.Windows.Forms.Label
+    Friend WithEvents PanMain As System.Windows.Forms.Panel
     Friend WithEvents GProgressBar As GambolProgressBar
+    Friend WithEvents CmdClose As Button
+    Friend WithEvents PbxTypeImage As PictureBox
 End Class

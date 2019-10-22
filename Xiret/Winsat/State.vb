@@ -9,7 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret project
-'  WinsatState.vb
+'  State.vb
 '  Created by David S
 '  Updated on 18.07.2019 - DS (Cleanup)
 

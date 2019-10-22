@@ -11,10 +11,7 @@
 '  Xiret Project
 '  GambolToolstripRenderer.vb
 '  Created by David S
-'  Updated on 10.06.2019 - Ds (Enhanced colours)
-
-Imports System.Drawing
-Imports System.Windows.Forms
+'  Updated on 22.10.2019 - DS (Update imports)
 
 Namespace UI
 

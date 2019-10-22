@@ -34,7 +34,7 @@ Namespace Core.Helpers
         End Sub
 
 #End Region
-#Region "ImgurAPI"
+#Region "Imgur API"
 
         Public Shared Function PostToImgur(ImageLocation As String, LogLocation As String, ClientID As String, ShowInBrowser As Boolean,
                             LogUpload As Boolean, DeleteTempFile As Boolean) As Integer

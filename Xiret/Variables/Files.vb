@@ -18,8 +18,4 @@ Friend Class Files
     Friend Shared ReadOnly FileWinsat As String = Path.Combine(Directories.DirSys32, "winsat.exe")
     Friend Shared ReadOnly FileWinsatApi As String = Path.Combine(Directories.DirSys32, "winsatapi.dll")
 
-    'Friend Shared ReadOnly FileUpdater As String = Path.Combine(Directories.DirAppPath, "Updater.exe")
-    'Friend Shared ReadOnly FileCoreDLL As String = Path.Combine(Directories.DirAppPath, "Xiret.dll")
-    'Friend Shared ReadOnly FileGambolDLL As String = Path.Combine(Directories.DirAppPath, "Gambol.dll")
-
 End Class

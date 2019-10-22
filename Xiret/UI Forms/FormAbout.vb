@@ -19,7 +19,7 @@ Imports Xiret.Core.Animation
 Friend Class FormAbout
 
     Private TheCatReturns As Boolean = False
-    Private ReadOnly Version As String = "Build " & Program.XiretBuild & " (V" & Application.ProductVersion & ") - " & Program.ProductChannel
+    Private ReadOnly Version As String = "Build " & Program.XiretBuild & " · v" & Application.ProductVersion & " · " & Program.ProductChannel
 
 #Region "Ctor"
 
@@ -69,6 +69,7 @@ Friend Class FormAbout
 
 #Region "Load Event Handler"
     Private Sub FormAbout_Load(sender As Object, e As EventArgs) Handles Me.Load
+        PbxEfa.Hide()
         LabBuild.Text = Version
     End Sub
 
@@ -108,18 +109,7 @@ Friend Class FormAbout
     Private Sub LnkDonate_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkDonate.LinkClicked
         Process.Start("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CUZ2TP495UZZS")
     End Sub
-    Private Sub LnkBitmight_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkBitmight.LinkClicked
-        Process.Start(Strings.StringBitmightUrl)
-    End Sub
-    Private Sub LnkMajorgeeks_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkMajorgeeks.LinkClicked
-        Process.Start("https://www.majorgeeks.com/")
-    End Sub
-    Private Sub LnkFlaticon_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkFlaticon.LinkClicked
-        Process.Start("http://www.flaticon.com")
-    End Sub
-    Private Sub LnkVectors_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles LnkVectors.LinkClicked
-        Process.Start("https://www.flaticon.com/authors/vectors-market")
-    End Sub
+
 #End Region
 
 #Region "Neko no Ongaeshi"
@@ -129,10 +119,12 @@ Friend Class FormAbout
             TheCatReturns = False
             CType(sender, PictureBox).Image = My.Resources.icon64px
             LabAppName.Text = "Scratch, scratch"
+            PbxEfa.Hide()
         Else
             TheCatReturns = True
             CType(sender, PictureBox).Image = My.Resources.mow
             LabAppName.Text = "Purrrrrrrrrrr"
+            PbxEfa.Show()
         End If
     End Sub
 
@@ -146,6 +138,10 @@ Friend Class FormAbout
 
     Private Sub PbxLogo_MouseLeave(sender As Object, e As EventArgs) Handles PbxLogo.MouseLeave
         LabAppName.Text = "Xiret❷"
+    End Sub
+
+    Private Sub PbxEfa_Click(sender As Object, e As EventArgs) Handles PbxEfa.Click
+        Process.Start("https://forums.mydigitallife.net/threads/a-beloved-member-efa11-has-unexpectedly-And-suddenly-passed-away.71726/")
     End Sub
 
 #End Region

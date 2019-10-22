@@ -193,7 +193,7 @@ Public Class FormSettings
         FormMain.SetMainThemeAccent()
         FormMain.UpdateControls()
 
-        ToastAlert.Show("Settings updated.", ToastType.IsInformational)
+        ToastAlert.Show("Settings updated.", ToastType.Information)
 
     End Sub
     Private Sub CmdWarn_Click(sender As Object, e As EventArgs) Handles CmdWarn.Click

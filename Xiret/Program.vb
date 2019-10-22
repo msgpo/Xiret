@@ -11,7 +11,6 @@
 '  Xiret project
 '  Program.vb
 '  Created by David S on 20.03.2016
-'  Updated on 09.10.2019 - DS (Removed imports form Xiret.dll and copied some api and functions to here. Program.vb needs to be self-sustaining to check missing files.)
 '  Updated on 16.10.2019 - DS (Removed library check)
 
 Imports Microsoft.VisualBasic.ApplicationServices
@@ -31,7 +30,7 @@ Imports Xiret.Core.WinApi
 <Module: CodeName("EFA11")>
 <Module: TestedBy("K4onashi, Carlos Detweiller, ItielMaN")>
 <Module: ProductChannel("Release")>
-<Module: ProductVersion("2.0.1")>
+<Module: ProductVersion("2.0.2")>
 <Module: BuiltBy("David S aka K4onashi")>
 <Module: TableFlip(" It's not a bug it's a feature (╯°□°）╯︵ ┻━┻")>
 
@@ -39,8 +38,8 @@ Friend Class Program
 
     ' ## PLEASE FILL BEFORE RELEASE ## '
     Friend Shared ReadOnly ProductChannel As String = "Release"
-    Friend Shared ReadOnly ProductReleaseDate As String = "16th October 2019"
-    Friend Shared XiretBuild As String = "1HK20"
+    Friend Shared ReadOnly ProductReleaseDate As String = "22th October 2019"
+    Friend Shared XiretBuild As String = "1HL20"
 
     <STAThread()>
     Friend Shared Sub Main(ByVal Args() As String)

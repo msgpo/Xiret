@@ -12,13 +12,12 @@
 '  Some ContextMenu settings are overriden by Gambol\UI\MHRenderer like background color, etc
 '  FormMain.vb
 '  Created by David S on 24.03.2016
-'  Updated on 22.09.2019 - DS (Add link to winsat log, ui enhancements)
-'  Updated on 24.09.2019 - DS (Cleanup and code enhancements)
 '  Updated on 07.10.2019 - DS (Fix cross-thread bug, add dropshadow)
 '  Updated on 16.10.2019 - DS (Update CheckNotify() to finish tasks before updating menu items)
+'  Updated on 21.10.2019 - DS (Switch thread to task, task handling)
 
 Imports System.Text
-Imports System.Threading
+Imports System.Threading.Tasks
 Imports System.IO
 
 Imports Xiret.Core.Animation
@@ -136,11 +135,21 @@ Public Class FormMain
         End If
 
         'View Imgur Links
+        If My.Computer.Keyboard.CtrlKeyDown And e.KeyCode = Keys.W Then
+            ViewWinSATLogToolStripMenuItem.PerformClick()
+        End If
+
+        'Refresh scores
         If My.Computer.Keyboard.CtrlKeyDown And My.Computer.Keyboard.ShiftKeyDown And e.KeyCode = Keys.R Then
             RefreshScoresToolStripMenuItem.PerformClick()
         End If
 
-        'Vew app data
+        'Save res
+        If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.R Then
+            SaveResourcesToDIskToolStripMenuItem.PerformClick()
+        End If
+
+        'View app data
         If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.G Then
             ProgramDataToolStripMenuItem.PerformClick()
         End If
@@ -196,14 +205,19 @@ Public Class FormMain
             UpdateAvailableToolStripMenuItem.PerformClick()
         End If
 
-        'Troubleshooting
-        If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.O Then
+        'Changelog
+        If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.L Then
             ChangelogToolStripMenuItem.PerformClick()
         End If
 
         'About
         If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.A Then
             AboutToolStripMenuItem.PerformClick()
+        End If
+
+        'Acknowledgements
+        If My.Computer.Keyboard.AltKeyDown And e.KeyCode = Keys.K Then
+            AcknowledgementsToolStripMenuItem.PerformClick()
         End If
 
     End Sub
@@ -213,19 +227,18 @@ Public Class FormMain
 
     Private Sub FormMain_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'Hide controls that are only shown when needed
+        'Hide items that are only shown when needed
         HotfixAvailableToolStripMenuItem.Visible = False
         UpdateAvailableToolStripMenuItem.Visible = False
 
         'Load data to labels
         LabVersion.Text = Application.ProductVersion
 
-        'I accidentally released a debug version like a dickhead, this should solve that issue
+        'This is to stop me releasing debug accidentally
 #If DEBUG Then
         LabHead.ForeColor = Color.Tomato
         LabHead.Text &= " (Debug Mode)"
 #End If
-
 
         If OSHelper.IsWinTen Then
             LabOpSys.Text = OSHelper.GetWindowsName & " " & OSHelper.GetWindowsReleaseId & " " & OSHelper.GetWindowsBitness
@@ -247,29 +260,16 @@ Public Class FormMain
         UpdateControls()
 
         'Check notifications
-        Dim t = New Thread(AddressOf CheckNotify) With {
-            .IsBackground = True
-        }
-        t.Start()
+        Task.Factory.StartNew(Sub() CheckNotifications())
 
     End Sub
-    Private Sub CheckNotify()
+
+    Private Sub CheckNotifications()
 
         'Updated 07.10.2019
         'All hotfixes are loaded from WMI into a data structure which can be referenced 3x faster with less overhead.
         'This means we're not iterating through every hotfix in WMI multiple times. Good news for slower processors.
         Dim ListOfUpdates As List(Of String) = Knowledgebase.ListAllHotfixes
-
-        '#DEBUG
-        'If Debugger.IsAttached Then
-        '    Dim Str As String = ""
-        '    Dim Int As Integer = 0
-        '    For Each Hotfix In ListOfUpdates
-        '        Str &= Int & "> " & Hotfix & vbCrLf
-        '        Int += 1
-        '    Next
-        '    MessageBox.Show(Str)
-        'End If
 
         'Moved from Program.vb. Holds back spawn time on Win7.
         If OSHelper.IsWinSeven() Then
@@ -290,14 +290,21 @@ Public Class FormMain
             Booleans.BoolMissingUpdate = True
         End If
 
+        Invoke(DirectCast(Sub() OnFinishedCheckNotifications(), MethodInvoker))
+
+    End Sub
+
+    Private Sub OnFinishedCheckNotifications()
+
         If Booleans.BoolMissingHotfix Then
             Integers.IntNotificationCount += 1
-            Invoke(DirectCast(Sub() UpdateToolstripHotfixItem(), MethodInvoker))
+            UpdateToolstripHotfixItem()
         End If
 
         If Booleans.BoolMissingUpdate Then
+            LabVersion.Text = Application.ProductVersion & " (Outdated)"
             Integers.IntNotificationCount += 1
-            Invoke(DirectCast(Sub() UpdateToolstripUpdateItem(), MethodInvoker))
+            UpdateToolstripUpdateItem()
         End If
 
         If Not Integers.IntNotificationCount = 0 Then
@@ -375,7 +382,7 @@ Public Class FormMain
     Private Sub BtnRun_Click(sender As Object, e As EventArgs) Handles CmdAssess.Click
 
         If Not PowerHelper.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.IsWarning)
+            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             If PowerHelper.IsAdapterPluggedIn() Then
                 Fade.FadeBehindChild(Me)
@@ -395,7 +402,7 @@ Public Class FormMain
     Private Sub CmdMetrics_Click(sender As Object, e As EventArgs) Handles cmdMetrics.Click
 
         If WinsatApi.GetAssessmentValidityInt() = 3 Then
-            ToastAlert.Show("The system must be rated to use this feature.", ToastType.IsWarning)
+            ToastAlert.Show("The system must be rated to use this feature.", ToastType.Warning)
         Else
             Fade.FadeBehindChild(Me)
             Dim FMetrics As New FormMetrics
@@ -407,7 +414,7 @@ Public Class FormMain
     Private Sub CmdRunInDepth_Click(sender As Object, e As EventArgs) Handles CmdRunInDepth.Click
 
         If Not PowerHelper.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.IsWarning)
+            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             Fade.FadeBehindChild(Me)
             Dim FAssess As New FormAssessVerbose
@@ -420,7 +427,7 @@ Public Class FormMain
     Private Sub CmdExport_Click(sender As Object, e As EventArgs) Handles CmdExport.Click
 
         If CDbl(Strings.StringBaseScore) = 0 Then
-            ToastAlert.Show("There must be a valid Experience Index rating to use these features.", ToastType.IsWarning)
+            ToastAlert.Show("There must be a valid Experience Index rating to use these features.", ToastType.Warning)
         Else
             Dim ptLowerLeft As Point = New Point(-1, CType(sender, Button).Height)
             ptLowerLeft = CType(sender, Button).PointToScreen(ptLowerLeft)
@@ -476,7 +483,7 @@ Public Class FormMain
     Private Sub JPGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles JPGToolStripMenuItem.Click
 
         If CDbl(Strings.StringBaseScore) = 0 Then
-            ToastAlert.Show("You must rate your system first.", ToastType.IsWarning)
+            ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             EnterPrintMode()
 
@@ -494,11 +501,11 @@ Public Class FormMain
                         Bmap.Save(Sfd.FileName, Imaging.ImageFormat.Jpeg)
                     End Using
                     If File.Exists(Sfd.FileName) Then
-                        ToastAlert.Show("Image saved to " & Sfd.FileName, ToastType.IsInformational)
+                        ToastAlert.Show("Image saved to " & Sfd.FileName, ToastType.Information)
                     End If
                 End If
             Catch
-                ToastAlert.Show("The image could not be saved to disk.", ToastType.IsError)
+                ToastAlert.Show("The image could not be saved to disk.", ToastType.Critical)
             Finally
                 Sfd.Dispose()
             End Try
@@ -510,7 +517,7 @@ Public Class FormMain
     Private Sub PNGToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles PNGToolStripMenuItem.Click
 
         If CDbl(Strings.StringBaseScore) = 0 Then
-            ToastAlert.Show("You must rate your system first.", ToastType.IsWarning)
+            ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             EnterPrintMode()
 
@@ -528,11 +535,11 @@ Public Class FormMain
                         Bmap.Save(Sfd.FileName, Imaging.ImageFormat.Png)
                     End Using
                     If File.Exists(Sfd.FileName) Then
-                        ToastAlert.Show("Image saved to " & Sfd.FileName, ToastType.IsInformational)
+                        ToastAlert.Show("Image saved to " & Sfd.FileName, ToastType.Information)
                     End If
                 End If
             Catch
-                ToastAlert.Show("The image could not be saved to disk.", ToastType.IsError)
+                ToastAlert.Show("The image could not be saved to disk.", ToastType.Critical)
             Finally
                 Sfd.Dispose()
             End Try
@@ -544,7 +551,7 @@ Public Class FormMain
     Private Sub BMPToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles BMPToolStripMenuItem.Click
 
         If CDbl(Strings.StringBaseScore) = 0 Then
-            ToastAlert.Show("You must rate your system first.", ToastType.IsWarning)
+            ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             EnterPrintMode()
 
@@ -562,11 +569,11 @@ Public Class FormMain
                         Bmap.Save(Sfd.FileName, Imaging.ImageFormat.Bmp)
                     End Using
                     If File.Exists(Sfd.FileName) Then
-                        ToastAlert.Show("Image saved to " & Sfd.FileName, ToastType.IsInformational)
+                        ToastAlert.Show("Image saved to " & Sfd.FileName, ToastType.Information)
                     End If
                 End If
             Catch
-                ToastAlert.Show("The image could not be saved to disk.", ToastType.IsError)
+                ToastAlert.Show("The image could not be saved to disk.", ToastType.Critical)
             Finally
                 Sfd.Dispose()
             End Try
@@ -578,7 +585,7 @@ Public Class FormMain
     Private Sub TXTToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles TXTToolStripMenuItem.Click
 
         If CDbl(Strings.StringBaseScore) = 0 Then
-            ToastAlert.Show("You must rate your system first.", ToastType.IsWarning)
+            ToastAlert.Show("You must rate your system first.", ToastType.Warning)
         Else
             Dim SBuilder As New StringBuilder
             SBuilder.Append("Windows Experience Index scores generated by Xiret on " & Date.Today & "." & vbNewLine & vbNewLine)
@@ -627,11 +634,11 @@ Public Class FormMain
                 If Sfd.ShowDialog = Windows.Forms.DialogResult.OK Then
                     My.Computer.FileSystem.WriteAllText(Sfd.FileName, SBuilder.ToString, False)
                     If File.Exists(Sfd.FileName) Then
-                        ToastAlert.Show("File saved to " & Sfd.FileName.ToString, ToastType.IsInformational)
+                        ToastAlert.Show("File saved to " & Sfd.FileName.ToString, ToastType.Information)
                     End If
                 End If
             Catch
-                ToastAlert.Show("Could not save scores to a text file.", ToastType.IsWarning)
+                ToastAlert.Show("Could not save scores to a text file.", ToastType.Warning)
             Finally
                 Sfd.Dispose()
             End Try
@@ -644,10 +651,10 @@ Public Class FormMain
         CType(sender, ToolStripMenuItem).Enabled = False
 
         If Strings.StringImgurClientID = "" Then
-            ToastAlert.Show("Imgur API client key needed.", ToastType.IsWarning)
+            ToastAlert.Show("Imgur API client key needed.", ToastType.Warning)
         Else
             If CDbl(Strings.StringBaseScore) = 0 Then 'Unrated system
-                ToastAlert.Show("You must rate your system first.", ToastType.IsWarning)
+                ToastAlert.Show("You must rate your system first.", ToastType.Warning)
             Else 'Check imgur is online
                 If NetHelper.IsWebsiteAvailable(Strings.StringImgurUrl) Then
 
@@ -665,7 +672,7 @@ Public Class FormMain
                     End If
 
                 Else 'No connection to Imgur
-                    ToastAlert.Show("Could not connect to Imgur. The service may be unavailable.", ToastType.IsWarning)
+                    ToastAlert.Show("Could not connect to Imgur. The service may be unavailable.", ToastType.Warning)
                 End If
             End If
         End If
@@ -682,9 +689,9 @@ Public Class FormMain
         Dim exitCode As Integer = ImageHelper.PostToImgur(Files.FileTemporary, Files.FileImgurLog, Settings.StringUserImgurClientId, True, True, True)
 
         If exitCode = 1 Then
-            ToastAlert.Show("File uploaded to Imgur.", ToastType.IsInformational)
+            ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
         Else
-            ToastAlert.Show("Could not upload image to Imgur's database. If you're using a custom Client ID it may be incorrect.", ToastType.IsError)
+            ToastAlert.Show("Could not upload image to Imgur's database. If you're using a custom Client ID it may be incorrect.", ToastType.Critical)
         End If
 
     End Sub
@@ -694,9 +701,9 @@ Public Class FormMain
         Dim exitCode As Integer = ImageHelper.PostToImgur(Files.FileTemporary, Files.FileImgurLog, Strings.StringImgurClientID, True, True, True)
 
         If exitCode = 1 Then
-            ToastAlert.Show("File uploaded to Imgur.", ToastType.IsInformational)
+            ToastAlert.Show("File uploaded to Imgur.", ToastType.Information)
         Else
-            ToastAlert.Show("Could not upload image to Imgur's database. If you're using a custom Client ID it may be incorrect.", ToastType.IsError)
+            ToastAlert.Show("Could not upload image to Imgur's database. If you're using a custom Client ID it may be incorrect.", ToastType.Critical)
         End If
 
     End Sub
@@ -708,14 +715,14 @@ Public Class FormMain
         Try
             Process.Start(Files.FileXiretLog)
         Catch
-            ToastAlert.Show("The assessment log file has not been created. It will be available after rating your system at least once.", ToastType.IsWarning)
+            ToastAlert.Show("The assessment log file has not been created. It will be available after rating your system at least once.", ToastType.Warning)
         End Try
     End Sub
     Private Sub ViewImgurLinksToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ViewImgurLinksToolStripMenuItem.Click
         Try
             Process.Start(Files.FileImgurLog)
         Catch
-            ToastAlert.Show("The Imgur link file has not been created. It will be available after you upload a valid system rating.", ToastType.IsWarning)
+            ToastAlert.Show("The Imgur link file has not been created. It will be available after you upload a valid system rating.", ToastType.Warning)
         End Try
     End Sub
 
@@ -723,21 +730,48 @@ Public Class FormMain
         Try
             Process.Start(Files.FileWinsatLog)
         Catch
-            ToastAlert.Show("Could not open winsat.log.", ToastType.IsWarning)
+            ToastAlert.Show("Could not open winsat.log.", ToastType.Warning)
         End Try
     End Sub
 
     Private Sub RefreshScoresToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RefreshScoresToolStripMenuItem.Click
 
         If WinsatApi.GetAssessmentValidityInt() = 3 Then
-            ToastAlert.Show("The system must be rated to use this option.", ToastType.IsWarning)
+            ToastAlert.Show("The system must be rated to use this option.", ToastType.Warning)
         Else
             WSR4.GetWinsatSPR()
             UpdateControls()
         End If
 
+    End Sub
+
+    Private Sub SaveResourcesToDIskToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveResourcesToDIskToolStripMenuItem.Click
+
+        Dim FBD As New FolderBrowserDialog With {
+        .RootFolder = Environment.SpecialFolder.Desktop,
+        .ShowNewFolderButton = True,
+        .Description = "Choose a folder to save the items..."
+        }
+
+        If FBD.ShowDialog = DialogResult.OK Then
+            File.WriteAllBytes(FBD.SelectedPath & "\Windows6_1_KB2687862_x86.msu", My.Resources.Windows6_1_KB2687862_x86)
+            File.WriteAllBytes(FBD.SelectedPath & "\Windows6_1_KB2687862_x64.msu", My.Resources.Windows6_1_KB2687862_x64)
+            File.WriteAllBytes(FBD.SelectedPath & "\segoeui.ttf", My.Resources.segoeui)
+            File.WriteAllBytes(FBD.SelectedPath & "\segoeuib.ttf", My.Resources.segoeuib)
+            File.WriteAllBytes(FBD.SelectedPath & "\seguisb.ttf", My.Resources.seguisb)
+            ToastAlert.Show("Resources saved to " & FBD.SelectedPath & ".", ToastType.Information)
+        End If
 
     End Sub
+
+    Private Sub ProgramDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProgramDataToolStripMenuItem.Click
+        Try
+            Process.Start(Directories.DirAppData)
+        Catch
+            ToastAlert.Show("Could not navigate to directory.", ToastType.Warning)
+        End Try
+    End Sub
+
     Private Sub SettingsToolstripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolstripMenuItem.Click
 
         Fade.FadeBehindChild(Me)
@@ -747,7 +781,6 @@ Public Class FormMain
         F.ShowDialog()
 
     End Sub
-
 
 #End Region
 #Region "Context Menu (Tools)"
@@ -772,7 +805,7 @@ Public Class FormMain
     Private Sub RunToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RunToolStripMenuItem.Click
 
         If Not PowerHelper.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.IsWarning)
+            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             Fade.FadeBehindChild(Me)
             Dim F As New FormAssess
@@ -784,7 +817,7 @@ Public Class FormMain
     Private Sub RunVerboseToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RunVerboseToolStripMenuItem.Click
 
         If Not PowerHelper.IsAdapterPluggedIn() Then
-            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.IsWarning)
+            ToastAlert.Show("WinSAT cannot run on battery power. Insert your power adapter to continue.", ToastType.Warning)
         Else
             Fade.FadeBehindChild(Me)
             Dim F As New FormAssessVerbose
@@ -818,7 +851,7 @@ Public Class FormMain
                 TroubProc.Start()
             End If
         Catch ex As IOException
-            ToastAlert.Show("Troubleshooting is already open.", ToastType.IsInformational)
+            ToastAlert.Show("Troubleshooting is already open.", ToastType.Information)
         End Try
 
     End Sub
@@ -859,6 +892,17 @@ Public Class FormMain
         FAbout.ShowDialog()
 
     End Sub
+
+    Private Sub AcknowledgementsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AcknowledgementsToolStripMenuItem.Click
+
+        Fade.FadeBehindChild(Me)
+
+        Dim Frm As New FormAckn
+        AddHandler Frm.FormClosed, AddressOf ChildFormClosedNoRefresh
+        Frm.ShowDialog()
+
+    End Sub
+
 #End Region
 #Region "Context Menu (Application)"
 
@@ -993,11 +1037,11 @@ Public Class FormMain
             LabBasescore.Text = "0.0"
         End If
 
-        CheckRated()
+        SetSwitchState()
         LoadHardwareStrings()
 
     End Sub
-    Private Sub CheckRated()
+    Private Sub SetSwitchState()
         If Not WinsatApi.GetAssessmentValidityInt() = 3 Then
             GswHardware.Enabled = True
         Else
@@ -1033,18 +1077,27 @@ Public Class FormMain
     Private Sub UpdateToolstripHotfixItem()
         HotfixAvailableToolStripMenuItem.Visible = True
         HotfixAvailableToolStripMenuItem.ForeColor = Color.White
-        HotfixAvailableToolStripMenuItem.Text = "! Hotfix available"
+        HotfixAvailableToolStripMenuItem.Text = "Hotfix Available"
         HotfixAvailableToolStripMenuItem.Font = New Font("Segoe UI Semibold", 9) 'Cannot call SemiBold from FontStyle, be explicit.
     End Sub
     Private Sub UpdateToolstripUpdateItem()
         UpdateAvailableToolStripMenuItem.Visible = True
         UpdateAvailableToolStripMenuItem.ForeColor = Color.White
-        UpdateAvailableToolStripMenuItem.Text = "! Update Available"
+        UpdateAvailableToolStripMenuItem.Text = "Download Update"
         UpdateAvailableToolStripMenuItem.Font = New Font("Segoe UI Semibold", 9) 'Cannot call SemiBold from FontStyle, be explicit.
     End Sub
 
-    Private Sub LbHWStatus_Click(sender As Object, e As EventArgs) Handles LabShowHardware.Click
-        MessageBox.Show("Descansa en paz EFA11. Te amamos hermano." & vbCrLf & "Rest in peace EFA11. We love you bro.", "<3")
+    Friend Sub HotfixWasInstalled()
+
+        HotfixAvailableToolStripMenuItem.Visible = False
+        Integers.IntNotificationCount -= 1
+        Notifier1.DeactivateAll()
+
+        If Not Integers.IntNotificationCount = 0 Then
+            Notifier1.Controls.Add(CmdHelp, Integers.IntNotificationCount)
+            Notifier1.Activate()
+        End If
+
     End Sub
 
 #End Region
@@ -1056,8 +1109,20 @@ Public Class FormMain
         LabShowHardware.BackColor = Color.FromArgb(35, 35, 35)
     End Sub
 
-    Private Sub ProgramDataToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProgramDataToolStripMenuItem.Click
-        Process.Start(Directories.DirAppData)
+    Private Sub LabVersion_Click(sender As Object, e As EventArgs) Handles LabVersion.Click
+        If Booleans.BoolMissingUpdate Then
+            Fade.FadeBehindChild(Me)
+
+            Dim FUpdate As New FormUpdate
+            AddHandler FUpdate.FormClosed, AddressOf ChildFormClosedNoRefresh
+            FUpdate.ShowDialog()
+        End If
+    End Sub
+
+    Private Sub LabVersion_MouseEnter(sender As Object, e As EventArgs) Handles LabVersion.MouseEnter
+        If Booleans.BoolMissingUpdate Then
+            CType(sender, Label).Cursor = Cursors.Hand
+        End If
     End Sub
 
 #End Region

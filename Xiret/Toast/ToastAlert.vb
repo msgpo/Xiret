@@ -9,7 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret project
-'  ToastHelper.vb
+'  ToastAlert.vb
 '  Created by David S
 '  Updated on 14.07.2019 - DS (Integrate ToastType enum, update variables)
 '  Updated on 31.07.2019 - DS (General cleanup and improvements)

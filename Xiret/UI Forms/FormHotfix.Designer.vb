@@ -38,12 +38,13 @@ Partial Class FormHotfix
         Me.LnkHotfix = New System.Windows.Forms.LinkLabel()
         Me.LabError = New System.Windows.Forms.Label()
         Me.LabInfo = New System.Windows.Forms.Label()
-        Me.PbrPercentage = New Xiret.Controls.GambolProgressBar()
+        Me.PbxLoad = New System.Windows.Forms.PictureBox()
         Me.PanHead.SuspendLayout()
         Me.TlpHeadImage.SuspendLayout()
         CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanMain.SuspendLayout()
         Me.TlpBottom.SuspendLayout()
+        CType(Me.PbxLoad, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanHead
@@ -136,8 +137,7 @@ Partial Class FormHotfix
         '
         'PanMain
         '
-        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.PanMain.Controls.Add(Me.PbrPercentage)
+        Me.PanMain.BackColor = System.Drawing.Color.FromArgb(CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer), CType(CType(50, Byte), Integer))
         Me.PanMain.Controls.Add(Me.TlpBottom)
         Me.PanMain.Controls.Add(Me.LabInfo2)
         Me.PanMain.Controls.Add(Me.LnkHotfix)
@@ -151,14 +151,16 @@ Partial Class FormHotfix
         '
         'TlpBottom
         '
-        Me.TlpBottom.ColumnCount = 3
+        Me.TlpBottom.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.TlpBottom.ColumnCount = 4
         Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 33.0!))
         Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85.0!))
         Me.TlpBottom.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 92.0!))
-        Me.TlpBottom.Controls.Add(Me.CmdInstall, 2, 0)
+        Me.TlpBottom.Controls.Add(Me.CmdInstall, 3, 0)
         Me.TlpBottom.Controls.Add(Me.LabDownload, 0, 0)
-        Me.TlpBottom.Controls.Add(Me.CmdCancel, 1, 0)
-        Me.TlpBottom.Dock = System.Windows.Forms.DockStyle.Bottom
+        Me.TlpBottom.Controls.Add(Me.CmdCancel, 2, 0)
+        Me.TlpBottom.Controls.Add(Me.PbxLoad, 1, 0)
         Me.TlpBottom.Location = New System.Drawing.Point(0, 229)
         Me.TlpBottom.Margin = New System.Windows.Forms.Padding(3, 3, 3, 67)
         Me.TlpBottom.Name = "TlpBottom"
@@ -276,21 +278,16 @@ Partial Class FormHotfix
     "xperiencing the below error when running an assessment said hotfix can be" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "insta" &
     "lled from here:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         '
-        'PbrPercentage
+        'PbxLoad
         '
-        Me.PbrPercentage.BackColor = System.Drawing.Color.FromArgb(CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer), CType(CType(45, Byte), Integer))
-        Me.PbrPercentage.BorderColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
-        Me.PbrPercentage.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.PbrPercentage.Font = New System.Drawing.Font("Segoe UI", 7.8!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PbrPercentage.ForeColor = System.Drawing.Color.White
-        Me.PbrPercentage.Location = New System.Drawing.Point(0, 224)
-        Me.PbrPercentage.Maximum = 100
-        Me.PbrPercentage.Name = "PbrPercentage"
-        Me.PbrPercentage.ProgressColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.PbrPercentage.ShowBorder = False
-        Me.PbrPercentage.Size = New System.Drawing.Size(538, 5)
-        Me.PbrPercentage.TabIndex = 137
-        Me.PbrPercentage.Value = 0
+        Me.PbxLoad.Anchor = System.Windows.Forms.AnchorStyles.Left
+        Me.PbxLoad.Image = Global.Xiret.My.Resources.Resources.imgprocess
+        Me.PbxLoad.Location = New System.Drawing.Point(328, 11)
+        Me.PbxLoad.Margin = New System.Windows.Forms.Padding(0)
+        Me.PbxLoad.Name = "PbxLoad"
+        Me.PbxLoad.Size = New System.Drawing.Size(24, 24)
+        Me.PbxLoad.TabIndex = 3
+        Me.PbxLoad.TabStop = False
         '
         'FormHotfix
         '
@@ -320,6 +317,7 @@ Partial Class FormHotfix
         Me.PanMain.PerformLayout()
         Me.TlpBottom.ResumeLayout(False)
         Me.TlpBottom.PerformLayout()
+        CType(Me.PbxLoad, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -339,5 +337,5 @@ Partial Class FormHotfix
     Friend WithEvents CmdInstall As Button
     Friend WithEvents CmdCancel As Button
     Friend WithEvents LabDownload As Label
-    Friend WithEvents PbrPercentage As Controls.GambolProgressBar
+    Friend WithEvents PbxLoad As PictureBox
 End Class

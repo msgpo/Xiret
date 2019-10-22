@@ -98,14 +98,21 @@ Namespace Core.Helpers
                     Return 4
                 End If
             Catch ex As Exception
-                MoveSafelyError = ex.ToString 'Move error to string before returns statement
+                MoveSafelyError = ex.ToString
                 Return 0
             End Try
 
         End Function
 
 #End Region
-#Region "Install File"
+#Region "Install MSU file"
+        Public Shared Function InstallMsu(ByVal FileName As String) As Integer
+            Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
+                .FileName = "%SystemRoot%\System32\wusa.exe",
+                .Arguments = """" & FileName & """ /quiet /norestart"
+            }
+            Return ExecTask(startInfo)
+        End Function
 
         Public Shared Function ExecTask(ByVal StartInfo As ProcessStartInfo, ByVal Optional SilentInstall As Boolean = True) As Integer
 
@@ -130,14 +137,6 @@ Namespace Core.Helpers
 
             Return Proc.ExitCode
 
-        End Function
-
-        Public Shared Function InstallMsu(ByVal FileName As String) As Integer
-            Dim startInfo As ProcessStartInfo = New ProcessStartInfo With {
-                .FileName = "%SystemRoot%\System32\wusa.exe",
-                .Arguments = """" & FileName & """ /quiet /norestart"
-            }
-            Return ExecTask(startInfo)
         End Function
 
     End Class

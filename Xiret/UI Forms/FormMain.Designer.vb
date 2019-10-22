@@ -103,6 +103,7 @@ Partial Class FormMain
         Me.PanLastUpdate = New System.Windows.Forms.Panel()
         Me.PanShowHardware2 = New System.Windows.Forms.Panel()
         Me.LabShowHardware = New System.Windows.Forms.Label()
+        Me.GswHardware = New Xiret.Controls.GambolSwitch()
         Me.PanOpSys = New System.Windows.Forms.Panel()
         Me.PanValidity2 = New System.Windows.Forms.Panel()
         Me.PanShowHardware = New System.Windows.Forms.Panel()
@@ -127,7 +128,9 @@ Partial Class FormMain
         Me.ToolStripSeparator5 = New System.Windows.Forms.ToolStripSeparator()
         Me.RefreshScoresToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
+        Me.SaveResourcesToDIskToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ProgramDataToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
         Me.SettingsToolstripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CmsTools = New System.Windows.Forms.ContextMenuStrip(Me.components)
         Me.CleanupToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -142,9 +145,9 @@ Partial Class FormMain
         Me.HotfixAvailableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.UpdateAvailableToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ChangelogToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ToolStripSeparator7 = New System.Windows.Forms.ToolStripSeparator()
+        Me.ToolStripSeparator10 = New System.Windows.Forms.ToolStripSeparator()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.GswHardware = New Xiret.Controls.GambolSwitch()
+        Me.AcknowledgementsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Notifier1 = New Xiret.Notifier.Notifier(Me.components)
         CType(Me.PbxHead, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.CmsExplorer.SuspendLayout()
@@ -299,7 +302,8 @@ Partial Class FormMain
         'LabDiskScore
         '
         Me.LabDiskScore.BackColor = System.Drawing.Color.Transparent
-        Me.LabDiskScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabDiskScore.Dock = System.Windows.Forms.DockStyle.Top
+        Me.LabDiskScore.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabDiskScore.ForeColor = System.Drawing.Color.White
         Me.LabDiskScore.Location = New System.Drawing.Point(0, 0)
         Me.LabDiskScore.Margin = New System.Windows.Forms.Padding(0)
@@ -324,7 +328,7 @@ Partial Class FormMain
         '
         Me.LabGamingScore.BackColor = System.Drawing.Color.Transparent
         Me.LabGamingScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabGamingScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabGamingScore.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabGamingScore.ForeColor = System.Drawing.Color.White
         Me.LabGamingScore.Location = New System.Drawing.Point(0, 0)
         Me.LabGamingScore.Margin = New System.Windows.Forms.Padding(0)
@@ -349,7 +353,7 @@ Partial Class FormMain
         '
         Me.LabGraphicsScore.BackColor = System.Drawing.Color.Transparent
         Me.LabGraphicsScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabGraphicsScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabGraphicsScore.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabGraphicsScore.ForeColor = System.Drawing.Color.White
         Me.LabGraphicsScore.Location = New System.Drawing.Point(0, 0)
         Me.LabGraphicsScore.Margin = New System.Windows.Forms.Padding(0)
@@ -374,7 +378,7 @@ Partial Class FormMain
         '
         Me.LabMemoryScore.BackColor = System.Drawing.Color.Transparent
         Me.LabMemoryScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabMemoryScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabMemoryScore.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabMemoryScore.ForeColor = System.Drawing.Color.White
         Me.LabMemoryScore.Location = New System.Drawing.Point(0, 0)
         Me.LabMemoryScore.Margin = New System.Windows.Forms.Padding(0)
@@ -399,7 +403,7 @@ Partial Class FormMain
         '
         Me.LabProcessorScore.BackColor = System.Drawing.Color.Transparent
         Me.LabProcessorScore.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.LabProcessorScore.Font = New System.Drawing.Font("Segoe UI", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LabProcessorScore.Font = New System.Drawing.Font("Segoe UI", 10.2!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.LabProcessorScore.ForeColor = System.Drawing.Color.White
         Me.LabProcessorScore.Location = New System.Drawing.Point(0, 0)
         Me.LabProcessorScore.Margin = New System.Windows.Forms.Padding(0)
@@ -620,7 +624,7 @@ Partial Class FormMain
         '
         'PanHead
         '
-        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer), CType(CType(25, Byte), Integer))
+        Me.PanHead.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.PanHead.BackgroundImage = Global.Xiret.My.Resources.Resources.imgtilehead
         Me.PanHead.Controls.Add(Me.CmdSettings)
         Me.PanHead.Controls.Add(Me.CmdMinimize)
@@ -646,7 +650,7 @@ Partial Class FormMain
         Me.CmdSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CmdSettings.Font = New System.Drawing.Font("Segoe UI Semibold", 7.8!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.CmdSettings.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.CmdSettings.Image = Global.Xiret.My.Resources.Resources.settingsimg
+        Me.CmdSettings.Image = Global.Xiret.My.Resources.Resources.imgsettings
         Me.CmdSettings.Location = New System.Drawing.Point(688, 0)
         Me.CmdSettings.Margin = New System.Windows.Forms.Padding(0)
         Me.CmdSettings.Name = "CmdSettings"
@@ -680,7 +684,7 @@ Partial Class FormMain
         Me.LabVersion.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.LabVersion.BackColor = System.Drawing.Color.Transparent
         Me.LabVersion.Font = New System.Drawing.Font("Segoe UI", 6.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(180, Byte), Integer))
+        Me.LabVersion.ForeColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
         Me.LabVersion.Location = New System.Drawing.Point(313, 31)
         Me.LabVersion.Name = "LabVersion"
         Me.LabVersion.Size = New System.Drawing.Size(214, 14)
@@ -1281,6 +1285,21 @@ Partial Class FormMain
         Me.LabShowHardware.Text = "..."
         Me.LabShowHardware.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
+        'GswHardware
+        '
+        Me.GswHardware.ActiveBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
+        Me.GswHardware.ActiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
+        Me.GswHardware.BackColor = System.Drawing.Color.Transparent
+        Me.GswHardware.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
+        Me.GswHardware.Location = New System.Drawing.Point(11, 8)
+        Me.GswHardware.Margin = New System.Windows.Forms.Padding(4)
+        Me.GswHardware.Name = "GswHardware"
+        Me.GswHardware.Size = New System.Drawing.Size(32, 18)
+        Me.GswHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(140, Byte), Integer))
+        Me.GswHardware.SwitchOffColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
+        Me.GswHardware.SwitchOnColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.GswHardware.TabIndex = 4
+        '
         'PanOpSys
         '
         Me.PanOpSys.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
@@ -1404,8 +1423,8 @@ Partial Class FormMain
         Me.BMPToolStripMenuItem.Name = "BMPToolStripMenuItem"
         Me.BMPToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.BMPToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.B), System.Windows.Forms.Keys)
-        Me.BMPToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
-        Me.BMPToolStripMenuItem.Text = "Save scores as BMP (High)"
+        Me.BMPToolStripMenuItem.Size = New System.Drawing.Size(285, 24)
+        Me.BMPToolStripMenuItem.Text = "Save Scores as BMP (High)"
         '
         'JPGToolStripMenuItem
         '
@@ -1416,8 +1435,8 @@ Partial Class FormMain
         Me.JPGToolStripMenuItem.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.JPGToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.JPGToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.J), System.Windows.Forms.Keys)
-        Me.JPGToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
-        Me.JPGToolStripMenuItem.Text = "Save scores as JPG (Low)"
+        Me.JPGToolStripMenuItem.Size = New System.Drawing.Size(285, 24)
+        Me.JPGToolStripMenuItem.Text = "Save Scores as JPG (Low)"
         '
         'PNGToolStripMenuItem
         '
@@ -1427,8 +1446,8 @@ Partial Class FormMain
         Me.PNGToolStripMenuItem.Name = "PNGToolStripMenuItem"
         Me.PNGToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.PNGToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.P), System.Windows.Forms.Keys)
-        Me.PNGToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
-        Me.PNGToolStripMenuItem.Text = "Save scores as PNG (Med)"
+        Me.PNGToolStripMenuItem.Size = New System.Drawing.Size(285, 24)
+        Me.PNGToolStripMenuItem.Text = "Save Scores as PNG (Med)"
         '
         'TXTToolStripMenuItem
         '
@@ -1438,8 +1457,8 @@ Partial Class FormMain
         Me.TXTToolStripMenuItem.Name = "TXTToolStripMenuItem"
         Me.TXTToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.TXTToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.TXTToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
-        Me.TXTToolStripMenuItem.Text = "Save scores to text file"
+        Me.TXTToolStripMenuItem.Size = New System.Drawing.Size(285, 24)
+        Me.TXTToolStripMenuItem.Text = "Save Scores to a Text File"
         '
         'CmsExport
         '
@@ -1450,17 +1469,17 @@ Partial Class FormMain
         Me.CmsExport.Name = "ContextMenuStrip1"
         Me.CmsExport.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.CmsExport.ShowImageMargin = False
-        Me.CmsExport.Size = New System.Drawing.Size(284, 136)
+        Me.CmsExport.Size = New System.Drawing.Size(286, 136)
         '
         'ToolStripSeparator4
         '
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(280, 6)
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(282, 6)
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(280, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(282, 6)
         '
         'ImgurToolStripMenuItem
         '
@@ -1470,19 +1489,19 @@ Partial Class FormMain
         Me.ImgurToolStripMenuItem.Name = "ImgurToolStripMenuItem"
         Me.ImgurToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ImgurToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.I), System.Windows.Forms.Keys)
-        Me.ImgurToolStripMenuItem.Size = New System.Drawing.Size(283, 24)
-        Me.ImgurToolStripMenuItem.Text = "Upload screenshot to Imgur"
+        Me.ImgurToolStripMenuItem.Size = New System.Drawing.Size(285, 24)
+        Me.ImgurToolStripMenuItem.Text = "Upload Screenshot to Imgur"
         '
         'CmsOptions
         '
         Me.CmsOptions.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.CmsOptions.DropShadowEnabled = False
         Me.CmsOptions.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.CmsOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewImgurLinksToolStripMenuItem, Me.ViewLogToolStripMenuItem, Me.ViewWinSATLogToolStripMenuItem, Me.ToolStripSeparator5, Me.RefreshScoresToolStripMenuItem, Me.ToolStripSeparator2, Me.ProgramDataToolStripMenuItem, Me.SettingsToolstripMenuItem})
+        Me.CmsOptions.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ViewImgurLinksToolStripMenuItem, Me.ViewLogToolStripMenuItem, Me.ViewWinSATLogToolStripMenuItem, Me.ToolStripSeparator5, Me.RefreshScoresToolStripMenuItem, Me.ToolStripSeparator2, Me.SaveResourcesToDIskToolStripMenuItem, Me.ProgramDataToolStripMenuItem, Me.ToolStripSeparator7, Me.SettingsToolstripMenuItem})
         Me.CmsOptions.Name = "ContextMenuStrip1"
         Me.CmsOptions.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.CmsOptions.ShowImageMargin = False
-        Me.CmsOptions.Size = New System.Drawing.Size(251, 160)
+        Me.CmsOptions.Size = New System.Drawing.Size(252, 190)
         '
         'ViewImgurLinksToolStripMenuItem
         '
@@ -1492,8 +1511,8 @@ Partial Class FormMain
         Me.ViewImgurLinksToolStripMenuItem.Name = "ViewImgurLinksToolStripMenuItem"
         Me.ViewImgurLinksToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ViewImgurLinksToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
-        Me.ViewImgurLinksToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
-        Me.ViewImgurLinksToolStripMenuItem.Text = "View Imgur links"
+        Me.ViewImgurLinksToolStripMenuItem.Size = New System.Drawing.Size(251, 24)
+        Me.ViewImgurLinksToolStripMenuItem.Text = "View Imgur Links"
         '
         'ViewLogToolStripMenuItem
         '
@@ -1503,21 +1522,21 @@ Partial Class FormMain
         Me.ViewLogToolStripMenuItem.Name = "ViewLogToolStripMenuItem"
         Me.ViewLogToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ViewLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.X), System.Windows.Forms.Keys)
-        Me.ViewLogToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
-        Me.ViewLogToolStripMenuItem.Text = "View Xiret log"
+        Me.ViewLogToolStripMenuItem.Size = New System.Drawing.Size(251, 24)
+        Me.ViewLogToolStripMenuItem.Text = "View Assessment Log"
         '
         'ViewWinSATLogToolStripMenuItem
         '
         Me.ViewWinSATLogToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ViewWinSATLogToolStripMenuItem.Name = "ViewWinSATLogToolStripMenuItem"
         Me.ViewWinSATLogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.W), System.Windows.Forms.Keys)
-        Me.ViewWinSATLogToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
-        Me.ViewWinSATLogToolStripMenuItem.Text = "View WinSAT log"
+        Me.ViewWinSATLogToolStripMenuItem.Size = New System.Drawing.Size(251, 24)
+        Me.ViewWinSATLogToolStripMenuItem.Text = "View Winsat Log"
         '
         'ToolStripSeparator5
         '
         Me.ToolStripSeparator5.Name = "ToolStripSeparator5"
-        Me.ToolStripSeparator5.Size = New System.Drawing.Size(247, 6)
+        Me.ToolStripSeparator5.Size = New System.Drawing.Size(248, 6)
         '
         'RefreshScoresToolStripMenuItem
         '
@@ -1528,21 +1547,34 @@ Partial Class FormMain
         Me.RefreshScoresToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RefreshScoresToolStripMenuItem.ShortcutKeys = CType(((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Shift) _
             Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.RefreshScoresToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
-        Me.RefreshScoresToolStripMenuItem.Text = "Refresh scores"
+        Me.RefreshScoresToolStripMenuItem.Size = New System.Drawing.Size(251, 24)
+        Me.RefreshScoresToolStripMenuItem.Text = "Refresh Scores"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(247, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(248, 6)
+        '
+        'SaveResourcesToDIskToolStripMenuItem
+        '
+        Me.SaveResourcesToDIskToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.SaveResourcesToDIskToolStripMenuItem.Name = "SaveResourcesToDIskToolStripMenuItem"
+        Me.SaveResourcesToDIskToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
+        Me.SaveResourcesToDIskToolStripMenuItem.Size = New System.Drawing.Size(251, 24)
+        Me.SaveResourcesToDIskToolStripMenuItem.Text = "Save Resources to DIsk"
         '
         'ProgramDataToolStripMenuItem
         '
         Me.ProgramDataToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ProgramDataToolStripMenuItem.Name = "ProgramDataToolStripMenuItem"
         Me.ProgramDataToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.G), System.Windows.Forms.Keys)
-        Me.ProgramDataToolStripMenuItem.Size = New System.Drawing.Size(250, 24)
+        Me.ProgramDataToolStripMenuItem.Size = New System.Drawing.Size(251, 24)
         Me.ProgramDataToolStripMenuItem.Text = "View Application Data"
+        '
+        'ToolStripSeparator7
+        '
+        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
+        Me.ToolStripSeparator7.Size = New System.Drawing.Size(248, 6)
         '
         'SettingsToolstripMenuItem
         '
@@ -1552,7 +1584,7 @@ Partial Class FormMain
         Me.SettingsToolstripMenuItem.Name = "SettingsToolstripMenuItem"
         Me.SettingsToolstripMenuItem.ShortcutKeyDisplayString = ""
         Me.SettingsToolstripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.S), System.Windows.Forms.Keys)
-        Me.SettingsToolstripMenuItem.Size = New System.Drawing.Size(250, 24)
+        Me.SettingsToolstripMenuItem.Size = New System.Drawing.Size(251, 24)
         Me.SettingsToolstripMenuItem.Text = "Settings"
         '
         'CmsTools
@@ -1563,7 +1595,7 @@ Partial Class FormMain
         Me.CmsTools.Name = "ContextMenuStrip1"
         Me.CmsTools.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.CmsTools.ShowImageMargin = False
-        Me.CmsTools.Size = New System.Drawing.Size(265, 106)
+        Me.CmsTools.Size = New System.Drawing.Size(267, 106)
         '
         'CleanupToolStripMenuItem
         '
@@ -1573,7 +1605,7 @@ Partial Class FormMain
         Me.CleanupToolStripMenuItem.Name = "CleanupToolStripMenuItem"
         Me.CleanupToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.CleanupToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.C), System.Windows.Forms.Keys)
-        Me.CleanupToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
+        Me.CleanupToolStripMenuItem.Size = New System.Drawing.Size(266, 24)
         Me.CleanupToolStripMenuItem.Text = "Cleanup"
         '
         'ViewSystemDetailsToolStripMenuItem
@@ -1583,13 +1615,13 @@ Partial Class FormMain
         Me.ViewSystemDetailsToolStripMenuItem.Name = "ViewSystemDetailsToolStripMenuItem"
         Me.ViewSystemDetailsToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.ViewSystemDetailsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.D), System.Windows.Forms.Keys)
-        Me.ViewSystemDetailsToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
-        Me.ViewSystemDetailsToolStripMenuItem.Text = "View system details"
+        Me.ViewSystemDetailsToolStripMenuItem.Size = New System.Drawing.Size(266, 24)
+        Me.ViewSystemDetailsToolStripMenuItem.Text = "View System Details"
         '
         'ToolStripSeparator6
         '
         Me.ToolStripSeparator6.Name = "ToolStripSeparator6"
-        Me.ToolStripSeparator6.Size = New System.Drawing.Size(261, 6)
+        Me.ToolStripSeparator6.Size = New System.Drawing.Size(263, 6)
         '
         'RunToolStripMenuItem
         '
@@ -1599,8 +1631,8 @@ Partial Class FormMain
         Me.RunToolStripMenuItem.Name = "RunToolStripMenuItem"
         Me.RunToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RunToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
-        Me.RunToolStripMenuItem.Text = "Run normal assessment"
+        Me.RunToolStripMenuItem.Size = New System.Drawing.Size(266, 24)
+        Me.RunToolStripMenuItem.Text = "Run Normal Assessment"
         '
         'RunVerboseToolStripMenuItem
         '
@@ -1610,18 +1642,18 @@ Partial Class FormMain
         Me.RunVerboseToolStripMenuItem.Name = "RunVerboseToolStripMenuItem"
         Me.RunVerboseToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.RunVerboseToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.V), System.Windows.Forms.Keys)
-        Me.RunVerboseToolStripMenuItem.Size = New System.Drawing.Size(264, 24)
-        Me.RunVerboseToolStripMenuItem.Text = "Run in-depth assessment"
+        Me.RunVerboseToolStripMenuItem.Size = New System.Drawing.Size(266, 24)
+        Me.RunVerboseToolStripMenuItem.Text = "Run In-depth Assessment"
         '
         'CmsHelp
         '
         Me.CmsHelp.BackColor = System.Drawing.Color.FromArgb(CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer), CType(CType(35, Byte), Integer))
         Me.CmsHelp.ImageScalingSize = New System.Drawing.Size(20, 20)
-        Me.CmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator7, Me.AboutToolStripMenuItem})
+        Me.CmsHelp.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.MediaFeaturePackToolStripMenuItem, Me.TroubleshootingToolStripMenuItem, Me.ToolStripSeparator3, Me.HotfixAvailableToolStripMenuItem, Me.UpdateAvailableToolStripMenuItem, Me.ChangelogToolStripMenuItem, Me.ToolStripSeparator10, Me.AboutToolStripMenuItem, Me.AcknowledgementsToolStripMenuItem})
         Me.CmsHelp.Name = "cmsHelp"
         Me.CmsHelp.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
         Me.CmsHelp.ShowImageMargin = False
-        Me.CmsHelp.Size = New System.Drawing.Size(237, 160)
+        Me.CmsHelp.Size = New System.Drawing.Size(237, 184)
         '
         'MediaFeaturePackToolStripMenuItem
         '
@@ -1657,7 +1689,7 @@ Partial Class FormMain
         Me.HotfixAvailableToolStripMenuItem.Name = "HotfixAvailableToolStripMenuItem"
         Me.HotfixAvailableToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.H), System.Windows.Forms.Keys)
         Me.HotfixAvailableToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
-        Me.HotfixAvailableToolStripMenuItem.Text = "Hotfix available"
+        Me.HotfixAvailableToolStripMenuItem.Text = "Hotfix Available"
         '
         'UpdateAvailableToolStripMenuItem
         '
@@ -1668,21 +1700,21 @@ Partial Class FormMain
         Me.UpdateAvailableToolStripMenuItem.ShortcutKeyDisplayString = ""
         Me.UpdateAvailableToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.U), System.Windows.Forms.Keys)
         Me.UpdateAvailableToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
-        Me.UpdateAvailableToolStripMenuItem.Text = "Update available"
+        Me.UpdateAvailableToolStripMenuItem.Text = "Download Update"
         '
         'ChangelogToolStripMenuItem
         '
         Me.ChangelogToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
         Me.ChangelogToolStripMenuItem.Name = "ChangelogToolStripMenuItem"
         Me.ChangelogToolStripMenuItem.ShortcutKeyDisplayString = ""
-        Me.ChangelogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.O), System.Windows.Forms.Keys)
+        Me.ChangelogToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.L), System.Windows.Forms.Keys)
         Me.ChangelogToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
         Me.ChangelogToolStripMenuItem.Text = "Changelog"
         '
-        'ToolStripSeparator7
+        'ToolStripSeparator10
         '
-        Me.ToolStripSeparator7.Name = "ToolStripSeparator7"
-        Me.ToolStripSeparator7.Size = New System.Drawing.Size(233, 6)
+        Me.ToolStripSeparator10.Name = "ToolStripSeparator10"
+        Me.ToolStripSeparator10.Size = New System.Drawing.Size(233, 6)
         '
         'AboutToolStripMenuItem
         '
@@ -1695,20 +1727,13 @@ Partial Class FormMain
         Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
         Me.AboutToolStripMenuItem.Text = "About"
         '
-        'GswHardware
+        'AcknowledgementsToolStripMenuItem
         '
-        Me.GswHardware.ActiveBackgroundColor = System.Drawing.Color.FromArgb(CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer), CType(CType(20, Byte), Integer))
-        Me.GswHardware.ActiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer), CType(CType(200, Byte), Integer))
-        Me.GswHardware.BackColor = System.Drawing.Color.Transparent
-        Me.GswHardware.InactiveBorderColor = System.Drawing.Color.FromArgb(CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer), CType(CType(160, Byte), Integer))
-        Me.GswHardware.Location = New System.Drawing.Point(11, 8)
-        Me.GswHardware.Margin = New System.Windows.Forms.Padding(4)
-        Me.GswHardware.Name = "GswHardware"
-        Me.GswHardware.Size = New System.Drawing.Size(32, 18)
-        Me.GswHardware.SwitchHeadColor = System.Drawing.Color.FromArgb(CType(CType(100, Byte), Integer), CType(CType(120, Byte), Integer), CType(CType(140, Byte), Integer))
-        Me.GswHardware.SwitchOffColor = System.Drawing.Color.FromArgb(CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer), CType(CType(40, Byte), Integer))
-        Me.GswHardware.SwitchOnColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
-        Me.GswHardware.TabIndex = 4
+        Me.AcknowledgementsToolStripMenuItem.ForeColor = System.Drawing.Color.FromArgb(CType(CType(120, Byte), Integer), CType(CType(180, Byte), Integer), CType(CType(0, Byte), Integer))
+        Me.AcknowledgementsToolStripMenuItem.Name = "AcknowledgementsToolStripMenuItem"
+        Me.AcknowledgementsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Alt Or System.Windows.Forms.Keys.K), System.Windows.Forms.Keys)
+        Me.AcknowledgementsToolStripMenuItem.Size = New System.Drawing.Size(236, 24)
+        Me.AcknowledgementsToolStripMenuItem.Text = "Acknowledgements"
         '
         'FormMain
         '
@@ -1873,7 +1898,6 @@ Partial Class FormMain
     Friend WithEvents ViewSystemDetailsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents LabVersion As Label
     Friend WithEvents ChangelogToolStripMenuItem As ToolStripMenuItem
-    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
     Friend WithEvents PanSplitCenter As Panel
     Friend WithEvents CmsExplorer As ContextMenuStrip
     Friend WithEvents MinimizeToolStripMenuItem As ToolStripMenuItem
@@ -1895,4 +1919,8 @@ Partial Class FormMain
     Friend WithEvents TlpComponents As TableLayoutPanel
     Friend WithEvents CmdSettings As Button
     Friend WithEvents ProgramDataToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator10 As ToolStripSeparator
+    Friend WithEvents SaveResourcesToDIskToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator7 As ToolStripSeparator
+    Friend WithEvents AcknowledgementsToolStripMenuItem As ToolStripMenuItem
 End Class

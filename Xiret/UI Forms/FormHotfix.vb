@@ -11,19 +11,23 @@
 '  Xiret project
 '  FormHotfix.vb
 '  Created by David S on 25.07.2019
-'  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
-'  Updated on 23.09.2019 - DS (Move checksum generation from SHA256 to SHA512)
+'  Updated on 21.10.2019 - DS (Stability improvements, quality of life changes, threading changes, better error output)
 
 Imports System.IO
-Imports System.Net
 Imports System.Threading.Tasks
-
 Imports Xiret.Core.Animation
 Imports Xiret.Core.Helpers
 
 Public Class FormHotfix
 
     Private ReadOnly StringTempPath As String = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp\Windows6.1-KB2687862.msu")
+    Private ReadOnly FileHotfix86 As Byte() = My.Resources.Windows6_1_KB2687862_x86
+    Private ReadOnly FileHotfix64 As Byte() = My.Resources.Windows6_1_KB2687862_x64
+
+    Private ExitCodeReturn As Integer = -1
+
+    Private RestartWin As Boolean = False
+    Private InstallFailed As Boolean = False
 
 #Region "Ctor"
 
@@ -62,12 +66,14 @@ Public Class FormHotfix
 
     Private Sub FormSettings_Load(sender As Object, e As EventArgs) Handles Me.Load
 
-        'If OSHelper.IsWinSeven Then
-        '    CmdInstall.Enabled = True
-        'Else
-        '    LabHead.Text = "Support (Disabled on this OS)"
-        '    CmdInstall.Enabled = False
-        'End If
+        PbxLoad.Hide()
+
+        If OSHelper.IsWinSeven Then
+            CmdInstall.Enabled = True
+        Else
+            LabHead.Text = "Support (Disabled on this OS)"
+            CmdInstall.Enabled = False
+        End If
 
     End Sub
 
@@ -92,7 +98,6 @@ Public Class FormHotfix
 
         PanSplit.BackColor = Settings.ThemeColor
         LnkHotfix.LinkColor = Settings.ThemeColor
-        PbrPercentage.ProgressColor = Settings.ThemeColor
 
         For Each Ctrl As Control In TlpBottom.Controls
             If TypeOf Ctrl Is Button Then DirectCast(Ctrl, Button).ForeColor = Settings.ThemeColor
@@ -104,58 +109,39 @@ Public Class FormHotfix
 
 #End Region
 
-#Region "Routines"
-
-    Private Sub InstallKB()
-        FileHelper.InstallMsu(StringTempPath)
-    End Sub
-
-    Private Sub InstallFinished()
-
-        Booleans.BoolRestartWin = True
-        LabDownload.Text = "Hotfix installed. A system restart is required."
-        CmdClose.Enabled = False
-        CmdCancel.Enabled = False
-        CmdInstall.Enabled = True
-        CmdInstall.Text = "Restart"
-        PbrPercentage.Value = 0
-
-    End Sub
-
-#End Region
-
 #Region "Button Event Handlers"
 
     Private Sub CmdInstall_Click(ByVal sender As Object, ByVal e As EventArgs) Handles CmdInstall.Click
 
-        If Booleans.BoolRestartWin Then
+        PbxLoad.Show()
+
+        If RestartWin Then
             Process.Start("shutdown", "-r -t 00")
         Else
+            'Disable sender
+            CmdInstall.Enabled = False
+            CmdClose.Enabled = False
+            CmdCancel.Enabled = False
 
-            LabDownload.Text = "Please wait..."
-            'Disable button from clicking
-            CType(sender, Button).Enabled = False
+            LabDownload.Text = "Saving hotfix to disk..."
 
-            'Determine bitness for appropriate hotfix
-
-            If NetHelper.IsWebsiteAvailable(Strings.StringBitmightUrl) = True Then
-
-                Dim WClient As New WebClient
-                AddHandler WClient.DownloadProgressChanged, AddressOf WClient_ProgressChanged
-                AddHandler WClient.DownloadFileCompleted, AddressOf WClient_DownloadCompleted
-
-                If OSHelper.IsWindows64Bit() Then
-                    WClient.DownloadFileAsync(New Uri(Strings.StringHotfix64Url), StringTempPath)
-                Else
-                    WClient.DownloadFileAsync(New Uri(Strings.StringHotfix86Url), StringTempPath)
-                End If
-
-                WClient.Dispose()
-
+            ''Determine bitness for appropriate hotfix and save to disk
+            If OSHelper.IsWindows64Bit() Then
+                File.WriteAllBytes(StringTempPath, FileHotfix64)
             Else
-                ToastAlert.Show("Could not reach server", ToastType.IsWarning)
+                File.WriteAllBytes(StringTempPath, FileHotfix86)
             End If
 
+            If File.Exists(StringTempPath) Then
+                'Install hotfix to the machine
+                LabDownload.Text = "Installing KB2687862..."
+                Task.Factory.StartNew(Sub() InstallHotfix())
+            Else
+                'File did not copy
+                ExitCodeReturn = -1
+                InstallFailed = True
+                OnInstallFinished()
+            End If
         End If
 
     End Sub
@@ -183,48 +169,47 @@ Public Class FormHotfix
 
 #End Region
 
-#Region "WebClient"
+#Region "Routines"
 
-    Private Sub WClient_ProgressChanged(ByVal sender As Object, ByVal e As DownloadProgressChangedEventArgs)
+    Private Sub InstallHotfix()
 
-        Dim bytesIn As Double = Double.Parse(e.BytesReceived.ToString())
-        Dim totalBytes As Double = Double.Parse(e.TotalBytesToReceive.ToString())
-        Dim percentage As Double = bytesIn / totalBytes * 100
-
-        Invoke(DirectCast(Sub() LabDownload.Text = "Downloading: " & Integer.Parse(Math.Truncate(percentage).ToString()) & "%", MethodInvoker))
-
-        'PbrUpdate.Value = Int32.Parse(Math.Truncate(percentage).ToString())
-        'PbrUpdate.Refresh()
+        ExitCodeReturn = FileHelper.InstallMsu(StringTempPath)
+        Invoke(DirectCast(Sub() OnInstallFinished(), MethodInvoker))
 
     End Sub
-    Private Sub WClient_DownloadCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
 
-        'PbrUpdate.Value = 0
-        'PbrUpdate.Hide()
+    Private Sub OnInstallFinished()
 
-        Dim DoInstall As Task = Nothing
+        PbxLoad.Hide()
 
-        'Validate x64 download success
-        If OSHelper.IsWindows64Bit() Then
-            If CryptoHelper.GetSha512FromFile(StringTempPath) = Strings.StringHotfixChecksum64 Then
-                Invoke(DirectCast(Sub() LabDownload.Text = "Validation success. Installing KB2687862...", MethodInvoker))
-                DoInstall = Task.Factory.StartNew(Sub() InstallKB())
-            Else
-                File.Delete(StringTempPath)
-                Invoke(DirectCast(Sub() LabDownload.Text = "File validation failure. Download was deleted.", MethodInvoker))
-            End If
+        If InstallFailed Then
+            RestartWin = False
+            InstallFailed = False
+            CmdCancel.Enabled = True
+            CmdClose.Enabled = True
+            CmdInstall.Enabled = True
+            CmdInstall.Text = "Retry"
+            LabDownload.Text = "Install failed (" & ExitCodeReturn & "), click 'Retry' to try again."
         Else
-            'Validate x86 download success
-            If CryptoHelper.GetSha512FromFile(StringTempPath) = Strings.StringHotfixChecksum86 Then
-                Invoke(DirectCast(Sub() LabDownload.Text = "Validation success. Installing KB2687862...", MethodInvoker))
-                DoInstall = Task.Factory.StartNew(Sub() InstallKB())
-            Else
-                File.Delete(StringTempPath)
-                Invoke(DirectCast(Sub() LabDownload.Text = "File validation failure. Download was deleted.", MethodInvoker))
-            End If
+            Select Case ExitCodeReturn
+                Case 0 To 1
+                    RestartWin = False
+                    LabDownload.Text = "Hotfixed installed successfully (" & ExitCodeReturn & ")"
+                    CmdClose.Enabled = True
+                    CmdCancel.Enabled = True
+                    CmdCancel.Text = "Close"
+                    FormMain.HotfixWasInstalled() 'Notify main form to remove hotfix available from the menu and negate one from notification count
+                Case Else
+                    RestartWin = True
+                    LabDownload.Text = "Hotfixed installed. System restart required (" & ExitCodeReturn & ")"
+                    CmdClose.Enabled = True
+                    CmdCancel.Enabled = True
+                    CmdCancel.Text = "Ignore"
+                    CmdInstall.Enabled = True
+                    CmdInstall.Text = "Restart"
+                    FormMain.HotfixWasInstalled() 'Notify main form to remove hotfix available from the menu and negate one from notification count
+            End Select
         End If
-
-        InstallFinished()
 
     End Sub
 

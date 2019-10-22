@@ -168,7 +168,7 @@ Public Class FormUpdate
             End If
             FBD.Dispose()
         Else
-            ToastAlert.Show("Could not reach server", ToastType.IsWarning)
+            ToastAlert.Show("Could not reach server", ToastType.Warning)
         End If
 
     End Sub

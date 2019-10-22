@@ -12,7 +12,6 @@
 '  FormMetrics.vb
 '  Created by David S on 01.07.2019
 '  Updated on 07.08.2019 - DS (Add constructor, update theme, update WndProc)
-'  This is a work in progress.
 
 Imports System.Linq
 Imports System.Xml

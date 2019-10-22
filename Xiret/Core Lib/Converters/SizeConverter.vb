@@ -29,7 +29,7 @@ Namespace Core.Converters
                     Case 1073741824 To 1099511627775
                         dbl = Data / 1073741824 'GB
                         Return FormatNumber(dbl, 2) & " GB"
-                        'Return Format(DoubleBytes, "########0") & " GB"
+                        'Return Format(dbl, "########0") & " GB"
                     Case 1048576 To 1073741823
                         dbl = Data / 1048576 'MB
                         Return FormatNumber(dbl, 2) & " MB"
@@ -47,6 +47,7 @@ Namespace Core.Converters
             End Try
 
         End Function
+
         Public Shared Function BytesToMBSquared(SizeIn As Double) As String
 
             Dim SizeOut As Double = SizeIn / Math.Pow(1024, 2)

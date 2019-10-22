@@ -9,7 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret project
-'  WinsatReader.vb
+'  WSR.vb
 '  Created by David S on 20.03.2016
 '  Updated on 01.08.2019 - DS (Hardware cleanup)
 '  Updated on 07.08.2019 - DS (Gain GetLatestFormalXML())

@@ -212,10 +212,11 @@ Namespace Controls
         Private Function GetPreferredSizeE() As Size
             Return GetPreferredSize(New Size(0, 0))
         End Function
-#End Region
         Protected Overrides Sub OnTextChanged(e As EventArgs)
             GetPreferredSizeE()
         End Sub
+#End Region
+
     End Class
 
 End Namespace

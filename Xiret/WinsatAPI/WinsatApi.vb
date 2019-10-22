@@ -9,7 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret project
-'  WinSATAPI.vb
+'  WinsatApi.vb
 '  Created by David S
 '  Updated on 31.07.2019 - DS (Better error handling)
 

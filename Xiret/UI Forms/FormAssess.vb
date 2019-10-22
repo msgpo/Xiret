@@ -184,7 +184,7 @@ Friend Class FormAssess
         Try
             Process.Start(Files.FileXiretLog)
         Catch ex As Exception
-            ToastAlert.Show("The log file is missing or has not been created.", ToastType.IsWarning)
+            ToastAlert.Show("The log file is missing or has not been created.", ToastType.Warning)
         End Try
 
     End Sub

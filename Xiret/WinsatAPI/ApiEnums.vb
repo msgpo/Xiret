@@ -1,4 +1,4 @@
-﻿'Xiret -Experience Index UI License
+﻿'Xiret - Experience Index UI License
 'https://github.com/K4onashi/Xiret
 
 'You may freely use, modify, and distribute the Xiret source code, but you must adhere to the small list of restrictions:
@@ -8,19 +8,20 @@
 'You must publicise any changes made to the code.
 'You must include this license, unedited, with any changes.
 
-'  Xiret (Xir)
-'  ToastTypes.vb
+'  Xiret project
+'  ApiEnums.vb
 '  Created by David S
 
-Module ToastTypes
+Module ApiEnums
 
-    Public Enum ToastType
-        IsInformational
-        IsWarning
-        IsError
-        IsDebug
+    Friend Enum InfoType
+        Description
+        Score
+        Title
+    End Enum
+    Friend Enum VisualSize
+        Small
+        Normal
     End Enum
 
 End Module
-
-

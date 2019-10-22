@@ -11,7 +11,6 @@
 '  Xiret Project
 '  GambolSwitchDesigner.vb
 '  Created by David S on 20.03.2016
-'  Updated on 02.01.2019 - DR
 
 Imports System.Windows.Forms.Design
 

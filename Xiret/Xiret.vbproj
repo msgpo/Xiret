@@ -163,6 +163,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="Toast\Enums\Enums.vb" />
+    <Compile Include="UI Forms\FormAckn.Designer.vb">
+      <DependentUpon>FormAckn.vb</DependentUpon>
+    </Compile>
+    <Compile Include="UI Forms\FormAckn.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="UI Forms\FormException.designer.vb">
       <DependentUpon>FormException.vb</DependentUpon>
     </Compile>
@@ -177,7 +183,7 @@
     </Compile>
     <Compile Include="Variables\Booleans.vb" />
     <Compile Include="Variables\Integers.vb" />
-    <Compile Include="WinsatAPI\Enums.vb" />
+    <Compile Include="WinsatAPI\ApiEnums.vb" />
     <Compile Include="Winsat\State.vb" />
     <Compile Include="Settings.vb" />
     <Compile Include="Updater.vb" />
@@ -281,6 +287,9 @@
     <Compile Include="WinsatAPI\WinsatApi.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="UI Forms\FormAckn.resx">
+      <DependentUpon>FormAckn.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI Forms\FormAssessVerbose.resx">
       <DependentUpon>FormAssessVerbose.vb</DependentUpon>
       <SubType>Designer</SubType>
@@ -356,15 +365,25 @@
     </None>
     <None Include="Resources\changelog.rtf" />
     <None Include="Resources\troubleshooting.rtf" />
+    <None Include="Resources\Windows6.1-KB2687862-x64.msu" />
+    <None Include="Resources\Windows6.1-KB2687862-x86.msu" />
     <None Include="Signature\Xiret.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\img24px.png" />
+    <None Include="bin\Debug\Xiret.exe" />
     <None Include="Resources\imgtilehead.bmp" />
     <None Include="Resources\icon64px.png" />
+    <None Include="Resources\EFA11.png" />
+    <None Include="Resources\imgchange.png" />
+    <None Include="Resources\imagechange.png" />
     <Content Include="Resources\imgprocess.gif" />
     <None Include="Resources\settingsimg.png" />
     <None Include="Resources\mow.gif" />
+    <None Include="Resources\imgtoasterror.png" />
+    <None Include="Resources\imgtoastinfo.png" />
+    <None Include="Resources\imgtoastwarn.png" />
+    <None Include="Resources\imgsettings.png" />
     <Content Include="Resources\xico.ico" />
   </ItemGroup>
   <ItemGroup>

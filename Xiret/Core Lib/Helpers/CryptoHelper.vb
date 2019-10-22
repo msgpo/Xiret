@@ -9,7 +9,7 @@
 'You must include this license, unedited, with any changes.
 
 '  Xiret Project
-'  Crypto.vb
+'  CryptoHelper.vb
 '  Created by David S
 '  Updated on 07.08.2019 - DS (Cleanup)
 '  Updated on 23.09.2019 - DS (Remove SHA256)
